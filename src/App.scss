@@ -1,0 +1,10 @@
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+    flex-grow: 1;
+    background: #E5E5E5;
+}

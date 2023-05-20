@@ -1,0 +1,81 @@
+.circle-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #8C3213;
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // top: 12px;
+        // left: 12px;
+    }
+
+    &_hidden {
+        @media (min-width: 320px) and (max-width: 767px) {
+            display: none;
+        }
+    }
+
+    &_white {
+        border: 1px solid #ffffff;
+
+        svg {
+            fill: #FFFFFF;
+        }
+    }
+
+    &_hover {
+        &:hover {
+            background: #8C3213;
+
+            svg {
+                fill: #FFFFFF;
+            }
+        }
+    }
+}
+
+// .circle-icon:hover {
+//     background: #8C3213;
+
+//     svg {
+//         fill: #FFFFFF;
+//     }
+// }
+
+.icon-quantity {
+    position: relative;
+    display: flex;
+
+    &:not(:first-child) {
+        margin-left: 16px;
+    }
+
+    span {
+        box-sizing: content-box;
+        position: absolute;
+        top: 0;
+        right: -7px;
+        color: #FFFFFF;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
+        background: #84BE51;
+        border-radius: 50%;
+        height: 14px;
+        width: 14px;
+        text-align: center;
+        padding: 2px;
+    }
+
+    // ??
+    &_white {
+        svg {
+            fill: white;
+        }
+    }
+}
