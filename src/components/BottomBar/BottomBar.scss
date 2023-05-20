@@ -1,0 +1,93 @@
+.bottom-bar {
+    padding-bottom: 42px;
+
+    @media (min-width: 320px) and (max-width: 900px) {
+        padding-bottom: 17px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (min-width: 320px) and (max-width: 900px) {
+            justify-content: center;
+        }
+
+        @media (min-width: 900px) and (max-width: 1199px) {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    &__item {
+        border: 1px solid #1E6140;
+        border-radius: 20px;
+        width: 200px;
+        height: 40px;
+        color: #000000;
+
+        svg {
+            margin-right: 7px;
+            margin-left: 7px;
+            width: 24px;
+            height: 24px;
+        }
+
+        @media (min-width: 900px) and (max-width: 1199px) {
+            width: 170px;
+        }
+
+        @media (min-width: 320px) and (max-width: 768px) {
+            width: 290px;
+            height: 47px;
+            justify-content: space-between;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        &:hover {
+            color: #FFFFFF;
+            background: #E74E13;
+            border-radius: 20px;
+            border: none;
+
+            a {
+                color: #FFFFFF;
+            }
+
+            svg {
+                fill: #FFFFFF;
+            }
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        text-transform: uppercase;
+        color: #000000;
+
+        @media (min-width: 900px) and (max-width: 1199px) {
+            font-size: 11px;
+        }
+    }
+
+    @media (min-width: 320px) and (max-width: 900px) {
+        &__item:not(:first-child) {
+            display: none;
+        }
+    }
+
+    &__menu {
+        @media (min-width: 901px) {
+            display: none;
+        }
+    }
+}
