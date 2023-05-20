@@ -2,8 +2,10 @@ import './TopBar.scss';
 import logOut from '../../img/logOut.svg';
 import menu from '../../img/menu.svg';
 import { useState } from 'react';
+import { Menu } from '../Menu/Menu';
 
 export const TopBar = () => {
+    const [menuActive, setMenuActive] = useState(false);
     const [popUpActive, setPopUpActive] = useState(false);
 
     return (
@@ -30,9 +32,10 @@ export const TopBar = () => {
                         <img src={logOut} alt="Войти" />
                         <p className="top-bar__text">Вход | Регистрация</p>
                     </div>
-                    <div className="top-bar__menu">
+                    <div className="top-bar__menu" onClick={() => setMenuActive(!menuActive)}>
                         <img src={menu} alt="Меню" />
                     </div>
+                    <Menu active={menuActive} setActive={setMenuActive} />
                 </div>
             </div>
         </>)
