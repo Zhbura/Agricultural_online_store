@@ -5,8 +5,11 @@ import { Phone } from '../SVG/Icon/Phone';
 import { Comparison } from '../SVG/Icon/Comparison';
 import { Cart } from '../SVG/Icon/Cart';
 import { Heart } from '../SVG/Icon/Heart';
+import { useState } from 'react';
 
 export const Header = () => {
+    const [phoneActive, setPhoneActive] = useState(false);
+
     return (
         <>
             <div className="wrapper">
@@ -24,10 +27,27 @@ export const Header = () => {
                             <div className="contact-details contact-details_hidden">
                                 <a><div className="circle-icon"> <Phone /></div></a>
                                 <div className="contact-details__phone-info">
-                                    <div className="contact-details__number">
+                                    <div className="contact-details__number" onClick={() => setPhoneActive(!phoneActive)}>
                                         <p>+7(900)8003020</p>
                                     </div>
                                     <p className="contact-details__text">Заказать обратную связь</p>
+                                </div>
+                                <div className={phoneActive ? 'contact-popUp active' : 'contact-popUp'}>
+                                    <div className="wrap-contact__popUp">
+                                        <a href="#"> <div className="circle-icon"> <Phone /></div></a>
+                                        <div>
+                                            <div className="contact-details contact-details_hidden">
+                                                <div className="contact-details__phone-info">
+                                                    <div className="contact-details__number" onClick={() => setPhoneActive(!phoneActive)}>
+                                                        <p>+7(900)8003020</p>
+                                                    </div>
+                                                    <p className="contact-details__text">Заказать обратную связь</p>
+                                                </div>
+                                            </div>
+                                            <p className="contact-details__number-text">+7(900)8003030</p>
+                                            <p className="contact-details__number-text">+7(900)8003040</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="header__toolBar">
