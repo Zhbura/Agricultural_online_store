@@ -6,8 +6,10 @@ import { Comparison } from '../SVG/Icon/Comparison';
 import { Cart } from '../SVG/Icon/Cart';
 import { Heart } from '../SVG/Icon/Heart';
 import { useState } from 'react';
+import { CartComp } from '../Cart/Cart';
 
 export const Header = () => {
+    const [cartActive, setCartActive] = useState(false);
     const [phoneActive, setPhoneActive] = useState(false);
 
     return (
@@ -57,9 +59,10 @@ export const Header = () => {
                                 <div className="icon-quantity">
                                     <a><div className="circle-icon circle-icon_hover"><Comparison /><span>2</span></div></a>
                                 </div>
-                                <div className="icon-quantity">
+                                <div className="icon-quantity" onClick={() => setCartActive(!cartActive)}>
                                     <a> <div className="circle-icon circle-icon_hover"><Cart /><span>1</span></div> </a>
                                 </div>
+                                <CartComp active={cartActive} setActive={setCartActive} />
                                 <p className="header__price">0,0 руб</p>
                             </div>
                         </div>
