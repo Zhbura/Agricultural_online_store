@@ -40,4 +40,10 @@
             transform: rotate(180deg);
         }
     }
+
+    &_up {
+        svg {
+            transform: rotate(90deg);
+        }
+    }
 }

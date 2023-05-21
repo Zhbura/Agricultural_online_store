@@ -118,10 +118,11 @@
         display: flex;
         justify-content: center;
 
-        img {
+        svg {
             position: absolute;
             left: 20px;
             top: 30px;
+            fill: #ffffff;
         }
     }
 }

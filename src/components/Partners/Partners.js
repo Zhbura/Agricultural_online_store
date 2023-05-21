@@ -1,11 +1,10 @@
 import './Partners.scss';
-import { ArrowLeft } from '../SVG/ArrowFlip/ArrowLeft';
-import { ArrowRight } from '../SVG/ArrowFlip/ArrowRight';
 import partnerLogo1 from '../../img/partnerLogo1.svg';
 import partnerLogo2 from '../../img/partnerLogo2.svg';
 import partnerLogo3 from '../../img/partnerLogo3.svg';
 import partnerLogo5 from '../../img/partnerLogo5.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
+import { Arrow } from '../SVG/Arrow/Arrow';
 
 export const Partners = () => {
     return (
@@ -13,7 +12,9 @@ export const Partners = () => {
             <div className="partners">
                 <PageHeadingTwice> Партнеры</PageHeadingTwice>
                 <div className="partners__items">
-                    <ArrowLeft />
+                    <div className="arrow-circle">
+                        <Arrow />
+                    </div>
                     <div className="partners__logo">
                         <img src={partnerLogo1} alt="partnerLogo1" />
                     </div>
@@ -26,7 +27,9 @@ export const Partners = () => {
                     <div className="partners__logo">
                         <img src={partnerLogo5} alt="partnerLogo5" />
                     </div>
-                    <ArrowRight />
+                    <div className="arrow-circle arrow_right">
+                        <Arrow />
+                    </div>
                 </div>
                 <div className="partners__slider">
                     <div className="slider">

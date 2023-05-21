@@ -1,3 +1,5 @@
+import './Arrow.scss';
+
 export const Arrow = () => {
     return (
         <>

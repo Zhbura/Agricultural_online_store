@@ -15,7 +15,7 @@ import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import { TopBar } from '../TopBar/TopBar';
 import { ProductCard } from '../ProductСard/ProductСard';
-import { Arrow } from '../SVG/Arrow';
+import { Arrow } from '../SVG/Arrow/Arrow';
 import { Phone } from '../SVG/Icon/Phone';
 import { Cart } from '../SVG/Icon/Cart';
 
