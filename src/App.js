@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { BottomBar } from './components/BottomBar/BottomBar';
+import { BrandWrap } from './components/BrandWrap/BrandWrap';
+import { Footer } from './components/Footer/Footer';
+import { Header } from "./components/Header/Header"
+import { InfoCompany } from './components/InfoCompany/InfoCompany';
+import { NewProducts } from './components/NewProducts/NewProducts';
+import { Partners } from './components/Partners/Partners';
+import { Seeds } from './components/Seeds/Seeds';
+import { Stocks } from './components/Stocks/Stocks';
+import { TopBar } from './components/TopBar/TopBar';
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div className="wrapper">
+        <div className="top">
+          <TopBar />
+          <div className="container-for-background">
+            <Header />
+            <BottomBar />
+            <BrandWrap />
+          </div>
+          <InfoCompany />
+          <NewProducts />
+          <Stocks />
+          <Partners />
+          <Seeds />
+        </div>
+        <Footer />
+      </div >
+    </>
+  )
 }
-
-export default App;

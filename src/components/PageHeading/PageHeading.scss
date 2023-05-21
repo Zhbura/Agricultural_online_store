@@ -1,0 +1,46 @@
+.page-heading {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-size: 22px;
+        line-height: 27px;
+        text-align: center;
+    }
+
+    &_white {
+        color: #ffffff;
+    }
+
+    &_left {
+        display: flex;
+        justify-content: start;
+    }
+}
+
+.sheet-heading {
+    @media (min-width: 320px) and (max-width: 767px) {
+        width: 14px;
+        height: 11px;
+    }
+
+    &_left {
+        margin-right: 17px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            margin-right: 9px;
+        }
+    }
+
+    &_right {
+        margin-left: 17px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            margin-left: 9px;
+        }
+    }
+}

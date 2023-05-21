@@ -1,0 +1,67 @@
+.seeds {
+    background: url(../../img/backgroundSeeds.png);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+        @media (min-width: 768px) and (max-width: 1199px) {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
+
+    &__heading {
+        display: flex;
+        align-items: start;
+        padding-top: 109px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            padding-top: 34px;
+        }
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: rgba(255, 255, 255, 0.6);
+        max-width: 1110px;
+        padding-bottom: 120px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            max-width: 290px;
+            padding-bottom: 40px;
+            margin: 0 auto;
+        }
+
+        p {
+            margin-top: 16px;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            &_hidden {
+                display: none;
+            }
+        }
+    }
+
+    &__pop-up {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        text-decoration-line: underline;
+        color: #FFFFFF;
+        padding-bottom: 46px;
+        display: flex;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+
+        &_margin {
+            margin-left: 8px;
+        }
+    }
+}

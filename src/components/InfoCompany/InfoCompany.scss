@@ -1,0 +1,87 @@
+.info-company {
+    background: #E5E5E5;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 108px 0;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            flex-direction: column;
+            padding: 40px 15px 35px 15px;
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
+
+    &__left {
+        @media (min-width: 768px) {
+            width: 50%;
+        }
+    }
+
+    &__main-img {
+        display: block;
+
+        @media (min-width: 768px) {
+            width: 100%;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            width: 290px;
+            margin: 40px auto 24px auto;
+        }
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: 768px) {
+            width: 50%;
+            margin-left: 120px;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            margin: 0 auto;
+        }
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: rgba(0, 0, 0, 0.5);
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        span {
+            font-weight: 700;
+            color: #1E6140;
+        }
+    }
+
+    &__btn {
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            align-self: center;
+        }
+    }
+}
+
+.wrap-text {
+    margin-top: 25px;
+    margin-bottom: 37px;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        margin-top: 11px;
+        margin-bottom: 31px;
+        margin: 11px auto 31px auto;
+    }
+}
