@@ -79,3 +79,17 @@
         }
     }
 }
+
+.icon {
+    &_white {
+        svg {
+            fill: #FFFFFF;
+        }
+    }
+
+    &_orange {
+        svg {
+            fill: #E74E13;
+        }
+    }
+}
