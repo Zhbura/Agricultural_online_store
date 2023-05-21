@@ -16,8 +16,6 @@
     }
 }
 
-
-
 .arrow-circle:hover {
     background: #84C551;
     cursor: pointer;
@@ -25,5 +23,21 @@
     svg {
         fill: #FFFFFF;
 
+    }
+}
+
+.arrow-scroll:hover {
+    cursor: pointer;
+
+    svg {
+        fill: #E74E13;
+    }
+}
+
+.arrow {
+    &_right {
+        svg {
+            transform: rotate(180deg);
+        }
     }
 }
