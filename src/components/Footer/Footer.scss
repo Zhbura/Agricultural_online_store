@@ -1,0 +1,127 @@
+.footer {
+    padding-top: 120px;
+    padding-bottom: 17px;
+    position: relative;
+
+    @media (min-width: 320px) and (max-width: 1199px) {
+        padding: 40px 15px 17px 15px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__list {
+        list-style-type: none;
+    }
+
+    &__link {
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: #000000;
+    }
+
+    &__logo {
+        margin-right: 10px;
+
+        img {
+            width: 109px;
+            height: 49px;
+        }
+    }
+
+    &__text-logo {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: rgba(0, 0, 0, 0.6);
+        margin-top: 15px;
+
+        @media (min-width: 768px) {
+            max-width: 221px;
+        }
+    }
+
+    &__middle-text {
+        display: flex;
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: #000000;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        &:first-child {
+            margin-right: 70px;
+
+            @media (min-width: 320px) and (max-width: 1199px) {
+                margin-right: 20px;
+            }
+        }
+    }
+
+    &__heading {
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 26px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            font-size: 16px;
+            line-height: 20px;
+            margin-top: 20px;
+        }
+    }
+
+    &__line {
+        display: block;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        margin: 120px 15px 17px 15px;
+    }
+
+    &__сopyright {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        color: #000000;
+        opacity: 0.5;
+    }
+
+    &__wrap-popUp {
+        position: absolute;
+        right: 10%;
+        bottom: 0;
+    }
+
+    &__pop-up {
+        height: 133px;
+        width: 65px;
+        background: #84C551;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        img {
+            position: absolute;
+            left: 20px;
+            top: 30px;
+        }
+    }
+}

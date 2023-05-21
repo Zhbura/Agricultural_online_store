@@ -1,6 +1,7 @@
 import './App.scss';
 import { BottomBar } from './components/BottomBar/BottomBar';
 import { BrandWrap } from './components/BrandWrap/BrandWrap';
+import { Footer } from './components/Footer/Footer';
 import { Header } from "./components/Header/Header"
 import { InfoCompany } from './components/InfoCompany/InfoCompany';
 import { NewProducts } from './components/NewProducts/NewProducts';
@@ -26,6 +27,7 @@ export const App = () => {
           <Partners />
           <Seeds />
         </div>
+        <Footer />
       </div >
     </>
   )
