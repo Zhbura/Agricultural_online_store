@@ -1,0 +1,31 @@
+.stocks {
+    background: #1E6140;
+    padding-top: 112px;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        padding-top: 35px;
+    }
+
+    &__slider {
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            padding-top: 30px;
+            padding-bottom: 30px;
+
+        }
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 117px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            margin-top: 30px;
+            padding-bottom: 40px;
+        }
+    }
+}

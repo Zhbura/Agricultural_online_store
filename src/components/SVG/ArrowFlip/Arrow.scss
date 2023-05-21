@@ -1,0 +1,29 @@
+.arrow-circle {
+    border: 1px solid #84C551;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+    }
+
+    @media (min-width: 320px) and (max-width: 768px) {
+        display: none;
+    }
+}
+
+
+
+.arrow-circle:hover {
+    background: #84C551;
+    cursor: pointer;
+
+    svg {
+        fill: #FFFFFF;
+
+    }
+}

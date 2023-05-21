@@ -3,6 +3,8 @@ import { BottomBar } from './components/BottomBar/BottomBar';
 import { BrandWrap } from './components/BrandWrap/BrandWrap';
 import { Header } from "./components/Header/Header"
 import { InfoCompany } from './components/InfoCompany/InfoCompany';
+import { NewProducts } from './components/NewProducts/NewProducts';
+import { Stocks } from './components/Stocks/Stocks';
 import { TopBar } from './components/TopBar/TopBar';
 
 export const App = () => {
@@ -17,6 +19,8 @@ export const App = () => {
             <BrandWrap />
           </div>
           <InfoCompany />
+          <NewProducts />
+          <Stocks />
         </div>
       </div >
     </>
