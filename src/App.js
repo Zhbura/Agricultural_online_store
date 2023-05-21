@@ -4,6 +4,8 @@ import { BrandWrap } from './components/BrandWrap/BrandWrap';
 import { Header } from "./components/Header/Header"
 import { InfoCompany } from './components/InfoCompany/InfoCompany';
 import { NewProducts } from './components/NewProducts/NewProducts';
+import { Partners } from './components/Partners/Partners';
+import { Seeds } from './components/Seeds/Seeds';
 import { Stocks } from './components/Stocks/Stocks';
 import { TopBar } from './components/TopBar/TopBar';
 
@@ -21,6 +23,8 @@ export const App = () => {
           <InfoCompany />
           <NewProducts />
           <Stocks />
+          <Partners />
+          <Seeds />
         </div>
       </div >
     </>
