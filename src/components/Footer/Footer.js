@@ -2,8 +2,8 @@ import './Footer.scss';
 import { Logo } from '../Logo/Logo';
 import { Phone } from '../SVG/Icon/Phone';
 import { Mail } from '../SVG/Icon/Mail';
-import arrowUp from '../../img/arrowUp.svg';
 import { useState } from 'react';
+import { Arrow } from '../SVG/Arrow/Arrow';
 
 export const Footer = () => {
     const [phoneActive, setPhoneActive] = useState(false);
@@ -66,7 +66,6 @@ export const Footer = () => {
                                 </div>
                             </div>
                         </div>
-
                         <div className="contact-details">
                             <a href="#"> <div className="circle-icon"> <Mail /></div></a>
                             <div className="contact-details__mail-info">
@@ -78,8 +77,8 @@ export const Footer = () => {
                 <span className="footer__line" />
                 <p className="footer__сopyright">© 2022 DAT</p>
                 <div className="footer__wrap-popUp">
-                    <div className="footer__pop-up">
-                        <img src={arrowUp} alt="Вверх" />
+                    <div className="footer__pop-up arrow_up">
+                        <Arrow />
                     </div>
                 </div>
             </footer >
