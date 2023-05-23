@@ -7,6 +7,7 @@ import { TopBar } from '../TopBar/TopBar';
 import { Header } from '../Header/Header';
 import { BottomBar } from '../BottomBar/BottomBar';
 import { Footer } from '../Footer/Footer';
+import { Link } from 'react-router-dom';
 
 export const Order = () => {
     return (
@@ -143,7 +144,9 @@ export const Order = () => {
                                     <p className="order__buy-product_margin">Итого: <span>2 товара </span></p>
                                     <p>На сумму: <span>15 629,26</span></p>
                                 </div>
-                                <div className="order__confirm">Подтвердить заказ</div>
+                                <div className="order__confirm">
+                                    <Link to="/thanks_order" className="order__link">Подтвердить заказ</Link>
+                                </div>
                             </div>
                         </div>
                     </div>

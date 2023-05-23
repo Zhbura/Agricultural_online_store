@@ -236,7 +236,7 @@
     align-items: center;
     justify-content: center;
     width: 260px;
-    padding: 12px 0;
+    height: 47px;
     border: 1px solid #E74E13;
     border-radius: 90px;
     text-align: center;
@@ -249,12 +249,13 @@
         text-decoration: none;
         height: 100%;
         width: 100%;
-        display: block;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-weight: 700;
         font-size: 16px;
         line-height: 20px;
-        color: #ffffff;
+        color: #FFFFFF;
     }
 
     svg {
