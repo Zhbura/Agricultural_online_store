@@ -5,6 +5,7 @@ import { Order } from "../Order/Order";
 import { ThanksOrder } from "../ThanksOrder/ThanksOrder";
 import { AboutСompany } from "../AboutСompany/AboutСompany";
 import { TeamCompany } from "../TeamCompany/TeamCompany";
+import { Agreement } from "../Agreement/Agreement";
 
 export const Router = () => {
     return (
@@ -16,6 +17,7 @@ export const Router = () => {
                 <Route path="thanks_order" element={<ThanksOrder />} />
                 <Route path="aboutcompany" element={<AboutСompany />} />
                 <Route path="teemcompany" element={<TeamCompany />} />
+                <Route path="agreement" element={<Agreement />} />
             </Routes>
         </>
     )
