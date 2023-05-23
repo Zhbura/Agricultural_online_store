@@ -6,6 +6,7 @@ import cancel from '../../img/cancel.svg';
 import { Cart } from '../SVG/Icon/Cart';
 import { ClipBoard } from '../SVG/Icon/ClipBoard';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
+import { Link } from 'react-router-dom';
 
 export const CartComp = ({ active, setActive }) => {
     return (
@@ -18,7 +19,7 @@ export const CartComp = ({ active, setActive }) => {
                 <div className="cart__info-top">
                     <div className="cart__info-left">
                         <div className="cart__img">
-                            <img src={productImg} />
+                            <img src={productImg} alt="Гербицид Комманд®, ФМС Украина" />
                         </div>
                     </div>
                     <div className="cart__info-middle">
@@ -42,14 +43,14 @@ export const CartComp = ({ active, setActive }) => {
                         <div className="cart__quantity">
                             <p className="cart__quantity-text">Количество</p>
                             <div className="cart__quantity-circle_small">
-                                <span className="cart__minus"></span>
+                                <span className="cart__minus" />
                             </div>
                             <div className="cart__quantity-circle">
                                 <span>1</span>
                             </div>
                             <div className="cart__quantity-circle_small">
-                                <span className="cart__plus"></span>
-                                <span className="cart__minus"></span>
+                                <span className="cart__plus" />
+                                <span className="cart__minus" />
                             </div>
                         </div>
                     </div>
@@ -61,8 +62,7 @@ export const CartComp = ({ active, setActive }) => {
                         Продолжить покупки
                     </div>
                     <div className="btn-cart btn-cart_orange">
-                        <ClipBoard />
-                        Оформить заказ
+                        <Link to="/order" className="btn-cart__link"><ClipBoard />Оформить заказ</Link>
                     </div>
                 </div>
             </div>

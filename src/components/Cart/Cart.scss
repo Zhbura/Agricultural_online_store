@@ -245,9 +245,22 @@
     font-size: 16px;
     line-height: 20px;
 
+    &__link {
+        text-decoration: none;
+        height: 100%;
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        color: #ffffff;
+    }
+
     svg {
         fill: #E74E13;
         margin-right: 15px;
+        vertical-align: middle;
     }
 
     &_white {
