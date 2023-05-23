@@ -23,7 +23,7 @@ export const TopBar = () => {
                             <Link to='/agreement' className="top-bar__text">Договор</Link>
                         </div>
                         <Link to='/catalog_plant_protection' className="top-bar__text"> Каталог продукции</Link>
-                        <p className="top-bar__text">Оплата | доставка</p>
+                        <Link to='/pay' className="top-bar__text">Оплата | доставка</Link>
                         <p className="top-bar__text">Партнеры</p>
                         <p className="top-bar__text">Новости</p>
                         <p className="top-bar__text">Контакты</p>

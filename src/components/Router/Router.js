@@ -7,6 +7,7 @@ import { AboutСompany } from "../AboutСompany/AboutСompany";
 import { TeamCompany } from "../TeamCompany/TeamCompany";
 import { Agreement } from "../Agreement/Agreement";
 import { CatalogPlantProtection } from "../CatalogProduct/CatalogPlantProtection";
+import { Pay } from "../Pay/Pay";
 
 export const Router = () => {
     return (
@@ -20,6 +21,7 @@ export const Router = () => {
                 <Route path="teemcompany" element={<TeamCompany />} />
                 <Route path="agreement" element={<Agreement />} />
                 <Route path="catalog_plant_protection" element={<CatalogPlantProtection />} />
+                <Route path="pay" element={<Pay />} />
             </Routes>
         </>
     )

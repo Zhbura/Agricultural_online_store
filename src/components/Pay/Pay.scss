@@ -1,0 +1,98 @@
+.pay {
+    padding-bottom: 114px;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        padding-bottom: 50px;
+    }
+
+    .container {
+        padding: 0 15px;
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            padding: 0 30px;
+        }
+    }
+
+    &__heading {
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 37px;
+        color: #000000;
+        margin-bottom: 15px;
+        margin-top: 20px;
+    }
+
+    &__subtitle {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        color: #1E6140;
+        margin-bottom: 20px;
+    }
+
+    &__list,
+    &__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #000000;
+
+        svg {
+            margin-right: 13px;
+        }
+
+        &_bold {
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        &_margin {
+            margin-top: 10px;
+        }
+    }
+
+    &__list {
+        margin-left: 16px;
+
+
+    }
+
+    &__list-item {
+        margin-bottom: 10px;
+    }
+
+    &__img-pochta {
+        @media (min-width: 320px) and (max-width: 767px) {
+            width: 290px;
+
+            margin: 10px 0;
+        }
+
+        &_left {
+            margin-right: 30px;
+        }
+
+        &_right {
+            margin-left: 30px;
+        }
+    }
+
+}
+
+.pay-wrap {
+    display: flex;
+    justify-content: space-between;
+
+    @media (min-width: 320px) and (max-width: 1199px) {
+        flex-direction: column-reverse;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
