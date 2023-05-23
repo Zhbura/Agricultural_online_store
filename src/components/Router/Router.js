@@ -3,6 +3,7 @@ import { Main } from "../Main/Main";
 import { Product } from "../Product/Product";
 import { Order } from "../Order/Order";
 import { ThanksOrder } from "../ThanksOrder/ThanksOrder";
+import { AboutСompany } from "../AboutСompany/AboutСompany";
 
 export const Router = () => {
     return (
@@ -12,6 +13,7 @@ export const Router = () => {
                 <Route path="product" element={<Product />} />
                 <Route path="order" element={<Order />} />
                 <Route path="thanks_order" element={<ThanksOrder />} />
+                <Route path="aboutcompany" element={<AboutСompany />} />
             </Routes>
         </>
     )

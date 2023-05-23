@@ -3,6 +3,7 @@ import logOut from '../../img/logOut.svg';
 import menu from '../../img/menu.svg';
 import { useState } from 'react';
 import { Menu } from '../Menu/Menu';
+import { Link } from 'react-router-dom';
 
 export const TopBar = () => {
     const [menuActive, setMenuActive] = useState(false);
@@ -17,7 +18,7 @@ export const TopBar = () => {
                             <span className="top-bar__text">Про нас</span>
                         </div>
                         <div className={popUpActive ? 'popUp active' : 'popUp'}>
-                            <p className="top-bar__text">О компании</p>
+                            <Link to='/aboutcompany' className="top-bar__text">О компании</Link>
                             <p className="top-bar__text">Наша команда</p>
                             <p className="top-bar__text">Договор</p>
                         </div>
