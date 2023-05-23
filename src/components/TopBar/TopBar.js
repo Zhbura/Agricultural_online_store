@@ -19,7 +19,7 @@ export const TopBar = () => {
                         </div>
                         <div className={popUpActive ? 'popUp active' : 'popUp'}>
                             <Link to='/aboutcompany' className="top-bar__text">О компании</Link>
-                            <p className="top-bar__text">Наша команда</p>
+                            <Link to='/teemcompany' className="top-bar__text">Наша команда</Link>
                             <p className="top-bar__text">Договор</p>
                         </div>
                         <p className="top-bar__text"> Каталог продукции</p>
