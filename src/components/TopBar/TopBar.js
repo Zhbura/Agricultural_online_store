@@ -3,11 +3,13 @@ import logOut from '../../img/logOut.svg';
 import menu from '../../img/menu.svg';
 import { useState } from 'react';
 import { Menu } from '../Menu/Menu';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const TopBar = () => {
     const [menuActive, setMenuActive] = useState(false);
     const [popUpActive, setPopUpActive] = useState(false);
+
+    const setActive = ({ isActive }) => isActive ? 'top-bar__text top-bar__active-link' : 'top-bar__text';
 
     return (
         <>
@@ -18,20 +20,20 @@ export const TopBar = () => {
                             <span className="top-bar__text">Про нас</span>
                         </div>
                         <div className={popUpActive ? 'popUp active' : 'popUp'}>
-                            <Link to='/aboutcompany' className="top-bar__text">О компании</Link>
-                            <Link to='/teemcompany' className="top-bar__text">Наша команда</Link>
-                            <Link to='/agreement' className="top-bar__text">Договор</Link>
+                            <NavLink to='/aboutcompany' className="top-bar__text">О компании</NavLink>
+                            <NavLink to='/teemcompany' className="top-bar__text">Наша команда</NavLink>
+                            <NavLink to='/agreement' className="top-bar__text">Договор</NavLink>
                         </div>
-                        <Link to='/catalog_plant_protection' className="top-bar__text"> Каталог продукции</Link>
-                        <Link to='/pay' className="top-bar__text">Оплата | доставка</Link>
-                        <Link to='/partners' className="top-bar__text">Партнеры</Link>
-                        <Link to='/news' className="top-bar__text">Новости</Link>
-                        <Link to='/contacts' className="top-bar__text">Контакты</Link>
+                        <NavLink to='/catalog_plant_protection' className={setActive}> Каталог продукции</NavLink>
+                        <NavLink to='/pay' className={setActive}>Оплата | доставка</NavLink>
+                        <NavLink to='/partners' className={setActive}>Партнеры</NavLink>
+                        <NavLink to='/news' className={setActive}>Новости</NavLink>
+                        <NavLink to='/contacts' className={setActive}>Контакты</NavLink>
                     </nav>
                     <span className="top-bar__line" />
                     <div className="top-bar__login">
                         <img src={logOut} alt="Войти" />
-                        <Link to='/registration' className="top-bar__text">Вход | Регистрация</Link>
+                        <NavLink to='/registration' className={setActive}>Вход | Регистрация</NavLink>
                     </div>
                     <div className="top-bar__menu" onClick={() => setMenuActive(!menuActive)}>
                         <img src={menu} alt="Меню" />
