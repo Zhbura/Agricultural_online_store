@@ -15,7 +15,7 @@ import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import { TopBar } from '../TopBar/TopBar';
 import { ProductCard } from '../ProductСard/ProductСard';
-import { Arrow } from '../SVG/Arrow/Arrow';
+import { Arrow, ArrowRight } from '../SVG/Arrow/Arrow';
 import { Phone } from '../SVG/Icon/Phone';
 import { Cart } from '../SVG/Icon/Cart';
 
@@ -170,8 +170,8 @@ export const Product = () => {
                                     <ProductCard name="Хорус" alt="Хорус" img={require("../../img/newProducts4.png")} price="320" />
                                     <ProductCard name="Агрикола" alt="Агрикола, удобрение для орхидей" img={require("../../img/newProducts2.png")} price="170" />
                                 </div>
-                                <div className="arrow-circle arrow_right">
-                                    <Arrow />
+                                <div className="arrow-circle">
+                                    <ArrowRight />
                                 </div>
                             </div>
                             <div className="stocks__slider">

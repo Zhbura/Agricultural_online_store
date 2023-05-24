@@ -54,11 +54,12 @@ export const CartComp = ({ active, setActive }) => {
                 </div>
                 <span className="cart__separator-horizontal" />
                 <div className="cart__info-bottom">
-                    <div className="btn-cart">
-                        <Cart />
-                        Продолжить покупки
+                    <div className="btn-cart icon_orange">
+                        <Link to='/catalog_plant_protection' className="btn-cart__link btn-cart__link_orange">
+                            <Cart />Продолжить покупки
+                        </Link>
                     </div>
-                    <div className="btn-cart btn-cart_orange">
+                    <div className="btn-cart btn-cart_orange icon_white">
                         <Link to="/order" className="btn-cart__link"><ClipBoard />Оформить заказ</Link>
                     </div>
                 </div>
