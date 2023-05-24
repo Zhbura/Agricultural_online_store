@@ -1,5 +1,5 @@
 import './Seeds.scss';
-import { ArrowDownMenu } from '../SVG/ArrowMenu/ArrowDownMenu';
+import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import { PageHeadingOnce } from '../PageHeading/PageHeading';
 
 export const Seeds = () => {
@@ -41,12 +41,7 @@ export const Seeds = () => {
                             горшки, кассеты для рассады.
                         </p>
                     </div>
-                    <div className="seeds__pop-up">
-                        <p>Читать полностью</p>
-                        <div className="arrow-menu_white seeds__pop-up_margin">
-                            <ArrowDownMenu />
-                        </div>
-                    </div>
+                    <p className="seeds__pop-up arrow-checkbox_white">Читать полностью  <ArrowCheckbox /></p>
                 </div>
             </div>
         </>

@@ -1,5 +1,5 @@
 import './Order.scss';
-import { ArrowDownMenu } from '../SVG/ArrowMenu/ArrowDownMenu';
+import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import productImg from '../../img/productImgBig.png';
 import cancel from '../../img/cancelGrey.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
@@ -40,24 +40,15 @@ export const Order = () => {
                                     <h4 className="order__heading">Доставка</h4>
                                     <div className="wrap-contacts wrap-contacts_margin">
                                         <div className="order__btn-popUp">
-                                            <p className="order__text">Область</p>
-                                            <div className="arrow-menu_orange">
-                                                <ArrowDownMenu />
-                                            </div>
+                                            <p className="order__text arrow-checkbox_orange">Область<ArrowCheckbox /></p>
                                         </div>
                                         <div className="order__btn-popUp">
-                                            <p className="order__text">Город</p>
-                                            <div className="arrow-menu_orange">
-                                                <ArrowDownMenu />
-                                            </div>
+                                            <p className="order__text arrow-checkbox_orange">Город<ArrowCheckbox /></p>
                                         </div>
                                     </div>
                                     <div className="wrap-contacts">
                                         <div className="order__btn-popUp">
-                                            <p className="order__text">Отделение</p>
-                                            <div className="arrow-menu_orange">
-                                                <ArrowDownMenu />
-                                            </div>
+                                            <p className="order__text arrow-checkbox_orange">Отделение<ArrowCheckbox /></p>
                                         </div>
                                         <div className="order__btn-popUp">
                                             <input className="order__text" type="text" value="Почтовый индекс" />

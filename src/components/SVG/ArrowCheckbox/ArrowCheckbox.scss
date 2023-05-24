@@ -1,0 +1,29 @@
+.arrow-checkbox_white {
+    svg {
+        fill: #ffffff;
+    }
+}
+
+.arrow-checkbox_orange {
+    svg {
+        fill: #E74E13;
+    }
+}
+
+.arrow-checkbox_grey {
+    svg {
+        fill: rgba(0, 0, 0, 0.2);
+    }
+}
+
+.arrow-checkbox_right {
+    svg {
+        transform: rotate(-90deg);
+    }
+}
+
+.arrow-checkbox_left {
+    svg {
+        transform: rotate(90deg);
+    }
+}

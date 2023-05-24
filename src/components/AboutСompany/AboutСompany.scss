@@ -1,0 +1,48 @@
+.about-company {
+    padding-bottom: 110px;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        padding: 0 15px 28px 15px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1200px) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: rgba(0, 0, 0, 0.5);
+        margin-top: 24px;
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        &_green {
+            font-weight: 700;
+            color: #1E6140;
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+
+    &__list-items {
+        margin-top: 30px;
+    }
+
+    &__list-item {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 20px;
+        color: rgba(0, 0, 0, 1);
+        margin-bottom: 3px;
+        margin-left: 17px;
+    }
+
+    &__heading {
+        margin-bottom: 10px;
+    }
+}

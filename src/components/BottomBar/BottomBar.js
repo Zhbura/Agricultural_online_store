@@ -4,7 +4,7 @@ import { Sapling } from '../SVG/Sapling';
 import { Fertilizers } from '../SVG/Fertilizers';
 import { FeedGroup } from '../SVG/FeedGroup';
 import { Farmer } from '../SVG/Farmer';
-import { ArrowDownMenu } from '../SVG/ArrowMenu/ArrowDownMenu';
+import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 
 export const BottomBar = () => {
     return (
@@ -12,11 +12,9 @@ export const BottomBar = () => {
             <div className="bottom-bar">
                 <div className="container">
                     <div className="bottom-bar__item">
-                        <p className="bottom-bar__link">
-                            <Seeds />
-                            Семена
+                        <p className="bottom-bar__link bottom-bar__seeds">
+                            <Seeds /> Семена <ArrowCheckbox />
                         </p>
-                        <div className="bottom-bar__menu" ><ArrowDownMenu /></div>
                     </div>
                     <div className="bottom-bar__item">
                         <p className="bottom-bar__link">
