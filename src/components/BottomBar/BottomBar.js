@@ -5,6 +5,7 @@ import { Fertilizers } from '../SVG/Fertilizers';
 import { FeedGroup } from '../SVG/FeedGroup';
 import { Farmer } from '../SVG/Farmer';
 import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
+import { Link } from 'react-router-dom';
 
 export const BottomBar = () => {
     return (
@@ -17,10 +18,10 @@ export const BottomBar = () => {
                         </p>
                     </div>
                     <div className="bottom-bar__item">
-                        <p className="bottom-bar__link">
+                        <Link to='/plantprotection' className="bottom-bar__link">
                             <Sapling />
                             Средства защиты растений
-                        </p>
+                        </Link>
                     </div>
                     <div className="bottom-bar__item">
                         <p className="bottom-bar__link">
