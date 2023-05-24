@@ -13,9 +13,9 @@ export const BottomBar = () => {
             <div className="bottom-bar">
                 <div className="container">
                     <div className="bottom-bar__item">
-                        <p className="bottom-bar__link bottom-bar__seeds">
-                            <Seeds /> Семена <ArrowCheckbox />
-                        </p>
+                        <Link to="/catalog_seeds" className="bottom-bar__link bottom-bar__seeds">
+                            <Seeds /> Семена<ArrowCheckbox />
+                        </Link>
                     </div>
                     <div className="bottom-bar__item">
                         <Link to='/plantprotection' className="bottom-bar__link">
@@ -24,22 +24,22 @@ export const BottomBar = () => {
                         </Link>
                     </div>
                     <div className="bottom-bar__item">
-                        <p className="bottom-bar__link">
+                        <Link to="/catalog_fertilizers" className="bottom-bar__link">
                             <Fertilizers />
                             Удобрения
-                        </p>
+                        </Link>
                     </div>
                     <div className="bottom-bar__item">
-                        <p className="bottom-bar__link">
+                        <Link to="/catalog_feed_group" className="bottom-bar__link">
                             <FeedGroup />
                             Кормовая группа
-                        </p>
+                        </Link>
                     </div>
                     <div className="bottom-bar__item">
-                        <p className="bottom-bar__link">
+                        <Link to="/catalog_farmer_help" className="bottom-bar__link">
                             <Farmer />
                             Агроному в помощь
-                        </p>
+                        </Link>
                     </div>
                 </div>
             </div>

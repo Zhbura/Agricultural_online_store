@@ -9,7 +9,8 @@ import { SeedsCatalog } from '../SeedsCatalog/SeedsCatalog';
 import { Footer } from '../Footer/Footer';
 import { ProductCard } from '../ProductСard/ProductСard';
 
-export const CatalogPlantProtection = () => {
+export const CatalogPlantProtection = (props) => {
+
     return (
         <>
             <div className="wrapper">
@@ -18,7 +19,9 @@ export const CatalogPlantProtection = () => {
                     <Header />
                     <BottomBar />
                     <div className="container">
-                        <PageHeadingTwice>Средства защиты растений</PageHeadingTwice>
+                        <PageHeadingTwice>
+                            {props.title}
+                        </PageHeadingTwice>
                         <div className="filters-small">
                             <form className="sort">
                                 <div className="filter_small">Фильтр</div>
@@ -27,13 +30,6 @@ export const CatalogPlantProtection = () => {
                                     <span /><ArrowCheckbox />
                                 </div>
                             </form>
-                            {/* <div className="filter-popUp">
-                                <p>Гербициды <span>(229)</span></p>
-                                <span className="filter-popUp__line" />
-                                <div>
-                                    <ArrowCheckbox />
-                                </div>
-                            </div> */}
                             <div className="filter-popUp">
                                 <p>Гербициды <span>(229)</span></p>
                                 <span className="filter-popUp__line" />
