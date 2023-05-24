@@ -31,7 +31,7 @@ export const TopBar = () => {
                     <span className="top-bar__line" />
                     <div className="top-bar__login">
                         <img src={logOut} alt="Войти" />
-                        <p className="top-bar__text">Вход | Регистрация</p>
+                        <Link to='/registration' className="top-bar__text">Вход | Регистрация</Link>
                     </div>
                     <div className="top-bar__menu" onClick={() => setMenuActive(!menuActive)}>
                         <img src={menu} alt="Меню" />

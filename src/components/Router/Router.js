@@ -11,6 +11,7 @@ import { Pay } from "../Pay/Pay";
 import { PartnersComp } from "../PartnersComp/PartnersComp";
 import { News } from "../News/News";
 import { Contacts } from "../Contacts/Contacts";
+import { Registration } from "../Registration/Registration";
 
 export const Router = () => {
     return (
@@ -28,6 +29,7 @@ export const Router = () => {
                 <Route path="partners" element={<PartnersComp />} />
                 <Route path="news" element={<News />} />
                 <Route path="contacts" element={<Contacts />} />
+                <Route path="registration" element={<Registration />} />
             </Routes>
         </>
     )
