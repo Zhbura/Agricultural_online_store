@@ -90,4 +90,23 @@
             display: none;
         }
     }
+
+    &__seeds {
+        display: flex;
+
+        @media (min-width: 320px) and (max-width: 900px) {
+            justify-content: space-between;
+
+            svg:last-child {
+                width: 12px;
+                height: 8px;
+            }
+        }
+
+        @media (min-width: 901px) {
+            svg:last-child {
+                display: none;
+            }
+        }
+    }
 }

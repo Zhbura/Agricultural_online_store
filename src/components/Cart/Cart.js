@@ -1,7 +1,7 @@
 import './Cart.scss';
 import productImg from '../../img/productImgBig.png';
 import fabricator from '../../img/fabricator.svg';
-import { ArrowDownMenu } from '../SVG/ArrowMenu/ArrowDownMenu';
+import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import cancel from '../../img/cancel.svg';
 import { Cart } from '../SVG/Icon/Cart';
 import { ClipBoard } from '../SVG/Icon/ClipBoard';
@@ -34,11 +34,8 @@ export const CartComp = ({ active, setActive }) => {
                         </div>
                     </div>
                     <div className="cart__info-right">
-                        <div className="cart-popUp">
-                            Канистра 5 л
-                            <div className="arrow-menu_orange">
-                                <ArrowDownMenu />
-                            </div>
+                        <div className="cart-popUp arrow-checkbox_orange">
+                            Канистра 5 л <ArrowCheckbox />
                         </div>
                         <div className="cart__quantity">
                             <p className="cart__quantity-text">Количество</p>

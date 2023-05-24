@@ -9,17 +9,29 @@
         grid-template-columns: repeat(1, 290px);
         grid-template-rows: repeat(6, 404px);
     }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        grid-template-columns: repeat(2, 255px);
+        grid-template-rows: repeat(8, 355px);
+    }
 }
 
 .sort {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 40px 0 10px 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 
-    @media (min-width: 320px) and (max-width: 767px) {
+    @media (min-width: 320px) and (max-width: 899px) {
         justify-content: center;
         padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        padding-left: 55px;
+        padding-right: 25px;
+        align-items: center;
     }
 
     &__container {
@@ -32,7 +44,7 @@
         background: #FFFFFF;
         align-items: center;
 
-        @media (min-width: 320px) and (max-width: 767px) {
+        @media (min-width: 320px) and (max-width: 899px) {
             width: 135px;
             padding-left: 6px;
             margin-left: 10px;
@@ -56,10 +68,9 @@
         line-height: 17px;
         border-radius: 90px;
 
-        @media (min-width: 320px) and (max-width: 767px) {
+        @media (min-width: 320px) and (max-width: 899px) {
             font-size: 11px;
             line-height: 15px;
-            color: #484848;
         }
     }
 
@@ -67,7 +78,7 @@
         margin-left: 22px;
         margin-right: 14px;
 
-        @media (min-width: 320px) and (max-width: 767px) {
+        @media (min-width: 320px) and (max-width: 900px) {
             margin-left: 10px;
             margin-right: 10px;
         }
@@ -79,10 +90,10 @@
     font-size: 16px;
     line-height: 20px;
     color: rgba(0, 0, 0, 0.5);
-    align-self: flex-end;
+    // align-self: flex-end;
     padding-bottom: 10px;
 
-    @media (min-width: 320px) and (max-width: 767px) {
+    @media (min-width: 320px) and (max-width: 900px) {
         text-align: center;
         padding-top: 16px;
     }
@@ -96,7 +107,7 @@
     width: 255px;
     margin: 0 30px 30px 30px;
 
-    @media (min-width: 320px) and (max-width: 767px) {
+    @media (min-width: 320px) and (max-width: 899px) {
         display: none;
     }
 
@@ -122,8 +133,6 @@
             float: right;
         }
     }
-
-
 }
 
 .filter {
@@ -202,7 +211,7 @@
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 20px;
-    max-width: 260px;
+    width: 290px;
     height: 40px;
     padding: 10px 20px 10px 20px;
     margin: 0 auto;
@@ -234,13 +243,17 @@
 }
 
 .filters-small {
-    @media (min-width: 768px) {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+
+    @media (min-width: 900px) {
         display: none;
     }
 }
 
 .filters-big {
-    @media (min-width: 320px) and (max-width: 767px) {
+    @media (min-width: 320px) and (max-width: 899px) {
         display: none;
     }
 }

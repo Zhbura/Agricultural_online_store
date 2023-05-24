@@ -1,6 +1,6 @@
 import './CatalogProduct.scss';
 import { Pagination } from '../Pagination/Pagination';
-import { ArrowDownMenu } from '../SVG/ArrowMenu/ArrowDownMenu';
+import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { TopBar } from '../TopBar/TopBar';
 import { Header } from '../Header/Header';
@@ -22,37 +22,37 @@ export const CatalogPlantProtection = () => {
                         <div className="filters-small">
                             <form className="sort">
                                 <div className="filter_small">Фильтр</div>
-                                <div className="sort__container">
+                                <div className="sort__container arrow-checkbox_grey">
                                     <input type="text" placeholder="Сортировать по" />
-                                    <span></span>
-                                    <div className="arrow-menu_grey">
-                                        <ArrowDownMenu />
-                                    </div>
+                                    <span /><ArrowCheckbox />
                                 </div>
                             </form>
+                            {/* <div className="filter-popUp">
+                                <p>Гербициды <span>(229)</span></p>
+                                <span className="filter-popUp__line" />
+                                <div>
+                                    <ArrowCheckbox />
+                                </div>
+                            </div> */}
                             <div className="filter-popUp">
                                 <p>Гербициды <span>(229)</span></p>
-                                <span className="filter-popUp__line"></span>
-                                <div>
-                                    <ArrowDownMenu />
-                                </div>
+                                <span className="filter-popUp__line" />
+                                <ArrowCheckbox />
                             </div>
                             <div className="result">Показано 621 товар</div>
                         </div>
+
+                    </div>
+                    <div className="container">
                         <div className="filters-big">
                             <form className="sort">
                                 <div className="result">Показано 621 товар</div>
-                                <div className="sort__container">
+                                <div className="sort__container arrow-checkbox_grey">
                                     <input type="text" placeholder="Сортировать по" />
-                                    <span></span>
-                                    <div className="arrow-menu_grey">
-                                        <ArrowDownMenu />
-                                    </div>
+                                    <span /><ArrowCheckbox />
                                 </div>
                             </form>
                         </div>
-                    </div>
-                    <div className="container">
                         <div className="wrap-filter">
                             <div className="filter-items">
                                 <div className="filter">

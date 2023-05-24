@@ -25,7 +25,7 @@ export const TopBar = () => {
                         <Link to='/catalog_plant_protection' className="top-bar__text"> Каталог продукции</Link>
                         <Link to='/pay' className="top-bar__text">Оплата | доставка</Link>
                         <Link to='/partners' className="top-bar__text">Партнеры</Link>
-                        <p className="top-bar__text">Новости</p>
+                        <Link to='/news' className="top-bar__text">Новости</Link>
                         <p className="top-bar__text">Контакты</p>
                     </nav>
                     <span className="top-bar__line" />

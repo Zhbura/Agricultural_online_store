@@ -9,6 +9,7 @@ import { Agreement } from "../Agreement/Agreement";
 import { CatalogPlantProtection } from "../CatalogProduct/CatalogPlantProtection";
 import { Pay } from "../Pay/Pay";
 import { PartnersComp } from "../PartnersComp/PartnersComp";
+import { News } from "../News/News";
 
 export const Router = () => {
     return (
@@ -24,6 +25,7 @@ export const Router = () => {
                 <Route path="catalog_plant_protection" element={<CatalogPlantProtection />} />
                 <Route path="pay" element={<Pay />} />
                 <Route path="partners" element={<PartnersComp />} />
+                <Route path="news" element={<News />} />
             </Routes>
         </>
     )
