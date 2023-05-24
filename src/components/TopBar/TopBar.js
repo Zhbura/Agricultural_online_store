@@ -26,7 +26,7 @@ export const TopBar = () => {
                         <Link to='/pay' className="top-bar__text">Оплата | доставка</Link>
                         <Link to='/partners' className="top-bar__text">Партнеры</Link>
                         <Link to='/news' className="top-bar__text">Новости</Link>
-                        <p className="top-bar__text">Контакты</p>
+                        <Link to='/contacts' className="top-bar__text">Контакты</Link>
                     </nav>
                     <span className="top-bar__line" />
                     <div className="top-bar__login">
