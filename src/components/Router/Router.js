@@ -16,6 +16,7 @@ import { PlantProtection } from "../PlantProtection/PlantProtection";
 import { PersonalAccount } from "../PersonalAccount/PersonalAccount";
 import { CurrentOrders } from "../CurrentOrders/CurrentOrders";
 import { PersonalData } from "../PersonalData/PersonalData";
+import { OrderHistory } from "../OrderHistory/OrderHistory";
 
 export const Router = () => {
     return (
@@ -42,6 +43,7 @@ export const Router = () => {
                 <Route path="personal_account" element={<PersonalAccount />} />
                 <Route path="current_orders" element={<CurrentOrders />} />
                 <Route path="personal_data" element={<PersonalData />} />
+                <Route path="order_history" element={<OrderHistory />} />
             </Routes>
         </>
     )

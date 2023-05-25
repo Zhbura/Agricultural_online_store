@@ -57,8 +57,10 @@ export const PersonalAccount = () => {
                                     </div>
                                     <span className="cabinet-popUp__separator" />
                                     <div className="cabinet-popUp__item">
-                                        <History />
-                                        История заказов </div>
+                                        <Link to="/order_history" className="cabinet-popUp__link"><History />
+                                            История заказов
+                                        </Link>
+                                    </div>
                                     <span className="cabinet-popUp__separator" />
                                     <div className="cabinet-popUp__item">
                                         <Unlock />
@@ -83,17 +85,21 @@ export const PersonalAccount = () => {
                                     <div className="cabinet-popUp__items">
                                         <div className="cabinet-popUp__item icon_green">
                                             <Link to="/current_orders" className="cabinet-popUp__link"><ClipBoard />
-                                                Текущие заказы</Link>
+                                                Текущие заказы
+                                            </Link>
                                         </div>
                                         <span className="cabinet-popUp__separator"></span>
                                         <div className="cabinet-popUp__item">
                                             <Link to="/personal_data" className="cabinet-popUp__link"><PersonalData />
-                                                Личные данные </Link>
+                                                Личные данные
+                                            </Link>
                                         </div>
                                         <span className="cabinet-popUp__separator"></span>
                                         <div className="cabinet-popUp__item">
-                                            <History />
-                                            История заказов </div>
+                                            <Link to="/order_history" className="cabinet-popUp__link"><History />
+                                                История заказов
+                                            </Link>
+                                        </div>
                                         <span className="cabinet-popUp__separator"></span>
                                         <div className="cabinet-popUp__item">
                                             <Unlock />
@@ -111,8 +117,10 @@ export const PersonalAccount = () => {
                                             Личные данные
                                         </Link>
                                     </div>
-                                    <div className="personal-account__item"><History />
-                                        <p className="personal-account__text">История заказов</p>
+                                    <div className="personal-account__item">
+                                        <Link to="/order_history" className="personal-account__link"><History />
+                                            История заказов
+                                        </Link>
                                     </div>
                                     <div className="personal-account__item"> <Unlock />
                                         <p className="personal-account__text">Изменить пароль</p>
