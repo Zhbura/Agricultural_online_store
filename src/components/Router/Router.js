@@ -14,6 +14,7 @@ import { Contacts } from "../Contacts/Contacts";
 import { Registration } from "../Registration/Registration";
 import { PlantProtection } from "../PlantProtection/PlantProtection";
 import { PersonalAccount } from "../PersonalAccount/PersonalAccount";
+import { CurrentOrders } from "../CurrentOrders/CurrentOrders";
 // import { CatalogSeeds } from "../CatalogProduct/CatalogSeeds";
 
 export const Router = () => {
@@ -39,6 +40,7 @@ export const Router = () => {
                 <Route path="catalog_feed_group" element={<CatalogPlantProtection title="Кормовая группа" />} />
                 <Route path="catalog_farmer_help" element={<CatalogPlantProtection title="Агроному в помощь" />} />
                 <Route path="personal_account" element={<PersonalAccount />} />
+                <Route path="current_orders" element={<CurrentOrders />} />
             </Routes>
         </>
     )
