@@ -51,8 +51,10 @@ export const PersonalAccount = () => {
                                     </div>
                                     <span className="cabinet-popUp__separator" />
                                     <div className="cabinet-popUp__item">
-                                        <PersonalData />
-                                        Личные данные </div>
+                                        <Link to="/personal_data" className="cabinet-popUp__link"><PersonalData />
+                                            Личные данные
+                                        </Link>
+                                    </div>
                                     <span className="cabinet-popUp__separator" />
                                     <div className="cabinet-popUp__item">
                                         <History />
@@ -85,8 +87,9 @@ export const PersonalAccount = () => {
                                         </div>
                                         <span className="cabinet-popUp__separator"></span>
                                         <div className="cabinet-popUp__item">
-                                            <PersonalData />
-                                            Личные данные </div>
+                                            <Link to="/personal_data" className="cabinet-popUp__link"><PersonalData />
+                                                Личные данные </Link>
+                                        </div>
                                         <span className="cabinet-popUp__separator"></span>
                                         <div className="cabinet-popUp__item">
                                             <History />
@@ -99,12 +102,14 @@ export const PersonalAccount = () => {
                                 </div>
                                 <div className="personal-account__items">
                                     <div className="personal-account__item icon_green">
-                                        <Link to="/current_orders" className="personal-account__link personal-account__text"><ClipBoard />
+                                        <Link to="/current_orders" className="personal-account__link"><ClipBoard />
                                             Текущие заказы
                                         </Link>
                                     </div>
-                                    <div className="personal-account__item"><PersonalData />
-                                        <p className="personal-account__text">Личные данные</p>
+                                    <div className="personal-account__item">
+                                        <Link to="/personal_data" className="personal-account__link"><PersonalData />
+                                            Личные данные
+                                        </Link>
                                     </div>
                                     <div className="personal-account__item"><History />
                                         <p className="personal-account__text">История заказов</p>

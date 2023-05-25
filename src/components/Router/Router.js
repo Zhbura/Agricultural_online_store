@@ -15,7 +15,7 @@ import { Registration } from "../Registration/Registration";
 import { PlantProtection } from "../PlantProtection/PlantProtection";
 import { PersonalAccount } from "../PersonalAccount/PersonalAccount";
 import { CurrentOrders } from "../CurrentOrders/CurrentOrders";
-// import { CatalogSeeds } from "../CatalogProduct/CatalogSeeds";
+import { PersonalData } from "../PersonalData/PersonalData";
 
 export const Router = () => {
     return (
@@ -41,6 +41,7 @@ export const Router = () => {
                 <Route path="catalog_farmer_help" element={<CatalogPlantProtection title="Агроному в помощь" />} />
                 <Route path="personal_account" element={<PersonalAccount />} />
                 <Route path="current_orders" element={<CurrentOrders />} />
+                <Route path="personal_data" element={<PersonalData />} />
             </Routes>
         </>
     )
