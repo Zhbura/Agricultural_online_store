@@ -2,6 +2,7 @@ import './BrandWrap.scss';
 import { Button } from '../Button/Button';
 import harvest from '../../img/harvest.png';
 import sheetLeft from '../../img/sheetHeadingLeft.svg';
+import { Link } from 'react-router-dom';
 
 export const BrandWrap = () => {
     return (
@@ -17,13 +18,17 @@ export const BrandWrap = () => {
                             защиты растений, минеральных макро - и микроудобрений
                         </p>
                         <div className="brand-wrap__btn brand-wrap__btn_left">
-                            <Button>О компании</Button>
+                            <Button>
+                                <Link to='/aboutcompany'>О компании</Link>
+                            </Button>
                         </div>
                     </div>
                     <div className="brand-wrap__right">
                         <img className="brand-wrap__main-img" src={harvest} />
                         <div className="brand-wrap__btn brand-wrap__btn_right">
-                            <Button>О компании</Button>
+                            <Button>
+                                <Link to='/aboutcompany'>О компании</Link>
+                            </Button>
                         </div>
                     </div>
                 </div>
