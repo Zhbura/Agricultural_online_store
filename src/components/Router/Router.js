@@ -17,6 +17,7 @@ import { PersonalAccount } from "../PersonalAccount/PersonalAccount";
 import { CurrentOrders } from "../CurrentOrders/CurrentOrders";
 import { PersonalData } from "../PersonalData/PersonalData";
 import { OrderHistory } from "../OrderHistory/OrderHistory";
+import { ChangePassword } from "../ChangePassword/ChangePassword";
 
 export const Router = () => {
     return (
@@ -44,6 +45,7 @@ export const Router = () => {
                 <Route path="current_orders" element={<CurrentOrders />} />
                 <Route path="personal_data" element={<PersonalData />} />
                 <Route path="order_history" element={<OrderHistory />} />
+                <Route path="change_password" element={<ChangePassword />} />
             </Routes>
         </>
     )

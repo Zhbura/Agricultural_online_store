@@ -63,8 +63,10 @@ export const PersonalAccount = () => {
                                     </div>
                                     <span className="cabinet-popUp__separator" />
                                     <div className="cabinet-popUp__item">
-                                        <Unlock />
-                                        Изменить пароль</div>
+                                        <Link to="/change_password" className="cabinet-popUp__link"> <Unlock />
+                                            Изменить пароль
+                                        </Link>
+                                    </div>
                                 </div>
                                 <div className="cabinet-popUp">
                                     <div className="cabinet-popUp__title">
@@ -102,8 +104,10 @@ export const PersonalAccount = () => {
                                         </div>
                                         <span className="cabinet-popUp__separator"></span>
                                         <div className="cabinet-popUp__item">
-                                            <Unlock />
-                                            Изменить пароль</div>
+                                            <Link to="/change_password" className="cabinet-popUp__link"> <Unlock />
+                                                Изменить пароль
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="personal-account__items">
@@ -122,8 +126,10 @@ export const PersonalAccount = () => {
                                             История заказов
                                         </Link>
                                     </div>
-                                    <div className="personal-account__item"> <Unlock />
-                                        <p className="personal-account__text">Изменить пароль</p>
+                                    <div className="personal-account__item">
+                                        <Link to="/change_password" className="personal-account__link"> <Unlock />
+                                            Изменить пароль
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
