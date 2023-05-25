@@ -13,6 +13,7 @@ import { News } from "../News/News";
 import { Contacts } from "../Contacts/Contacts";
 import { Registration } from "../Registration/Registration";
 import { PlantProtection } from "../PlantProtection/PlantProtection";
+import { PersonalAccount } from "../PersonalAccount/PersonalAccount";
 // import { CatalogSeeds } from "../CatalogProduct/CatalogSeeds";
 
 export const Router = () => {
@@ -37,6 +38,7 @@ export const Router = () => {
                 <Route path="catalog_fertilizers" element={<CatalogPlantProtection title="Удобрения" />} />
                 <Route path="catalog_feed_group" element={<CatalogPlantProtection title="Кормовая группа" />} />
                 <Route path="catalog_farmer_help" element={<CatalogPlantProtection title="Агроному в помощь" />} />
+                <Route path="personal_account" element={<PersonalAccount />} />
             </Routes>
         </>
     )
