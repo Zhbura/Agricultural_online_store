@@ -41,7 +41,7 @@ export const Footer = () => {
                     <div className="footer__text">
                         <h3 className="footer__heading">Контакты</h3>
                         <div className="contact-details">
-                            <a href="#"><div className="circle-icon"> <Phone /></div></a>
+                            <div className="circle-icon"> <Phone /></div>
                             <div className="contact-details__phone-info">
                                 <div className="contact-details__number" onClick={() => setPhoneActive(!phoneActive)}>
                                     <p>+7(900)8003020</p>
@@ -50,7 +50,7 @@ export const Footer = () => {
                             </div>
                             <div className={phoneActive ? 'contact-popUp active' : 'contact-popUp'}>
                                 <div className="wrap-contact__popUp">
-                                    <a href="#"> <div className="circle-icon"> <Phone /></div></a>
+                                    <div className="circle-icon"> <Phone /></div>
                                     <div>
                                         <div className="contact-details contact-details_hidden">
                                             <div className="contact-details__phone-info">
@@ -67,7 +67,7 @@ export const Footer = () => {
                             </div>
                         </div>
                         <div className="contact-details">
-                            <a href="#"> <div className="circle-icon"> <Mail /></div></a>
+                            <div className="circle-icon"> <Mail /></div>
                             <div className="contact-details__mail-info">
                                 <p>DAT@gmail.com</p>
                             </div>

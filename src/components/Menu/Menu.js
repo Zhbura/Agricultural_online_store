@@ -7,6 +7,7 @@ import { Phone } from '../SVG/Icon/Phone';
 import { Comparison } from '../SVG/Icon/Comparison';
 import { Cart } from '../SVG/Icon/Cart';
 import { Heart } from '../SVG/Icon/Heart';
+import { Link } from 'react-router-dom';
 
 export const Menu = ({ active, setActive }) => {
     return (
@@ -32,10 +33,10 @@ export const Menu = ({ active, setActive }) => {
                             </div>
                             <div className="header__toolBar">
                                 <div className="icon-quantity">
-                                    <a href="#"><div className="circle-icon circle-icon_white"><Comparison /><span>2</span></div></a>
+                                    <div className="circle-icon circle-icon_white"><Comparison /><span>2</span></div>
                                 </div>
                                 <div className="icon-quantity">
-                                    <a href="#"> <div className="circle-icon circle-icon_white"><Cart /><span>1</span></div> </a>
+                                    <div className="circle-icon circle-icon_white"><Cart /><span>1</span></div>
                                 </div>
                                 <p className="header__price header__price_white">0,0 руб</p>
                             </div>
@@ -60,11 +61,11 @@ export const Menu = ({ active, setActive }) => {
                     </div>
                 </header>
                 <nav className="menu__navigation">
-                    <a className="menu__text" href="#">О компании</a>
-                    <a className="menu__text" href="#">Каталог продукции</a>
-                    <a className="menu__text" href="#">Оплата и доставка</a>
-                    <a className="menu__text" href="#">Партнеры</a>
-                    <a className="menu__text" href="#">Контакты</a>
+                    <Link to='/aboutcompany' className="menu__text">О компании</Link>
+                    <Link to='/catalog_plant_protection' className="menu__text"> Каталог продукции</Link>
+                    <Link to='/pay' className="menu__text">Оплата | доставка</Link>
+                    <Link to='/partners' className="menu__text">Партнеры</Link>
+                    <Link to='/contacts' className="menu__text">Контакты</Link>
                 </nav>
             </div>
         </>

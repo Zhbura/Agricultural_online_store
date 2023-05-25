@@ -35,28 +35,28 @@ export const Product = () => {
                                         <div className="arrow-scroll">
                                             <Arrow />
                                         </div>
-                                        <img src={productImgBig} />
+                                        <img src={productImgBig} alt="Гербицид Комманд" />
                                         <div className="arrow-scroll arrow_right">
                                             <Arrow />
                                         </div>
                                     </div>
                                     <div className="wrap-img">
-                                        <div className="commodity-info__img commodity-info__img_small"><img src={productImgSmall} /></div>
-                                        <div className="commodity-info__img commodity-info__img_small"><img src={productImgSmall} /></div>
-                                        <div className="commodity-info__img commodity-info__img_small"><img src={productImgSmall} /></div>
+                                        <div className="commodity-info__img commodity-info__img_small"><img src={productImgSmall} alt="Гербицид Комманд" /></div>
+                                        <div className="commodity-info__img commodity-info__img_small"><img src={productImgSmall} alt="Гербицид Комманд" /></div>
+                                        <div className="commodity-info__img commodity-info__img_small"><img src={productImgSmall} alt="Гербицид Комманд" /></div>
                                     </div>
                                 </div>
                                 <div className="commodity-info_right">
                                     <h2 className="commodity-info__title">Гербицид Комманд®,<br /> ФМС Украина</h2>
                                     <div className="commodity-info__availability">
-                                        <p> <img src={availability} />В наличии</p>
+                                        <p> <img src={availability} alt="Продукт находится в наличии" />В наличии</p>
                                         <p className="commodity-info__availability_grey">1 619,03 грн./л</p>
                                     </div>
                                     <div className="wrap_top-info">
                                         <div>
                                             <div className="commodity-info__fabricator">
                                                 <h5 className="commodity-info__heading">Производитель</h5>
-                                                <img src={fabricator} alt="Производитель лого" />
+                                                <img src={fabricator} alt="Производитель лого ФМС Украина" />
                                                 <span className="commodity-info__text commodity-info__text_margin">ФМС Украина</span>
                                             </div>
                                             <div className="commodity-info__payment-method">
@@ -87,9 +87,9 @@ export const Product = () => {
                                                 <Cart />
                                                 Купить
                                             </div>
-                                            <a href="#"><div className="circle-icon circle-icon_hover"> <Heart /></div></a>
+                                            <div className="circle-icon circle-icon_hover"> <Heart /></div>
                                             <div className="icon-quantity">
-                                                <a href="#"><div className="circle-icon circle-icon_hover"><Comparison /><span>2</span></div></a>
+                                                <div className="circle-icon circle-icon_hover"><Comparison /><span>2</span></div>
                                             </div>
                                         </div>
                                     </div>
