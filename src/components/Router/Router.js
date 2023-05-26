@@ -18,6 +18,7 @@ import { CurrentOrders } from "../CurrentOrders/CurrentOrders";
 import { PersonalData } from "../PersonalData/PersonalData";
 import { OrderHistory } from "../OrderHistory/OrderHistory";
 import { ChangePassword } from "../ChangePassword/ChangePassword";
+import { Cabinet } from "../PersonalAccount/Cabinet";
 
 export const Router = () => {
     return (
@@ -41,11 +42,13 @@ export const Router = () => {
                 <Route path="catalog_fertilizers" element={<CatalogPlantProtection title="Удобрения" />} />
                 <Route path="catalog_feed_group" element={<CatalogPlantProtection title="Кормовая группа" />} />
                 <Route path="catalog_farmer_help" element={<CatalogPlantProtection title="Агроному в помощь" />} />
-                <Route path="personal_account" element={<PersonalAccount />} />
-                <Route path="current_orders" element={<CurrentOrders />} />
-                <Route path="personal_data" element={<PersonalData />} />
-                <Route path="order_history" element={<OrderHistory />} />
-                <Route path="change_password" element={<ChangePassword />} />
+                <Route path="personal_account" element={<PersonalAccount title />}>
+                    <Route path="*" element={<Cabinet title="Личный кабинет" />} />
+                    <Route path="current_orders" element={<CurrentOrders title="Текущие заказы" />} />
+                    <Route path="personal_data" element={<PersonalData title="Личные данные" />} />
+                    <Route path="order_history" element={<OrderHistory title="История заказов" />} />
+                    <Route path="change_password" element={<ChangePassword title="Изменить пароль" />} />
+                </Route>
             </Routes>
         </>
     )
