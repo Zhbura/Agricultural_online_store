@@ -41,28 +41,20 @@ export const PersonalAccount = () => {
                                     </Link>
                                 </div>
                                 <div className={popUpActive ? 'cabinet-popUp__items_small cabinet-popUp__items active' : 'cabinet-popUp__items_small cabinet-popUp__items'}>
-                                    <div className="cabinet-popUp__item icon_green">
-                                        <Link to="current_orders" className="cabinet-popUp__link"><ClipBoard />
-                                            Текущие заказы</Link>
-                                    </div>
+                                    <Link to="current_orders" className="cabinet-popUp__link icon_green"><ClipBoard />
+                                        Текущие заказы</Link>
                                     <span className="cabinet-popUp__separator" />
-                                    <div className="cabinet-popUp__item">
-                                        <Link to="personal_data" className="cabinet-popUp__link"><PersonalData />
-                                            Личные данные
-                                        </Link>
-                                    </div>
+                                    <Link to="personal_data" className="cabinet-popUp__link"><PersonalData />
+                                        Личные данные
+                                    </Link>
                                     <span className="cabinet-popUp__separator" />
-                                    <div className="cabinet-popUp__item">
-                                        <Link to="order_history" className="cabinet-popUp__link"><History />
-                                            История заказов
-                                        </Link>
-                                    </div>
+                                    <Link to="order_history" className="cabinet-popUp__link"><History />
+                                        История заказов
+                                    </Link>
                                     <span className="cabinet-popUp__separator" />
-                                    <div className="cabinet-popUp__item">
-                                        <Link to="change_password" className="cabinet-popUp__link"> <Unlock />
-                                            Изменить пароль
-                                        </Link>
-                                    </div>
+                                    <Link to="change_password" className="cabinet-popUp__link"> <Unlock />
+                                        Изменить пароль
+                                    </Link>
                                 </div>
                                 <div className="cabinet-popUp">
                                     <NavLink to="cabinet" className={setActive}>
