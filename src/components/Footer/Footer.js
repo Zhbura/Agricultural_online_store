@@ -25,7 +25,7 @@ export const Footer = () => {
                                 <li><Link to='/pay' className="footer__link">Оплата | доставка</Link></li>
                                 <li><Link to='/partners' className="footer__link">Партнеры</Link></li>
                                 <li><Link to='/privacypolicy' className="footer__link">Политика конфиденциальности</Link></li>
-                                <li>Возврат и обмен товара</li>
+                                <li><Link to='/refund' className="footer__link">Возврат и обмен товара</Link></li>
                             </ul>
                         </div>
                         <div className="footer__text">

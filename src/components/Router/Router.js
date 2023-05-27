@@ -22,6 +22,7 @@ import { Cabinet } from "../PersonalAccount/Cabinet";
 import { Layout } from "../Layout/Layout";
 import { Error } from "../Error/Error";
 import { PrivacyPolicy } from "../PrivacyPolicy/PrivacyPolicy";
+import { Refund } from "../Refund/Refund";
 
 export const Router = () => {
     return (
@@ -54,6 +55,7 @@ export const Router = () => {
                         <Route path="change_password" element={<ChangePassword />} />
                     </Route>
                     <Route path="privacypolicy" element={<PrivacyPolicy />} />
+                    <Route path="refund" element={<Refund />} />
                     <Route path="*" element={<Error />} />
                 </Route>
             </Routes>
