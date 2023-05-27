@@ -21,6 +21,7 @@ import { ChangePassword } from "../ChangePassword/ChangePassword";
 import { Cabinet } from "../PersonalAccount/Cabinet";
 import { Layout } from "../Layout/Layout";
 import { Error } from "../Error/Error";
+import { PrivacyPolicy } from "../PrivacyPolicy/PrivacyPolicy";
 
 export const Router = () => {
     return (
@@ -52,6 +53,7 @@ export const Router = () => {
                         <Route path="order_history" element={<OrderHistory />} />
                         <Route path="change_password" element={<ChangePassword />} />
                     </Route>
+                    <Route path="privacypolicy" element={<PrivacyPolicy />} />
                     <Route path="*" element={<Error />} />
                 </Route>
             </Routes>

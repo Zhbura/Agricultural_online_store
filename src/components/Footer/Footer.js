@@ -24,7 +24,7 @@ export const Footer = () => {
                                 <li><Link to='/aboutcompany' className="footer__link">О компании</Link></li>
                                 <li><Link to='/pay' className="footer__link">Оплата | доставка</Link></li>
                                 <li><Link to='/partners' className="footer__link">Партнеры</Link></li>
-                                <li>Политика конфиденциальности</li>
+                                <li><Link to='/privacypolicy' className="footer__link">Политика конфиденциальности</Link></li>
                                 <li>Возврат и обмен товара</li>
                             </ul>
                         </div>

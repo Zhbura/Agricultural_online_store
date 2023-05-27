@@ -1,0 +1,45 @@
+.privacy-policy {
+    padding-bottom: 113px;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        padding-bottom: 39px;
+    }
+
+    .container {
+        padding: 0 15px;
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            padding: 0 30px;
+        }
+    }
+
+    &__heading {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        text-transform: uppercase;
+        color: #1E6140;
+        margin-bottom: 15px;
+        margin-top: 30px;
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #000000;
+        margin-bottom: 10px;
+
+        &_margin {
+            margin-top: 33px;
+
+            @media (min-width: 320px) and (max-width: 767px) {
+                margin-top: 22px;
+            }
+        }
+    }
+
+    &__list {
+        margin-left: 15px;
+    }
+}
