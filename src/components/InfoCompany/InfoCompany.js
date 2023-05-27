@@ -2,6 +2,7 @@ import './InfoCompany.scss';
 import infoCompany from '../../img/infoCompany.png';
 import { Button } from '../Button/Button';
 import { PageHeadingOnce } from '../PageHeading/PageHeading';
+import { Link } from 'react-router-dom';
 
 export const InfoCompany = () => {
     return (
@@ -36,7 +37,9 @@ export const InfoCompany = () => {
                             </p>
                         </div>
                         <div className="info-company__btn">
-                            <Button>Подробнее</Button>
+                            <Button>
+                                <Link to='/codex'>Подробнее</Link>
+                            </Button>
                         </div>
                     </div>
                 </div>

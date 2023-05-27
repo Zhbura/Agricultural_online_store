@@ -23,6 +23,7 @@ import { Layout } from "../Layout/Layout";
 import { Error } from "../Error/Error";
 import { PrivacyPolicy } from "../PrivacyPolicy/PrivacyPolicy";
 import { Refund } from "../Refund/Refund";
+import { Codex } from "../Codex/Codex";
 
 export const Router = () => {
     return (
@@ -56,6 +57,7 @@ export const Router = () => {
                     </Route>
                     <Route path="privacypolicy" element={<PrivacyPolicy />} />
                     <Route path="refund" element={<Refund />} />
+                    <Route path="codex" element={<Codex />} />
                     <Route path="*" element={<Error />} />
                 </Route>
             </Routes>
