@@ -1,7 +1,4 @@
-import { BottomBar } from '../BottomBar/BottomBar';
 import { BrandWrap } from '../BrandWrap/BrandWrap';
-import { Footer } from '../Footer/Footer';
-import { Header } from "../Header/Header"
 import { InfoCompany } from '../InfoCompany/InfoCompany';
 import { NewProducts } from '../NewProducts/NewProducts';
 import { Partners } from '../Partners/Partners';

@@ -15,58 +15,58 @@ export const News = () => {
             <div className="news">
                 <div className="news__items">
                     <div className="news__item">
-                        <img className="news__img" src={newsImg} />
+                        <img className="news__img" src={newsImg} alt="Новости компании" />
                         <div className="news__date">20.01.2022</div>
                         <h4 className="news__heading">Доставка " Укрпочта Экспресс»</h4>
                         <p className="news__text">Для того, чтобы можно было рассмотреть вопрос о ремонте или
                             компенсации, или обмене, или возврате товара необходимо, чтобы были выполнены следующие
                             условия:</p>
-                        <a className="news__link arrow-checkbox_right">Подробнее<ArrowCheckbox /></a>
+                        <p className="news__link arrow-checkbox_right">Подробнее<ArrowCheckbox /></p>
                     </div>
                     <div className="news__item">
-                        <img className="news__img" src={newsImg2} />
+                        <img className="news__img" src={newsImg2} alt="Новости компании" />
                         <div className="news__date">20.01.2022</div>
                         <h4 className="news__heading">Доставка " Укрпочта Экспресс»</h4>
                         <p className="news__text">Для того, чтобы можно было рассмотреть вопрос о ремонте или
                             компенсации, или обмене, или возврате товара необходимо, чтобы были выполнены следующие
                             условия:</p>
-                        <a className="news__link arrow-checkbox_right">Подробнее<ArrowCheckbox /></a>
+                        <p className="news__link arrow-checkbox_right">Подробнее<ArrowCheckbox /></p>
                     </div>
                     <div className="news__item">
-                        <img className="news__img" src={newsImg} />
+                        <img className="news__img" src={newsImg} alt="Новости компании" />
                         <div className="news__date">20.01.2022</div>
                         <h4 className="news__heading">Доставка " Укрпочта Экспресс»</h4>
                         <p className="news__text">Для того, чтобы можно было рассмотреть вопрос о ремонте или
                             компенсации, или обмене, или возврате товара необходимо, чтобы были выполнены следующие
                             условия:</p>
-                        <a className="news__link arrow-checkbox_right">Подробнее<ArrowCheckbox /></a>
+                        <p className="news__link arrow-checkbox_right">Подробнее<ArrowCheckbox /></p>
                     </div>
                     <div className="news__item">
-                        <img className="news__img" src={newsImg4} />
+                        <img className="news__img" src={newsImg4} alt="Новости компании" />
                         <div className="news__date">20.01.2022</div>
                         <h4 className="news__heading">Доставка " Укрпочта Экспресс»</h4>
                         <p className="news__text">Для того, чтобы можно было рассмотреть вопрос о ремонте или
                             компенсации, или обмене, или возврате товара необходимо, чтобы были выполнены следующие
                             условия:</p>
-                        <a className="news__link arrow-checkbox_right">Подробнее<ArrowCheckbox /></a>
+                        <p className="news__link arrow-checkbox_right">Подробнее<ArrowCheckbox /></p>
                     </div>
                     <div className="news__item">
-                        <img className="news__img" src={newsImg5} />
+                        <img className="news__img" src={newsImg5} alt="Новости компании" />
                         <div className="news__date">20.01.2022</div>
                         <h4 className="news__heading">Доставка " Укрпочта Экспресс»</h4>
                         <p className="news__text">Для того, чтобы можно было рассмотреть вопрос о ремонте или
                             компенсации, или обмене, или возврате товара необходимо, чтобы были выполнены следующие
                             условия:</p>
-                        <a className="news__link arrow-checkbox_right">Подробнее<ArrowCheckbox /></a>
+                        <p className="news__link arrow-checkbox_right">Подробнее<ArrowCheckbox /></p>
                     </div>
                     <div className="news__item">
-                        <img className="news__img" src={newsImg6} />
+                        <img className="news__img" src={newsImg6} alt="Новости компании" />
                         <div className="news__date">20.01.2022</div>
                         <h4 className="news__heading">Доставка " Укрпочта Экспресс»</h4>
                         <p className="news__text">Для того, чтобы можно было рассмотреть вопрос о ремонте или
                             компенсации, или обмене, или возврате товара необходимо, чтобы были выполнены следующие
                             условия:</p>
-                        <a className="news__link arrow-checkbox_right">Подробнее<ArrowCheckbox /></a>
+                        <p className="news__link arrow-checkbox_right">Подробнее<ArrowCheckbox /></p>
                     </div>
                 </div>
                 <Pagination />

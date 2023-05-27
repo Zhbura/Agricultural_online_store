@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import { Main } from "../Main/Main";
 import { Product } from "../Product/Product";
 import { Order } from "../Order/Order";
@@ -20,6 +20,7 @@ import { OrderHistory } from "../OrderHistory/OrderHistory";
 import { ChangePassword } from "../ChangePassword/ChangePassword";
 import { Cabinet } from "../PersonalAccount/Cabinet";
 import { Layout } from "../Layout/Layout";
+import { Error } from "../Error/Error";
 
 export const Router = () => {
     return (
@@ -51,6 +52,7 @@ export const Router = () => {
                         <Route path="order_history" element={<OrderHistory />} />
                         <Route path="change_password" element={<ChangePassword />} />
                     </Route>
+                    <Route path="*" element={<Error />} />
                 </Route>
             </Routes>
         </>

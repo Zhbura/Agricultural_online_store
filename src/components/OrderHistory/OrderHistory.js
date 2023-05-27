@@ -10,7 +10,7 @@ export const OrderHistory = () => {
                 <div className="ordered-products">
                     <div className="ordered-products__item">
                         <div className="order__image">
-                            <img src={productImg} />
+                            <img src={productImg} alt="Гербицид Комманд" />
                         </div>
                         <div className="ordered-products_middle">
                             <h3 className="ordered-products__title">Гербицид Комманд®, ФМС Украина</h3>
@@ -24,7 +24,7 @@ export const OrderHistory = () => {
                     <span className="ordered-products__horisontal-line ordered-products__horisontal-line_big" />
                     <div className="ordered-products__item">
                         <div className="order__image">
-                            <img src={productImg} />
+                            <img src={productImg} alt="Гербицид Комманд" />
                         </div>
                         <div className="ordered-products_middle">
                             <h3 className="ordered-products__title">Гербицид Комманд®, ФМС Украина</h3>
@@ -38,7 +38,7 @@ export const OrderHistory = () => {
                     <span className="ordered-products__horisontal-line ordered-products__horisontal-line_big" />
                     <div className="ordered-products__item">
                         <div className="order__image">
-                            <img src={productImg} />
+                            <img src={productImg} alt="Гербицид Комманд" />
                         </div>
                         <div className="ordered-products_middle">
                             <h3 className="ordered-products__title">Гербицид Комманд®, ФМС Украина</h3>
@@ -55,7 +55,7 @@ export const OrderHistory = () => {
                         </div>
                         <div className="order__info-bottom">
                             <div className="order__image">
-                                <img src={productImg} />
+                                <img src={productImg} alt="Гербицид Комманд" />
                             </div>
                             <div className="order__info-right">
                                 <div className="order__price-quantity">
@@ -74,7 +74,7 @@ export const OrderHistory = () => {
                         </div>
                         <div className="order__info-bottom">
                             <div className="order__image">
-                                <img src={productImg} />
+                                <img src={productImg} alt="Гербицид Комманд" />
                             </div>
                             <div className="order__info-right">
                                 <div className="order__price-quantity">
@@ -93,7 +93,7 @@ export const OrderHistory = () => {
                         </div>
                         <div className="order__info-bottom">
                             <div className="order__image">
-                                <img src={productImg} />
+                                <img src={productImg} alt="Гербицид Комманд" />
                             </div>
                             <div className="order__info-right">
                                 <div className="order__price-quantity">

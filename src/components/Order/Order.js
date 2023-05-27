@@ -67,7 +67,7 @@ export const Order = () => {
                         <h4 className="order__heading">Товары в корзине</h4>
                         <div className="cart-order">
                             <div className="order__image">
-                                <img src={productImg} />
+                                <img src={productImg} alt="Гербицид Комманд" />
                             </div>
                             <div className="order__info-right">
                                 <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
@@ -79,7 +79,7 @@ export const Order = () => {
                         </div>
                         <div className="cart-order">
                             <div className="order__image">
-                                <img src={productImg} />
+                                <img src={productImg} alt="Гербицид Комманд" />
                             </div>
                             <div className="order__info-right">
                                 <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
@@ -96,7 +96,7 @@ export const Order = () => {
                             </div>
                             <div className="order__info-bottom">
                                 <div className="order__image">
-                                    <img src={productImg} />
+                                    <img src={productImg} alt="Гербицид Комманд" />
                                 </div>
                                 <div className="order__info-right">
                                     <div className="order__price-quantity">
@@ -112,7 +112,7 @@ export const Order = () => {
                             </div>
                             <div className="order__info-bottom">
                                 <div className="order__image">
-                                    <img src={productImg} />
+                                    <img src={productImg} alt="Гербицид Комманд" />
                                 </div>
                                 <div className="order__info-right">
                                     <div className="order__price-quantity">
