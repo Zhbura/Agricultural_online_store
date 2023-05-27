@@ -1,0 +1,115 @@
+.personal-data {
+    padding-bottom: 120px;
+
+    @media (min-width: 768px) and (max-width: 1139px) {
+        padding-bottom: 40px;
+    }
+
+    &__form {
+        background: #FFFFFF;
+        border-radius: 20px;
+        margin: 0 auto;
+        padding: 30px;
+
+        @media (min-width: 1140px) {
+            width: 825px;
+        }
+
+        @media (min-width: 768px) and (max-width: 1139px) {
+            width: 735px;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            width: 310px;
+            padding: 10px;
+            margin-top: 16px;
+        }
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #484848;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            margin-top: 10px;
+        }
+
+        &_margin {
+            @media (min-width: 768px) {
+                margin: 17px 0;
+            }
+        }
+    }
+
+    &__input,
+    &__input-adress {
+        background: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 90px;
+        padding: 10px 20px 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 8px;
+
+        input {
+            border: none;
+            display: block;
+            outline: none;
+            width: 100%;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: #484848;
+        }
+    }
+
+    &__input {
+        width: 373px;
+
+        @media (min-width: 320px) and (max-width: 1139px) {
+            width: 290px;
+        }
+    }
+
+    &__input-adress {
+        width: 766px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            width: 290px;
+        }
+
+        @media (min-width: 768px) and (max-width: 1139px) {
+            width: 675px;
+        }
+    }
+}
+
+.wrap-personalData {
+    display: flex;
+    justify-content: space-between;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        flex-direction: column;
+    }
+}
+
+.cabinet-btn {
+    background: #E74E13;
+    border-radius: 90px;
+    width: 220px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    border: none;
+    padding: 14px 0;
+    margin-top: 20px;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        margin: 20px auto;
+    }
+}

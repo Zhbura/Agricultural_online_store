@@ -25,7 +25,7 @@ export const Header = () => {
                         <img src={search} alt="Поиск" />
                     </form>
                     <div className="contact-details contact-details_hidden">
-                        <a><div className="circle-icon"> <Phone /></div></a>
+                        <div className="circle-icon"> <Phone /></div>
                         <div className="contact-details__phone-info">
                             <div className="contact-details__number" onClick={() => setPhoneActive(!phoneActive)}>
                                 <p>+7(900)8003020</p>
@@ -34,7 +34,7 @@ export const Header = () => {
                         </div>
                         <div className={phoneActive ? 'contact-popUp active' : 'contact-popUp'}>
                             <div className="wrap-contact__popUp">
-                                <a href="#"> <div className="circle-icon"> <Phone /></div></a>
+                                <div className="circle-icon"> <Phone /></div>
                                 <div>
                                     <div className="contact-details contact-details_hidden">
                                         <div className="contact-details__phone-info">
@@ -52,13 +52,13 @@ export const Header = () => {
                     </div>
                     <div className="header__toolBar">
                         <div className="icon-quantity">
-                            <a><div className="circle-icon circle-icon_hover circle-icon_hidden"> <Heart /></div></a>
+                            <div className="circle-icon circle-icon_hover circle-icon_hidden"> <Heart /></div>
                         </div>
                         <div className="icon-quantity">
-                            <a><div className="circle-icon circle-icon_hover"><Comparison /><span>2</span></div></a>
+                            <div className="circle-icon circle-icon_hover"><Comparison /><span>2</span></div>
                         </div>
                         <div className="icon-quantity" onClick={() => setCartActive(!cartActive)}>
-                            <a> <div className="circle-icon circle-icon_hover"><Cart /><span>1</span></div> </a>
+                            <div className="circle-icon circle-icon_hover"><Cart /><span>1</span></div>
                         </div>
                         <CartComp active={cartActive} setActive={setCartActive} />
                         <p className="header__price">0,0 руб</p>

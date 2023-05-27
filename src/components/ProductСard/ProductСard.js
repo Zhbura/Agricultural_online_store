@@ -18,7 +18,7 @@ export const ProductCard = (props) => {
                         <p className="product-card__quantity">1 шт</p>
                     </div>
                     <div className="product-card__cart">
-                        <a href="#"><div className="circle-icon circle-icon_hover"><Cart /></div></a>
+                        <div className="circle-icon circle-icon_hover"><Cart /></div>
                     </div>
                 </div>
             </div>

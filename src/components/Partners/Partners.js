@@ -4,7 +4,7 @@ import partnerLogo2 from '../../img/partnerLogo2.svg';
 import partnerLogo3 from '../../img/partnerLogo3.svg';
 import partnerLogo5 from '../../img/partnerLogo5.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
-import { Arrow } from '../SVG/Arrow/Arrow';
+import { Arrow, ArrowRight } from '../SVG/Arrow/Arrow';
 
 export const Partners = () => {
     return (
@@ -27,8 +27,8 @@ export const Partners = () => {
                     <div className="partners__logo">
                         <img src={partnerLogo5} alt="partnerLogo5" />
                     </div>
-                    <div className="arrow-circle arrow_right">
-                        <Arrow />
+                    <div className="arrow-circle">
+                        <ArrowRight />
                     </div>
                 </div>
                 <div className="partners__slider">
