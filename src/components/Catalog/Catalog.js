@@ -1,11 +1,11 @@
-import './CatalogProduct.scss';
+import './Catalog.scss';
 import { Pagination } from '../Pagination/Pagination';
 import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { SeedsCatalog } from '../SeedsCatalog/SeedsCatalog';
 import { ProductCard } from '../ProductСard/ProductСard';
 
-export const CatalogPlantProtection = (props) => {
+export const Catalog = (props) => {
 
     return (
         <>
