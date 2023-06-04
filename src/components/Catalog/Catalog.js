@@ -4,9 +4,16 @@ import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { SeedsCatalog } from '../SeedsCatalog/SeedsCatalog';
 import { ProductCard } from '../ProductСard/ProductСard';
+import { FilterCatalog } from '../FilterCatalog/FilterCatalog';
+import { useDispatch } from 'react-redux';
+import { changeShowFilter } from '../../store/catalog/action';
 
 export const Catalog = (props) => {
+    const dispatch = useDispatch();
 
+    const showFilter = () => {
+        dispatch(changeShowFilter);
+    };
     return (
         <>
             <div className="container">
@@ -15,7 +22,10 @@ export const Catalog = (props) => {
                 </PageHeadingTwice>
                 <div className="filters-small">
                     <form className="sort">
-                        <div className="filter_small">Фильтр</div>
+                        <div className="filter_small" >
+                            <div className="" onClick={showFilter}>Фильтр</div>
+                            <FilterCatalog />
+                        </div>
                         <div className="sort__container arrow-checkbox_grey">
                             <input type="text" placeholder="Сортировать по" />
                             <span /><ArrowCheckbox />

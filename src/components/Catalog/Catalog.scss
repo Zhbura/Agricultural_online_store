@@ -49,6 +49,16 @@
             padding-left: 6px;
             margin-left: 10px;
         }
+
+        svg {
+            margin-left: 22px;
+            margin-right: 14px;
+
+            @media (min-width: 320px) and (max-width: 900px) {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
     }
 
     span {
@@ -73,16 +83,6 @@
             line-height: 15px;
         }
     }
-
-    svg {
-        margin-left: 22px;
-        margin-right: 14px;
-
-        @media (min-width: 320px) and (max-width: 900px) {
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-    }
 }
 
 .result {
@@ -90,7 +90,6 @@
     font-size: 16px;
     line-height: 20px;
     color: rgba(0, 0, 0, 0.5);
-    // align-self: flex-end;
     padding-bottom: 10px;
 
     @media (min-width: 320px) and (max-width: 900px) {
@@ -101,7 +100,7 @@
 
 .filter {
     background: #FFFFFF;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
     padding-bottom: 13px;
     width: 255px;
@@ -133,6 +132,20 @@
             float: right;
         }
     }
+
+    &__btn {
+        width: 213px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        background: #E74E13;
+        border-radius: 90px;
+        color: #FFFFFF;
+        padding: 14px 0;
+        border: none;
+        margin: 0 auto;
+    }
 }
 
 .filter {
@@ -144,8 +157,17 @@
         color: #FFFFFF;
         padding: 15px 0 15px 0;
         background: #84BE51;
-        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
-        border-radius: 20px 20px 0px 0px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+        border-radius: 20px 20px 0 0;
+
+        &_small {
+            border-radius: 0 20px 0 0;
+            text-align: left;
+        }
+    }
+
+    &__units {
+        text-align: left;
     }
 
     &__unit {
@@ -168,14 +190,6 @@
         display: none;
     }
 
-    label {
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 20px;
-        color: rgba(0, 0, 0, 0.5);
-        padding-bottom: 10px;
-    }
-
     // label:before {
     //     content: " ";
     //     display: inline-block;
@@ -193,12 +207,12 @@
         height: 40px;
         background: #84BE51;
         border-radius: 20px;
-        text-align: center;
         color: #FFFFFF;
         font-weight: 600;
         font-size: 11px;
         line-height: 15px;
-        padding: 12px 0 12px 0;
+        padding: 12px 0;
+        text-align: center;
         margin-right: 10px;
     }
 }
@@ -208,13 +222,43 @@
     justify-content: space-between;
     background: #FFFFFF;
     align-items: center;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     width: 290px;
     height: 40px;
     padding: 10px 20px 10px 20px;
     margin: 0 auto;
+
+    &__items {
+        width: 275px;
+        background: #FFFFFF;
+        margin: 0 auto;
+        padding: 0 12px 12px 12px;
+        border-radius: 20px;
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+
+        p {
+            padding-top: 10px;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+            color: rgba(0, 0, 0, 0.5);
+            text-align: left;
+        }
+
+        span {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            color: #E74E13;
+            float: right;
+        }
+    }
 
     p {
         font-weight: 700;
@@ -246,6 +290,7 @@
     // display: flex;
     // flex-direction: column;
     // justify-content: center;
+    position: relative;
 
     @media (min-width: 900px) {
         display: none;
@@ -263,6 +308,10 @@
     position: relative;
     padding-left: 25px;
     margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
