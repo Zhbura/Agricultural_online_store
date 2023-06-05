@@ -95,6 +95,10 @@
     @media (min-width: 320px) and (max-width: 900px) {
         text-align: center;
         padding-top: 16px;
+
+        &_position {
+            margin-top: 235px;
+        }
     }
 }
 
@@ -218,6 +222,7 @@
 }
 
 .filter-popUp {
+    position: relative;
     display: flex;
     justify-content: space-between;
     background: #FFFFFF;
@@ -231,36 +236,19 @@
     margin: 0 auto;
 
     &__items {
-        width: 275px;
         background: #FFFFFF;
-        margin: 0 auto;
-        padding: 0 12px 12px 12px;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
         border-radius: 20px;
+        width: 290px;
+        padding: 20px 28px 20px 30px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: none;
     }
 
-    &__text {
-        display: flex;
-        flex-direction: column;
-
-        p {
-            padding-top: 10px;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 20px;
-            color: rgba(0, 0, 0, 0.5);
-            text-align: left;
-        }
-
-        span {
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 15px;
-            color: #E74E13;
-            float: right;
-        }
-    }
-
-    p {
+    &__selected {
         font-weight: 700;
         font-size: 16px;
         line-height: 20px;
@@ -274,6 +262,46 @@
             margin-left: 41px;
         }
     }
+
+    &__text {
+        // display: flex;
+        // flex-direction: column;
+
+
+        padding-top: 10px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        color: rgba(0, 0, 0, 0.5);
+        text-align: left;
+
+        &_active {
+            color: #84C551;
+        }
+
+        span {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            color: #E74E13;
+            float: right;
+        }
+    }
+
+    // p {
+    //     font-weight: 700;
+    //     font-size: 16px;
+    //     line-height: 20px;
+    //     color: #84C551;
+
+    //     span {
+    //         font-weight: 400;
+    //         font-size: 12px;
+    //         line-height: 15px;
+    //         color: #E74E13;
+    //         margin-left: 41px;
+    //     }
+    // }
 
     &__line {
         border: 1px solid #84C551;
@@ -367,4 +395,8 @@
     input:checked~.checkmark-checkbox:after {
         display: block;
     }
+}
+
+.filter-popUp__items.active {
+    display: block;
 }

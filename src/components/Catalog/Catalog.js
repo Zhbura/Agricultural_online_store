@@ -7,8 +7,11 @@ import { ProductCard } from '../ProductСard/ProductСard';
 import { FilterCatalog } from '../FilterCatalog/FilterCatalog';
 import { useDispatch } from 'react-redux';
 import { changeShowFilter } from '../../store/catalog/action';
+import { useState } from 'react';
 
 export const Catalog = (props) => {
+    const [filterPopUpActive, setFilterPopeActive] = useState(false);
+
     const dispatch = useDispatch();
 
     const showFilter = () => {
@@ -31,14 +34,24 @@ export const Catalog = (props) => {
                             <span /><ArrowCheckbox />
                         </div>
                     </form>
-                    <div className="filter-popUp">
-                        <p>Гербициды <span>(229)</span></p>
+                    <div className="filter-popUp" onClick={() => setFilterPopeActive(!filterPopUpActive)}>
+                        <p className="filter-popUp__selected">Гербициды <span>(229)</span></p>
                         <span className="filter-popUp__line" />
                         <ArrowCheckbox />
+                        <div className={filterPopUpActive ? "filter-popUp__items  active" : "filter-popUp__items"}>
+                            <p className="filter-popUp__text filter-popUp__text_active">Гербициды <span>(229)</span></p>
+                            <p className="filter-popUp__text">Фунгициды <span>(9)</span></p>
+                            <p className="filter-popUp__text">Инсектициды <span>(209)</span></p>
+                            <p className="filter-popUp__text">Десиканты <span>(120)</span></p>
+                            <p className="filter-popUp__text">Протравители <span>(215)</span></p>
+                            <p className="filter-popUp__text">Адъюванты <span>(410)</span></p>
+                            <p className="filter-popUp__text">Родентициды <span>(30)</span></p>
+                            <p className="filter-popUp__text">Ретарданты <span>(229)</span></p>
+                        </div>
                     </div>
-                    <div className="result">Показано 621 товар</div>
-                </div>
 
+                    <div className={filterPopUpActive ? "result result_position" : "result"}>Показано 621 товар</div>
+                </div>
             </div>
             <div className="container">
                 <div className="filters-big">
