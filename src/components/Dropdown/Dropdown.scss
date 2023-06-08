@@ -1,0 +1,92 @@
+.dropdown-bar {
+    @media (min-width: 901px) {
+        display: none;
+    }
+
+    position: relative;
+    user-select: none;
+
+    &__container {
+        margin-bottom: 233px;
+    }
+
+    &__btn {
+        width: 290px;
+        height: 47px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: 1px solid #1E6140;
+        border-radius: 20px;
+        cursor: pointer;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        text-transform: uppercase;
+        color: #000000;
+
+        svg {
+            margin-right: 10px;
+        }
+
+        &:hover {
+            background: #E74E13;
+            color: #ffffff;
+
+            svg {
+                fill: #ffffff;
+            }
+        }
+    }
+
+    &__link {
+        display: block;
+        height: 100%;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        text-transform: uppercase;
+        color: #000000;
+    }
+
+    &__content {
+        position: absolute;
+        left: 0;
+        margin-top: 10px;
+        width: 290px;
+        border: 1px solid #1E6140;
+        border-radius: 20px;
+        z-index: 1;
+        background: #ffffff;
+        transition: 1s;
+    }
+
+    &__item {
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 20px;
+        transition: all 0.2s;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        text-transform: uppercase;
+        color: #000000;
+
+        svg {
+            vertical-align: middle;
+        }
+
+        &:hover {
+            background: #E74E13;
+            color: #ffffff;
+
+            svg {
+                fill: #ffffff;
+            }
+        }
+    }
+}
