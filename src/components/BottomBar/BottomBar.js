@@ -4,7 +4,6 @@ import { Sapling } from '../SVG/Sapling';
 import { Fertilizers } from '../SVG/Fertilizers';
 import { FeedGroup } from '../SVG/FeedGroup';
 import { Farmer } from '../SVG/Farmer';
-import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Dropdown } from '../Dropdown/Dropdown';

@@ -8,19 +8,23 @@ import { Comparison } from '../SVG/Icon/Comparison';
 import { Cart } from '../SVG/Icon/Cart';
 import { Heart } from '../SVG/Icon/Heart';
 import { Link } from 'react-router-dom';
+import { CartComp } from '../Cart/Cart';
+import { useState } from 'react';
 
 export const Menu = ({ active, setActive }) => {
+    const [cartActive, setCartActive] = useState(false);
+    const [phoneActive, setPhoneActive] = useState(false);
+
     return (
         <>
             <div className={active ? 'menu active' : 'menu'}>
-                <div className="top-bar top-bar_menu">
+                <div className="menu__top-bar">
                     <div className="container">
-                        <div className="top-bar__line"></div>
-                        <div className="top-bar__login">
+                        <div className="top-bar__login menu__login">
                             <img src={logOut} alt="Войти" />
-                            <span className="top-bar__text">Вход | Регистрация</span>
+                            <Link to='/registration' className="top-bar__text">Вход | Регистрация</Link>
                         </div>
-                        <div className="top-bar__menu" onClick={() => setActive(false)}>
+                        <div className="menu__close" onClick={() => setActive(false)}>
                             <img src={closeMenu} alt="Меню" />
                         </div>
                     </div>
@@ -29,15 +33,16 @@ export const Menu = ({ active, setActive }) => {
                     <div className="container">
                         <div className="menu-wrap">
                             <div className="header__logo menu__logo">
-                                <img src={logoWhite} alt="Логотип компании" />
+                                <Link to='/'><img src={logoWhite} alt="Логотип компании" /></Link>
                             </div>
                             <div className="header__toolBar">
                                 <div className="icon-quantity">
                                     <div className="circle-icon circle-icon_white"><Comparison /><span>2</span></div>
                                 </div>
-                                <div className="icon-quantity">
+                                <div className="icon-quantity" onClick={() => setCartActive(!cartActive)}>
                                     <div className="circle-icon circle-icon_white"><Cart /><span>1</span></div>
                                 </div>
+                                <CartComp active={cartActive} setActive={setCartActive} />
                                 <p className="header__price header__price_white">0,0 руб</p>
                             </div>
                         </div>
@@ -52,10 +57,27 @@ export const Menu = ({ active, setActive }) => {
                         <div className="contact-details">
                             <div className="circle-icon circle-icon_white"> <Phone /></div>
                             <div className="contact-details__phone-info contact-details__phone-info_white">
-                                <div className="contact-details__number">
+                                <div className="contact-details__number" onClick={() => setPhoneActive(!phoneActive)}>
                                     <p>+7 (900) 800 30 20</p>
                                 </div>
                                 <p className="contact-details__text">Заказать обратную связь</p>
+                            </div>
+                            <div className={phoneActive ? 'contact-popUp active' : 'contact-popUp'}>
+                                <div className="wrap-contact__popUp">
+                                    <div className="circle-icon"> <Phone /></div>
+                                    <div>
+                                        <div className="contact-details">
+                                            <div className="contact-details__phone-info">
+                                                <div className="contact-details__number" onClick={() => setPhoneActive(false)}>
+                                                    <p>+7(900)8003020</p>
+                                                </div>
+                                                <p className="contact-details__text">Заказать обратную связь</p>
+                                            </div>
+                                        </div>
+                                        <p className="contact-details__number-text">+7(900)8003030</p>
+                                        <p className="contact-details__number-text">+7(900)8003040</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
