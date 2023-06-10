@@ -1,63 +1,49 @@
+.catalog {
+    @media (min-width: 900px) and (max-width: 1200px) {
+        padding: 0 30px;
+    }
+}
+
 .catalog-product {
     display: grid;
     grid-template-columns: repeat(3, 255px);
     grid-template-rows: repeat(5, 355px);
     grid-gap: 30px;
-    justify-content: center;
 
     @media (min-width: 320px) and (max-width: 767px) {
-        grid-template-columns: repeat(1, 290px);
-        grid-template-rows: repeat(6, 404px);
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(15, 1fr);
     }
 
     @media (min-width: 768px) and (max-width: 1199px) {
         grid-template-columns: repeat(2, 255px);
         grid-template-rows: repeat(8, 355px);
+        justify-content: center;
     }
 }
 
 .sort {
+    padding: 10px 0 10px 15px;
+    max-width: 260px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 90px;
     display: flex;
-    justify-content: space-between;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    background: #FFFFFF;
+    align-items: center;
 
     @media (min-width: 320px) and (max-width: 899px) {
-        justify-content: center;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        width: 135px;
+        padding-left: 6px;
     }
 
-    @media (min-width: 900px) and (max-width: 1199px) {
-        padding-left: 55px;
-        padding-right: 25px;
-        align-items: center;
-    }
+    svg {
+        margin-left: 22px;
+        margin-right: 14px;
 
-    &__container {
-        padding: 10px 0 10px 15px;
-        max-width: 260px;
-        height: 40px;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        border-radius: 90px;
-        display: flex;
-        background: #FFFFFF;
-        align-items: center;
-
-        @media (min-width: 320px) and (max-width: 899px) {
-            width: 135px;
-            padding-left: 6px;
+        @media (min-width: 320px) and (max-width: 900px) {
             margin-left: 10px;
-        }
-
-        svg {
-            margin-left: 22px;
-            margin-right: 14px;
-
-            @media (min-width: 320px) and (max-width: 900px) {
-                margin-left: 10px;
-                margin-right: 10px;
-            }
+            margin-right: 10px;
         }
     }
 
@@ -90,7 +76,6 @@
     font-size: 16px;
     line-height: 20px;
     color: rgba(0, 0, 0, 0.5);
-    padding-bottom: 10px;
 
     @media (min-width: 320px) and (max-width: 900px) {
         text-align: center;
@@ -99,125 +84,6 @@
         &_position {
             margin-top: 235px;
         }
-    }
-}
-
-.filter {
-    background: #FFFFFF;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-    border-radius: 20px;
-    padding-bottom: 13px;
-    width: 255px;
-    margin: 0 30px 30px 30px;
-
-    @media (min-width: 320px) and (max-width: 899px) {
-        display: none;
-    }
-
-    &__text {
-        padding: 26px 28px 10px 30px;
-        display: flex;
-        flex-direction: column;
-
-        p {
-            padding-top: 10px;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 20px;
-            color: rgba(0, 0, 0, 0.5);
-            text-align: left;
-        }
-
-        span {
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 15px;
-            color: #E74E13;
-            float: right;
-        }
-    }
-
-    &__btn {
-        width: 213px;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 20px;
-        text-align: center;
-        background: #E74E13;
-        border-radius: 90px;
-        color: #FFFFFF;
-        padding: 14px 0;
-        border: none;
-        margin: 0 auto;
-    }
-}
-
-.filter {
-    &__title {
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
-        text-align: center;
-        color: #FFFFFF;
-        padding: 15px 0 15px 0;
-        background: #84BE51;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-        border-radius: 20px 20px 0 0;
-
-        &_small {
-            border-radius: 0 20px 0 0;
-            text-align: left;
-        }
-    }
-
-    &__units {
-        text-align: left;
-    }
-
-    &__unit {
-        display: flex;
-        flex-direction: column;
-        margin-top: 17px;
-        margin-bottom: 17px;
-        padding-left: 30px;
-    }
-
-    &__heading {
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
-        color: #000000;
-        padding-bottom: 15px;
-    }
-
-    input[type="checkbox"] {
-        display: none;
-    }
-
-    // label:before {
-    //     content: " ";
-    //     display: inline-block;
-    //     margin-right: 12px;
-    //     width: 15px;
-    //     height: 15px;
-    //     background: #FFF;
-    //     border: 1px solid #CCCCCC;
-    //     border-radius: 3px;
-    //     vertical-align: middle;
-    // }
-
-    &_small {
-        width: 135px;
-        height: 40px;
-        background: #84BE51;
-        border-radius: 20px;
-        color: #FFFFFF;
-        font-weight: 600;
-        font-size: 11px;
-        line-height: 15px;
-        padding: 12px 0;
-        text-align: center;
-        margin-right: 10px;
     }
 }
 
@@ -264,11 +130,6 @@
     }
 
     &__text {
-        // display: flex;
-        // flex-direction: column;
-
-
-        padding-top: 10px;
         font-weight: 700;
         font-size: 16px;
         line-height: 20px;
@@ -288,115 +149,44 @@
         }
     }
 
-    // p {
-    //     font-weight: 700;
-    //     font-size: 16px;
-    //     line-height: 20px;
-    //     color: #84C551;
-
-    //     span {
-    //         font-weight: 400;
-    //         font-size: 12px;
-    //         line-height: 15px;
-    //         color: #E74E13;
-    //         margin-left: 41px;
-    //     }
-    // }
-
     &__line {
         border: 1px solid #84C551;
         height: 28px;
     }
 }
 
-.wrap-filter {
-    display: flex;
-    justify-content: center;
+.filter-popUp__items.active {
+    display: block;
 }
 
-.filters-small {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
+.catalog-wrap {
+    @media (min-width: 900px) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &_top {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+
+        @media (min-width: 320px) and (max-width: 899px) {
+            display: none;
+        }
+    }
+}
+
+.wrap-small {
+    margin: 20px 0;
     position: relative;
 
     @media (min-width: 900px) {
         display: none;
     }
-}
 
-.filters-big {
-    @media (min-width: 320px) and (max-width: 899px) {
-        display: none;
+    &_top {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
     }
-}
-
-.input-checkbox {
-    display: block;
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 15px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-    /* Hide the browser's default radio button */
-    input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-    }
-
-    /* Create a custom radio button Границы кружка */
-    .checkmark-checkbox {
-        position: absolute;
-        top: 2px;
-        left: 0;
-        height: 15px;
-        width: 15px;
-        background: #ffffff;
-        border: 1px solid #CCCCCC;
-        border-radius: 3px;
-
-        /* Create the indicator (the dot/circle - hidden when not checked) Кружок внутри круга*/
-        &:after {
-            display: none;
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 9px;
-            height: 9px;
-            background: #84C551;
-            border-radius: 3px;
-        }
-    }
-
-    /* On mouse-over, add a grey background color */
-    &:hover input~.checkmark-checkbox {
-        background-color: #ccc;
-    }
-
-    /* When the radio button is checked, add a blue background */
-    // input:checked~.checkmark {
-    //     background-color: white;
-    // }
-
-    /* Show the indicator (dot/circle) when checked */
-    input:checked~.checkmark-checkbox:after {
-        display: block;
-    }
-}
-
-.filter-popUp__items.active {
-    display: block;
 }

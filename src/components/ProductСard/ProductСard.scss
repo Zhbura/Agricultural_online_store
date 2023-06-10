@@ -44,6 +44,10 @@
     height: 355px;
     position: relative;
 
+    @media (min-width: 320px) and (max-width: 767px) {
+        margin: 0 auto;
+    }
+
     &__main-img {
         display: block;
         margin-left: auto;

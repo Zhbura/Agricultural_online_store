@@ -48,6 +48,171 @@
     }
 }
 
+.filter {
+    background: #FFFFFF;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    padding-bottom: 13px;
+    width: 255px;
+    margin-bottom: 30px;
+
+    @media (min-width: 320px) and (max-width: 899px) {
+        display: none;
+    }
+
+    &__text {
+        padding: 26px 28px 10px 30px;
+        display: flex;
+        flex-direction: column;
+
+        p {
+            padding-top: 10px;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+            color: rgba(0, 0, 0, 0.5);
+            text-align: left;
+        }
+
+        span {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            color: #E74E13;
+            float: right;
+        }
+    }
+
+    &__btn {
+        width: 213px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        background: #E74E13;
+        border-radius: 90px;
+        color: #FFFFFF;
+        padding: 14px 0;
+        border: none;
+        margin: 0 auto;
+    }
+}
+
+.filter {
+    &__title {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFF;
+        padding: 15px 0 15px 0;
+        background: #84BE51;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+        border-radius: 20px 20px 0 0;
+
+        &_small {
+            border-radius: 0 20px 0 0;
+            text-align: left;
+        }
+    }
+
+    &__units {
+        text-align: left;
+    }
+
+    &__unit {
+        display: flex;
+        flex-direction: column;
+        margin-top: 17px;
+        margin-bottom: 17px;
+        padding-left: 30px;
+    }
+
+    &__heading {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: #000000;
+        padding-bottom: 15px;
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+}
+
+.filter-small {
+    width: 135px;
+    height: 40px;
+    background: #84BE51;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 15px;
+    padding: 12px 0;
+    text-align: center;
+    margin-right: 21px;
+}
+
+.input-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    /* Границы кружка */
+    .checkmark-checkbox {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        height: 15px;
+        width: 15px;
+        background: #ffffff;
+        border: 1px solid #CCCCCC;
+        border-radius: 3px;
+
+        /* Кружок внутри круга*/
+        &:after {
+            display: none;
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 9px;
+            height: 9px;
+            background: #84C551;
+            border-radius: 3px;
+        }
+    }
+
+    &:hover input~.checkmark-checkbox {
+        background-color: #ccc;
+    }
+
+    input:checked~.checkmark-checkbox:after {
+        display: block;
+    }
+}
+
 // нужно для затемнения фона при открытии меню
 .blackout {
     @media (min-width: 320px) and (max-width: 899px) {
@@ -56,5 +221,5 @@
         background: rgba(0, 0, 0, 0.8);
         position: absolute;
         z-index: 99;
-    }  
+    }
 }

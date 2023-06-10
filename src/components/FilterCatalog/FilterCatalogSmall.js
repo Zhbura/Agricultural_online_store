@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectShowFilter } from '../../store/catalog/selectors';
 import { changeShowFilter } from '../../store/catalog/action';
 
-export const FilterCatalog = () => {
+export const FilterCatalogSmall = () => {
     const [fabricator, setFabricator] = useState(false);
     const [culture, setCulture] = useState(false);
     const [quantity, setQuantity] = useState(false);
