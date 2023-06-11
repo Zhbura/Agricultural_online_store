@@ -17,7 +17,7 @@ export const Menu = ({ active, setActive }) => {
 
     return (
         <>
-            <div className={active ? 'menu active' : 'menu'}>
+            <div className={active ? 'menu menu_active' : 'menu'}>
                 <div className="menu__top-bar">
                     <div className="container">
                         <div className="top-bar__login menu__login">

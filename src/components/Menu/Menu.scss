@@ -10,6 +10,12 @@
         top: 0;
         right: 0;
         z-index: 1;
+        transition: 0.5s;
+        transform: translateX(320px);
+
+        &_active {
+            transform: translateX(0%);
+        }
 
         &__top-bar {
             background: rgba(255, 255, 255, 0.1);
@@ -89,11 +95,11 @@
     }
 }
 
-.menu {
-    transition: 0.5s;
-    transform: translateX(320px);
-}
+// .menu {
+//     transition: 0.5s;
+//     transform: translateX(320px);
+// }
 
-.menu.active {
-    transform: translateX(0%);
-}
+// .menu.active {
+//     transform: translateX(0%);
+// }

@@ -9,9 +9,10 @@ import { useDispatch } from 'react-redux';
 import { changeShowFilter } from '../../store/catalog/action';
 import { useState } from 'react';
 import { FilterCatalogBig } from '../FilterCatalog/FilterCatalogBig';
+import { DropdownCatalog } from '../Dropdown/DropdownCatalog';
 
 export const Catalog = (props) => {
-    const [filterPopUpActive, setFilterPopeActive] = useState(false);
+    const [selected, setSelected] = useState('');
 
     const dispatch = useDispatch();
 
@@ -41,21 +42,7 @@ export const Catalog = (props) => {
                             <span /><ArrowCheckbox />
                         </div>
                     </div>
-                    <div className="filter-popUp" onClick={() => setFilterPopeActive(!filterPopUpActive)}>
-                        <p className="filter-popUp__selected">Гербициды <span>(229)</span></p>
-                        <span className="filter-popUp__line" />
-                        <ArrowCheckbox />
-                        <div className={filterPopUpActive ? "filter-popUp__items  active" : "filter-popUp__items"}>
-                            <p className="filter-popUp__text filter-popUp__text_active">Гербициды <span>(229)</span></p>
-                            <p className="filter-popUp__text">Фунгициды <span>(9)</span></p>
-                            <p className="filter-popUp__text">Инсектициды <span>(209)</span></p>
-                            <p className="filter-popUp__text">Десиканты <span>(120)</span></p>
-                            <p className="filter-popUp__text">Протравители <span>(215)</span></p>
-                            <p className="filter-popUp__text">Адъюванты <span>(410)</span></p>
-                            <p className="filter-popUp__text">Родентициды <span>(30)</span></p>
-                            <p className="filter-popUp__text">Ретарданты <span>(229)</span></p>
-                        </div>
-                    </div>
+                    <DropdownCatalog selected={selected} setSelected={setSelected} />
                     <div className="result">Показано 621 товар</div>
                 </div>
                 <div className="catalog-wrap container">

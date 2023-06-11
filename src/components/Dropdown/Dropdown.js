@@ -11,7 +11,7 @@ import { Sapling } from '../SVG/Sapling';
 
 export const Dropdown = ({ selected, setSelected }) => {
     const [isActive, setIsActive] = useState(false);
-    const [test, setTest] = useState(true);
+    const [initialValue, setInitialValue] = useState(true);
 
     const options = [
         {
@@ -48,11 +48,11 @@ export const Dropdown = ({ selected, setSelected }) => {
     return (
         <>
             <div className="dropdown-bar">
-                <div className={isActive ? "dropdown-bar__container" : ""}>
+                <div className={isActive ? "dropdown-bar__wrap" : ""}>
                     <div className="dropdown-bar__btn" onClick={(e) => setIsActive(!isActive)}>
                         {selected.svg}
                         {selected.name}
-                        {test && 'Перейти на страницу...'}
+                        {initialValue && 'Перейти на страницу...'}
                         {isActive ? <ArrowCheckboxUp /> : <ArrowCheckbox />}
                     </div>
                     {isActive && (
@@ -61,7 +61,7 @@ export const Dropdown = ({ selected, setSelected }) => {
                                 <div className="dropdown-bar__item" key={option.id}
                                     onClick={(e) => {
                                         setSelected(option);
-                                        setTest(false);
+                                        setInitialValue(false);
                                         setIsActive(false);
                                     }}>
                                     <Link to={option.to} className="dropdown-bar__link">{option.svg} {option.name} </Link>
