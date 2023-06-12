@@ -2,17 +2,15 @@ import './Cart.scss';
 import productImg from '../../img/productImgBig.png';
 import fabricator from '../../img/fabricator.svg';
 import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
-import cancel from '../../img/cancel.svg';
 import { Cart } from '../SVG/Icon/Cart';
 import { ClipBoard } from '../SVG/Icon/ClipBoard';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Link } from 'react-router-dom';
 
-export const CartComp = ({ active, setActive }) => {
+export const CartComp = () => {
     return (
         <>
-            <div className={active ? 'cart active' : 'cart'}>
-                <img className="cart__cancel" src={cancel} alt="Закрыть корзину" onClick={() => setActive(false)} />
+            <div className="cart">
                 <PageHeadingTwice>Корзина</PageHeadingTwice>
                 <span className="cart__separator-horizontal" />
                 <h3 className="cart__title">Гербицид Комманд®, ФМС Украина</h3>

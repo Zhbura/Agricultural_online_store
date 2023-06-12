@@ -2,12 +2,7 @@
     border-radius: 20px;
     background: #F8F8F8;
     padding: 35px 15px;
-    position: relative;
-    position: absolute;
-    z-index: 3;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 0 auto 110px auto;
 
     @media (min-width: 1200px) {
         width: 1110px;
@@ -20,12 +15,6 @@
 
     @media (min-width: 768px) and (max-width: 1199px) {
         width: 735px;
-    }
-
-    &__cancel {
-        position: absolute;
-        right: -15px;
-        top: -40px;
     }
 
     &__separator-horizontal {
@@ -281,10 +270,10 @@
     padding-right: 20px;
 }
 
-.cart {
-    display: none;
-}
+// .cart {
+//     display: none;
+// }
 
-.cart.active {
-    display: block;
-}
+// .cart.active {
+//     display: block;
+// }

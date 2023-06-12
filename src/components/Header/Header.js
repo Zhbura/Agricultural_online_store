@@ -6,10 +6,9 @@ import { Comparison } from '../SVG/Icon/Comparison';
 import { Cart } from '../SVG/Icon/Cart';
 import { Heart } from '../SVG/Icon/Heart';
 import { useState } from 'react';
-import { CartComp } from '../Cart/Cart';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
-    const [cartActive, setCartActive] = useState(false);
     const [phoneActive, setPhoneActive] = useState(false);
 
     return (
@@ -57,10 +56,11 @@ export const Header = () => {
                         <div className="icon-quantity">
                             <div className="circle-icon circle-icon_hover"><Comparison /><span>2</span></div>
                         </div>
-                        <div className="icon-quantity" onClick={() => setCartActive(!cartActive)}>
-                            <div className="circle-icon circle-icon_hover"><Cart /><span>1</span></div>
+                        <div className="icon-quantity">
+                            <div className="circle-icon circle-icon_hover">
+                                <Link to='/cart'><Cart /><span>1</span></Link>
+                            </div>
                         </div>
-                        <CartComp active={cartActive} setActive={setCartActive} />
                         <p className="header__price">0,0 руб</p>
                     </div>
                 </div>
