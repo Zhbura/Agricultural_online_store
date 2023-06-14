@@ -1,13 +1,16 @@
 import './Cart.scss';
 import productImg from '../../img/productImgBig.png';
 import fabricator from '../../img/fabricator.svg';
-import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import { Cart } from '../SVG/Icon/Cart';
 import { ClipBoard } from '../SVG/Icon/ClipBoard';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Link } from 'react-router-dom';
+import { DropdownCart } from '../Dropdown/DropdownCart';
+import { useState } from 'react';
 
 export const CartComp = () => {
+    const [selected, setSelected] = useState('');
+
     return (
         <>
             <div className="cart">
@@ -32,9 +35,7 @@ export const CartComp = () => {
                         </div>
                     </div>
                     <div className="cart__info-right">
-                        <div className="cart-popUp arrow-checkbox_orange">
-                            Канистра 5 л <ArrowCheckbox />
-                        </div>
+                        <DropdownCart selected={selected} setSelected={setSelected} />
                         <div className="cart__quantity">
                             <p className="cart__quantity-text">Количество</p>
                             <div className="cart__quantity-circle_small">
