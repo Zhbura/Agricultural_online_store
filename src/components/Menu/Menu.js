@@ -8,7 +8,6 @@ import { Comparison } from '../SVG/Icon/Comparison';
 import { Cart } from '../SVG/Icon/Cart';
 import { Heart } from '../SVG/Icon/Heart';
 import { Link } from 'react-router-dom';
-import { CartComp } from '../Cart/Cart';
 import { useState } from 'react';
 
 export const Menu = ({ active, setActive }) => {
@@ -40,9 +39,8 @@ export const Menu = ({ active, setActive }) => {
                                     <div className="circle-icon circle-icon_white"><Comparison /><span>2</span></div>
                                 </div>
                                 <div className="icon-quantity" onClick={() => setCartActive(!cartActive)}>
-                                    <div className="circle-icon circle-icon_white"><Cart /><span>1</span></div>
+                                    <div className="circle-icon circle-icon_white"><Link to='/cart'><Cart /><span>1</span></Link></div>
                                 </div>
-                                <CartComp active={cartActive} setActive={setCartActive} />
                                 <p className="header__price header__price_white">0,0 руб</p>
                             </div>
                         </div>
