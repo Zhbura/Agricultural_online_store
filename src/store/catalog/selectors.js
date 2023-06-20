@@ -1,1 +1,1 @@
-export const selectShowFilter = (state) => state.showFilter;
+export const selectShowFilter = (state) => state.catalog.showFilter;

@@ -9,21 +9,30 @@ import { Cart } from '../SVG/Icon/Cart';
 import { Heart } from '../SVG/Icon/Heart';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectShowMenu } from '../../store/menu/selectors';
+import { changeMenuShow } from '../../store/menu/actions';
 
-export const Menu = ({ active, setActive }) => {
-    const [cartActive, setCartActive] = useState(false);
+export const Menu = () => {
     const [phoneActive, setPhoneActive] = useState(false);
 
+    const showMenu = useSelector(selectShowMenu);
+
+    const dispatch = useDispatch();
+
+    const hideMenu = () => {
+        dispatch(changeMenuShow);
+    };
     return (
         <>
-            <div className={active ? 'menu menu_active' : 'menu'}>
+            <div className={showMenu ? 'menu menu_active' : 'menu'}>
                 <div className="menu__top-bar">
                     <div className="container">
                         <div className="top-bar__login menu__login">
                             <img src={logOut} alt="Войти" />
                             <Link to='/registration' className="top-bar__text">Вход | Регистрация</Link>
                         </div>
-                        <div className="menu__close" onClick={() => setActive(false)}>
+                        <div className="menu__close" onClick={hideMenu}>
                             <img src={closeMenu} alt="Меню" />
                         </div>
                     </div>
@@ -38,7 +47,7 @@ export const Menu = ({ active, setActive }) => {
                                 <div className="icon-quantity">
                                     <div className="circle-icon circle-icon_white"><Comparison /><span>2</span></div>
                                 </div>
-                                <div className="icon-quantity" onClick={() => setCartActive(!cartActive)}>
+                                <div className="icon-quantity">
                                     <div className="circle-icon circle-icon_white"><Link to='/cart'><Cart /><span>1</span></Link></div>
                                 </div>
                                 <p className="header__price header__price_white">0,0 руб</p>

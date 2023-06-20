@@ -1,7 +1,7 @@
 import { CHANGE_SHOW_FILTER } from "./action"
 
 const initialState = {
-    showFilter: true,
+    showFilter: false,
 }
 
 export const catalogReducer = (state = initialState, action) => {

@@ -19,7 +19,7 @@ export const FilterCatalogSmall = () => {
     };
     return (
         <>
-            <div className={showFilter ? "filter-catalog" : "filter-catalog filter-catalog_active"}>
+            <div className={showFilter ? "filter-catalog filter-catalog_active" : "filter-catalog"}>
                 <div className="filter-catalog__title arrow_white" onClick={hideFilter}><Arrow />Фильтр</div>
                 <div className="filter__units">
                     <div className="filter__unit">

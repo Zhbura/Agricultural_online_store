@@ -4,13 +4,19 @@ import menu from '../../img/menu.svg';
 import { useState } from 'react';
 import { Menu } from '../Menu/Menu';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { changeMenuShow } from '../../store/menu/actions';
 
 export const TopBar = () => {
-    const [menuActive, setMenuActive] = useState(false);
     const [popUpActive, setPopUpActive] = useState(false);
 
     const setActive = ({ isActive }) => isActive ? 'top-bar__text top-bar__active-link' : 'top-bar__text';
 
+    const dispatch = useDispatch();
+
+    const showMenu = () => {
+        dispatch(changeMenuShow);
+    };
     return (
         <>
             <div className="top-bar">
@@ -35,10 +41,10 @@ export const TopBar = () => {
                         <img src={logOut} alt="Войти" />
                         <NavLink to='/registration' className={setActive}>Вход | Регистрация</NavLink>
                     </div>
-                    <div className="top-bar__menu" onClick={() => setMenuActive(!menuActive)}>
+                    <div className="top-bar__menu" onClick={showMenu}>
                         <img src={menu} alt="Меню" />
                     </div>
-                    <Menu active={menuActive} setActive={setMenuActive} />
+                    <Menu />
                 </div>
             </div>
         </>)
