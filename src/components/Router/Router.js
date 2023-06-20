@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Main } from "../Main/Main";
 import { Product } from "../Product/Product";
 import { Order } from "../Order/Order";
@@ -6,7 +6,7 @@ import { ThanksOrder } from "../ThanksOrder/ThanksOrder";
 import { AboutСompany } from "../AboutСompany/AboutСompany";
 import { TeamCompany } from "../TeamCompany/TeamCompany";
 import { Agreement } from "../Agreement/Agreement";
-import { CatalogPlantProtection } from "../CatalogProduct/CatalogPlantProtection";
+import { Catalog } from "../Catalog/Catalog";
 import { Pay } from "../Pay/Pay";
 import { PartnersComp } from "../PartnersComp/PartnersComp";
 import { News } from "../News/News";
@@ -21,6 +21,10 @@ import { ChangePassword } from "../ChangePassword/ChangePassword";
 import { Cabinet } from "../PersonalAccount/Cabinet";
 import { Layout } from "../Layout/Layout";
 import { Error } from "../Error/Error";
+import { PrivacyPolicy } from "../PrivacyPolicy/PrivacyPolicy";
+import { Refund } from "../Refund/Refund";
+import { Codex } from "../Codex/Codex";
+import { CartComp } from "../Cart/Cart";
 
 export const Router = () => {
     return (
@@ -34,17 +38,17 @@ export const Router = () => {
                     <Route path="aboutcompany" element={<AboutСompany />} />
                     <Route path="teemcompany" element={<TeamCompany />} />
                     <Route path="agreement" element={<Agreement />} />
-                    <Route path="catalog_plant_protection" element={<CatalogPlantProtection title="Средства защиты растений" />} />
+                    <Route path="catalog_plant_protection" element={<Catalog title="Средства защиты растений" />} />
                     <Route path="pay" element={<Pay />} />
                     <Route path="partners" element={<PartnersComp />} />
                     <Route path="news" element={<News />} />
                     <Route path="contacts" element={<Contacts />} />
                     <Route path="registration" element={<Registration />} />
                     <Route path="plantprotection" element={<PlantProtection />} />
-                    <Route path="catalog_seeds" element={<CatalogPlantProtection title="Семена" />} />
-                    <Route path="catalog_fertilizers" element={<CatalogPlantProtection title="Удобрения" />} />
-                    <Route path="catalog_feed_group" element={<CatalogPlantProtection title="Кормовая группа" />} />
-                    <Route path="catalog_farmer_help" element={<CatalogPlantProtection title="Агроному в помощь" />} />
+                    <Route path="catalog_seeds" element={<Catalog title="Семена" />} />
+                    <Route path="catalog_fertilizers" element={<Catalog title="Удобрения" />} />
+                    <Route path="catalog_feed_group" element={<Catalog title="Кормовая группа" />} />
+                    <Route path="catalog_farmer_help" element={<Catalog title="Агроному в помощь" />} />
                     <Route path="personal_account" element={<PersonalAccount />}>
                         <Route index element={<Cabinet />} />
                         <Route path="current_orders" element={<CurrentOrders />} />
@@ -52,6 +56,10 @@ export const Router = () => {
                         <Route path="order_history" element={<OrderHistory />} />
                         <Route path="change_password" element={<ChangePassword />} />
                     </Route>
+                    <Route path="privacypolicy" element={<PrivacyPolicy />} />
+                    <Route path="refund" element={<Refund />} />
+                    <Route path="codex" element={<Codex />} />
+                    <Route path="cart" element={<CartComp />} />
                     <Route path="*" element={<Error />} />
                 </Route>
             </Routes>

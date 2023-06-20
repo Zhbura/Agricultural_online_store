@@ -1,0 +1,1 @@
+export const selectShowMenu = (state) => state.menu.showMenu;

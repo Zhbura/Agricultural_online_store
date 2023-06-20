@@ -14,6 +14,7 @@ import { ProductCard } from '../ProductСard/ProductСard';
 import { Arrow, ArrowRight } from '../SVG/Arrow/Arrow';
 import { Phone } from '../SVG/Icon/Phone';
 import { Cart } from '../SVG/Icon/Cart';
+import { Slider } from '../Slider/Slider';
 
 export const Product = () => {
     return (
@@ -166,13 +167,8 @@ export const Product = () => {
                         </div>
                     </div>
                     <div className="stocks__slider">
-                        <div className="slider">
-                            <span className="slider__notActive slider__notActive_green" />
-                            <span className="slider__notActive slider__notActive_green" />
-                            <span className="slider__active slider__active_green" />
-                            <span className="slider__notActive slider__notActive_green" />
-                            <span className="slider__notActive slider__notActive_green" />
-                        </div>
+                        <Slider classSmall="slider__notActive slider__notActive_green"
+                            classBig="slider__active slider__active_green" />
                     </div>
                     <div className="stocks__btn">
                         <Button>Смотреть все товары</Button>

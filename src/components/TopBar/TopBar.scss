@@ -2,13 +2,18 @@
     background: #1E6140;
     font-size: 18px;
     line-height: 22px;
+    position: relative;
 
-    @media (min-width: 320px) and (max-width: 767px) {
+    @media (min-width: 320px) and (max-width: 900px) {
         padding: 11px 0;
     }
 
-    &_menu {
-        background: rgba(255, 255, 255, 0.1);
+    &__menu {
+        margin-right: 20px;
+
+        @media (min-width: 901px) {
+            display: none;
+        }
     }
 
     .container {
@@ -79,16 +84,6 @@
         }
     }
 
-    &__menu {
-        margin-right: 15px;
-        position: relative;
-        cursor: pointer;
-
-        @media (min-width: 901px) {
-            display: none;
-        }
-    }
-
     &__text {
         font-weight: 300;
         font-size: 18px;
@@ -108,12 +103,6 @@
     &__active-link {
         color: #fff;
         border-bottom: 1px solid #fff;
-    }
-}
-
-@media (min-width: 768px) {
-    .menu {
-        display: none;
     }
 }
 

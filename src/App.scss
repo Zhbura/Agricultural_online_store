@@ -2,14 +2,10 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative; // для затемнения фона при открытии меню
 }
 
 .top {
     flex-grow: 1;
     background: #E5E5E5;
-}
-
-.container-for-background {
-    background-image: url(./img/backgroundBrandWrap.png);
-    background-size: cover;
 }

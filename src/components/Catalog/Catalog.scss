@@ -1,0 +1,120 @@
+.catalog {
+    @media (min-width: 900px) and (max-width: 1200px) {
+        padding: 0 30px;
+    }
+}
+
+.catalog-product {
+    display: grid;
+    grid-template-columns: repeat(3, 255px);
+    grid-template-rows: repeat(5, 355px);
+    grid-gap: 30px;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(15, 1fr);
+    }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        grid-template-columns: repeat(2, 255px);
+        grid-template-rows: repeat(8, 355px);
+        justify-content: center;
+    }
+}
+
+.sort {
+    padding: 10px 0 10px 15px;
+    max-width: 260px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 90px;
+    display: flex;
+    background: #FFFFFF;
+    align-items: center;
+
+    @media (min-width: 320px) and (max-width: 899px) {
+        width: 135px;
+        padding-left: 6px;
+    }
+
+    svg {
+        margin-left: 22px;
+        margin-right: 14px;
+
+        @media (min-width: 320px) and (max-width: 900px) {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+
+    span {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        height: 28px;
+    }
+
+    input {
+        border: none;
+        display: block;
+        outline: none;
+        width: 100%;
+        cursor: pointer;
+        color: #484848;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        border-radius: 90px;
+
+        @media (min-width: 320px) and (max-width: 899px) {
+            font-size: 11px;
+            line-height: 15px;
+        }
+    }
+}
+
+.result {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.5);
+
+    @media (min-width: 320px) and (max-width: 900px) {
+        text-align: center;
+        padding-top: 16px;
+
+        &_position {
+            margin-top: 235px;
+        }
+    }
+}
+
+.catalog-wrap {
+    @media (min-width: 900px) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &_top {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+
+        @media (min-width: 320px) and (max-width: 899px) {
+            display: none;
+        }
+    }
+}
+
+.wrap-small {
+    margin: 20px 0;
+    position: relative;
+
+    @media (min-width: 900px) {
+        display: none;
+    }
+
+    &_top {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+}

@@ -3,6 +3,7 @@ import { Button } from '../Button/Button';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { ProductCard } from '../ProductСard/ProductСard';
 import { Arrow, ArrowRight } from '../SVG/Arrow/Arrow';
+import { Slider } from '../Slider/Slider';
 
 export const Stocks = () => {
     return (
@@ -26,13 +27,8 @@ export const Stocks = () => {
                     </div>
                 </div>
                 <div className="stocks__slider">
-                    <div className="slider">
-                        <span className="slider__notActive slider__notActive_green" />
-                        <span className="slider__notActive slider__notActive_green" />
-                        <span className="slider__active slider__active_green" />
-                        <span className="slider__notActive slider__notActive_green" />
-                        <span className="slider__notActive slider__notActive_green" />
-                    </div>
+                    <Slider classSmall="slider__notActive slider__notActive_green"
+                        classBig="slider__active slider__active_green" />
                 </div>
                 <div className="stocks__btn">
                     <Button>Смотреть все товары</Button>

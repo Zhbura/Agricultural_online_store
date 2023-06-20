@@ -4,6 +4,7 @@ import { Phone } from '../SVG/Icon/Phone';
 import { Mail } from '../SVG/Icon/Mail';
 import { useState } from 'react';
 import { Arrow } from '../SVG/Arrow/Arrow';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
     const [phoneActive, setPhoneActive] = useState(false);
@@ -20,21 +21,21 @@ export const Footer = () => {
                         <div className="footer__text">
                             <h3 className="footer__heading">Информация</h3>
                             <ul className="footer__list">
-                                <li className="footer__link">О компании</li>
-                                <li className="footer__link">Оплата | доставка</li>
-                                <li className="footer__link">Партнеры</li>
-                                <li className="footer__link">Политика конфиденциальности</li>
-                                <li className="footer__link">Возврат и обмен товара</li>
+                                <li><Link to='/aboutcompany' className="footer__link">О компании</Link></li>
+                                <li><Link to='/pay' className="footer__link">Оплата | доставка</Link></li>
+                                <li><Link to='/partners' className="footer__link">Партнеры</Link></li>
+                                <li><Link to='/privacypolicy' className="footer__link">Политика конфиденциальности</Link></li>
+                                <li><Link to='/refund' className="footer__link">Возврат и обмен товара</Link></li>
                             </ul>
                         </div>
                         <div className="footer__text">
                             <h3 className="footer__heading">Товары</h3>
                             <ul className="footer__list">
-                                <li className="footer__link"> Каталог продукции</li>
-                                <li className="footer__link"> Средства защиты растений </li>
-                                <li>Семена</li>
-                                <li>Удобрения</li>
-                                <li>Агроному в помощь</li>
+                                <li><Link to='/catalog_seeds' className="footer__link">Семена</Link></li>
+                                <li><Link to='/catalog_plant_protection' className="footer__link">Средства защиты растений</Link></li>
+                                <li><Link to='/catalog_fertilizers' className="footer__link">Удобрения</Link></li>
+                                <li><Link to='/catalog_feed_group' className="footer__link">Кормовая группа</Link></li>
+                                <li><Link to='/catalog_farmer_help' className="footer__link">Агроному в помощь</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -75,7 +76,7 @@ export const Footer = () => {
                     </div>
                 </div>
                 <span className="footer__line" />
-                <p className="footer__сopyright">© 2022 DAT</p>
+                <p className="footer__сopyright">&#169; 2022 DAT</p>
                 <div className="footer__wrap-popUp">
                     <div className="footer__pop-up arrow_up">
                         <Arrow />

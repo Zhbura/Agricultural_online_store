@@ -1,18 +1,19 @@
 import './Cart.scss';
 import productImg from '../../img/productImgBig.png';
 import fabricator from '../../img/fabricator.svg';
-import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
-import cancel from '../../img/cancel.svg';
 import { Cart } from '../SVG/Icon/Cart';
 import { ClipBoard } from '../SVG/Icon/ClipBoard';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Link } from 'react-router-dom';
+import { DropdownCart } from '../Dropdown/DropdownCart';
+import { useState } from 'react';
 
-export const CartComp = ({ active, setActive }) => {
+export const CartComp = () => {
+    const [selected, setSelected] = useState('');
+
     return (
         <>
-            <div className={active ? 'cart active' : 'cart'}>
-                <img className="cart__cancel" src={cancel} alt="Закрыть корзину" onClick={() => setActive(false)} />
+            <div className="cart">
                 <PageHeadingTwice>Корзина</PageHeadingTwice>
                 <span className="cart__separator-horizontal" />
                 <h3 className="cart__title">Гербицид Комманд®, ФМС Украина</h3>
@@ -34,9 +35,7 @@ export const CartComp = ({ active, setActive }) => {
                         </div>
                     </div>
                     <div className="cart__info-right">
-                        <div className="cart-popUp arrow-checkbox_orange">
-                            Канистра 5 л <ArrowCheckbox />
-                        </div>
+                        <DropdownCart selected={selected} setSelected={setSelected} />
                         <div className="cart__quantity">
                             <p className="cart__quantity-text">Количество</p>
                             <div className="cart__quantity-circle_small">

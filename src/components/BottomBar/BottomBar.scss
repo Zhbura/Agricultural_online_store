@@ -44,21 +44,17 @@
             justify-content: space-between;
             padding-left: 20px;
             padding-right: 20px;
+            position: relative;
+        }
+
+        @media (min-width: 320px) and (max-width: 900px) {
+            display: none;
         }
 
         &:hover {
-            color: #FFFFFF;
             background: #E74E13;
             border-radius: 20px;
             border: none;
-
-            a {
-                color: #FFFFFF;
-            }
-
-            svg {
-                fill: #FFFFFF;
-            }
         }
     }
 
@@ -77,36 +73,19 @@
         @media (min-width: 900px) and (max-width: 1199px) {
             font-size: 11px;
         }
-    }
 
-    @media (min-width: 320px) and (max-width: 900px) {
-        &__item:not(:first-child) {
-            display: none;
+        &:hover {
+            color: #FFFFFF;
+
+            svg {
+                fill: #FFFFFF;
+            }
         }
     }
 
     &__menu {
         @media (min-width: 901px) {
             display: none;
-        }
-    }
-
-    &__seeds {
-        display: flex;
-
-        @media (min-width: 320px) and (max-width: 900px) {
-            justify-content: space-between;
-
-            svg:last-child {
-                width: 12px;
-                height: 8px;
-            }
-        }
-
-        @media (min-width: 901px) {
-            svg:last-child {
-                display: none;
-            }
         }
     }
 }

@@ -2,6 +2,7 @@ import './NewProducts.scss';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { ProductCard } from '../ProductСard/ProductСard';
 import { Arrow, ArrowRight } from '../SVG/Arrow/Arrow';
+import { Slider } from '../Slider/Slider';
 
 export const NewProducts = () => {
     return (
@@ -23,13 +24,8 @@ export const NewProducts = () => {
                     </div>
                 </div>
                 <div className="new-products__slider">
-                    <div className="slider">
-                        <span className="slider__notActive"></span>
-                        <span className="slider__notActive"></span>
-                        <span className="slider__active"></span>
-                        <span className="slider__notActive"></span>
-                        <span className="slider__notActive"></span>
-                    </div>
+                    <Slider classSmall="slider__notActive"
+                        classBig="slider__active" />
                 </div>
             </div>
         </>

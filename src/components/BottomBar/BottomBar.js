@@ -4,17 +4,21 @@ import { Sapling } from '../SVG/Sapling';
 import { Fertilizers } from '../SVG/Fertilizers';
 import { FeedGroup } from '../SVG/FeedGroup';
 import { Farmer } from '../SVG/Farmer';
-import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Dropdown } from '../Dropdown/Dropdown';
 
 export const BottomBar = () => {
+    const [selected, setSelected] = useState('');
+
     return (
         <>
             <div className="bottom-bar">
                 <div className="container">
+                    <Dropdown selected={selected} setSelected={setSelected} />
                     <div className="bottom-bar__item">
-                        <Link to="/catalog_seeds" className="bottom-bar__link bottom-bar__seeds">
-                            <Seeds /> Семена<ArrowCheckbox />
+                        <Link to="/catalog_seeds" className="bottom-bar__link">
+                            <Seeds /> Семена
                         </Link>
                     </div>
                     <div className="bottom-bar__item">
