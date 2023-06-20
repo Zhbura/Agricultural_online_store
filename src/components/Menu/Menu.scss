@@ -7,20 +7,20 @@
         background: #1E6140;
         width: 320px;
         position: absolute;
+        display: block;
         top: 0;
         right: 0;
         z-index: 100;
-        transition: 0.5s;
-        transform: translateX(320px);
+        transition: 0.8s;
+        transform: translateY(-100%);
 
         &_active {
-            transform: translateX(0%);
+            transform: translateY(0%);
         }
 
         &__top-bar {
             background: rgba(255, 255, 255, 0.1);
             height: 50px;
-            position: relative;
         }
 
         &__close {
