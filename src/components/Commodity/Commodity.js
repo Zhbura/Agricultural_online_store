@@ -10,7 +10,7 @@ import visa from '../../img/visa.svg';
 import availabilityImg from '../../img/availability.svg';
 import { Arrow } from '../SVG/Arrow/Arrow';
 
-export const Commodity = ({ availability, img, alt, imgSmall, name, price, priceFor }) => {
+export const Commodity = ({ availability, img, imgSmall, name, price, priceFor }) => {
     return (
         <>
             <div className="commodity-info">
@@ -19,15 +19,15 @@ export const Commodity = ({ availability, img, alt, imgSmall, name, price, price
                         <div className="arrow-scroll">
                             <Arrow />
                         </div>
-                        <img src={img} alt={alt} />
+                        <img src={img} alt={name} />
                         <div className="arrow-scroll arrow_right">
                             <Arrow />
                         </div>
                     </div>
                     <div className="wrap-img">
-                        <div className="commodity-info__img commodity-info__img_small"><img src={imgSmall} alt={alt} /></div>
-                        <div className="commodity-info__img commodity-info__img_small"><img src={imgSmall} alt={alt} /></div>
-                        <div className="commodity-info__img commodity-info__img_small"><img src={imgSmall} alt={alt} /></div>
+                        <div className="commodity-info__img commodity-info__img_small"><img src={imgSmall} alt={name} /></div>
+                        <div className="commodity-info__img commodity-info__img_small"><img src={imgSmall} alt={name} /></div>
+                        <div className="commodity-info__img commodity-info__img_small"><img src={imgSmall} alt={name} /></div>
                     </div>
                 </div>
                 <div className="commodity-info_right">

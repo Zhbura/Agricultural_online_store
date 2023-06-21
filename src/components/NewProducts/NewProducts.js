@@ -14,10 +14,10 @@ export const NewProducts = () => {
                         <Arrow />
                     </div>
                     <div className="products__items">
-                        <ProductCard name="Петуния Софистика F1" alt="Петуния Софистика F1" img={require("../../img/newProducts1.png")} price="20" />
-                        <ProductCard name="Скор 250 ЕС К. Э." alt="Скор 250 ЕС К. Э." img={require("../../img/newProducts3.png")} price="200" />
-                        <ProductCard name="Хорус" alt="Хорус" img={require("../../img/newProducts4.png")} price="320" />
-                        <ProductCard name="Агрикола" alt="Агрикола, удобрение для орхидей" img={require("../../img/newProducts2.png")} price="170" />
+                        <ProductCard name="Петуния Софистика" alt="Петуния Софистика F1" img={require("../../img/product/petunia/petunia.png")} price="100" to="petunia" />
+                        <ProductCard name="Скор" alt="Скор" img={require("../../img/product/skor/skor.png")} price="190" to="skor" />
+                        <ProductCard name="Хорус" alt="Хорус" img={require("../../img/product/horys/horys.png")} price="230" to="horys" />
+                        <ProductCard name="Агрикола" alt="Агрикола, удобрение для орхидей" img={require("../../img/product/agrikola/agrikola.png")} price="317" to="agrikola" />
                     </div>
                     <div className="arrow-circle">
                         <ArrowRight />

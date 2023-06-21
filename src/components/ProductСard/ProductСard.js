@@ -4,6 +4,7 @@ import { Comparison } from '../SVG/Icon/Comparison';
 import './ProductСard.scss';
 
 export const ProductCard = (props) => {
+
     return (
         <>
             <div className="product-card">
@@ -12,7 +13,7 @@ export const ProductCard = (props) => {
                 <div className="product-card__info-product">
                     <div className="product-card__text">
                         <p className="product-card__name">
-                            <Link to="/product" className="product-card__link">{props.name}</Link>
+                            <Link to={`/product/${props.to}`} className="product-card__link">{props.name}</Link>
                         </p>
                         <p className="product-card__price">{props.price}</p>
                         <p className="product-card__quantity">1 шт</p>

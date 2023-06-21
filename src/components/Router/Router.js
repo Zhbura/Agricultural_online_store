@@ -25,14 +25,44 @@ import { PrivacyPolicy } from "../PrivacyPolicy/PrivacyPolicy";
 import { Refund } from "../Refund/Refund";
 import { Codex } from "../Codex/Codex";
 import { CartComp } from "../Cart/Cart";
+import { Commodity } from "../Commodity/Commodity";
 
 export const Router = () => {
+
     return (
         <>
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Main />} />
-                    <Route path="product" element={<Product />} />
+                    <Route path="product" element={<Product />} >
+                        <Route path="petunia" element={<Commodity
+                            availability="В наличии"
+                            name="Петуния Софистика"
+                            img={require("../../img/product/petunia/petunia.png")}
+                            imgSmall={require("../../img/product/petunia/petuniaTwo.png")}
+                            price="100" priceFor="5 шт" />} />
+                        <Route path="horys" element={<Commodity
+                            availability="В наличии"
+                            name="Хорус"
+                            img={require("../../img/product/horys/horys.png")}
+                            imgSmall={require("../../img/product/horys/horysTwo.png")}
+                            price="230" priceFor="3 шт" />}
+                        />
+                        <Route path="agrikola" element={<Commodity
+                            availability="В наличии"
+                            name="Комплект удобрений Агрикола"
+                            img={require("../../img/product/agrikola/agrikola.png")}
+                            imgSmall={require("../../img/product/agrikola/agrikola.png")}
+                            price="317" priceFor="2 шт" />}
+                        />
+                        <Route path="skor" element={<Commodity
+                            availability="В наличии"
+                            name="Скор"
+                            img={require("../../img/product/skor/skor.png")}
+                            imgSmall={require("../../img/product/skor/skor.png")}
+                            price="190" priceFor="2 ампулы" />}
+                        />
+                    </Route>
                     <Route path="order" element={<Order />} />
                     <Route path="thanks_order" element={<ThanksOrder />} />
                     <Route path="aboutcompany" element={<AboutСompany />} />
