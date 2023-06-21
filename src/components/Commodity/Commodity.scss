@@ -1,0 +1,207 @@
+.commodity-info {
+    display: flex;
+
+    @media (min-width: 1200px) {
+        justify-content: space-between;
+    }
+
+    @media (min-width: 320px) and (max-width: 1199px) {
+        flex-direction: column;
+        padding: 0 15px;
+    }
+
+    @media (min-width: 340px) and (max-width: 1199px) {
+        align-items: center;
+    }
+
+    &_left {
+        @media (min-width: 320px) and (max-width: 1199px) {
+            margin-bottom: 25px;
+        }
+    }
+
+    &__img {
+        background: #FFFFFF;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+        border-radius: 20px;
+
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        &_big {
+            padding-top: 48px;
+            padding-bottom: 48px;
+            width: 445px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media (min-width: 320px) and (max-width: 767px) {
+                width: 290px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+
+                img {
+                    width: 93px;
+                    height: 127px;
+                }
+            }
+
+            svg {
+                margin-left: 30px;
+                margin-right: 30px;
+
+                @media (min-width: 320px) and (max-width: 767px) {
+                    display: none;
+                }
+            }
+        }
+
+        &_small {
+            padding-top: 14px;
+            padding-bottom: 14px;
+            width: 135px;
+            margin-top: 20px;
+
+            @media (min-width: 320px) and (max-width: 767px) {
+                width: 88px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+
+                img {
+                    width: 28px;
+                    height: 38px;
+                }
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 35px;
+        line-height: 43px;
+        color: #000000;
+        margin-bottom: 10px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            font-size: 22px;
+            line-height: 27px;
+        }
+    }
+
+    &__availability {
+        display: flex;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: #1E6140;
+        margin-bottom: 26px;
+
+        img {
+            margin-right: 5px;
+            display: block;
+        }
+    }
+
+    &__fabricator {
+        padding-top: 7px;
+    }
+
+    &__heading {
+        padding-bottom: 10px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: rgba(0, 0, 0, 0.5);
+
+        &_margin {
+            margin-left: 8px;
+        }
+
+        &_width {
+            display: block;
+            width: 240px;
+            margin-bottom: 18px;
+        }
+    }
+
+    &__payment-method {
+        padding-top: 14px;
+    }
+
+    &__payment {
+        width: 34px;
+        height: 24px;
+        background: #FFFFFF;
+        border: 1px solid #D9D9D9;
+        border-radius: 4px;
+        position: relative;
+        display: inline-block;
+        margin-right: 12px;
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__separator-vertical {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        height: 154px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            width: 250px;
+            height: 1px;
+            margin-top: 21px;
+        }
+    }
+
+    &__separator-horizontal {
+        display: block;
+        width: 584px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+        margin-bottom: 24px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            display: none;
+        }
+    }
+
+    &__delivery {
+        padding-top: 7px;
+
+        @media (min-width: 320px) and (max-width: 1199px) {
+            padding-top: 17px;
+        }
+    }
+
+    &__price-quantity {
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 30px;
+        color: #84BE51;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 18px;
+        }
+    }
+
+    &__toolbar {
+        display: flex;
+    }
+}
