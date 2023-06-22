@@ -1,5 +1,5 @@
 import './Cart.scss';
-import productImg from '../../img/productImgBig.png';
+import productImg from '../../img/product/petunia/petunia.png';
 import fabricator from '../../img/fabricator.svg';
 import { Cart } from '../SVG/Icon/Cart';
 import { ClipBoard } from '../SVG/Icon/ClipBoard';
@@ -16,11 +16,11 @@ export const CartComp = () => {
             <div className="cart">
                 <PageHeadingTwice>Корзина</PageHeadingTwice>
                 <span className="cart__separator-horizontal" />
-                <h3 className="cart__title">Гербицид Комманд®, ФМС Украина</h3>
+                <h3 className="cart__title">Петуния Софистика</h3>
                 <div className="cart__info-top">
                     <div className="cart__info-left">
                         <div className="cart__img">
-                            <img src={productImg} alt="Гербицид Комманд®, ФМС Украина" />
+                            <img src={productImg} alt="Петуния Софистика" />
                         </div>
                     </div>
                     <div className="cart__info-middle">

@@ -8,28 +8,13 @@ import money from '../../img/money.svg';
 import mastercard from '../../img/mastercard.svg';
 import visa from '../../img/visa.svg';
 import availabilityImg from '../../img/availability.svg';
-import { Arrow } from '../SVG/Arrow/Arrow';
+import { ImageSlider } from '../ImageSlider/ImageSlider'
 
-export const Commodity = ({ availability, img, imgSmall, name, price, priceFor }) => {
+export const Commodity = ({ availability, img, imgTwo, imgThree, imgFour, name, price, priceFor }) => {
     return (
         <>
             <div className="commodity-info">
-                <div className="commodity-info_left">
-                    <div className="commodity-info__img commodity-info__img_big">
-                        <div className="arrow-scroll">
-                            <Arrow />
-                        </div>
-                        <img src={img} alt={name} />
-                        <div className="arrow-scroll arrow_right">
-                            <Arrow />
-                        </div>
-                    </div>
-                    <div className="wrap-img">
-                        <div className="commodity-info__img commodity-info__img_small"><img src={imgSmall} alt={name} /></div>
-                        <div className="commodity-info__img commodity-info__img_small"><img src={imgSmall} alt={name} /></div>
-                        <div className="commodity-info__img commodity-info__img_small"><img src={imgSmall} alt={name} /></div>
-                    </div>
-                </div>
+                <ImageSlider img={img} imgTwo={imgTwo} name={name} imgThree={imgThree} imgFour={imgFour} />
                 <div className="commodity-info_right">
                     <h2 className="commodity-info__title">{name}</h2>
                     <div className="commodity-info__availability">

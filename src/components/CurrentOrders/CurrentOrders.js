@@ -1,5 +1,5 @@
 import './CurrentOrders.scss';
-import productImg from '../../img/productImgBig.png';
+import productImg from '../../img/product/petunia/petunia.png';
 import cancel from '../../img/cancelGrey.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 
@@ -11,10 +11,10 @@ export const CurrentOrders = () => {
                 <div className="ordered-products">
                     <div className="ordered-products__item">
                         <div className="order__image">
-                            <img src={productImg} alt="Гербицид Комманд" />
+                            <img src={productImg} alt="Петуния Софистика" />
                         </div>
                         <div className="ordered-products_middle">
-                            <h3 className="ordered-products__title">Гербицид Комманд®, ФМС Украина</h3>
+                            <h3 className="ordered-products__title">Петуния Софистика</h3>
                             <div className="ordered-products__data">
                                 <p className="ordered-products__quantity">Количество х1</p>
                                 <p className="ordered-products__date">05.04.2023</p>
@@ -28,10 +28,10 @@ export const CurrentOrders = () => {
 
                     <div className="ordered-products__item">
                         <div className="order__image">
-                            <img src={productImg} alt="Гербицид Комманд" />
+                            <img src={productImg} alt="Петуния Софистика" />
                         </div>
                         <div className="ordered-products_middle">
-                            <h3 className="ordered-products__title">Гербицид Комманд®, ФМС Украина</h3>
+                            <h3 className="ordered-products__title">Петуния Софистика</h3>
                             <div className="ordered-products__data">
                                 <p className="ordered-products__quantity">Количество х1</p>
                                 <p className="ordered-products__date">05.04.2023</p>
@@ -44,10 +44,10 @@ export const CurrentOrders = () => {
                     <span className="ordered-products__horisontal-line ordered-products__horisontal-line_big" />
                     <div className="ordered-products__item">
                         <div className="order__image">
-                            <img src={productImg} alt="Гербицид Комманд" />
+                            <img src={productImg} alt="Петуния Софистика" />
                         </div>
                         <div className="ordered-products_middle">
-                            <h3 className="ordered-products__title">Гербицид Комманд®, ФМС Украина</h3>
+                            <h3 className="ordered-products__title">Петуния Софистика</h3>
                             <div className="ordered-products__data">
                                 <p className="ordered-products__quantity">Количество х1</p>
                                 <p className="ordered-products__date">05.04.2023</p>
@@ -60,12 +60,12 @@ export const CurrentOrders = () => {
 
                     <div className="ordered-products__item_small">
                         <div className="order__info-top">
-                            <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
+                            <h3 className="order__title">Петуния Софистика</h3>
                             <img className="order__cancel" src={cancel} alt="Удалить выбранный товар" />
                         </div>
                         <div className="order__info-bottom">
                             <div className="order__image">
-                                <img src={productImg} alt="Гербицид Комманд" />
+                                <img src={productImg} alt="Петуния Софистика" />
                             </div>
                             <div className="order__info-right">
                                 <div className="order__price-quantity">
@@ -81,12 +81,12 @@ export const CurrentOrders = () => {
                     <span className="ordered-products__horisontal-line ordered-products__horisontal-line_small" />
                     <div className="ordered-products__item_small">
                         <div className="order__info-top">
-                            <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
+                            <h3 className="order__title">Петуния Софистика</h3>
                             <img className="order__cancel" src={cancel} alt="Удалить выбранный товар" />
                         </div>
                         <div className="order__info-bottom">
                             <div className="order__image">
-                                <img src={productImg} alt="Гербицид Комманд" />
+                                <img src={productImg} alt="Петуния Софистика" />
                             </div>
                             <div className="order__info-right">
                                 <div className="order__price-quantity">
@@ -102,12 +102,12 @@ export const CurrentOrders = () => {
                     <span className="ordered-products__horisontal-line ordered-products__horisontal-line_small" />
                     <div className="ordered-products__item_small">
                         <div className="order__info-top">
-                            <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
+                            <h3 className="order__title">Петуния Софистика</h3>
                             <img className="order__cancel" src={cancel} alt="Удалить выбранный товар" />
                         </div>
                         <div className="order__info-bottom">
                             <div className="order__image">
-                                <img src={productImg} alt="Гербицид Комманд" />
+                                <img src={productImg} alt="Петуния Софистика" />
                             </div>
                             <div className="order__info-right">
                                 <div className="order__price-quantity">

@@ -1,6 +1,6 @@
 import './Order.scss';
 import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
-import productImg from '../../img/productImgBig.png';
+import productImg from '../../img/product/petunia/petunia.png';
 import cancel from '../../img/cancelGrey.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Link } from 'react-router-dom';
@@ -67,10 +67,10 @@ export const Order = () => {
                         <h4 className="order__heading">Товары в корзине</h4>
                         <div className="cart-order">
                             <div className="order__image">
-                                <img src={productImg} alt="Гербицид Комманд" />
+                                <img src={productImg} alt="Петуния Софистика" />
                             </div>
                             <div className="order__info-right">
-                                <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
+                                <h3 className="order__title">Петуния Софистика</h3>
                                 <div className="order__price-quantity">
                                     <p>7814,63 грн <span>x1</span></p>
                                 </div>
@@ -79,10 +79,10 @@ export const Order = () => {
                         </div>
                         <div className="cart-order">
                             <div className="order__image">
-                                <img src={productImg} alt="Гербицид Комманд" />
+                                <img src={productImg} alt="Петуния Софистика" />
                             </div>
                             <div className="order__info-right">
-                                <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
+                                <h3 className="order__title">Петуния Софистика</h3>
                                 <div className="order__price-quantity">
                                     <p>7814,63 грн <span>x1</span></p>
                                 </div>
@@ -91,12 +91,12 @@ export const Order = () => {
                         </div>
                         <div className="cart-order_small">
                             <div className="order__info-top">
-                                <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
+                                <h3 className="order__title">Петуния Софистика</h3>
                                 <img className="order__cancel" src={cancel} alt="Удалить выбранный товар" />
                             </div>
                             <div className="order__info-bottom">
                                 <div className="order__image">
-                                    <img src={productImg} alt="Гербицид Комманд" />
+                                    <img src={productImg} alt="Петуния Софистика" />
                                 </div>
                                 <div className="order__info-right">
                                     <div className="order__price-quantity">
@@ -107,12 +107,12 @@ export const Order = () => {
                         </div>
                         <div className="cart-order_small">
                             <div className="order__info-top">
-                                <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
+                                <h3 className="order__title">Петуния Софистика</h3>
                                 <img className="order__cancel" src={cancel} alt="Удалить выбранный товар" />
                             </div>
                             <div className="order__info-bottom">
                                 <div className="order__image">
-                                    <img src={productImg} alt="Гербицид Комманд" />
+                                    <img src={productImg} alt="Петуния Софистика" />
                                 </div>
                                 <div className="order__info-right">
                                     <div className="order__price-quantity">

@@ -39,27 +39,32 @@ export const Router = () => {
                             availability="В наличии"
                             name="Петуния Софистика"
                             img={require("../../img/product/petunia/petunia.png")}
-                            imgSmall={require("../../img/product/petunia/petuniaTwo.png")}
+                            imgTwo={require("../../img/product/petunia/petuniaTwo.png")}
+                            imgThree={require("../../img/product/petunia/petuniaThree.png")}
                             price="100" priceFor="5 шт" />} />
                         <Route path="horys" element={<Commodity
                             availability="В наличии"
                             name="Хорус"
                             img={require("../../img/product/horys/horys.png")}
-                            imgSmall={require("../../img/product/horys/horysTwo.png")}
+                            imgTwo={require("../../img/product/horys/horysTwo.png")}
+                            imgThree={require("../../img/product/horys/horysThree.png")}
                             price="230" priceFor="3 шт" />}
                         />
                         <Route path="agrikola" element={<Commodity
                             availability="В наличии"
                             name="Комплект удобрений Агрикола"
                             img={require("../../img/product/agrikola/agrikola.png")}
-                            imgSmall={require("../../img/product/agrikola/agrikola.png")}
+                            imgTwo={require("../../img/product/agrikola/agrikolaTwo.png")}
+                            imgThree={require("../../img/product/agrikola/agrikolaThree.png")}
+                            imgFour={require("../../img/product/agrikola/agrikolaFour.png")}
                             price="317" priceFor="2 шт" />}
                         />
                         <Route path="skor" element={<Commodity
                             availability="В наличии"
                             name="Скор"
                             img={require("../../img/product/skor/skor.png")}
-                            imgSmall={require("../../img/product/skor/skor.png")}
+                            imgTwo={require("../../img/product/skor/skorTwo.png")}
+                            imgThree={require("../../img/product/skor/skorThree.png")}
                             price="190" priceFor="2 ампулы" />}
                         />
                     </Route>
