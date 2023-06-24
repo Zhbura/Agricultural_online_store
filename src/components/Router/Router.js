@@ -28,7 +28,30 @@ import { CartComp } from "../Cart/Cart";
 import { Commodity } from "../Commodity/Commodity";
 
 export const Router = () => {
+    const imgAgrikola = [
+        require("../../img/product/agrikola/agrikola.png"),
+        require("../../img/product/agrikola/agrikolaTwo.png"),
+        require("../../img/product/agrikola/agrikolaThree.png"),
+        require("../../img/product/agrikola/agrikolaFour.png"),
+    ];
 
+    const imgPetunia = [
+        require("../../img/product/petunia/petunia.png"),
+        require("../../img/product/petunia/petuniaTwo.png"),
+        require("../../img/product/petunia/petuniaThree.png"),
+    ];
+
+    const imgHorys = [
+        require("../../img/product/horys/horys.png"),
+        require("../../img/product/horys/horysTwo.png"),
+        require("../../img/product/horys/horysThree.png"),
+    ];
+
+    const imgSkor = [
+        require("../../img/product/skor/skor.png"),
+        require("../../img/product/skor/skorTwo.png"),
+        require("../../img/product/skor/skorThree.png"),
+    ];
     return (
         <>
             <Routes>
@@ -38,33 +61,24 @@ export const Router = () => {
                         <Route path="petunia" element={<Commodity
                             availability="В наличии"
                             name="Петуния Софистика"
-                            img={require("../../img/product/petunia/petunia.png")}
-                            imgTwo={require("../../img/product/petunia/petuniaTwo.png")}
-                            imgThree={require("../../img/product/petunia/petuniaThree.png")}
+                            images={imgPetunia}
                             price="100" priceFor="5 шт" />} />
                         <Route path="horys" element={<Commodity
                             availability="В наличии"
                             name="Хорус"
-                            img={require("../../img/product/horys/horys.png")}
-                            imgTwo={require("../../img/product/horys/horysTwo.png")}
-                            imgThree={require("../../img/product/horys/horysThree.png")}
+                            images={imgHorys}
                             price="230" priceFor="3 шт" />}
                         />
                         <Route path="agrikola" element={<Commodity
                             availability="В наличии"
                             name="Комплект удобрений Агрикола"
-                            img={require("../../img/product/agrikola/agrikola.png")}
-                            imgTwo={require("../../img/product/agrikola/agrikolaTwo.png")}
-                            imgThree={require("../../img/product/agrikola/agrikolaThree.png")}
-                            imgFour={require("../../img/product/agrikola/agrikolaFour.png")}
+                            images={imgAgrikola}
                             price="317" priceFor="2 шт" />}
                         />
                         <Route path="skor" element={<Commodity
                             availability="В наличии"
                             name="Скор"
-                            img={require("../../img/product/skor/skor.png")}
-                            imgTwo={require("../../img/product/skor/skorTwo.png")}
-                            imgThree={require("../../img/product/skor/skorThree.png")}
+                            images={imgSkor}
                             price="190" priceFor="2 ампулы" />}
                         />
                     </Route>

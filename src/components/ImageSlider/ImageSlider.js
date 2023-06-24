@@ -2,24 +2,7 @@ import { useState } from "react";
 import { Arrow } from "../SVG/Arrow/Arrow";
 import './ImageSlider.scss';
 
-export const ImageSlider = ({ img, imgTwo, imgThree, imgFour, name }) => {
-    const images = [
-        {
-            id: 1,
-            name: name,
-            url: img,
-        },
-        {
-            id: 2,
-            name: name,
-            url: imgTwo,
-        },
-        {
-            id: 3,
-            name: name,
-            url: imgThree,
-        },
-    ]
+export const ImageSlider = ({ images, name }) => {
 
     const [current, setCurrent] = useState(0);
     const length = images.length;
@@ -45,9 +28,9 @@ export const ImageSlider = ({ img, imgTwo, imgThree, imgFour, name }) => {
                         {images.map((image, index) => (
                             <div className={index === current ?
                                 'image-slider__slide image-slider__slide_active' :
-                                'image-slider__slide'} key={image.id}>
+                                'image-slider__slide'} key={index}>
                                 {index === current && (
-                                    <img src={image.url} alt={image.name} />
+                                    <img src={image} alt={name} />
                                 )}
                             </div>
                         ))}
