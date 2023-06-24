@@ -7,10 +7,18 @@ import newsImg6 from '../../img/news6.png';
 import { Pagination } from '../Pagination/Pagination';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const News = () => {
+    const breadcrumbs = [
+        {
+            name: "Новости",
+            to: "/news"
+        },
+    ];
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <PageHeadingTwice>Новости</PageHeadingTwice>
             <div className="news">
                 <div className="news__items">

@@ -1,11 +1,23 @@
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import './OrderHistory.scss';
 import productImg from '../../img/product/petunia/petunia.png';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const OrderHistory = () => {
+    const breadcrumbs = [
+        {
+            name: "Личный кабинет",
+            to: "/personal_account"
+        },
+        {
+            name: "История заказов",
+            to: "/order_history"
+        },
+    ];
     return (
         <>
             <div className="order-history">
+                <Breadcrumbs breadcrumbs={breadcrumbs} />
                 <PageHeadingTwice>История заказов</PageHeadingTwice>
                 <div className="ordered-products">
                     <div className="ordered-products__item">

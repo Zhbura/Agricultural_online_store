@@ -6,10 +6,18 @@ import partnerLogo3 from '../../img/partnerLogo3.svg';
 import partnerLogo4 from '../../img/partnerLogo4.svg';
 import partnerLogo5 from '../../img/partnerLogo5.svg';
 import partnerLogo7 from '../../img/partnerLogo7.svg';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const PartnersComp = () => {
+    const breadcrumbs = [
+        {
+            name: "Партнёры",
+            to: "/partners"
+        },
+    ];
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="partners-comp">
                 <div className="container">
                     <PageHeadingTwice>Партнёры</PageHeadingTwice>

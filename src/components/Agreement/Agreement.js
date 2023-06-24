@@ -1,9 +1,17 @@
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import './Agreement.scss';
 
 export const Agreement = () => {
+    const breadcrumbs = [
+        {
+            name: "Договор",
+            to: "/agreement"
+        },
+    ];
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="agreement">
                 <div className="container">
                     <PageHeadingTwice>Договор публичной оферты</PageHeadingTwice>

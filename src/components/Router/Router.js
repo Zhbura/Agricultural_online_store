@@ -73,13 +73,13 @@ export const Router = () => {
                     <Route path="aboutcompany" element={<AboutСompany />} />
                     <Route path="teemcompany" element={<TeamCompany />} />
                     <Route path="agreement" element={<Agreement />} />
-                    <Route path="catalog_plant_protection" element={<Catalog title="Средства защиты растений" />} />
                     <Route path="pay" element={<Pay />} />
                     <Route path="partners" element={<PartnersComp />} />
                     <Route path="news" element={<News />} />
                     <Route path="contacts" element={<Contacts />} />
                     <Route path="registration" element={<Registration />} />
-                    <Route path="plantprotection" element={<PlantProtection />} />
+                    <Route path="catalog" element={<PlantProtection />} />
+                    <Route path="catalog_plant_protection" element={<Catalog title="Средства защиты растений" />} />
                     <Route path="catalog_seeds" element={<Catalog title="Семена" />} />
                     <Route path="catalog_fertilizers" element={<Catalog title="Удобрения" />} />
                     <Route path="catalog_feed_group" element={<Catalog title="Кормовая группа" />} />

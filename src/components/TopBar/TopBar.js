@@ -30,7 +30,7 @@ export const TopBar = () => {
                             <NavLink to='/teemcompany' className="top-bar__text">Наша команда</NavLink>
                             <NavLink to='/agreement' className="top-bar__text">Договор</NavLink>
                         </div>
-                        <NavLink to='/catalog_plant_protection' className={setActive}> Каталог продукции</NavLink>
+                        <NavLink to='/catalog' className={setActive}> Каталог продукции</NavLink>
                         <NavLink to='/pay' className={setActive}>Оплата | доставка</NavLink>
                         <NavLink to='/partners' className={setActive}>Партнеры</NavLink>
                         <NavLink to='/news' className={setActive}>Новости</NavLink>

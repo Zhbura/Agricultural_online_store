@@ -2,11 +2,23 @@ import './CurrentOrders.scss';
 import productImg from '../../img/product/petunia/petunia.png';
 import cancel from '../../img/cancelGrey.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const CurrentOrders = () => {
+    const breadcrumbs = [
+        {
+            name: "Личный кабинет",
+            to: "/personal_account"
+        },
+        {
+            name: "Текущие заказы",
+            to: "/current_orders"
+        },
+    ];
     return (
         <>
             <div className="current-orders">
+                <Breadcrumbs breadcrumbs={breadcrumbs} />
                 <PageHeadingTwice>Текущие заказы</PageHeadingTwice>
                 <div className="ordered-products">
                     <div className="ordered-products__item">

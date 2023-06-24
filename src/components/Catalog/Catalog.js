@@ -10,6 +10,7 @@ import { changeShowFilter } from '../../store/catalog/action';
 import { useState } from 'react';
 import { FilterCatalogBig } from '../FilterCatalog/FilterCatalogBig';
 import { DropdownCatalog } from '../Dropdown/DropdownCatalog';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const Catalog = (props) => {
     const [selected, setSelected] = useState('');
@@ -19,8 +20,20 @@ export const Catalog = (props) => {
     const showFilter = () => {
         dispatch(changeShowFilter);
     };
+
+    const breadcrumbs = [
+        {
+            name: "Каталог",
+            to: "/catalog"
+        },
+        {
+            name: `${props.title}`,
+            to: "/catalog"
+        },
+    ];
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="catalog">
                 <PageHeadingTwice>
                     {props.title}

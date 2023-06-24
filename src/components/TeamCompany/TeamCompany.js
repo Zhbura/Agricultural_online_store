@@ -3,10 +3,18 @@ import './TeamCompany.scss';
 import worker1 from '../../img/workers1.png';
 import worker2 from '../../img/workers2.png';
 import worker3 from '../../img/workers3.png';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const TeamCompany = () => {
+    const breadcrumbs = [
+        {
+            name: "Наша команда",
+            to: "/teemcompany"
+        },
+    ];
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="team-company">
                 <div className="container">
                     <PageHeadingTwice>Наша команда</PageHeadingTwice>

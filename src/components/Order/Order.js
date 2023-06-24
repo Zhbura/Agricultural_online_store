@@ -4,10 +4,23 @@ import productImg from '../../img/product/petunia/petunia.png';
 import cancel from '../../img/cancelGrey.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Link } from 'react-router-dom';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const Order = () => {
+    const breadcrumbs = [
+        {
+            name: "Корзина",
+            to: "/cart"
+        },
+        {
+            name: "Заказ",
+            to: "/order"
+        }
+    ];
+
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="order">
                 <PageHeadingTwice>Оформление заказа</PageHeadingTwice>
                 <div className="container">

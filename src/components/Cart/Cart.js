@@ -7,12 +7,20 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Link } from 'react-router-dom';
 import { DropdownCart } from '../Dropdown/DropdownCart';
 import { useState } from 'react';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const CartComp = () => {
     const [selected, setSelected] = useState('');
 
+    const breadcrumbs = [
+        {
+            name: "Корзина",
+            to: "/cart"
+        },
+    ];
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="cart">
                 <PageHeadingTwice>Корзина</PageHeadingTwice>
                 <span className="cart__separator-horizontal" />
