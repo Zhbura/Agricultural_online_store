@@ -28,30 +28,6 @@ import { CartComp } from "../Cart/Cart";
 import { Commodity } from "../Commodity/Commodity";
 
 export const Router = () => {
-    const imgAgrikola = [
-        require("../../img/product/agrikola/agrikola.png"),
-        require("../../img/product/agrikola/agrikolaTwo.png"),
-        require("../../img/product/agrikola/agrikolaThree.png"),
-        require("../../img/product/agrikola/agrikolaFour.png"),
-    ];
-
-    const imgPetunia = [
-        require("../../img/product/petunia/petunia.png"),
-        require("../../img/product/petunia/petuniaTwo.png"),
-        require("../../img/product/petunia/petuniaThree.png"),
-    ];
-
-    const imgHorys = [
-        require("../../img/product/horys/horys.png"),
-        require("../../img/product/horys/horysTwo.png"),
-        require("../../img/product/horys/horysThree.png"),
-    ];
-
-    const imgSkor = [
-        require("../../img/product/skor/skor.png"),
-        require("../../img/product/skor/skorTwo.png"),
-        require("../../img/product/skor/skorThree.png"),
-    ];
 
     const products = [
         [
@@ -59,7 +35,11 @@ export const Router = () => {
                 id: 1,
                 name: "Петуния Софистика",
                 alt: "Петуния Софистика F1",
-                img: require("../../img/product/petunia/petunia.png"),
+                img: [
+                    require("../../img/product/petunia/petunia.png"),
+                    require("../../img/product/petunia/petuniaTwo.png"),
+                    require("../../img/product/petunia/petuniaThree.png")
+                ],
                 price: 100,
                 to: "petunia"
             },
@@ -67,7 +47,11 @@ export const Router = () => {
                 id: 2,
                 name: "Скор",
                 alt: "Скор",
-                img: require("../../img/product/skor/skor.png"),
+                img: [
+                    require("../../img/product/skor/skor.png"),
+                    require("../../img/product/skor/skorTwo.png"),
+                    require("../../img/product/skor/skorThree.png"),
+                ],
                 price: 190,
                 to: "skor",
             },
@@ -75,7 +59,11 @@ export const Router = () => {
                 id: 3,
                 name: "Хорус",
                 alt: "Хорус",
-                img: require("../../img/product/horys/horys.png"),
+                img: [
+                    require("../../img/product/horys/horys.png"),
+                    require("../../img/product/horys/horysTwo.png"),
+                    require("../../img/product/horys/horysThree.png"),
+                ],
                 price: 230,
                 to: "horys",
             },
@@ -83,7 +71,12 @@ export const Router = () => {
                 id: 4,
                 name: "Агрикола",
                 alt: "Агрикола, удобрение для орхидей",
-                img: require("../../img/product/agrikola/agrikola.png"),
+                img: [
+                    require("../../img/product/agrikola/agrikola.png"),
+                    require("../../img/product/agrikola/agrikolaTwo.png"),
+                    require("../../img/product/agrikola/agrikolaThree.png"),
+                    require("../../img/product/agrikola/agrikolaFour.png"),
+                ],
                 price: 317,
                 to: "agrikola",
             },
@@ -93,7 +86,12 @@ export const Router = () => {
                 id: 5,
                 name: "Агрикола",
                 alt: "Агрикола, удобрение для орхидей",
-                img: require("../../img/product/agrikola/agrikola.png"),
+                img: [
+                    require("../../img/product/agrikola/agrikola.png"),
+                    require("../../img/product/agrikola/agrikolaTwo.png"),
+                    require("../../img/product/agrikola/agrikolaThree.png"),
+                    require("../../img/product/agrikola/agrikolaFour.png"),
+                ],
                 price: 317,
                 to: "agrikola",
             },
@@ -101,7 +99,11 @@ export const Router = () => {
                 id: 6,
                 name: "Хорус",
                 alt: "Хорус",
-                img: require("../../img/product/horys/horys.png"),
+                img: [
+                    require("../../img/product/horys/horys.png"),
+                    require("../../img/product/horys/horysTwo.png"),
+                    require("../../img/product/horys/horysThree.png"),
+                ],
                 price: 230,
                 to: "horys",
             },
@@ -109,7 +111,11 @@ export const Router = () => {
                 id: 7,
                 name: "Скор",
                 alt: "Скор",
-                img: require("../../img/product/skor/skor.png"),
+                img: [
+                    require("../../img/product/skor/skor.png"),
+                    require("../../img/product/skor/skorTwo.png"),
+                    require("../../img/product/skor/skorThree.png"),
+                ],
                 price: 190,
                 to: "skor",
             },
@@ -117,7 +123,11 @@ export const Router = () => {
                 id: 8,
                 name: "Петуния Софистика",
                 alt: "Петуния Софистика F1",
-                img: require("../../img/product/petunia/petunia.png"),
+                img: [
+                    require("../../img/product/petunia/petunia.png"),
+                    require("../../img/product/petunia/petuniaTwo.png"),
+                    require("../../img/product/petunia/petuniaThree.png")
+                ],
                 price: 100,
                 to: "petunia"
             },
@@ -128,7 +138,11 @@ export const Router = () => {
 
                 name: "Скор",
                 alt: "Скор",
-                img: require("../../img/product/skor/skor.png"),
+                img: [
+                    require("../../img/product/skor/skor.png"),
+                    require("../../img/product/skor/skorTwo.png"),
+                    require("../../img/product/skor/skorThree.png"),
+                ],
                 price: 190,
                 to: "skor",
             },
@@ -136,7 +150,11 @@ export const Router = () => {
                 id: 10,
                 name: "Петуния Софистика",
                 alt: "Петуния Софистика F1",
-                img: require("../../img/product/petunia/petunia.png"),
+                img: [
+                    require("../../img/product/petunia/petunia.png"),
+                    require("../../img/product/petunia/petuniaTwo.png"),
+                    require("../../img/product/petunia/petuniaThree.png")
+                ],
                 price: 100,
                 to: "petunia",
             },
@@ -144,7 +162,12 @@ export const Router = () => {
                 id: 11,
                 name: "Агрикола",
                 alt: "Агрикола, удобрение для орхидей",
-                img: require("../../img/product/agrikola/agrikola.png"),
+                img: [
+                    require("../../img/product/agrikola/agrikola.png"),
+                    require("../../img/product/agrikola/agrikolaTwo.png"),
+                    require("../../img/product/agrikola/agrikolaThree.png"),
+                    require("../../img/product/agrikola/agrikolaFour.png"),
+                ],
                 price: 317,
                 to: "agrikola",
             },
@@ -153,7 +176,11 @@ export const Router = () => {
 
                 name: "Хорус",
                 alt: "Хорус",
-                img: require("../../img/product/horys/horys.png"),
+                img: [
+                    require("../../img/product/horys/horys.png"),
+                    require("../../img/product/horys/horysTwo.png"),
+                    require("../../img/product/horys/horysThree.png"),
+                ],
                 price: 230,
                 to: "horys",
             },
@@ -163,7 +190,11 @@ export const Router = () => {
                 id: 13,
                 name: "Петуния Софистика",
                 alt: "Петуния Софистика F1",
-                img: require("../../img/product/petunia/petunia.png"),
+                img: [
+                    require("../../img/product/petunia/petunia.png"),
+                    require("../../img/product/petunia/petuniaTwo.png"),
+                    require("../../img/product/petunia/petuniaThree.png")
+                ],
                 price: 100,
                 to: "petunia"
             },
@@ -172,7 +203,11 @@ export const Router = () => {
 
                 name: "Хорус",
                 alt: "Хорус",
-                img: require("../../img/product/horys/horys.png"),
+                img: [
+                    require("../../img/product/horys/horys.png"),
+                    require("../../img/product/horys/horysTwo.png"),
+                    require("../../img/product/horys/horysThree.png"),
+                ],
                 price: 230,
                 to: "horys",
             },
@@ -180,7 +215,11 @@ export const Router = () => {
                 id: 15,
                 name: "Скор",
                 alt: "Скор",
-                img: require("../../img/product/skor/skor.png"),
+                img: [
+                    require("../../img/product/skor/skor.png"),
+                    require("../../img/product/skor/skorTwo.png"),
+                    require("../../img/product/skor/skorThree.png"),
+                ],
                 price: 190,
                 to: "skor",
             },
@@ -188,7 +227,12 @@ export const Router = () => {
                 id: 16,
                 name: "Агрикола",
                 alt: "Агрикола, удобрение для орхидей",
-                img: require("../../img/product/agrikola/agrikola.png"),
+                img: [
+                    require("../../img/product/agrikola/agrikola.png"),
+                    require("../../img/product/agrikola/agrikolaTwo.png"),
+                    require("../../img/product/agrikola/agrikolaThree.png"),
+                    require("../../img/product/agrikola/agrikolaFour.png"),
+                ],
                 price: 317,
                 to: "agrikola",
             },
@@ -203,24 +247,24 @@ export const Router = () => {
                         <Route path="petunia" element={<Commodity
                             availability="В наличии"
                             name="Петуния Софистика"
-                            images={imgPetunia}
+                            images={products[0][0].img}
                             price="100" priceFor="5 шт" />} />
                         <Route path="horys" element={<Commodity
                             availability="В наличии"
                             name="Хорус"
-                            images={imgHorys}
+                            images={products[0][2].img}
                             price="230" priceFor="3 шт" />}
                         />
                         <Route path="agrikola" element={<Commodity
                             availability="В наличии"
                             name="Комплект удобрений Агрикола"
-                            images={imgAgrikola}
+                            images={products[0][3].img}
                             price="317" priceFor="2 шт" />}
                         />
                         <Route path="skor" element={<Commodity
                             availability="В наличии"
                             name="Скор"
-                            images={imgSkor}
+                            images={products[0][1].img}
                             price="190" priceFor="2 ампулы" />}
                         />
                     </Route>
