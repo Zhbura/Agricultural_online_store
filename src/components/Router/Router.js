@@ -52,11 +52,153 @@ export const Router = () => {
         require("../../img/product/skor/skorTwo.png"),
         require("../../img/product/skor/skorThree.png"),
     ];
+
+    const products = [
+        [
+            {
+                id: 1,
+                name: "Петуния Софистика",
+                alt: "Петуния Софистика F1",
+                img: require("../../img/product/petunia/petunia.png"),
+                price: 100,
+                to: "petunia"
+            },
+            {
+                id: 2,
+                name: "Скор",
+                alt: "Скор",
+                img: require("../../img/product/skor/skor.png"),
+                price: 190,
+                to: "skor",
+            },
+            {
+                id: 3,
+                name: "Хорус",
+                alt: "Хорус",
+                img: require("../../img/product/horys/horys.png"),
+                price: 230,
+                to: "horys",
+            },
+            {
+                id: 4,
+                name: "Агрикола",
+                alt: "Агрикола, удобрение для орхидей",
+                img: require("../../img/product/agrikola/agrikola.png"),
+                price: 317,
+                to: "agrikola",
+            },
+        ],
+        [
+            {
+                id: 5,
+                name: "Агрикола",
+                alt: "Агрикола, удобрение для орхидей",
+                img: require("../../img/product/agrikola/agrikola.png"),
+                price: 317,
+                to: "agrikola",
+            },
+            {
+                id: 6,
+                name: "Хорус",
+                alt: "Хорус",
+                img: require("../../img/product/horys/horys.png"),
+                price: 230,
+                to: "horys",
+            },
+            {
+                id: 7,
+                name: "Скор",
+                alt: "Скор",
+                img: require("../../img/product/skor/skor.png"),
+                price: 190,
+                to: "skor",
+            },
+            {
+                id: 8,
+                name: "Петуния Софистика",
+                alt: "Петуния Софистика F1",
+                img: require("../../img/product/petunia/petunia.png"),
+                price: 100,
+                to: "petunia"
+            },
+        ],
+        [
+            {
+                id: 9,
+
+                name: "Скор",
+                alt: "Скор",
+                img: require("../../img/product/skor/skor.png"),
+                price: 190,
+                to: "skor",
+            },
+            {
+                id: 10,
+                name: "Петуния Софистика",
+                alt: "Петуния Софистика F1",
+                img: require("../../img/product/petunia/petunia.png"),
+                price: 100,
+                to: "petunia",
+            },
+            {
+                id: 11,
+                name: "Агрикола",
+                alt: "Агрикола, удобрение для орхидей",
+                img: require("../../img/product/agrikola/agrikola.png"),
+                price: 317,
+                to: "agrikola",
+            },
+            {
+                id: 12,
+
+                name: "Хорус",
+                alt: "Хорус",
+                img: require("../../img/product/horys/horys.png"),
+                price: 230,
+                to: "horys",
+            },
+        ],
+        [
+            {
+                id: 13,
+                name: "Петуния Софистика",
+                alt: "Петуния Софистика F1",
+                img: require("../../img/product/petunia/petunia.png"),
+                price: 100,
+                to: "petunia"
+            },
+            {
+                id: 14,
+
+                name: "Хорус",
+                alt: "Хорус",
+                img: require("../../img/product/horys/horys.png"),
+                price: 230,
+                to: "horys",
+            },
+            {
+                id: 15,
+                name: "Скор",
+                alt: "Скор",
+                img: require("../../img/product/skor/skor.png"),
+                price: 190,
+                to: "skor",
+            },
+            {
+                id: 16,
+                name: "Агрикола",
+                alt: "Агрикола, удобрение для орхидей",
+                img: require("../../img/product/agrikola/agrikola.png"),
+                price: 317,
+                to: "agrikola",
+            },
+        ],
+    ]
     return (
         <>
             <Routes>
                 <Route path="/" element={<Layout />}>
-                    <Route index element={<Main />} />
+                    <Route index element={<Main products={products} />} />
                     <Route path="product" element={<Product />} >
                         <Route path="petunia" element={<Commodity
                             availability="В наличии"

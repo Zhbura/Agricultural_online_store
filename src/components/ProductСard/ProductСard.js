@@ -7,7 +7,7 @@ export const ProductCard = (props) => {
 
     return (
         <>
-            <div className="product-card">
+            <div className="product-card" key={props.id}>
                 <img className="product-card__main-img" src={props.img} alt={props.alt} />
                 <div className="product-card__comparison"><Comparison /></div>
                 <div className="product-card__info-product">
