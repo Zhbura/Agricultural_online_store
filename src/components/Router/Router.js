@@ -41,7 +41,9 @@ export const Router = () => {
                     require("../../img/product/petunia/petuniaThree.png")
                 ],
                 price: 100,
-                to: "petunia"
+                to: "petunia",
+                availability: "В наличии",
+                priceFor: "5 шт",
             },
             {
                 id: 2,
@@ -54,6 +56,8 @@ export const Router = () => {
                 ],
                 price: 190,
                 to: "skor",
+                availability: "В наличии",
+                priceFor: "2 ампулы",
             },
             {
                 id: 3,
@@ -66,6 +70,8 @@ export const Router = () => {
                 ],
                 price: 230,
                 to: "horys",
+                availability: "В наличии",
+                priceFor: "3 шт",
             },
             {
                 id: 4,
@@ -79,6 +85,8 @@ export const Router = () => {
                 ],
                 price: 317,
                 to: "agrikola",
+                availability: "В наличии",
+                priceFor: "2 шт",
             },
         ],
         [
@@ -94,6 +102,8 @@ export const Router = () => {
                 ],
                 price: 317,
                 to: "agrikola",
+                availability: "В наличии",
+                priceFor: "2 шт",
             },
             {
                 id: 6,
@@ -106,6 +116,8 @@ export const Router = () => {
                 ],
                 price: 230,
                 to: "horys",
+                availability: "В наличии",
+                priceFor: "3 шт",
             },
             {
                 id: 7,
@@ -118,6 +130,8 @@ export const Router = () => {
                 ],
                 price: 190,
                 to: "skor",
+                availability: "В наличии",
+                priceFor: "2 ампулы",
             },
             {
                 id: 8,
@@ -129,13 +143,14 @@ export const Router = () => {
                     require("../../img/product/petunia/petuniaThree.png")
                 ],
                 price: 100,
-                to: "petunia"
+                to: "petunia",
+                availability: "В наличии",
+                priceFor: "5 шт",
             },
         ],
         [
             {
                 id: 9,
-
                 name: "Скор",
                 alt: "Скор",
                 img: [
@@ -145,6 +160,8 @@ export const Router = () => {
                 ],
                 price: 190,
                 to: "skor",
+                availability: "В наличии",
+                priceFor: "2 ампулы",
             },
             {
                 id: 10,
@@ -157,6 +174,8 @@ export const Router = () => {
                 ],
                 price: 100,
                 to: "petunia",
+                availability: "В наличии",
+                priceFor: "5 шт",
             },
             {
                 id: 11,
@@ -170,6 +189,8 @@ export const Router = () => {
                 ],
                 price: 317,
                 to: "agrikola",
+                availability: "В наличии",
+                priceFor: "2 шт",
             },
             {
                 id: 12,
@@ -183,6 +204,8 @@ export const Router = () => {
                 ],
                 price: 230,
                 to: "horys",
+                availability: "В наличии",
+                priceFor: "3 шт",
             },
         ],
         [
@@ -196,7 +219,9 @@ export const Router = () => {
                     require("../../img/product/petunia/petuniaThree.png")
                 ],
                 price: 100,
-                to: "petunia"
+                to: "petunia",
+                availability: "В наличии",
+                priceFor: "5 шт",
             },
             {
                 id: 14,
@@ -210,6 +235,8 @@ export const Router = () => {
                 ],
                 price: 230,
                 to: "horys",
+                availability: "В наличии",
+                priceFor: "3 шт",
             },
             {
                 id: 15,
@@ -222,6 +249,8 @@ export const Router = () => {
                 ],
                 price: 190,
                 to: "skor",
+                availability: "В наличии",
+                priceFor: "2 ампулы",
             },
             {
                 id: 16,
@@ -235,6 +264,8 @@ export const Router = () => {
                 ],
                 price: 317,
                 to: "agrikola",
+                availability: "В наличии",
+                priceFor: "2 шт",
             },
         ],
     ]
@@ -244,29 +275,10 @@ export const Router = () => {
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Main products={products} />} />
                     <Route path="product" element={<Product />} >
-                        <Route path="petunia" element={<Commodity
-                            availability="В наличии"
-                            name="Петуния Софистика"
-                            images={products[0][0].img}
-                            price="100" priceFor="5 шт" />} />
-                        <Route path="horys" element={<Commodity
-                            availability="В наличии"
-                            name="Хорус"
-                            images={products[0][2].img}
-                            price="230" priceFor="3 шт" />}
-                        />
-                        <Route path="agrikola" element={<Commodity
-                            availability="В наличии"
-                            name="Комплект удобрений Агрикола"
-                            images={products[0][3].img}
-                            price="317" priceFor="2 шт" />}
-                        />
-                        <Route path="skor" element={<Commodity
-                            availability="В наличии"
-                            name="Скор"
-                            images={products[0][1].img}
-                            price="190" priceFor="2 ампулы" />}
-                        />
+                        <Route path="petunia" element={<Commodity product={products[0][0]} />} />
+                        <Route path="skor" element={<Commodity product={products[0][1]} />} />
+                        <Route path="horys" element={<Commodity product={products[0][2]} />} />
+                        <Route path="agrikola" element={<Commodity product={products[0][3]} />} />
                     </Route>
                     <Route path="order" element={<Order />} />
                     <Route path="thanks_order" element={<ThanksOrder />} />
