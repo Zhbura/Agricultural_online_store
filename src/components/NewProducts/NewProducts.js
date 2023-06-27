@@ -1,9 +1,8 @@
 import './NewProducts.scss';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
-import { ProductCard } from '../ProductСard/ProductСard';
-import { Arrow, ArrowRight } from '../SVG/Arrow/Arrow';
 import { useState } from 'react';
 import { Slider } from "../Slider/Slider";
+import { ProductItems } from '../ProductСard/ProductItems';
 
 export const NewProducts = ({ products }) => {
     const [currentProduct, setCurrentProduct] = useState(0);
@@ -25,39 +24,7 @@ export const NewProducts = ({ products }) => {
         <>
             <div className="new-products">
                 <PageHeadingTwice>Новинки</PageHeadingTwice>
-                <div className="products">
-                    <div className="arrow-circle arrow-circle_left" onClick={prev}>
-                        <Arrow />
-                    </div>
-                    <div className="carousel">
-                        <div className="carousel__items carousel__items_big"
-                            style={{ transform: `translateX(${-currentProduct * 1100}px)` }}
-                        >
-                            {products[0].map((product, index) => (
-                                <ProductCard key={index} id={product.id} name={product.name} alt={product.alt} img={product.img[0]} price={product.price} to={product.to} />
-                            ))}
-                            {products[1].map((product, index) => (
-                                <ProductCard key={index} id={product.id} name={product.name} alt={product.alt} img={product.img[0]} price={product.price} to={product.to} />
-                            ))}
-                            {products[2].map((product, index) => (
-                                <ProductCard key={index} id={product.id} name={product.name} alt={product.alt} img={product.img[0]} price={product.price} to={product.to} />
-                            ))}
-                            {products[3].map((product, index) => (
-                                <ProductCard key={index} id={product.id} name={product.name} alt={product.alt} img={product.img[0]} price={product.price} to={product.to} />
-                            ))}
-                        </div>
-                        <div className="carousel__items carousel__items_small"
-                            style={{ transform: `translateX(${-currentProduct * 275}px)` }}
-                        >
-                            {products[0].map((product, index) => (
-                                <ProductCard key={index} name={product.name} alt={product.alt} img={product.img} price={product.price} to={product.to} />
-                            ))}
-                        </div>
-                    </div>
-                    <div className="arrow-circle arrow-circle_right" onClick={next}>
-                        <ArrowRight />
-                    </div>
-                </div>
+                <ProductItems products={products} prevEl={prev} nextEl={next} currentIndex={currentProduct} />
                 <div className="new-products__slider">
                     <Slider
                         classSmall="slider__notActive"
