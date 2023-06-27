@@ -59,10 +59,10 @@ export const NewProducts = ({ products }) => {
                     </div>
                 </div>
                 <div className="new-products__slider">
-                    <div className="carousel__indicators">
+                    <div className="slider">
                         {products.map((slide, index) => (
                             <div
-                                className={`carousel__indicator${currentProduct === index ? ' carousel__indicator_active' : ''}`} onClick={() => switchIndex(index)} key={index}>
+                                className={`slider__notActive${currentProduct === index ? ' slider__active' : ''}`} onClick={() => switchIndex(index)} key={index}>
                             </div>
                         ))}
                     </div>

@@ -12,7 +12,7 @@ export const Main = ({ products }) => {
             <BrandWrap />
             <InfoCompany />
             <NewProducts products={products} />
-            <Stocks />
+            <Stocks products={products} />
             <Partners />
             <Seeds />
         </>
