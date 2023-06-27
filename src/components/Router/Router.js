@@ -274,7 +274,7 @@ export const Router = () => {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Main products={products} />} />
-                    <Route path="product" element={<Product />} >
+                    <Route path="product" element={<Product products={products} />} >
                         <Route path="petunia" element={<Commodity product={products[0][0]} />} />
                         <Route path="skor" element={<Commodity product={products[0][1]} />} />
                         <Route path="horys" element={<Commodity product={products[0][2]} />} />

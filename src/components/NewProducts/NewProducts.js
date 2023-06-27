@@ -2,7 +2,6 @@ import './NewProducts.scss';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { ProductCard } from '../ProductСard/ProductСard';
 import { Arrow, ArrowRight } from '../SVG/Arrow/Arrow';
-import { Slider } from '../Slider/Slider';
 import { useState } from 'react';
 
 export const NewProducts = ({ products }) => {
