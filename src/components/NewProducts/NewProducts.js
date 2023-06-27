@@ -3,6 +3,7 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { ProductCard } from '../ProductСard/ProductСard';
 import { Arrow, ArrowRight } from '../SVG/Arrow/Arrow';
 import { useState } from 'react';
+import { Slider } from "../Slider/Slider";
 
 export const NewProducts = ({ products }) => {
     const [currentProduct, setCurrentProduct] = useState(0);
@@ -58,13 +59,11 @@ export const NewProducts = ({ products }) => {
                     </div>
                 </div>
                 <div className="new-products__slider">
-                    <div className="slider">
-                        {products.map((slide, index) => (
-                            <div
-                                className={`slider__notActive${currentProduct === index ? ' slider__active' : ''}`} onClick={() => switchIndex(index)} key={index}>
-                            </div>
-                        ))}
-                    </div>
+                    <Slider
+                        classSmall="slider__notActive"
+                        classBig="slider__active"
+                        products={products} currentIndex={currentProduct} switchIndex={switchIndex}
+                    />
                 </div>
             </div>
         </>

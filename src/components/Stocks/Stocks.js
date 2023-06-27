@@ -4,6 +4,7 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { ProductCard } from '../ProductСard/ProductСard';
 import { Arrow, ArrowRight } from '../SVG/Arrow/Arrow';
 import { useState } from 'react';
+import { Slider } from "../Slider/Slider";
 
 export const Stocks = ({ products }) => {
     const [currentProduct, setCurrentProduct] = useState(0);
@@ -61,13 +62,11 @@ export const Stocks = ({ products }) => {
                     </div>
                 </div>
                 <div className="stocks__slider">
-                    <div className="slider">
-                        {products.map((slide, index) => (
-                            <div
-                                className={`slider__notActive slider__notActive_green${currentProduct === index ? ' slider__active slider__active_green' : ''}`} onClick={() => switchIndex(index)} key={index}>
-                            </div>
-                        ))}
-                    </div>
+                    <Slider
+                        classSmall="slider__notActive slider__notActive_green"
+                        classBig="slider__active slider__active_green"
+                        products={products} currentIndex={currentProduct} switchIndex={switchIndex}
+                    />
                 </div>
                 <div className="stocks__btn">
                     <Button>Смотреть все товары</Button>
