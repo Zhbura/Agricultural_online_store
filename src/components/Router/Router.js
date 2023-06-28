@@ -291,11 +291,11 @@ export const Router = () => {
                     <Route path="contacts" element={<Contacts />} />
                     <Route path="registration" element={<Registration />} />
                     <Route path="catalog" element={<PlantProtection />} />
-                    <Route path="catalog_plant_protection" element={<Catalog title="Средства защиты растений" />} />
-                    <Route path="catalog_seeds" element={<Catalog title="Семена" />} />
-                    <Route path="catalog_fertilizers" element={<Catalog title="Удобрения" />} />
-                    <Route path="catalog_feed_group" element={<Catalog title="Кормовая группа" />} />
-                    <Route path="catalog_farmer_help" element={<Catalog title="Агроному в помощь" />} />
+                    <Route path="catalog_plant_protection" element={<Catalog title="Средства защиты растений" products={products} />} />
+                    <Route path="catalog_seeds" element={<Catalog title="Семена" products={products} />} />
+                    <Route path="catalog_fertilizers" element={<Catalog title="Удобрения" products={products} />} />
+                    <Route path="catalog_feed_group" element={<Catalog title="Кормовая группа" products={products} />} />
+                    <Route path="catalog_farmer_help" element={<Catalog title="Агроному в помощь" products={products} />} />
                     <Route path="personal_account" element={<PersonalAccount />}>
                         <Route index element={<Cabinet />} />
                         <Route path="current_orders" element={<CurrentOrders />} />

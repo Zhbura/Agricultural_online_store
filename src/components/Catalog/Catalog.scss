@@ -20,6 +20,8 @@
         grid-template-rows: repeat(8, 355px);
         justify-content: center;
     }
+
+
 }
 
 .sort {
@@ -116,5 +118,13 @@
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
+    }
+}
+
+.catalog-product {
+    @media (min-width: 1200px) {
+        .product-card:first-child {
+            display: none;
+        }
     }
 }

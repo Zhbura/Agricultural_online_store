@@ -11,8 +11,11 @@ import { useState } from 'react';
 import { FilterCatalogBig } from '../FilterCatalog/FilterCatalogBig';
 import { DropdownCatalog } from '../Dropdown/DropdownCatalog';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
+import { Comparison } from '../SVG/Icon/Comparison';
+import { Cart } from '../SVG/Icon/Cart';
+import { Link } from 'react-router-dom';
 
-export const Catalog = (props) => {
+export const Catalog = ({ title, products }) => {
     const [selected, setSelected] = useState('');
 
     const dispatch = useDispatch();
@@ -27,16 +30,18 @@ export const Catalog = (props) => {
             to: "/catalog"
         },
         {
-            name: `${props.title}`,
+            name: `${title}`,
             to: "/catalog"
         },
     ];
+
+
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="catalog">
                 <PageHeadingTwice>
-                    {props.title}
+                    {title}
                 </PageHeadingTwice>
                 <div className="catalog-wrap catalog-wrap_top container">
                     <div className="result">Показано 621 товар</div>
@@ -62,26 +67,20 @@ export const Catalog = (props) => {
                     <FilterCatalogBig />
                     <div>
                         <div className="catalog-product">
-                            <ProductCard name="Петуния Софистика" alt="Петуния Софистика F1" img={require("../../img/product/petunia/petunia.png")} price="100" to="petunia" />
-                            <ProductCard name="Скор" alt="Скор" img={require("../../img/product/skor/skor.png")} price="190" to="skor" />
-                            <ProductCard name="Хорус" alt="Хорус" img={require("../../img/product/horys/horys.png")} price="230" to="horys" />
-                            <ProductCard name="Агрикола" alt="Агрикола, удобрение для орхидей" img={require("../../img/product/agrikola/agrikola.png")} price="317" to="agrikola" />
-                            <ProductCard name="Петуния Софистика" alt="Петуния Софистика F1" img={require("../../img/product/petunia/petunia.png")} price="100" to="petunia" />
-                            <ProductCard name="Скор" alt="Скор" img={require("../../img/product/skor/skor.png")} price="190" to="skor" />
-                            <ProductCard name="Хорус" alt="Хорус" img={require("../../img/product/horys/horys.png")} price="230" to="horys" />
-                            <ProductCard name="Агрикола" alt="Агрикола, удобрение для орхидей" img={require("../../img/product/agrikola/agrikola.png")} price="317" to="agrikola" />
-                            <ProductCard name="Петуния Софистика" alt="Петуния Софистика F1" img={require("../../img/product/petunia/petunia.png")} price="100" to="petunia" />
-                            <ProductCard name="Скор" alt="Скор" img={require("../../img/product/skor/skor.png")} price="190" to="skor" />
-                            <ProductCard name="Хорус" alt="Хорус" img={require("../../img/product/horys/horys.png")} price="230" to="horys" />
-                            <ProductCard name="Агрикола" alt="Агрикола, удобрение для орхидей" img={require("../../img/product/agrikola/agrikola.png")} price="317" to="agrikola" />
-                            <ProductCard name="Петуния Софистика" alt="Петуния Софистика F1" img={require("../../img/product/petunia/petunia.png")} price="100" to="petunia" />
-                            <ProductCard name="Скор" alt="Скор" img={require("../../img/product/skor/skor.png")} price="190" to="skor" />
-                            <ProductCard name="Хорус" alt="Хорус" img={require("../../img/product/horys/horys.png")} price="230" to="horys" />
+                            {products.map((arrayProducts, index) => (
+                                arrayProducts.map(product => (
+                                    <ProductCard key={product.id} id={product.id}
+                                        name={product.name} alt={product.alt}
+                                        img={product.img[0]} price={product.price}
+                                        to={product.to}
+                                    />
+                                ))
+                            ))}
                         </div>
                         <Pagination />
                     </div>
                 </div>
-            </div>
+            </div >
             <SeedsCatalog />
         </>
     )
