@@ -1,16 +1,21 @@
 import './CartProduct.scss';
-import productImg from '../../img/product/petunia/petunia.png';
 import fabricator from '../../img/fabricator.svg';
 import { DropdownCart } from '../Dropdown/DropdownCart';
 import { useState } from 'react';
+import cancel from '../../img/cancelGrey.svg';
 
-export const CartProduct = ({ id, img, name, price, priceFor }) => {
+export const CartProduct = ({ id, img, name, price, priceFor, deleteProduct }) => {
     const [selected, setSelected] = useState('');
+
 
     return (
         <>
-            <div className="cart-product" key={id}>
-                <h3 className="cart-product__title">{name}</h3>
+            <div className="cart-product">
+                <h3 className="cart-product__title">{name}
+                    <img className="cart-product__cancel" src={cancel} alt="Удалить выбранный товар"
+                        onClick={() => deleteProduct(id)}
+                    />
+                </h3>
                 <div className="cart-product__info">
                     <div className="cart-product__info-left">
                         <div className="cart-product__img">

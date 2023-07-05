@@ -16,6 +16,10 @@ export const CartComp = ({ products }) => {
             to: "/cart"
         },
     ];
+
+    const deleteProduct = (id) => {
+        setCartProducts((cartProducts) => cartProducts.filter((product) => id !== product.id));
+    }
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -23,7 +27,15 @@ export const CartComp = ({ products }) => {
                 <PageHeadingTwice>Корзина</PageHeadingTwice>
                 <span className="cart__separator-horizontal" />
                 {cartProducts.map((product) => (
-                    <CartProduct key={product.id} name={product.name} price={product.price} priceFor={product.priceFor} img={product.img[0]} />
+                    <CartProduct
+                        id={product.id}
+                        key={product.id}
+                        name={product.name}
+                        price={product.price}
+                        priceFor={product.priceFor}
+                        img={product.img[0]}
+                        deleteProduct={deleteProduct}
+                    />
                 ))}
                 <span className="cart__separator-horizontal" />
                 <div className="cart__info-bottom">
