@@ -306,7 +306,7 @@ export const Router = () => {
                     <Route path="privacypolicy" element={<PrivacyPolicy />} />
                     <Route path="refund" element={<Refund />} />
                     <Route path="codex" element={<Codex />} />
-                    <Route path="cart" element={<CartComp />} />
+                    <Route path="cart" element={<CartComp products={products} />} />
                     <Route path="*" element={<Error />} />
                 </Route>
             </Routes>
