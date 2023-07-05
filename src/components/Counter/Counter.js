@@ -1,3 +1,5 @@
+import './Counter.scss';
+
 export const Counter = ({ id, count, increase, decrease, changeValue }) => {
     return (
         <>

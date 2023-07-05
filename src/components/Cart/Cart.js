@@ -5,10 +5,23 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { CartProduct } from '../CartProduct/CartProduct';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const CartComp = ({ products }) => {
     const [cartProducts, setCartProducts] = useState(products[0]);
+
+    const [total, setTotal] = useState({
+        count: cartProducts.reduce((prev, current) => prev + current.count, 0),
+        totalPrice: cartProducts.reduce((prev, current) => prev + current.totalPrice, 0),
+    })
+
+    useEffect(() => {
+        setTotal({
+            count: cartProducts.reduce((prev, current) => (prev + current.count), 0),
+            totalPrice: cartProducts.reduce((prev, current) => (prev + current.totalPrice), 0),
+        })
+    },
+        [cartProducts])
 
     const breadcrumbs = [
         {
@@ -89,6 +102,12 @@ export const CartComp = ({ products }) => {
                     />
                 ))}
                 <span className="cart__separator-horizontal" />
+                {/* временно, не забыть удалить */}
+                <div className="order__buy-product">
+                    <p className="order__buy-product_margin">Итого: <span>{total.count} единиц </span></p>
+                    <p>На сумму: <span>{total.totalPrice}</span></p>
+                </div>
+
                 <div className="cart__info-bottom">
                     <div className="btn-cart icon_orange">
                         <Link to='/catalog_plant_protection' className="btn-cart__link btn-cart__link_orange">
