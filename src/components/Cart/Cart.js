@@ -20,6 +20,53 @@ export const CartComp = ({ products }) => {
     const deleteProduct = (id) => {
         setCartProducts((cartProducts) => cartProducts.filter((product) => id !== product.id));
     }
+
+    const increase = (id) => {
+        setCartProducts((cartProducts) => {
+            return cartProducts.map((product) => {
+                if (product.id === id) {
+                    return {
+                        ...product,
+                        count: product.count + 1,
+                        totalPrice: (product.count + 1) * product.price,
+                    }
+                }
+                return product
+            })
+        })
+    }
+
+    const decrease = (id) => {
+        setCartProducts((cartProducts) => {
+            return cartProducts.map((product) => {
+                const newCount = product.count > 1 ? product.count - 1 : 1
+                if (product.id === id) {
+                    return {
+                        ...product,
+                        count: newCount,
+                        totalPrice: (newCount) * product.price,
+                    }
+                }
+                return product
+            })
+        })
+    }
+
+    const changeValue = (id, value) => {
+        setCartProducts((cartProducts) => {
+            return cartProducts.map((product) => {
+                if (product.id === id) {
+                    return {
+                        ...product,
+                        count: value,
+                        totalPrice: product.price * value,
+                    }
+                }
+                return product
+            })
+        })
+    }
+
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -31,10 +78,14 @@ export const CartComp = ({ products }) => {
                         id={product.id}
                         key={product.id}
                         name={product.name}
-                        price={product.price}
+                        totalPrice={product.totalPrice}
                         priceFor={product.priceFor}
                         img={product.img[0]}
+                        count={product.count}
                         deleteProduct={deleteProduct}
+                        increase={increase}
+                        decrease={decrease}
+                        changeValue={changeValue}
                     />
                 ))}
                 <span className="cart__separator-horizontal" />

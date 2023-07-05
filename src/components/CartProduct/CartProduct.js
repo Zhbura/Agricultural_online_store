@@ -3,10 +3,10 @@ import fabricator from '../../img/fabricator.svg';
 import { DropdownCart } from '../Dropdown/DropdownCart';
 import { useState } from 'react';
 import cancel from '../../img/cancelGrey.svg';
+import { Counter } from '../Counter/Counter';
 
-export const CartProduct = ({ id, img, name, price, priceFor, deleteProduct }) => {
+export const CartProduct = ({ id, img, name, totalPrice, priceFor, deleteProduct, count, increase, decrease, changeValue }) => {
     const [selected, setSelected] = useState('');
-
 
     return (
         <>
@@ -24,7 +24,7 @@ export const CartProduct = ({ id, img, name, price, priceFor, deleteProduct }) =
                     </div>
                     <div className="cart-product__info-middle">
                         <div className="cart-product__price-quantity">
-                            <p className="cart-product__price-quantity_margin">{price} рублей</p>
+                            <p className="cart-product__price-quantity_margin">{totalPrice} рублей</p>
                             <p className="cart-product__text">Цена за {priceFor}</p>
                         </div>
                         <div className="cart-product__fabricator">
@@ -37,18 +37,12 @@ export const CartProduct = ({ id, img, name, price, priceFor, deleteProduct }) =
                         <DropdownCart selected={selected} setSelected={setSelected} />
                         <div className="cart-product__quantity">
                             <p className="cart-product__quantity-text">Количество</p>
-                            <div className="counter">
-                                <div className="counter__quantity-circle_small">
-                                    <span className="counter__minus" />
-                                </div>
-                                <div className="counter__quantity-circle">
-                                    <span>1</span>
-                                </div>
-                                <div className="counter__quantity-circle_small">
-                                    <span className="counter__plus" />
-                                    <span className="counter__minus" />
-                                </div>
-                            </div>
+                            <Counter count={count} 
+                            increase={increase} 
+                            decrease={decrease} 
+                            changeValue={changeValue} 
+                            id={id}
+                            />
                         </div>
                     </div>
                 </div>

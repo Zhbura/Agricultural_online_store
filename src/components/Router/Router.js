@@ -41,9 +41,11 @@ export const Router = () => {
                     require("../../img/product/petunia/petuniaThree.png")
                 ],
                 price: 100,
+                totalPrice: 100,
                 to: "petunia",
                 availability: "В наличии",
                 priceFor: "5 шт",
+                count: 1,
             },
             {
                 id: 2,
@@ -55,9 +57,11 @@ export const Router = () => {
                     require("../../img/product/skor/skorThree.png"),
                 ],
                 price: 190,
+                totalPrice: 190,
                 to: "skor",
                 availability: "В наличии",
                 priceFor: "2 ампулы",
+                count: 1,
             },
             {
                 id: 3,
@@ -69,9 +73,11 @@ export const Router = () => {
                     require("../../img/product/horys/horysThree.png"),
                 ],
                 price: 230,
+                totalPrice: 230,
                 to: "horys",
                 availability: "В наличии",
                 priceFor: "3 шт",
+                count: 1,
             },
             {
                 id: 4,
@@ -84,9 +90,11 @@ export const Router = () => {
                     require("../../img/product/agrikola/agrikolaFour.png"),
                 ],
                 price: 317,
+                totalPrice: 317,
                 to: "agrikola",
                 availability: "В наличии",
                 priceFor: "2 шт",
+                count: 1,
             },
         ],
         [
