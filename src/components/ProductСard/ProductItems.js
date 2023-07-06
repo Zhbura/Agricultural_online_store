@@ -14,7 +14,7 @@ export const ProductItems = ({ products, prevEl, nextEl, currentIndex }) => {
                     >
                         {products.map((arrayProducts, index) => (
                             arrayProducts.map(product => (
-                                <ProductCard key={product.id} id={product.id} name={product.name} alt={product.alt} img={product.img[0]} price={product.price} to={product.to} />
+                                <ProductCard key={product.id} product={product} />
                             ))
                         ))}
                     </div>
@@ -22,7 +22,7 @@ export const ProductItems = ({ products, prevEl, nextEl, currentIndex }) => {
                         style={{ transform: `translateX(${-currentIndex * 275}px)` }}
                     >
                         {products[0].map((product, index) => (
-                            <ProductCard key={index} name={product.name} alt={product.alt} img={product.img} price={product.price} to={product.to} />
+                            <ProductCard key={index} product={product} />
                         ))}
                     </div>
                 </div>

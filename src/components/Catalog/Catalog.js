@@ -82,11 +82,7 @@ export const Catalog = ({ title, products }) => {
                         <div className="catalog-product">
                             {currentProduct.map((arrayProducts, index) => (
                                 arrayProducts.map((product, i) => (
-                                    <ProductCard key={product.id} id={product.id}
-                                        name={product.name} alt={product.alt}
-                                        img={product.img[0]} price={product.price}
-                                        to={product.to}
-                                    />
+                                    <ProductCard key={product.id} product={product} />
                                 ))
                             ))}
                         </div>
