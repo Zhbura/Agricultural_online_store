@@ -11,15 +11,17 @@ import availabilityImg from '../../img/availability.svg';
 import { ImageSlider } from '../ImageSlider/ImageSlider'
 
 export const Commodity = ({ product }) => {
+    const { img, name, priceFor, price, availability } = product;
+
     return (
         <>
             <div className="commodity-info">
-                <ImageSlider images={product.img} name={product.name} />
+                <ImageSlider images={img} name={name} />
                 <div className="commodity-info_right">
-                    <h2 className="commodity-info__title">{product.name}</h2>
+                    <h2 className="commodity-info__title">{name}</h2>
                     <div className="commodity-info__availability">
                         <img src={availabilityImg} alt="Продукт находится в наличии" />
-                        {product.availability}
+                        {availability}
                     </div>
                     <div className="wrap_top-info">
                         <div>
@@ -48,8 +50,8 @@ export const Commodity = ({ product }) => {
                     <span className="commodity-info__separator-horizontal" />
                     <div className="wrap_bottom-info">
                         <div className="commodity-info__price-quantity">
-                            <p >{product.price} рублей</p>
-                            <p className="commodity-info__text">Цена за {product.priceFor}</p>
+                            <p >{price} рублей</p>
+                            <p className="commodity-info__text">Цена за {priceFor}</p>
                         </div>
                         <div className="commodity-info__toolbar">
                             <div className="product-btn product-btn_orange icon_white">

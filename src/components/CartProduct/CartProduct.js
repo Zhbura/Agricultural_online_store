@@ -5,7 +5,9 @@ import { useState } from 'react';
 import cancel from '../../img/cancelGrey.svg';
 import { Counter } from '../Counter/Counter';
 
-export const CartProduct = ({ id, img, name, totalPrice, priceFor, deleteProduct, count, increase, decrease, changeValue }) => {
+export const CartProduct = ({ product }) => {
+    const { id, img, name, totalPrice, priceFor, deleteProduct, count, increase, decrease, changeValue } = product;
+    
     const [selected, setSelected] = useState('');
 
     return (
@@ -37,11 +39,11 @@ export const CartProduct = ({ id, img, name, totalPrice, priceFor, deleteProduct
                         <DropdownCart selected={selected} setSelected={setSelected} />
                         <div className="cart-product__quantity">
                             <p className="cart-product__quantity-text">Количество</p>
-                            <Counter count={count} 
-                            increase={increase} 
-                            decrease={decrease} 
-                            changeValue={changeValue} 
-                            id={id}
+                            <Counter count={count}
+                                increase={increase}
+                                decrease={decrease}
+                                changeValue={changeValue}
+                                id={id}
                             />
                         </div>
                     </div>
