@@ -24,7 +24,7 @@ export const Dropdown = ({ selected, setSelected }) => {
             id: 2,
             name: "Средства защиты растений",
             svg: <Sapling />,
-            to: '/plantprotection',
+            to: '/catalog_plant_protection',
         },
         {
             id: 3,

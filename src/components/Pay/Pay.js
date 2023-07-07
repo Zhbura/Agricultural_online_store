@@ -2,10 +2,18 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import './Pay.scss';
 import pochta1 from '../../img/pochta1.png';
 import pochta2 from '../../img/pochta2.png';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const Pay = () => {
+    const breadcrumbs = [
+        {
+            name: "Оплата и доставка",
+            to: "/pay"
+        },
+    ];
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="pay">
                 <div className="container">
                     <PageHeadingTwice>Оплата и доставка</PageHeadingTwice>

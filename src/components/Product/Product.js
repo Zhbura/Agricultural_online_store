@@ -1,92 +1,32 @@
 import './Product.scss';
 import { Button } from '../Button/Button';
-import fabricator from '../../img/fabricator.svg';
-import money from '../../img/money.svg';
-import mastercard from '../../img/mastercard.svg';
-import visa from '../../img/visa.svg';
-import availability from '../../img/availability.svg';
-import { Heart } from '../SVG/Icon/Heart';
-import { Comparison } from '../SVG/Icon/Comparison';
-import productImgSmall from '../../img/productImgSmall.png';
-import productImgBig from '../../img/productImgBig.png';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
-import { ProductCard } from '../ProductСard/ProductСard';
-import { Arrow, ArrowRight } from '../SVG/Arrow/Arrow';
-import { Phone } from '../SVG/Icon/Phone';
-import { Cart } from '../SVG/Icon/Cart';
+import { Outlet } from 'react-router-dom';
+import { useState } from 'react';
 import { Slider } from '../Slider/Slider';
+import { ProductItems } from '../ProductСard/ProductItems';
 
-export const Product = () => {
+export const Product = ({ products, addToCart }) => {
+    const [currentProduct, setCurrentProduct] = useState(0);
+
+    const prev = () => {
+        const index = currentProduct > 0 ? currentProduct - 1 : products.length - 1;
+        setCurrentProduct(index)
+    }
+
+    const next = () => {
+        const index = currentProduct < products.length - 1 ? currentProduct + 1 : 0;
+        setCurrentProduct(index)
+    }
+
+    const switchIndex = (index) => {
+        setCurrentProduct(index);
+    }
     return (
         <>
             <div className="commodity">
                 <div className="container">
-                    <div className="commodity-info">
-                        <div className="commodity-info_left">
-                            <div className="commodity-info__img commodity-info__img_big">
-                                <div className="arrow-scroll">
-                                    <Arrow />
-                                </div>
-                                <img src={productImgBig} alt="Гербицид Комманд" />
-                                <div className="arrow-scroll arrow_right">
-                                    <Arrow />
-                                </div>
-                            </div>
-                            <div className="wrap-img">
-                                <div className="commodity-info__img commodity-info__img_small"><img src={productImgSmall} alt="Гербицид Комманд" /></div>
-                                <div className="commodity-info__img commodity-info__img_small"><img src={productImgSmall} alt="Гербицид Комманд" /></div>
-                                <div className="commodity-info__img commodity-info__img_small"><img src={productImgSmall} alt="Гербицид Комманд" /></div>
-                            </div>
-                        </div>
-                        <div className="commodity-info_right">
-                            <h2 className="commodity-info__title">Гербицид Комманд®,<br /> ФМС Украина</h2>
-                            <div className="commodity-info__availability">
-                                <p> <img src={availability} alt="Продукт находится в наличии" />В наличии</p>
-                                <p className="commodity-info__availability_grey">1 619,03 грн./л</p>
-                            </div>
-                            <div className="wrap_top-info">
-                                <div>
-                                    <div className="commodity-info__fabricator">
-                                        <h5 className="commodity-info__heading">Производитель</h5>
-                                        <img src={fabricator} alt="Производитель лого ФМС Украина" />
-                                        <span className="commodity-info__text commodity-info__text_margin">ФМС Украина</span>
-                                    </div>
-                                    <div className="commodity-info__payment-method">
-                                        <h5 className="commodity-info__heading">Оплата</h5>
-                                        <div className="commodity-info__payment"><img src={money} alt="money" /></div>
-                                        <div className="commodity-info__payment"><img src={mastercard} alt="mastercard" /></div>
-                                        <div className="commodity-info__payment"><img src={visa} alt="visa" /></div>
-                                    </div>
-                                </div>
-                                <span className="commodity-info__separator-vertical" />
-                                <div className="commodity-info__delivery">
-                                    <h5 className="commodity-info__heading">Доставка</h5>
-                                    <span className="commodity-info__text commodity-info__text_width">Завтра в соответствии с тарифами перевозчика</span>
-                                    <div className="product-btn icon_orange">
-                                        <Phone />
-                                        Заказать звонок
-                                    </div>
-                                </div>
-                            </div>
-                            <span className="commodity-info__separator-horizontal" />
-                            <div className="wrap_bottom-info">
-                                <div className="commodity-info__price-quantity">
-                                    <p >7814,63 грн</p>
-                                    <p className="commodity-info__text">Цена за 5 л</p>
-                                </div>
-                                <div className="commodity-info__toolbar">
-                                    <div className="product-btn product-btn_orange icon_white">
-                                        <Cart />
-                                        Купить
-                                    </div>
-                                    <div className="circle-icon circle-icon_hover"> <Heart /></div>
-                                    <div className="icon-quantity">
-                                        <div className="circle-icon circle-icon_hover"><Comparison /><span>2</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <Outlet />
                     <div className="description">
                         <div className="wrap-title">
                             <div className="description__title">Описание</div>
@@ -152,23 +92,12 @@ export const Product = () => {
                     <div className="page-heading_white">
                         <PageHeadingTwice>Вам также понравится</PageHeadingTwice>
                     </div>
-                    <div className="products">
-                        <div className="arrow-circle">
-                            <Arrow />
-                        </div>
-                        <div className="products__items">
-                            <ProductCard name="Петуния Софистика F1" alt="Петуния Софистика F1" img={require("../../img/newProducts1.png")} price="20" />
-                            <ProductCard name="Скор 250 ЕС К. Э." alt="Скор 250 ЕС К. Э." img={require("../../img/newProducts3.png")} price="200" />
-                            <ProductCard name="Хорус" alt="Хорус" img={require("../../img/newProducts4.png")} price="320" />
-                            <ProductCard name="Агрикола" alt="Агрикола, удобрение для орхидей" img={require("../../img/newProducts2.png")} price="170" />
-                        </div>
-                        <div className="arrow-circle">
-                            <ArrowRight />
-                        </div>
-                    </div>
+                    <ProductItems products={products} prevEl={prev} nextEl={next} currentIndex={currentProduct} addToCart={addToCart} />
                     <div className="stocks__slider">
                         <Slider classSmall="slider__notActive slider__notActive_green"
-                            classBig="slider__active slider__active_green" />
+                            classBig="slider__active slider__active_green"
+                            products={products} currentIndex={currentProduct} switchIndex={switchIndex}
+                        />
                     </div>
                     <div className="stocks__btn">
                         <Button>Смотреть все товары</Button>

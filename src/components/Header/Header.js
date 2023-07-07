@@ -8,7 +8,7 @@ import { Heart } from '../SVG/Icon/Heart';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export const Header = () => {
+export const Header = ({ total }) => {
     const [phoneActive, setPhoneActive] = useState(false);
 
     return (
@@ -58,10 +58,10 @@ export const Header = () => {
                         </div>
                         <div className="icon-quantity">
                             <div className="circle-icon circle-icon_hover">
-                                <Link to='/cart'><Cart /><span>1</span></Link>
+                                <Link to='/cart'><Cart /><span>{total.count}</span></Link>
                             </div>
                         </div>
-                        <p className="header__price">0,0 руб</p>
+                        <p className="header__price">{total.totalPrice} руб</p>
                     </div>
                 </div>
             </header>

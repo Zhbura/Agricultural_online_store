@@ -1,9 +1,17 @@
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import './Codex.scss';
 
 export const Codex = () => {
+    const breadcrumbs = [
+        {
+            name: "Кодекс",
+            to: "/codex"
+        },
+    ];
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="codex">
                 <div className="container">
                     <PageHeadingTwice>Корпоративный кодекс</PageHeadingTwice>

@@ -1,9 +1,17 @@
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import './PrivacyPolicy.scss';
 
 export const PrivacyPolicy = () => {
+    const breadcrumbs = [
+        {
+            name: "Политика конфиденциальности",
+            to: "/privacypolicy"
+        },
+    ];
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="privacy-policy">
                 <div className="container">
                     <PageHeadingTwice>Политика конфиденциальности</PageHeadingTwice>

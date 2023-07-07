@@ -4,11 +4,19 @@ import { PersonalData } from "../SVG/Icon/PersonalData"
 import { History } from "../SVG/Icon/History"
 import { Unlock } from "../SVG/Icon/Unlock"
 import { PageHeadingTwice } from "../PageHeading/PageHeading"
+import { Breadcrumbs } from "../Breadcrumbs/Breadcrumbs"
 
 export const Cabinet = () => {
+    const breadcrumbs = [
+        {
+            name: "Личный кабинет",
+            to: "/personal_account"
+        },
+    ];
     return (
         <>
             <div className="cabinet">
+                <Breadcrumbs breadcrumbs={breadcrumbs} />
                 <PageHeadingTwice>Личный кабинет</PageHeadingTwice>
                 <div className="personal-account__items">
                     <Link to="current_orders" className="personal-account__link"><ClipBoard />

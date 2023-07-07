@@ -1,9 +1,17 @@
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import './Refund.scss';
 
 export const Refund = () => {
+    const breadcrumbs = [
+        {
+            name: "Возврат и обмен товара",
+            to: "/refund"
+        },
+    ];
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="refund">
                 <div className="container">
                     <PageHeadingTwice>Возврат и обмен товара</PageHeadingTwice>

@@ -1,19 +1,31 @@
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import './OrderHistory.scss';
-import productImg from '../../img/productImgBig.png';
+import productImg from '../../img/product/petunia/petunia.png';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const OrderHistory = () => {
+    const breadcrumbs = [
+        {
+            name: "Личный кабинет",
+            to: "/personal_account"
+        },
+        {
+            name: "История заказов",
+            to: "/order_history"
+        },
+    ];
     return (
         <>
             <div className="order-history">
+                <Breadcrumbs breadcrumbs={breadcrumbs} />
                 <PageHeadingTwice>История заказов</PageHeadingTwice>
                 <div className="ordered-products">
                     <div className="ordered-products__item">
                         <div className="order__image">
-                            <img src={productImg} alt="Гербицид Комманд" />
+                            <img src={productImg} alt="Петуния Софистика" />
                         </div>
                         <div className="ordered-products_middle">
-                            <h3 className="ordered-products__title">Гербицид Комманд®, ФМС Украина</h3>
+                            <h3 className="ordered-products__title">Петуния Софистика</h3>
                             <div className="ordered-products__data">
                                 <p className="ordered-products__quantity">Количество х1</p>
                                 <p className="ordered-products__date">05.04.2023</p>
@@ -24,10 +36,10 @@ export const OrderHistory = () => {
                     <span className="ordered-products__horisontal-line ordered-products__horisontal-line_big" />
                     <div className="ordered-products__item">
                         <div className="order__image">
-                            <img src={productImg} alt="Гербицид Комманд" />
+                            <img src={productImg} alt="Петуния Софистика" />
                         </div>
                         <div className="ordered-products_middle">
-                            <h3 className="ordered-products__title">Гербицид Комманд®, ФМС Украина</h3>
+                            <h3 className="ordered-products__title">Петуния Софистика</h3>
                             <div className="ordered-products__data">
                                 <p className="ordered-products__quantity">Количество х1</p>
                                 <p className="ordered-products__date">05.04.2023</p>
@@ -38,10 +50,10 @@ export const OrderHistory = () => {
                     <span className="ordered-products__horisontal-line ordered-products__horisontal-line_big" />
                     <div className="ordered-products__item">
                         <div className="order__image">
-                            <img src={productImg} alt="Гербицид Комманд" />
+                            <img src={productImg} alt="Петуния Софистика" />
                         </div>
                         <div className="ordered-products_middle">
-                            <h3 className="ordered-products__title">Гербицид Комманд®, ФМС Украина</h3>
+                            <h3 className="ordered-products__title">Петуния Софистика</h3>
                             <div className="ordered-products__data">
                                 <p className="ordered-products__quantity">Количество х1</p>
                                 <p className="ordered-products__date">05.04.2023</p>
@@ -51,11 +63,11 @@ export const OrderHistory = () => {
                     </div>
                     <div className="ordered-products__item_small">
                         <div className="order__info-top">
-                            <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
+                            <h3 className="order__title">Петуния Софистика</h3>
                         </div>
                         <div className="order__info-bottom">
                             <div className="order__image">
-                                <img src={productImg} alt="Гербицид Комманд" />
+                                <img src={productImg} alt="Петуния Софистика" />
                             </div>
                             <div className="order__info-right">
                                 <div className="order__price-quantity">
@@ -70,11 +82,11 @@ export const OrderHistory = () => {
                     <span className="ordered-products__horisontal-line ordered-products__horisontal-line_small" />
                     <div className="ordered-products__item_small">
                         <div className="order__info-top">
-                            <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
+                            <h3 className="order__title">Петуния Софистика</h3>
                         </div>
                         <div className="order__info-bottom">
                             <div className="order__image">
-                                <img src={productImg} alt="Гербицид Комманд" />
+                                <img src={productImg} alt="Петуния Софистика" />
                             </div>
                             <div className="order__info-right">
                                 <div className="order__price-quantity">
@@ -89,11 +101,11 @@ export const OrderHistory = () => {
                     <span className="ordered-products__horisontal-line ordered-products__horisontal-line_small" />
                     <div className="ordered-products__item_small">
                         <div className="order__info-top">
-                            <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
+                            <h3 className="order__title">Петуния Софистика</h3>
                         </div>
                         <div className="order__info-bottom">
                             <div className="order__image">
-                                <img src={productImg} alt="Гербицид Комманд" />
+                                <img src={productImg} alt="Петуния Софистика" />
                             </div>
                             <div className="order__info-right">
                                 <div className="order__price-quantity">

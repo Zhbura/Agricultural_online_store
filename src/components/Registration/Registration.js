@@ -1,10 +1,18 @@
 import './Registration.scss';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Link } from 'react-router-dom';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const Registration = () => {
+    const breadcrumbs = [
+        {
+            name: "Регистрация",
+            to: "/registration"
+        },
+    ];
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="registration">
                 <PageHeadingTwice>Регистрация</PageHeadingTwice>
                 <p className="registration__text">

@@ -5,7 +5,6 @@ import partnerLogo3 from '../../img/partnerLogo3.svg';
 import partnerLogo5 from '../../img/partnerLogo5.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Arrow, ArrowRight } from '../SVG/Arrow/Arrow';
-import { Slider } from '../Slider/Slider';
 
 export const Partners = () => {
     return (
@@ -33,8 +32,8 @@ export const Partners = () => {
                     </div>
                 </div>
                 <div className="partners__slider">
-                    <Slider classSmall="slider__notActive"
-                        classBig="slider__active" />
+                    {/* <Slider classSmall="slider__notActive"
+                        classBig="slider__active" /> */}
                 </div>
 
             </div>

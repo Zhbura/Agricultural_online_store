@@ -9,13 +9,20 @@ import retardants from '../../img/catalog/retardants.png';
 import adjuvants from '../../img/catalog/adjuvants.png';
 import { SeedsCatalog } from '../SeedsCatalog/SeedsCatalog';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const PlantProtection = () => {
+    const breadcrumbs = [
+        {
+            name: "Каталог",
+            to: "/catalog"
+        },
+    ];
     return (
         <>
-            {/* <BreadCrumbs /> */}
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="plant-protection">
-                <PageHeadingTwice>Средства защиты растений</PageHeadingTwice>
+                <PageHeadingTwice>Каталог</PageHeadingTwice>
                 <div className="plant-protection__items">
                     <div className="plant-protection__item">
                         <img src={herbicides} alt="Гербициды" />

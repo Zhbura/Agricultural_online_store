@@ -1,12 +1,15 @@
 .new-products {
+    padding-bottom: 120px;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        padding-bottom: 40px;
+    }
 
     &__slider {
         padding-top: 40px;
-        padding-bottom: 120px;
 
         @media (min-width: 320px) and (max-width: 767px) {
             padding-top: 30px;
-            padding-bottom: 40px;
 
         }
     }

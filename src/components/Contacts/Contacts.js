@@ -4,10 +4,18 @@ import { Mail } from '../SVG/Icon/Mail';
 import { GPS } from '../SVG/Icon/GPS';
 import { Time } from '../SVG/Icon/Time';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const Contacts = () => {
+    const breadcrumbs = [
+        {
+            name: "Партнёры",
+            to: "/partners"
+        },
+    ];
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="contacts">
                 <div className="container">
                     <PageHeadingTwice>Контакты</PageHeadingTwice>

@@ -12,8 +12,19 @@
         transform: translate(-50%, -50%);
     }
 
-    @media (min-width: 320px) and (max-width: 767px) {
-        display: none;
+    @media (min-width: 320px) and (max-width: 1199px) {
+        position: absolute;
+        top: 50%;
+        display: block;
+        z-index: 1;
+
+        &_left {
+            left: 0;
+        }
+
+        &_right {
+            right: 0;
+        }
     }
 }
 

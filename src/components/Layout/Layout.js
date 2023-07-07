@@ -7,7 +7,7 @@ import { useSelector } from "react-redux"
 import { selectShowFilter } from "../../store/catalog/selectors"
 import { selectShowMenu } from "../../store/menu/selectors"
 
-export const Layout = () => {
+export const Layout = ({total}) => {
     const showFilter = useSelector(selectShowFilter); // нужно для затемнения фона при открытии меню
     const showMenu = useSelector(selectShowMenu);
 
@@ -17,7 +17,7 @@ export const Layout = () => {
                 <div className={(showMenu || showFilter) ? "blackout" : ""} />
                 <div className="top">
                     <TopBar />
-                    <Header />
+                    <Header total={total} />
                     <BottomBar />
                     <Outlet />
                 </div>

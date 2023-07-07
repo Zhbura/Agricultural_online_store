@@ -22,7 +22,7 @@ export const BottomBar = () => {
                         </Link>
                     </div>
                     <div className="bottom-bar__item">
-                        <Link to='/plantprotection' className="bottom-bar__link">
+                        <Link to='/catalog_plant_protection' className="bottom-bar__link">
                             <Sapling />
                             Средства защиты растений
                         </Link>
