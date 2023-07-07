@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Slider } from '../Slider/Slider';
 import { ProductItems } from '../ProductСard/ProductItems';
 
-export const Product = ({ products }) => {
+export const Product = ({ products, addToCart }) => {
     const [currentProduct, setCurrentProduct] = useState(0);
 
     const prev = () => {
@@ -92,7 +92,7 @@ export const Product = ({ products }) => {
                     <div className="page-heading_white">
                         <PageHeadingTwice>Вам также понравится</PageHeadingTwice>
                     </div>
-                    <ProductItems products={products} prevEl={prev} nextEl={next} currentIndex={currentProduct} />
+                    <ProductItems products={products} prevEl={prev} nextEl={next} currentIndex={currentProduct} addToCart={addToCart} />
                     <div className="stocks__slider">
                         <Slider classSmall="slider__notActive slider__notActive_green"
                             classBig="slider__active slider__active_green"

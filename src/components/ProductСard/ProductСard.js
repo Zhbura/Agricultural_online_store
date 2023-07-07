@@ -3,7 +3,7 @@ import { Cart } from '../SVG/Icon/Cart';
 import { Comparison } from '../SVG/Icon/Comparison';
 import './ProductСard.scss';
 
-export const ProductCard = ({ product }) => {
+export const ProductCard = ({ product, addToCart }) => {
     const { id, name, alt, img, price, to } = product;
 
     return (
@@ -19,7 +19,7 @@ export const ProductCard = ({ product }) => {
                         <p className="product-card__price">{price}</p>
                         <p className="product-card__quantity">1 шт</p>
                     </div>
-                    <div className="product-card__cart">
+                    <div className="product-card__cart" onClick={() => addToCart(id, product)}>
                         <div className="circle-icon circle-icon_hover"><Cart /></div>
                     </div>
                 </div>

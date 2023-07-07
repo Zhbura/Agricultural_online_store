@@ -26,6 +26,7 @@ import { Refund } from "../Refund/Refund";
 import { Codex } from "../Codex/Codex";
 import { CartComp } from "../Cart/Cart";
 import { Commodity } from "../Commodity/Commodity";
+import { useEffect, useState } from 'react';
 
 export const Router = () => {
 
@@ -109,9 +110,11 @@ export const Router = () => {
                     require("../../img/product/agrikola/agrikolaFour.png"),
                 ],
                 price: 317,
+                totalPrice: 317,
                 to: "agrikola",
                 availability: "В наличии",
                 priceFor: "2 шт",
+                count: 1,
             },
             {
                 id: 6,
@@ -123,9 +126,11 @@ export const Router = () => {
                     require("../../img/product/horys/horysThree.png"),
                 ],
                 price: 230,
+                totalPrice: 230,
                 to: "horys",
                 availability: "В наличии",
                 priceFor: "3 шт",
+                count: 1,
             },
             {
                 id: 7,
@@ -137,9 +142,11 @@ export const Router = () => {
                     require("../../img/product/skor/skorThree.png"),
                 ],
                 price: 190,
+                totalPrice: 190,
                 to: "skor",
                 availability: "В наличии",
                 priceFor: "2 ампулы",
+                count: 1,
             },
             {
                 id: 8,
@@ -151,9 +158,11 @@ export const Router = () => {
                     require("../../img/product/petunia/petuniaThree.png")
                 ],
                 price: 100,
+                totalPrice: 100,
                 to: "petunia",
                 availability: "В наличии",
                 priceFor: "5 шт",
+                count: 1,
             },
         ],
         [
@@ -167,9 +176,11 @@ export const Router = () => {
                     require("../../img/product/skor/skorThree.png"),
                 ],
                 price: 190,
+                totalPrice: 190,
                 to: "skor",
                 availability: "В наличии",
                 priceFor: "2 ампулы",
+                count: 1,
             },
             {
                 id: 10,
@@ -181,9 +192,11 @@ export const Router = () => {
                     require("../../img/product/petunia/petuniaThree.png")
                 ],
                 price: 100,
+                totalPrice: 100,
                 to: "petunia",
                 availability: "В наличии",
                 priceFor: "5 шт",
+                count: 1,
             },
             {
                 id: 11,
@@ -196,13 +209,14 @@ export const Router = () => {
                     require("../../img/product/agrikola/agrikolaFour.png"),
                 ],
                 price: 317,
+                totalPrice: 317,
                 to: "agrikola",
                 availability: "В наличии",
                 priceFor: "2 шт",
+                count: 1,
             },
             {
                 id: 12,
-
                 name: "Хорус",
                 alt: "Хорус",
                 img: [
@@ -211,9 +225,11 @@ export const Router = () => {
                     require("../../img/product/horys/horysThree.png"),
                 ],
                 price: 230,
+                totalPrice: 230,
                 to: "horys",
                 availability: "В наличии",
                 priceFor: "3 шт",
+                count: 1,
             },
         ],
         [
@@ -227,13 +243,14 @@ export const Router = () => {
                     require("../../img/product/petunia/petuniaThree.png")
                 ],
                 price: 100,
+                totalPrice: 100,
                 to: "petunia",
                 availability: "В наличии",
                 priceFor: "5 шт",
+                count: 1,
             },
             {
                 id: 14,
-
                 name: "Хорус",
                 alt: "Хорус",
                 img: [
@@ -242,9 +259,11 @@ export const Router = () => {
                     require("../../img/product/horys/horysThree.png"),
                 ],
                 price: 230,
+                totalPrice: 230,
                 to: "horys",
                 availability: "В наличии",
                 priceFor: "3 шт",
+                count: 1,
             },
             {
                 id: 15,
@@ -256,9 +275,11 @@ export const Router = () => {
                     require("../../img/product/skor/skorThree.png"),
                 ],
                 price: 190,
+                totalPrice: 190,
                 to: "skor",
                 availability: "В наличии",
                 priceFor: "2 ампулы",
+                count: 1,
             },
             {
                 id: 16,
@@ -271,18 +292,52 @@ export const Router = () => {
                     require("../../img/product/agrikola/agrikolaFour.png"),
                 ],
                 price: 317,
+                totalPrice: 317,
                 to: "agrikola",
                 availability: "В наличии",
                 priceFor: "2 шт",
+                count: 1,
             },
         ],
     ]
+
+    const [cartProducts, setCartProducts] = useState([]);
+
+    const addToCart = (id, product) => {
+        const productExist = cartProducts.find((product) => product.id === id);
+        if (productExist) {
+            setCartProducts(cartProducts.map((product) =>
+                product.id === id ?
+                    {
+                        ...productExist,
+                        count: productExist.count + 1,
+                        totalPrice: (productExist.count + 1) * productExist.price,
+                    } : product
+            ))
+        } else {
+            setCartProducts([...cartProducts, product])
+        }
+    }
+
+    const [total, setTotal] = useState({
+        count: cartProducts.reduce((prev, current) => prev + current.count, 0),
+        totalPrice: cartProducts.reduce((prev, current) => prev + current.totalPrice, 0),
+    })
+
+    useEffect(() => {
+        setTotal({
+            count: cartProducts.reduce((prev, current) => (prev + current.count), 0),
+            totalPrice: cartProducts.reduce((prev, current) => (prev + current.totalPrice), 0),
+        })
+    },
+        [cartProducts])
+
     return (
         <>
             <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Main products={products} />} />
-                    <Route path="product" element={<Product products={products} />} >
+                <Route path="/" element={<Layout total={total} />}>
+                    <Route index element={<Main products={products} addToCart={addToCart} />} />
+                    <Route path="product" element={<Product products={products} addToCart={addToCart} />} >
                         <Route path="petunia" element={<Commodity product={products[0][0]} />} />
                         <Route path="skor" element={<Commodity product={products[0][1]} />} />
                         <Route path="horys" element={<Commodity product={products[0][2]} />} />
@@ -299,11 +354,11 @@ export const Router = () => {
                     <Route path="contacts" element={<Contacts />} />
                     <Route path="registration" element={<Registration />} />
                     <Route path="catalog" element={<PlantProtection />} />
-                    <Route path="catalog_plant_protection" element={<Catalog title="Средства защиты растений" products={products} />} />
-                    <Route path="catalog_seeds" element={<Catalog title="Семена" products={products} />} />
-                    <Route path="catalog_fertilizers" element={<Catalog title="Удобрения" products={products} />} />
-                    <Route path="catalog_feed_group" element={<Catalog title="Кормовая группа" products={products} />} />
-                    <Route path="catalog_farmer_help" element={<Catalog title="Агроному в помощь" products={products} />} />
+                    <Route path="catalog_plant_protection" element={<Catalog title="Средства защиты растений" products={products} addToCart={addToCart} />} />
+                    <Route path="catalog_seeds" element={<Catalog title="Семена" products={products} addToCart={addToCart} />} />
+                    <Route path="catalog_fertilizers" element={<Catalog title="Удобрения" products={products} addToCart={addToCart} />} />
+                    <Route path="catalog_feed_group" element={<Catalog title="Кормовая группа" products={products} addToCart={addToCart} />} />
+                    <Route path="catalog_farmer_help" element={<Catalog title="Агроному в помощь" products={products} addToCart={addToCart} />} />
                     <Route path="personal_account" element={<PersonalAccount />}>
                         <Route index element={<Cabinet />} />
                         <Route path="current_orders" element={<CurrentOrders />} />
@@ -314,7 +369,7 @@ export const Router = () => {
                     <Route path="privacypolicy" element={<PrivacyPolicy />} />
                     <Route path="refund" element={<Refund />} />
                     <Route path="codex" element={<Codex />} />
-                    <Route path="cart" element={<CartComp products={products} />} />
+                    <Route path="cart" element={<CartComp cartProducts={cartProducts} setCartProducts={setCartProducts} total={total} />} />
                     <Route path="*" element={<Error />} />
                 </Route>
             </Routes>

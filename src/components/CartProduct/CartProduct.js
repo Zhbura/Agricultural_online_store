@@ -4,16 +4,17 @@ import { DropdownCart } from '../Dropdown/DropdownCart';
 import { useState } from 'react';
 import cancel from '../../img/cancelGrey.svg';
 import { Counter } from '../Counter/Counter';
+import { Link } from 'react-router-dom';
 
-export const CartProduct = ({ product }) => {
-    const { id, img, name, totalPrice, priceFor, deleteProduct, count, increase, decrease, changeValue } = product;
-    
+export const CartProduct = ({ product, increase, decrease, changeValue, deleteProduct }) => {
+    const { id, img, name, totalPrice, priceFor, count, to } = product;
+
     const [selected, setSelected] = useState('');
 
     return (
         <>
             <div className="cart-product">
-                <h3 className="cart-product__title">{name}
+                <h3 className="cart-product__title"><Link className="cart-product__link" to={`/product/${to}`}>{name}</Link>
                     <img className="cart-product__cancel" src={cancel} alt="Удалить выбранный товар"
                         onClick={() => deleteProduct(id)}
                     />
@@ -21,7 +22,7 @@ export const CartProduct = ({ product }) => {
                 <div className="cart-product__info">
                     <div className="cart-product__info-left">
                         <div className="cart-product__img">
-                            <img src={img} alt={name} />
+                            <img src={img[0]} alt={name} />
                         </div>
                     </div>
                     <div className="cart-product__info-middle">
