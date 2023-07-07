@@ -343,7 +343,7 @@ export const Router = () => {
                         <Route path="horys" element={<Commodity product={products[0][2]} />} />
                         <Route path="agrikola" element={<Commodity product={products[0][3]} />} />
                     </Route>
-                    <Route path="order" element={<Order />} />
+                    <Route path="order" element={<Order total={total} cartProducts={cartProducts} />} />
                     <Route path="thanks_order" element={<ThanksOrder />} />
                     <Route path="aboutcompany" element={<AboutСompany />} />
                     <Route path="teemcompany" element={<TeamCompany />} />
@@ -369,7 +369,7 @@ export const Router = () => {
                     <Route path="privacypolicy" element={<PrivacyPolicy />} />
                     <Route path="refund" element={<Refund />} />
                     <Route path="codex" element={<Codex />} />
-                    <Route path="cart" element={<CartComp cartProducts={cartProducts} setCartProducts={setCartProducts} total={total} />} />
+                    <Route path="cart" element={<CartComp cartProducts={cartProducts} setCartProducts={setCartProducts} />} />
                     <Route path="*" element={<Error />} />
                 </Route>
             </Routes>
