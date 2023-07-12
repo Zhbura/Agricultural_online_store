@@ -7,7 +7,7 @@ export const OrderProduct = ({ product }) => {
     return (
         <>
             <div className="order-product">
-                <div className="order-product__image">
+                <div className="image-order">
                     <img src={img[0]} alt={name} />
                 </div>
                 <div className="order-product__info">
@@ -33,7 +33,7 @@ export const OrderProductSmall = ({ product }) => {
                     <img className="order-product__cancel" src={cancel} alt="Удалить выбранный товар" />
                 </div>
                 <div className="order-product__info-bottom">
-                    <div className="order-product__image">
+                    <div className="image-order">
                         <img src={img[0]} alt={name} />
                     </div>
                     <div className="order-product__price-quantity">
