@@ -1,50 +1,13 @@
 import './Dropdown.scss';
 import { Link } from 'react-router-dom';
-import { Seeds } from '../SVG/Seeds';
 import { useState } from 'react';
 import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import { ArrowCheckboxUp } from '../SVG/ArrowCheckbox/ArrowCheckbox';
-import { Fertilizers } from '../SVG/Fertilizers';
-import { Farmer } from '../SVG/Farmer';
-import { FeedGroup } from '../SVG/FeedGroup';
-import { Sapling } from '../SVG/Sapling';
 
-export const Dropdown = ({ selected, setSelected }) => {
+export const Dropdown = ({ options, selected, setSelected }) => {
     const [isActive, setIsActive] = useState(false);
     const [initialValue, setInitialValue] = useState(true);
 
-    const options = [
-        {
-            id: 1,
-            name: "Семена",
-            svg: <Seeds />,
-            to: '/catalog_seeds'
-        },
-        {
-            id: 2,
-            name: "Средства защиты растений",
-            svg: <Sapling />,
-            to: '/catalog_plant_protection',
-        },
-        {
-            id: 3,
-            name: "Удобрения",
-            svg: <Fertilizers />,
-            to: '/catalog_fertilizers',
-        },
-        {
-            id: 4,
-            name: "Кормовая группа",
-            svg: <FeedGroup />,
-            to: '/catalog_feed_group',
-        },
-        {
-            id: 5,
-            name: "Агроному в помощь",
-            svg: <Farmer />,
-            to: '/catalog_farmer_help',
-        },
-    ];
     return (
         <>
             <div className="dropdown-bar">
