@@ -45,7 +45,7 @@ export const Router = () => {
                 totalPrice: 100,
                 to: "petunia",
                 availability: "В наличии",
-                priceFor: "5 шт",
+                priceFor: [5, 10, 15],
                 count: 1,
             },
             {
@@ -61,7 +61,7 @@ export const Router = () => {
                 totalPrice: 190,
                 to: "skor",
                 availability: "В наличии",
-                priceFor: "2 ампулы",
+                priceFor: [2, 4, 6],
                 count: 1,
             },
             {
@@ -77,7 +77,7 @@ export const Router = () => {
                 totalPrice: 230,
                 to: "horys",
                 availability: "В наличии",
-                priceFor: "3 шт",
+                priceFor: [1, 3, 5],
                 count: 1,
             },
             {
@@ -94,7 +94,7 @@ export const Router = () => {
                 totalPrice: 317,
                 to: "agrikola",
                 availability: "В наличии",
-                priceFor: "2 шт",
+                priceFor: [3, 6, 9],
                 count: 1,
             },
         ],
@@ -113,7 +113,7 @@ export const Router = () => {
                 totalPrice: 317,
                 to: "agrikola",
                 availability: "В наличии",
-                priceFor: "2 шт",
+                priceFor: [3, 6, 9],
                 count: 1,
             },
             {
@@ -129,7 +129,7 @@ export const Router = () => {
                 totalPrice: 230,
                 to: "horys",
                 availability: "В наличии",
-                priceFor: "3 шт",
+                priceFor: [1, 3, 5],
                 count: 1,
             },
             {
@@ -145,7 +145,7 @@ export const Router = () => {
                 totalPrice: 190,
                 to: "skor",
                 availability: "В наличии",
-                priceFor: "2 ампулы",
+                priceFor: [2, 4, 6],
                 count: 1,
             },
             {
@@ -161,7 +161,7 @@ export const Router = () => {
                 totalPrice: 100,
                 to: "petunia",
                 availability: "В наличии",
-                priceFor: "5 шт",
+                priceFor: [5, 10, 15],
                 count: 1,
             },
         ],
@@ -179,7 +179,7 @@ export const Router = () => {
                 totalPrice: 190,
                 to: "skor",
                 availability: "В наличии",
-                priceFor: "2 ампулы",
+                priceFor: [2, 4, 6],
                 count: 1,
             },
             {
@@ -195,7 +195,7 @@ export const Router = () => {
                 totalPrice: 100,
                 to: "petunia",
                 availability: "В наличии",
-                priceFor: "5 шт",
+                priceFor: [5, 10, 15],
                 count: 1,
             },
             {
@@ -212,7 +212,7 @@ export const Router = () => {
                 totalPrice: 317,
                 to: "agrikola",
                 availability: "В наличии",
-                priceFor: "2 шт",
+                priceFor: [3, 6, 9],
                 count: 1,
             },
             {
@@ -228,7 +228,7 @@ export const Router = () => {
                 totalPrice: 230,
                 to: "horys",
                 availability: "В наличии",
-                priceFor: "3 шт",
+                priceFor: [1, 3, 5],
                 count: 1,
             },
         ],
@@ -246,7 +246,7 @@ export const Router = () => {
                 totalPrice: 100,
                 to: "petunia",
                 availability: "В наличии",
-                priceFor: "5 шт",
+                priceFor: [5, 10, 15],
                 count: 1,
             },
             {
@@ -262,7 +262,7 @@ export const Router = () => {
                 totalPrice: 230,
                 to: "horys",
                 availability: "В наличии",
-                priceFor: "3 шт",
+                priceFor: [1, 3, 5],
                 count: 1,
             },
             {
@@ -278,7 +278,7 @@ export const Router = () => {
                 totalPrice: 190,
                 to: "skor",
                 availability: "В наличии",
-                priceFor: "2 ампулы",
+                priceFor: [2, 4, 6],
                 count: 1,
             },
             {
@@ -295,7 +295,7 @@ export const Router = () => {
                 totalPrice: 317,
                 to: "agrikola",
                 availability: "В наличии",
-                priceFor: "2 шт",
+                priceFor: [3, 6, 9],
                 count: 1,
             },
         ],

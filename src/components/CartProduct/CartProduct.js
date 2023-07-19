@@ -1,15 +1,14 @@
 import './CartProduct.scss';
 import fabricator from '../../img/fabricator.svg';
 import { DropdownCart } from '../Dropdown/DropdownCart';
-import { useState } from 'react';
 import cancel from '../../img/cancelGrey.svg';
 import { Counter } from '../Counter/Counter';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export const CartProduct = ({ product, increase, decrease, changeValue, deleteProduct }) => {
     const { id, img, name, totalPrice, priceFor, count, to } = product;
-
-    const [selected, setSelected] = useState('');
+    const [selected, setSelected] = useState(priceFor[0]);
 
     return (
         <>
@@ -27,8 +26,12 @@ export const CartProduct = ({ product, increase, decrease, changeValue, deletePr
                     </div>
                     <div className="cart-product__info-middle">
                         <div className="cart-product__price-quantity">
-                            <p className="cart-product__price-quantity_margin">{totalPrice} рублей</p>
-                            <p className="cart-product__text">Цена за {priceFor}</p>
+                            <p className="cart-product__price-quantity_margin">
+                                {totalPrice} рублей
+                            </p>
+                            <p className="cart-product__text">
+                                В упаковке по {selected} шт
+                            </p>
                         </div>
                         <div className="cart-product__fabricator">
                             <h5 className="cart-product__heading">Производитель</h5>
@@ -37,7 +40,11 @@ export const CartProduct = ({ product, increase, decrease, changeValue, deletePr
                         </div>
                     </div>
                     <div className="cart-product__info-right">
-                        <DropdownCart selected={selected} setSelected={setSelected} />
+                        <DropdownCart
+                            selected={selected}
+                            setSelected={setSelected}
+                            options={priceFor}
+                        />
                         <div className="cart-product__quantity">
                             <p className="cart-product__quantity-text">Количество</p>
                             <Counter count={count}
