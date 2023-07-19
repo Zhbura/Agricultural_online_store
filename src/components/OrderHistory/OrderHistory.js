@@ -1,6 +1,5 @@
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import './OrderHistory.scss';
-import productImg from '../../img/product/petunia/petunia.png';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { OrderedProduct, OrderedProductSmall } from '../OrderedProduct/OrderedProduct';
 

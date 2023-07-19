@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { CartProduct } from '../CartProduct/CartProduct';
 
-export const CartComp = ({ cartProducts, setCartProducts, total }) => {
-    // const [cartProducts, setCartProducts] = useState(products[0]);
+export const CartComp = ({ cartProducts, setCartProducts }) => {
 
     const breadcrumbs = [
         {
@@ -64,7 +63,6 @@ export const CartComp = ({ cartProducts, setCartProducts, total }) => {
                 return product
             })
         })
-        console.log(value)
     }
 
     return (
@@ -73,7 +71,7 @@ export const CartComp = ({ cartProducts, setCartProducts, total }) => {
             <div className="cart">
                 <PageHeadingTwice>Корзина</PageHeadingTwice>
                 <span className="cart__separator-horizontal" />
-                {cartProducts.length === 0 ? <h3>Ваша корзина пуста!</h3>
+                {cartProducts.length === 0 ? <h3 className="cart__text">Ваша корзина пуста!</h3>
                     : (cartProducts.map((product) => (
                         <CartProduct
                             product={product}

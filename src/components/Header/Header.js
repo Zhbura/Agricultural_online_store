@@ -58,7 +58,7 @@ export const Header = ({ total }) => {
                         </div>
                         <div className="icon-quantity">
                             <div className="circle-icon circle-icon_hover">
-                                <Link to='/cart'><Cart /><span>{total.count}</span></Link>
+                                <Link to='/cart' className="header__link"><Cart /><span>{total.count}</span></Link>
                             </div>
                         </div>
                         <p className="header__price">{total.totalPrice} руб</p>
