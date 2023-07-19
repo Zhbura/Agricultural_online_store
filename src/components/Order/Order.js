@@ -85,7 +85,7 @@ export const Order = ({ total, cartProducts }) => {
                         ))}
                         <div className="order__buy-product">
                             <p className="order__buy-product_margin">Итого: <span>{total.count} товара </span></p>
-                            <p>На сумму: <span>{total.totalPrice} руб</span></p>
+                            <p>На сумму: <span>{total.cost} руб</span></p>
                         </div>
                         <div className="order__confirm">
                             <Link to="/thanks_order" className="order__link">Подтвердить заказ</Link>

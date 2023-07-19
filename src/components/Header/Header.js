@@ -61,7 +61,7 @@ export const Header = ({ total }) => {
                                 <Link to='/cart' className="header__link"><Cart /><span>{total.count}</span></Link>
                             </div>
                         </div>
-                        <p className="header__price">{total.totalPrice} руб</p>
+                        <p className="header__price">{total.cost} руб</p>
                     </div>
                 </div>
             </header>

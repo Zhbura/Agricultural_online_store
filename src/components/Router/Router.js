@@ -321,13 +321,13 @@ export const Router = () => {
 
     const [total, setTotal] = useState({
         count: cartProducts.reduce((prev, current) => prev + current.count, 0),
-        totalPrice: cartProducts.reduce((prev, current) => prev + current.totalPrice, 0),
+        cost: cartProducts.reduce((prev, current) => prev + current.totalPrice, 0),
     })
 
     useEffect(() => {
         setTotal({
             count: cartProducts.reduce((prev, current) => (prev + current.count), 0),
-            totalPrice: cartProducts.reduce((prev, current) => (prev + current.totalPrice), 0),
+            cost: cartProducts.reduce((prev, current) => (prev + current.totalPrice), 0),
         })
     },
         [cartProducts])
