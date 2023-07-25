@@ -20,7 +20,7 @@ export const Header = ({ total, totalWish }) => {
                     </div>
                     <form className="header__search-form header__search-form_hidden">
                         <input type="text" placeholder="Поиск..." />
-                        <span></span>
+                        <span />
                         <img src={search} alt="Поиск" />
                     </form>
                     <div className="contact-details contact-details_hidden">
@@ -51,13 +51,15 @@ export const Header = ({ total, totalWish }) => {
                     </div>
                     <div className="header__toolBar">
                         <div className="icon-quantity">
-                            <div className="circle-icon circle-icon_hover circle-icon_hidden">
+                            <div className="circle-icon circle-icon_hover">
                                 <Link to='/wish_list' className="header__link">
                                     <Heart /><span>{totalWish}</span></Link>
                             </div>
                         </div>
                         <div className="icon-quantity">
-                            <div className="circle-icon circle-icon_hover"><Comparison /></div>
+                            <div className="circle-icon circle-icon_hover circle-icon_hidden">
+                                <Comparison />
+                            </div>
                         </div>
                         <div className="icon-quantity">
                             <div className="circle-icon circle-icon_hover">

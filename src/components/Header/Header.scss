@@ -169,3 +169,17 @@
 .wrap-contact__popUp {
     display: flex;
 }
+
+.header .icon-quantity {
+    @media (min-width: 320px) and (max-width: 767px) {
+        &:first-child {
+            margin-right: 16px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        &:not(:first-child) {
+            margin-left: 16px;
+        }
+    }
+}

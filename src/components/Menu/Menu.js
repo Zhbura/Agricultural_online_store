@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectShowMenu } from '../../store/menu/selectors';
 import { changeMenuShow } from '../../store/menu/actions';
 
-export const Menu = () => {
+export const Menu = ({ total, totalWish }) => {
     const [phoneActive, setPhoneActive] = useState(false);
 
     const showMenu = useSelector(selectShowMenu);
@@ -45,19 +45,23 @@ export const Menu = () => {
                             </div>
                             <div className="header__toolBar">
                                 <div className="icon-quantity">
-                                    <div className="circle-icon circle-icon_white"><Comparison /><span>2</span></div>
+                                    <div className="circle-icon circle-icon_white">
+                                        <Link to='/wish_list'><Heart /><span>{totalWish}</span></Link>
+                                    </div>
                                 </div>
                                 <div className="icon-quantity">
-                                    <div className="circle-icon circle-icon_white"><Link to='/cart'><Cart /><span>1</span></Link></div>
+                                    <div className="circle-icon circle-icon_white">
+                                        <Link to='/cart'><Cart /><span>{total.count}</span></Link>
+                                    </div>
                                 </div>
-                                <p className="header__price header__price_white">0,0 руб</p>
+                                <p className="header__price header__price_white">{total.cost} руб</p>
                             </div>
                         </div>
                         <div className="menu-wrap menu-wrap_margin">
-                            <div className="circle-icon circle-icon_white"> <Heart /></div>
+                            <div className="circle-icon circle-icon_white"><Comparison /></div>
                             <form className="header__search-form header__search-form_small">
                                 <input type="text" placeholder="Поиск..." />
-                                <span></span>
+                                <span />
                                 <img src={search} alt="Поиск" />
                             </form>
                         </div>

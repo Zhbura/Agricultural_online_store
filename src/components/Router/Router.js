@@ -420,8 +420,8 @@ export const Router = () => {
                         />}
                     />
                     <Route path="catalog_feed_group"
-                        lement={<Catalog t
-                            itle="Кормовая группа"
+                        lement={<Catalog
+                            title="Кормовая группа"
                             products={products}
                             addToCart={addToCart}
                             addToWishList={addToWishList}

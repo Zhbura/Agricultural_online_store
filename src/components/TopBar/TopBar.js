@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { changeMenuShow } from '../../store/menu/actions';
 
-export const TopBar = () => {
+export const TopBar = ({ total, totalWish }) => {
     const [popUpActive, setPopUpActive] = useState(false);
 
     const setActive = ({ isActive }) => isActive ? 'top-bar__text top-bar__active-link' : 'top-bar__text';
@@ -44,7 +44,7 @@ export const TopBar = () => {
                     <div className="top-bar__menu" onClick={showMenu}>
                         <img src={menu} alt="Меню" />
                     </div>
-                    <Menu />
+                    <Menu total={total} totalWish={totalWish} />
                 </div>
             </div>
         </>)

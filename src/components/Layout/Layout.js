@@ -16,7 +16,7 @@ export const Layout = ({ total, totalWish }) => {
             <div className="wrapper">
                 <div className={(showMenu || showFilter) ? "blackout" : ""} />
                 <div className="top">
-                    <TopBar />
+                    <TopBar total={total} totalWish={totalWish} />
                     <Header total={total} totalWish={totalWish} />
                     <BottomBar />
                     <Outlet />
