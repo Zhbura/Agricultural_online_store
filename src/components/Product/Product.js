@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Slider } from '../Slider/Slider';
 import { ProductItems } from '../ProductСard/ProductItems';
 
-export const Product = ({ products, addToCart }) => {
+export const Product = ({ products, addToCart, addToWishList }) => {
     const [currentProduct, setCurrentProduct] = useState(0);
 
     const prev = () => {
@@ -78,7 +78,8 @@ export const Product = ({ products, addToCart }) => {
                                     <li className="description__link">Может возникнуть побеление первой пары листочков рапса, однако в дальнейшем оно
                                         исчезает, а растения имеют более развитую корневую систему, лучше выдерживают
                                         низкие температуры;</li>
-                                    <li className="description__link">При необходимости пересева через 30-60 дней после обработки рапс и сою можно сеять
+                                    <li className="description__link">При необходимости пересева через 30-60 дней
+                                        после обработки рапс и сою можно сеять
                                         после поверхностной обработки почвы на глубину 8-10 см, для всех остальных культур
                                         рекомендуется провести глубокую вспашку;</li>
                                     <li className="description__link">Обязательным требованием при внесении препарата является обеспечение сплошного
@@ -92,7 +93,7 @@ export const Product = ({ products, addToCart }) => {
                     <div className="page-heading_white">
                         <PageHeadingTwice>Вам также понравится</PageHeadingTwice>
                     </div>
-                    <ProductItems products={products} prevEl={prev} nextEl={next} currentIndex={currentProduct} addToCart={addToCart} />
+                    <ProductItems products={products} prevEl={prev} nextEl={next} currentIndex={currentProduct} addToCart={addToCart} addToWishList={addToWishList} />
                     <div className="stocks__slider">
                         <Slider classSmall="slider__notActive slider__notActive_green"
                             classBig="slider__active slider__active_green"

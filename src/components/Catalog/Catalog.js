@@ -12,7 +12,7 @@ import { FilterCatalogBig } from '../FilterCatalog/FilterCatalogBig';
 import { DropdownCatalog } from '../Dropdown/DropdownCatalog';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
-export const Catalog = ({ title, products, addToCart }) => {
+export const Catalog = ({ title, products, addToCart, addToWishList }) => {
     const [selected, setSelected] = useState('');
 
     const dispatch = useDispatch();
@@ -82,7 +82,12 @@ export const Catalog = ({ title, products, addToCart }) => {
                         <div className="catalog-product">
                             {currentProduct.map((arrayProducts, index) => (
                                 arrayProducts.map((product, i) => (
-                                    <ProductCard key={product.id} product={product} addToCart={addToCart} />
+                                    <ProductCard
+                                        key={product.id}
+                                        product={product}
+                                        addToCart={addToCart}
+                                        addToWishList={addToWishList}
+                                    />
                                 ))
                             ))}
                         </div>
@@ -94,7 +99,6 @@ export const Catalog = ({ title, products, addToCart }) => {
                             setCurrentPage={setCurrentPage}
                         />
                     </div>
-
                 </div>
             </div >
             <SeedsCatalog />

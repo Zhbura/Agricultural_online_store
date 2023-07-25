@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Slider } from "../Slider/Slider";
 import { ProductItems } from '../ProductСard/ProductItems';
 
-export const Stocks = ({ products, addToCart }) => {
+export const Stocks = ({ products, addToCart, addToWishList }) => {
     const [currentProduct, setCurrentProduct] = useState(0);
 
     const prev = () => {
@@ -27,7 +27,7 @@ export const Stocks = ({ products, addToCart }) => {
                 <div className="page-heading_white">
                     <PageHeadingTwice>Акции</PageHeadingTwice>
                 </div>
-                <ProductItems products={products} prevEl={prev} nextEl={next} currentIndex={currentProduct} addToCart={addToCart} />
+                <ProductItems products={products} prevEl={prev} nextEl={next} currentIndex={currentProduct} addToCart={addToCart} addToWishList={addToWishList} />
                 <div className="stocks__slider">
                     <Slider
                         classSmall="slider__notActive slider__notActive_green"

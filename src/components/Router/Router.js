@@ -301,6 +301,21 @@ export const Router = () => {
             },
         ],
     ]
+    const [wishList, setWishList] = useState([]);
+
+    const addToWishList = (id, product) => {
+        const productExist = wishList.find((product) => product.id === id);
+        if (productExist) {
+            setWishList(wishList.map((product) =>
+                product.id === id ?
+                    {
+                        ...productExist,
+                    } : product
+            ))
+        } else {
+            setWishList([...wishList, product])
+        }
+    }
 
     const [cartProducts, setCartProducts] = useState([]);
 
@@ -337,8 +352,8 @@ export const Router = () => {
         <>
             <Routes>
                 <Route path="/" element={<Layout total={total} />}>
-                    <Route index element={<Main products={products} addToCart={addToCart} />} />
-                    <Route path="product" element={<Product products={products} addToCart={addToCart} />} >
+                    <Route index element={<Main products={products} addToCart={addToCart} addToWishList={addToWishList} />} />
+                    <Route path="product" element={<Product products={products} addToCart={addToCart} addToWishList={addToWishList} />} >
                         <Route path="petunia" element={<Commodity product={products[0][0]} />} />
                         <Route path="skor" element={<Commodity product={products[0][1]} />} />
                         <Route path="horys" element={<Commodity product={products[0][2]} />} />
@@ -355,11 +370,11 @@ export const Router = () => {
                     <Route path="contacts" element={<Contacts />} />
                     <Route path="registration" element={<Registration />} />
                     <Route path="catalog" element={<PlantProtection />} />
-                    <Route path="catalog_plant_protection" element={<Catalog title="Средства защиты растений" products={products} addToCart={addToCart} />} />
-                    <Route path="catalog_seeds" element={<Catalog title="Семена" products={products} addToCart={addToCart} />} />
-                    <Route path="catalog_fertilizers" element={<Catalog title="Удобрения" products={products} addToCart={addToCart} />} />
-                    <Route path="catalog_feed_group" element={<Catalog title="Кормовая группа" products={products} addToCart={addToCart} />} />
-                    <Route path="catalog_farmer_help" element={<Catalog title="Агроному в помощь" products={products} addToCart={addToCart} />} />
+                    <Route path="catalog_plant_protection" element={<Catalog title="Средства защиты растений" products={products} addToCart={addToCart} addToWishList={addToWishList} />} />
+                    <Route path="catalog_seeds" element={<Catalog title="Семена" products={products} addToCart={addToCart} addToWishList={addToWishList} />} />
+                    <Route path="catalog_fertilizers" element={<Catalog title="Удобрения" products={products} addToCart={addToCart} addToWishList={addToWishList} />} />
+                    <Route path="catalog_feed_group" element={<Catalog title="Кормовая группа" products={products} addToCart={addToCart} addToWishList={addToWishList} />} />
+                    <Route path="catalog_farmer_help" element={<Catalog title="Агроному в помощь" products={products} addToCart={addToCart} addToWishList={addToWishList} />} />
                     <Route path="personal_account" element={<PersonalAccount />}>
                         <Route index element={<Cabinet />} />
                         <Route path="current_orders" element={<CurrentOrders />} />
@@ -371,7 +386,7 @@ export const Router = () => {
                     <Route path="refund" element={<Refund />} />
                     <Route path="codex" element={<Codex />} />
                     <Route path="cart" element={<CartComp cartProducts={cartProducts} setCartProducts={setCartProducts} />} />
-                    <Route path="wish_list" element={<WishList wishList={products[0]} />} />
+                    <Route path="wish_list" element={<WishList wishList={wishList} setWishList={setWishList} />} />
                     <Route path="*" element={<Error />} />
                 </Route>
             </Routes>

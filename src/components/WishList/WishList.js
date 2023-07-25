@@ -3,6 +3,7 @@ import { ProductCard } from '../ProductСard/ProductСard';
 import './WishList.scss';
 
 export const WishList = ({ wishList }) => {
+
     return (
         <>
             <div className="wish-list">
