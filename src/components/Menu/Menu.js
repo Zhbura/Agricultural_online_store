@@ -3,18 +3,16 @@ import logOut from '../../img/logOut.svg';
 import search from '../../img/search.svg';
 import closeMenu from '../../img/closeMenu.svg';
 import logoWhite from '../../img/logoWhite.svg';
-import { Phone } from '../SVG/Icon/Phone';
 import { Comparison } from '../SVG/Icon/Comparison';
 import { Cart } from '../SVG/Icon/Cart';
 import { Heart } from '../SVG/Icon/Heart';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectShowMenu } from '../../store/menu/selectors';
 import { changeMenuShow } from '../../store/menu/actions';
+import { ContactDetails } from '../ContactDetails/ContactDetails';
 
 export const Menu = ({ total, totalWish }) => {
-    const [phoneActive, setPhoneActive] = useState(false);
 
     const showMenu = useSelector(selectShowMenu);
 
@@ -65,32 +63,11 @@ export const Menu = ({ total, totalWish }) => {
                                 <img src={search} alt="Поиск" />
                             </form>
                         </div>
-                        <div className="contact-details">
-                            <div className="circle-icon circle-icon_white"> <Phone /></div>
-                            <div className="contact-details__phone-info contact-details__phone-info_white">
-                                <div className="contact-details__number" onClick={() => setPhoneActive(!phoneActive)}>
-                                    <p>+7 (900) 800 30 20</p>
-                                </div>
-                                <p className="contact-details__text">Заказать обратную связь</p>
-                            </div>
-                            <div className={phoneActive ? 'contact-popUp active' : 'contact-popUp'}>
-                                <div className="wrap-contact__popUp">
-                                    <div className="circle-icon"> <Phone /></div>
-                                    <div>
-                                        <div className="contact-details">
-                                            <div className="contact-details__phone-info">
-                                                <div className="contact-details__number" onClick={() => setPhoneActive(false)}>
-                                                    <p>+7(900)8003020</p>
-                                                </div>
-                                                <p className="contact-details__text">Заказать обратную связь</p>
-                                            </div>
-                                        </div>
-                                        <p className="contact-details__number-text">+7(900)8003030</p>
-                                        <p className="contact-details__number-text">+7(900)8003040</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <ContactDetails
+                            classContactDetails="contact-details"
+                            icon="circle-icon circle-icon_white"
+                            phoneInfo="contact-details__phone-info contact-details__phone-info_white"
+                        />
                     </div>
                 </header>
                 <nav className="menu__navigation">

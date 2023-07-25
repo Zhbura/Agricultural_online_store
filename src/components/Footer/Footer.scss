@@ -126,3 +126,9 @@
         }
     }
 }
+
+.footer .contact-details__pop-up {
+    @media (min-width: 320px) and (max-width: 767px) {
+        left: -25px;
+    }
+}

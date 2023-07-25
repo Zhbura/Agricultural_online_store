@@ -1,13 +1,11 @@
 import './Footer.scss';
 import { Logo } from '../Logo/Logo';
-import { Phone } from '../SVG/Icon/Phone';
 import { Mail } from '../SVG/Icon/Mail';
-import { useState } from 'react';
 import { Arrow } from '../SVG/Arrow/Arrow';
 import { Link } from 'react-router-dom';
+import { ContactDetails } from '../ContactDetails/ContactDetails';
 
 export const Footer = () => {
-    const [phoneActive, setPhoneActive] = useState(false);
 
     return (
         <>
@@ -41,32 +39,11 @@ export const Footer = () => {
                     </div>
                     <div className="footer__text">
                         <h3 className="footer__heading">Контакты</h3>
-                        <div className="contact-details">
-                            <div className="circle-icon"> <Phone /></div>
-                            <div className="contact-details__phone-info">
-                                <div className="contact-details__number" onClick={() => setPhoneActive(!phoneActive)}>
-                                    <p>+7(900)8003020</p>
-                                </div>
-                                <p className="contact-details__text">Заказать обратную связь</p>
-                            </div>
-                            <div className={phoneActive ? 'contact-popUp active' : 'contact-popUp'}>
-                                <div className="wrap-contact__popUp">
-                                    <div className="circle-icon"> <Phone /></div>
-                                    <div>
-                                        <div className="contact-details contact-details_hidden">
-                                            <div className="contact-details__phone-info">
-                                                <div className="contact-details__number" onClick={() => setPhoneActive(!phoneActive)}>
-                                                    <p>+7(900)8003020</p>
-                                                </div>
-                                                <p className="contact-details__text">Заказать обратную связь</p>
-                                            </div>
-                                        </div>
-                                        <p className="contact-details__number-text">+7(900)8003030</p>
-                                        <p className="contact-details__number-text">+7(900)8003040</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <ContactDetails
+                            classContactDetails="contact-details"
+                            icon="circle-icon"
+                            phoneInfo="contact-details__phone-info"
+                        />
                         <div className="contact-details">
                             <div className="circle-icon"> <Mail /></div>
                             <div className="contact-details__mail-info">
