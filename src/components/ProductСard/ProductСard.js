@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import { Cart } from '../SVG/Icon/Cart';
 import './ProductСard.scss';
 import { Heart } from '../SVG/Icon/Heart';
+import cancel from '../../img/cancelGrey.svg';
 
-export const ProductCard = ({ product, addToCart, addToWishList }) => {
+export const ProductCard = ({ product, addToCart, addToWishList, deleteProductWishList }) => {
     const { id, name, alt, img, price, to } = product;
 
     return (
@@ -13,6 +14,9 @@ export const ProductCard = ({ product, addToCart, addToWishList }) => {
                 <div className="product-card__heart" onClick={() => addToWishList(id, product)}>
                     <div className="circle-icon circle-icon_hover"><Heart /></div>
                 </div>
+                <img className="product-card__cancel" src={cancel} alt="Удалить выбранный товар"
+                    onClick={() => deleteProductWishList(id)}
+                />
                 <div className="product-card__info-product">
                     <div className="product-card__text">
                         <p className="product-card__name">
