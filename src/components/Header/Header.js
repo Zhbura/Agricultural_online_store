@@ -8,7 +8,7 @@ import { Heart } from '../SVG/Icon/Heart';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export const Header = ({ total }) => {
+export const Header = ({ total, totalWish }) => {
     const [phoneActive, setPhoneActive] = useState(false);
 
     return (
@@ -52,7 +52,8 @@ export const Header = ({ total }) => {
                     <div className="header__toolBar">
                         <div className="icon-quantity">
                             <div className="circle-icon circle-icon_hover circle-icon_hidden">
-                                <Link to='/wish_list' className="header__link"><Heart /><span>2</span></Link>
+                                <Link to='/wish_list' className="header__link">
+                                    <Heart /><span>{totalWish}</span></Link>
                             </div>
                         </div>
                         <div className="icon-quantity">
@@ -60,7 +61,8 @@ export const Header = ({ total }) => {
                         </div>
                         <div className="icon-quantity">
                             <div className="circle-icon circle-icon_hover">
-                                <Link to='/cart' className="header__link"><Cart /><span>{total.count}</span></Link>
+                                <Link to='/cart' className="header__link">
+                                    <Cart /><span>{total.count}</span></Link>
                             </div>
                         </div>
                         <p className="header__price">{total.cost} руб</p>

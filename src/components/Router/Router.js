@@ -348,10 +348,19 @@ export const Router = () => {
     },
         [cartProducts])
 
+    const [totalWish, setTotalWish] = useState(
+        wishList.reduce((prev, current) => prev + current.count, 0)
+    )
+
+    useEffect(() => {
+        setTotalWish(
+            wishList.reduce((prev, current) => prev + current.count, 0)
+        )
+    }, [wishList])
     return (
         <>
             <Routes>
-                <Route path="/" element={<Layout total={total} />}>
+                <Route path="/" element={<Layout total={total} totalWish={totalWish} />}>
                     <Route index element={<Main products={products} addToCart={addToCart} addToWishList={addToWishList} />} />
                     <Route path="product" element={<Product products={products} addToCart={addToCart} addToWishList={addToWishList} />} >
                         <Route path="petunia" element={<Commodity product={products[0][0]} />} />
