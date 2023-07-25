@@ -127,3 +127,9 @@
         margin-bottom: 40px;
     }
 }
+
+.catalog .product-card {
+    @media (min-width: 320px) and (max-width: 767px) {
+        margin: 0 auto;
+    }
+}

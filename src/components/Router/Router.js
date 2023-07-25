@@ -361,14 +361,30 @@ export const Router = () => {
         <>
             <Routes>
                 <Route path="/" element={<Layout total={total} totalWish={totalWish} />}>
-                    <Route index element={<Main products={products} addToCart={addToCart} addToWishList={addToWishList} />} />
-                    <Route path="product" element={<Product products={products} addToCart={addToCart} addToWishList={addToWishList} />} >
+                    <Route index
+                        element={<Main
+                            products={products}
+                            addToCart={addToCart}
+                            addToWishList={addToWishList}
+                        />}
+                    />
+                    <Route path="product"
+                        element={<Product
+                            products={products}
+                            addToCart={addToCart}
+                            addToWishList={addToWishList}
+                        />}>
                         <Route path="petunia" element={<Commodity product={products[0][0]} />} />
                         <Route path="skor" element={<Commodity product={products[0][1]} />} />
                         <Route path="horys" element={<Commodity product={products[0][2]} />} />
                         <Route path="agrikola" element={<Commodity product={products[0][3]} />} />
                     </Route>
-                    <Route path="order" element={<Order total={total} cartProducts={cartProducts} />} />
+                    <Route path="order"
+                        element={<Order
+                            total={total}
+                            cartProducts={cartProducts}
+                        />}
+                    />
                     <Route path="thanks_order" element={<ThanksOrder />} />
                     <Route path="aboutcompany" element={<AboutСompany />} />
                     <Route path="teemcompany" element={<TeamCompany />} />
@@ -379,11 +395,46 @@ export const Router = () => {
                     <Route path="contacts" element={<Contacts />} />
                     <Route path="registration" element={<Registration />} />
                     <Route path="catalog" element={<PlantProtection />} />
-                    <Route path="catalog_plant_protection" element={<Catalog title="Средства защиты растений" products={products} addToCart={addToCart} addToWishList={addToWishList} />} />
-                    <Route path="catalog_seeds" element={<Catalog title="Семена" products={products} addToCart={addToCart} addToWishList={addToWishList} />} />
-                    <Route path="catalog_fertilizers" element={<Catalog title="Удобрения" products={products} addToCart={addToCart} addToWishList={addToWishList} />} />
-                    <Route path="catalog_feed_group" element={<Catalog title="Кормовая группа" products={products} addToCart={addToCart} addToWishList={addToWishList} />} />
-                    <Route path="catalog_farmer_help" element={<Catalog title="Агроному в помощь" products={products} addToCart={addToCart} addToWishList={addToWishList} />} />
+                    <Route path="catalog_plant_protection"
+                        element={<Catalog
+                            title="Средства защиты растений"
+                            products={products}
+                            addToCart={addToCart}
+                            addToWishList={addToWishList}
+                        />}
+                    />
+                    <Route path="catalog_seeds"
+                        element={<Catalog
+                            title="Семена"
+                            products={products}
+                            addToCart={addToCart}
+                            addToWishList={addToWishList}
+                        />}
+                    />
+                    <Route path="catalog_fertilizers"
+                        element={<Catalog
+                            title="Удобрения"
+                            products={products}
+                            addToCart={addToCart}
+                            addToWishList={addToWishList}
+                        />}
+                    />
+                    <Route path="catalog_feed_group"
+                        lement={<Catalog t
+                            itle="Кормовая группа"
+                            products={products}
+                            addToCart={addToCart}
+                            addToWishList={addToWishList}
+                        />}
+                    />
+                    <Route path="catalog_farmer_help"
+                        element={<Catalog
+                            title="Агроному в помощь"
+                            products={products}
+                            addToCart={addToCart}
+                            addToWishList={addToWishList}
+                        />}
+                    />
                     <Route path="personal_account" element={<PersonalAccount />}>
                         <Route index element={<Cabinet />} />
                         <Route path="current_orders" element={<CurrentOrders />} />
@@ -394,8 +445,19 @@ export const Router = () => {
                     <Route path="privacypolicy" element={<PrivacyPolicy />} />
                     <Route path="refund" element={<Refund />} />
                     <Route path="codex" element={<Codex />} />
-                    <Route path="cart" element={<CartComp cartProducts={cartProducts} setCartProducts={setCartProducts} />} />
-                    <Route path="wish_list" element={<WishList wishList={wishList} setWishList={setWishList} />} />
+                    <Route path="cart"
+                        element={<CartComp
+                            cartProducts={cartProducts}
+                            setCartProducts={setCartProducts}
+                        />}
+                    />
+                    <Route path="wish_list"
+                        element={<WishList
+                            wishList={wishList}
+                            setWishList={setWishList}
+                            addToCart={addToCart}
+                        />}
+                    />
                     <Route path="*" element={<Error />} />
                 </Route>
             </Routes>
