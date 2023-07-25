@@ -51,10 +51,12 @@ export const Header = ({ total }) => {
                     </div>
                     <div className="header__toolBar">
                         <div className="icon-quantity">
-                            <div className="circle-icon circle-icon_hover circle-icon_hidden"> <Heart /></div>
+                            <div className="circle-icon circle-icon_hover circle-icon_hidden">
+                                <Link to='/wish_list' className="header__link"><Heart /><span>2</span></Link>
+                            </div>
                         </div>
                         <div className="icon-quantity">
-                            <div className="circle-icon circle-icon_hover"><Comparison /><span>2</span></div>
+                            <div className="circle-icon circle-icon_hover"><Comparison /></div>
                         </div>
                         <div className="icon-quantity">
                             <div className="circle-icon circle-icon_hover">

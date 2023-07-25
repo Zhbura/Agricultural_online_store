@@ -27,6 +27,7 @@ import { Codex } from "../Codex/Codex";
 import { CartComp } from "../Cart/Cart";
 import { Commodity } from "../Commodity/Commodity";
 import { useEffect, useState } from 'react';
+import { WishList } from "../WishList/WishList";
 
 export const Router = () => {
 
@@ -370,6 +371,7 @@ export const Router = () => {
                     <Route path="refund" element={<Refund />} />
                     <Route path="codex" element={<Codex />} />
                     <Route path="cart" element={<CartComp cartProducts={cartProducts} setCartProducts={setCartProducts} />} />
+                    <Route path="wish_list" element={<WishList wishList={products[0]} />} />
                     <Route path="*" element={<Error />} />
                 </Route>
             </Routes>
