@@ -21,7 +21,7 @@
         align-items: center;
         justify-content: space-between;
 
-        @media (min-width: 900px) and (max-width: 1199px) {
+        @media (min-width: 901px) and (max-width: 1199px) {
             padding: 0 10px;
         }
 
@@ -46,9 +46,7 @@
         }
     }
 
-
-    &__popUp,
-    &__popUp_active {
+    &__pop-up {
         position: relative;
         background-image: url(../../img/arrowDown.svg);
         background-repeat: no-repeat;
@@ -84,7 +82,7 @@
         }
     }
 
-    &__text {
+    &__link {
         font-weight: 300;
         font-size: 18px;
         line-height: 22px;
@@ -98,15 +96,15 @@
         @media (min-width: 1200px) {
             margin-right: 30px;
         }
-    }
 
-    &__active-link {
-        color: #fff;
-        border-bottom: 1px solid #fff;
+        &_active {
+            color: #fff;
+            border-bottom: 1px solid #fff;
+        }
     }
 }
 
-.popUp {
+.pop-up {
     background: #347153;
     border-radius: 0px 0px 20px 20px;
     width: 190px;
@@ -116,12 +114,19 @@
     display: none;
 
     a {
-        padding-bottom: 15px;
+        margin-bottom: 15px;
         display: flex;
         flex-direction: column;
     }
+
+    &_active {
+        display: block;
+    }
 }
 
-.popUp.active {
-    display: block;
+.pop-up .top-bar__link {
+    &:hover {
+        border-bottom: 1px solid #fff;
+        color: #fff;
+    }
 }
