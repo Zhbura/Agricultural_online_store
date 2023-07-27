@@ -10,8 +10,8 @@ import visa from '../../img/visa.svg';
 import availabilityImg from '../../img/availability.svg';
 import { ImageSlider } from '../ImageSlider/ImageSlider'
 
-export const Commodity = ({ product }) => {
-    const { img, name, priceFor, price, availability } = product;
+export const Commodity = ({ product, totalWish, addToWishList }) => {
+    const { id, img, name, priceFor, price, availability } = product;
 
     return (
         <>
@@ -28,13 +28,21 @@ export const Commodity = ({ product }) => {
                             <div className="commodity-info__fabricator">
                                 <h5 className="commodity-info__heading">Производитель</h5>
                                 <img src={fabricator} alt="Производитель лого ФМС Казахстан" />
-                                <span className="commodity-info__text commodity-info__text_margin">ФМС Казахстан</span>
+                                <span className="commodity-info__text commodity-info__text_margin">
+                                    ФМС Казахстан
+                                </span>
                             </div>
                             <div className="commodity-info__payment-method">
                                 <h5 className="commodity-info__heading">Оплата</h5>
-                                <div className="commodity-info__payment"><img src={money} alt="money" /></div>
-                                <div className="commodity-info__payment"><img src={mastercard} alt="mastercard" /></div>
-                                <div className="commodity-info__payment"><img src={visa} alt="visa" /></div>
+                                <div className="commodity-info__payment">
+                                    <img src={money} alt="money" />
+                                </div>
+                                <div className="commodity-info__payment">
+                                    <img src={mastercard} alt="mastercard" />
+                                </div>
+                                <div className="commodity-info__payment">
+                                    <img src={visa} alt="visa" />
+                                </div>
                             </div>
                         </div>
                         <span className="commodity-info__separator-vertical" />
@@ -50,18 +58,20 @@ export const Commodity = ({ product }) => {
                     <span className="commodity-info__separator-horizontal" />
                     <div className="wrap_bottom-info">
                         <div className="commodity-info__price-quantity">
-                            <p >{price} рублей</p>
-                            <p className="commodity-info__text">Цена за {priceFor}</p>
+                            <p >{price} руб</p>
+                            <p className="commodity-info__text">Цена за {priceFor[0]} шт</p>
                         </div>
                         <div className="commodity-info__toolbar">
                             <div className="product-btn product-btn_orange icon_white">
                                 <Cart />
                                 Купить
                             </div>
-                            <div className="circle-icon circle-icon_hover"> <Heart /></div>
-                            <div className="icon-quantity">
-                                <div className="circle-icon circle-icon_hover"><Comparison /><span>2</span></div>
+                            <div className="icon-quantity" onClick={() => addToWishList(id, product)}>
+                                <div className="circle-icon circle-icon_hover">
+                                    <Heart /><span>{totalWish}</span>
+                                </div>
                             </div>
+                            <div className="circle-icon circle-icon_hover"><Comparison /></div>
                         </div>
                     </div>
                 </div>

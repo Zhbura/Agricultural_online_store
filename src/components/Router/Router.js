@@ -374,10 +374,10 @@ export const Router = () => {
                             addToCart={addToCart}
                             addToWishList={addToWishList}
                         />}>
-                        <Route path="petunia" element={<Commodity product={products[0][0]} />} />
-                        <Route path="skor" element={<Commodity product={products[0][1]} />} />
-                        <Route path="horys" element={<Commodity product={products[0][2]} />} />
-                        <Route path="agrikola" element={<Commodity product={products[0][3]} />} />
+                        <Route path="petunia" element={<Commodity addToWishList={addToWishList} totalWish={totalWish} product={products[0][0]} />} />
+                        <Route path="skor" element={<Commodity addToWishList={addToWishList} totalWish={totalWish} product={products[0][1]} />} />
+                        <Route path="horys" element={<Commodity addToWishList={addToWishList} totalWish={totalWish} product={products[0][2]} />} />
+                        <Route path="agrikola" element={<Commodity addToWishList={addToWishList} totalWish={totalWish} product={products[0][3]} />} />
                     </Route>
                     <Route path="order"
                         element={<Order

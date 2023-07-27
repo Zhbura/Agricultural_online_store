@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Phone } from '../SVG/Icon/Phone';
-import phone from '../../img/svg-img/phone.svg';
+import phone from '../../img/icon/phone.svg';
 import './ContactDetails.scss';
 
 export const ContactDetails = ({ classContactDetails, icon, phoneInfo }) => {
