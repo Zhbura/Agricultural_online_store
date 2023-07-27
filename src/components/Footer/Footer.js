@@ -1,6 +1,6 @@
 import './Footer.scss';
 import { Logo } from '../Logo/Logo';
-import { Mail } from '../SVG/Icon/Mail';
+import email from '../../img/icon/email.svg';
 import { Arrow } from '../SVG/Arrow/Arrow';
 import { Link } from 'react-router-dom';
 import { ContactDetails } from '../ContactDetails/ContactDetails';
@@ -45,7 +45,9 @@ export const Footer = () => {
                             phoneInfo="contact-details__phone-info"
                         />
                         <div className="contact-details">
-                            <div className="circle-icon"> <Mail /></div>
+                            <div className="circle-icon">
+                                <img src={email} alt="email" />
+                            </div>
                             <div className="contact-details__mail-info">
                                 <p>DAT@gmail.com</p>
                             </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Phone } from '../SVG/Icon/Phone';
+import phone from '../../img/svg-img/phone.svg';
 import './ContactDetails.scss';
 
 export const ContactDetails = ({ classContactDetails, icon, phoneInfo }) => {
@@ -17,7 +18,9 @@ export const ContactDetails = ({ classContactDetails, icon, phoneInfo }) => {
                 </div>
                 {phoneActive && <div className='contact-details__pop-up'>
                     <div className="wrap-contact">
-                        <div className="circle-icon"> <Phone /></div>
+                        <div className="circle-icon">
+                            <img src={phone} alt="phone" />
+                        </div>
                         <div>
                             <div className="contact-details">
                                 <div className="contact-details__phone-info">
