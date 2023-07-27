@@ -1,78 +1,46 @@
-import { Cart } from '../SVG/Icon/Cart'
-import { Comparison } from '../SVG/Icon/Comparison'
-import { Heart } from '../SVG/Icon/Heart'
-import { Phone } from '../SVG/Icon/Phone'
-import './Commodity.scss'
-import fabricator from '../../img/fabricator.svg';
-import money from '../../img/money.svg';
-import mastercard from '../../img/mastercard.svg';
-import visa from '../../img/visa.svg';
-import availabilityImg from '../../img/availability.svg';
-import { ImageSlider } from '../ImageSlider/ImageSlider'
+import './Commodity.scss';
+import { Button } from '../Button/Button';
+import { PageHeadingTwice } from '../PageHeading/PageHeading';
+import { Outlet } from 'react-router-dom';
+import { useState } from 'react';
+import { Slider } from '../Slider/Slider';
+import { ProductItems } from '../ProductСard/ProductItems';
 
-export const Commodity = ({ product, totalWish, addToWishList }) => {
-    const { id, img, name, priceFor, price, availability } = product;
+export const Commodity = ({ products, addToCart, addToWishList }) => {
+    const [currentProduct, setCurrentProduct] = useState(0);
 
+    const prev = () => {
+        const index = currentProduct > 0 ? currentProduct - 1 : products.length - 1;
+        setCurrentProduct(index)
+    }
+
+    const next = () => {
+        const index = currentProduct < products.length - 1 ? currentProduct + 1 : 0;
+        setCurrentProduct(index)
+    }
+
+    const switchIndex = (index) => {
+        setCurrentProduct(index);
+    }
     return (
         <>
-            <div className="commodity-info">
-                <ImageSlider images={img} name={name} />
-                <div className="commodity-info_right">
-                    <h2 className="commodity-info__title">{name}</h2>
-                    <div className="commodity-info__availability">
-                        <img src={availabilityImg} alt="Продукт находится в наличии" />
-                        {availability}
+            <div className="commodity">
+                <div className="container">
+                    <Outlet />
+                </div>
+                <div className="stocks">
+                    <div className="page-heading_white">
+                        <PageHeadingTwice>Вам также понравится</PageHeadingTwice>
                     </div>
-                    <div className="wrap_top-info">
-                        <div>
-                            <div className="commodity-info__fabricator">
-                                <h5 className="commodity-info__heading">Производитель</h5>
-                                <img src={fabricator} alt="Производитель лого ФМС Казахстан" />
-                                <span className="commodity-info__text commodity-info__text_margin">
-                                    ФМС Казахстан
-                                </span>
-                            </div>
-                            <div className="commodity-info__payment-method">
-                                <h5 className="commodity-info__heading">Оплата</h5>
-                                <div className="commodity-info__payment">
-                                    <img src={money} alt="money" />
-                                </div>
-                                <div className="commodity-info__payment">
-                                    <img src={mastercard} alt="mastercard" />
-                                </div>
-                                <div className="commodity-info__payment">
-                                    <img src={visa} alt="visa" />
-                                </div>
-                            </div>
-                        </div>
-                        <span className="commodity-info__separator-vertical" />
-                        <div className="commodity-info__delivery">
-                            <h5 className="commodity-info__heading">Доставка</h5>
-                            <span className="commodity-info__text commodity-info__text_width">Завтра в соответствии с тарифами перевозчика</span>
-                            <div className="product-btn icon_orange">
-                                <Phone />
-                                Заказать звонок
-                            </div>
-                        </div>
+                    <ProductItems products={products} prevEl={prev} nextEl={next} currentIndex={currentProduct} addToCart={addToCart} addToWishList={addToWishList} />
+                    <div className="stocks__slider">
+                        <Slider classSmall="slider__notActive slider__notActive_green"
+                            classBig="slider__active slider__active_green"
+                            products={products} currentIndex={currentProduct} switchIndex={switchIndex}
+                        />
                     </div>
-                    <span className="commodity-info__separator-horizontal" />
-                    <div className="wrap_bottom-info">
-                        <div className="commodity-info__price-quantity">
-                            <p >{price} руб</p>
-                            <p className="commodity-info__text">Цена за {priceFor[0]} шт</p>
-                        </div>
-                        <div className="commodity-info__toolbar">
-                            <div className="product-btn product-btn_orange icon_white">
-                                <Cart />
-                                Купить
-                            </div>
-                            <div className="icon-quantity" onClick={() => addToWishList(id, product)}>
-                                <div className="circle-icon circle-icon_hover">
-                                    <Heart /><span>{totalWish}</span>
-                                </div>
-                            </div>
-                            <div className="circle-icon circle-icon_hover"><Comparison /></div>
-                        </div>
+                    <div className="stocks__btn">
+                        <Button>Смотреть все товары</Button>
                     </div>
                 </div>
             </div>

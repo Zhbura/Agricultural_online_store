@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { Main } from "../Main/Main";
-import { Product } from "../Product/Product";
+import { Commodity } from "../Commodity/Commodity";
 import { Order } from "../Order/Order";
 import { ThanksOrder } from "../ThanksOrder/ThanksOrder";
 import { AboutСompany } from "../AboutСompany/AboutСompany";
@@ -25,7 +25,7 @@ import { PrivacyPolicy } from "../PrivacyPolicy/PrivacyPolicy";
 import { Refund } from "../Refund/Refund";
 import { Codex } from "../Codex/Codex";
 import { CartComp } from "../Cart/Cart";
-import { Commodity } from "../Commodity/Commodity";
+import { Product } from "../Product/Product";
 import { useEffect, useState } from 'react';
 import { WishList } from "../WishList/WishList";
 
@@ -369,15 +369,31 @@ export const Router = () => {
                         />}
                     />
                     <Route path="product"
-                        element={<Product
+                        element={<Commodity
                             products={products}
                             addToCart={addToCart}
                             addToWishList={addToWishList}
                         />}>
-                        <Route path="petunia" element={<Commodity addToWishList={addToWishList} totalWish={totalWish} product={products[0][0]} />} />
-                        <Route path="skor" element={<Commodity addToWishList={addToWishList} totalWish={totalWish} product={products[0][1]} />} />
-                        <Route path="horys" element={<Commodity addToWishList={addToWishList} totalWish={totalWish} product={products[0][2]} />} />
-                        <Route path="agrikola" element={<Commodity addToWishList={addToWishList} totalWish={totalWish} product={products[0][3]} />} />
+                        <Route path="petunia" element={<Product
+                            addToWishList={addToWishList}
+                            totalWish={totalWish}
+                            product={products[0][0]} />}
+                        />
+                        <Route path="skor" element={<Product
+                            addToWishList={addToWishList}
+                            totalWish={totalWish}
+                            product={products[0][1]} />}
+                        />
+                        <Route path="horys" element={<Product
+                            addToWishList={addToWishList}
+                            totalWish={totalWish}
+                            product={products[0][2]} />}
+                        />
+                        <Route path="agrikola" element={<Product
+                            addToWishList={addToWishList}
+                            totalWish={totalWish}
+                            product={products[0][3]} />}
+                        />
                     </Route>
                     <Route path="order"
                         element={<Order
