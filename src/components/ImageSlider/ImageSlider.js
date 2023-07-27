@@ -17,18 +17,23 @@ export const ImageSlider = ({ images, name }) => {
     if (!Array.isArray(images) || images.length <= 0) {
         return null
     }
+
+    const changeCurrent = (index) => {
+        setCurrent(index)
+    }
+
     return (
         <>
             <div className="image-slider">
-                <div className="image-slider__img">
+                <div className="image-slider_big">
                     <div className="arrow-scroll" onClick={prevImage}>
                         <Arrow />
                     </div>
                     <div className="image-slider__wrap">
                         {images.map((image, index) => (
                             <div className={index === current ?
-                                'image-slider__slide image-slider__slide_active' :
-                                'image-slider__slide'} key={index}>
+                                'image-slider__slide-big image-slider__slide-big_active' :
+                                'image-slider__slide-big'} key={index}>
                                 {index === current && (
                                     <img src={image} alt={name} />
                                 )}
@@ -39,7 +44,20 @@ export const ImageSlider = ({ images, name }) => {
                         <Arrow />
                     </div>
                 </div>
-            </div>
+                <div className="image-slider_small">
+                    {images.map((image, index) => (
+                        <div className={index !== current ?
+                            "image-slider__slide-small image-slider__slide-small_active" :
+                            "image-slider__slide-small"}
+                            key={index}
+                            onClick={() => { changeCurrent(index) }}>
+                            {index !== current && (
+                                <img src={image} alt={name} />
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div >
         </>
     )
 }

@@ -28,7 +28,7 @@ export const Menu = ({ total, totalWish }) => {
                     <div className="container">
                         <div className="top-bar__login menu__login">
                             <img src={logOut} alt="Войти" />
-                            <Link to='/registration' className="top-bar__text">Вход | Регистрация</Link>
+                            <Link to='/registration' className="top-bar__link">Вход | Регистрация</Link>
                         </div>
                         <div className="menu__close" onClick={hideMenu}>
                             <img src={closeMenu} alt="Меню" />
