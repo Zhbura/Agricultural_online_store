@@ -89,6 +89,10 @@
         color: rgba(255, 255, 255, 0.7);
         text-decoration: none;
 
+        &:hover {
+            color: #fff;
+        }
+
         @media (min-width: 900px) and (max-width: 1199px) {
             margin-right: 10px;
         }
@@ -121,12 +125,5 @@
 
     &_active {
         display: block;
-    }
-}
-
-.pop-up .top-bar__link {
-    &:hover {
-        border-bottom: 1px solid #fff;
-        color: #fff;
     }
 }

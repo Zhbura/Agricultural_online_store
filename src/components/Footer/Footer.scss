@@ -28,6 +28,10 @@
         font-size: 18px;
         line-height: 22px;
         color: #000000;
+
+        &:hover {
+            font-weight: 700;
+        }
     }
 
     &__logo {

@@ -58,7 +58,7 @@ export const Footer = () => {
                 <p className="footer__сopyright">&#169; 2022 DAT</p>
                 <div className="footer__wrap-popUp">
                     <div className="footer__pop-up arrow_up">
-                        <Arrow />
+                        <a href="#navigation"> <Arrow /></a>
                     </div>
                 </div>
             </footer >

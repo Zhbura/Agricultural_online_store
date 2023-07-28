@@ -19,7 +19,7 @@ export const TopBar = ({ total, totalWish }) => {
     };
     return (
         <>
-            <div className="top-bar">
+            <div id="navigation" className="top-bar">
                 <div className="container">
                     <nav className="top-bar__navigation top-bar__navigation_hidden">
                         <div className={popUpActive ? 'top-bar__pop-up top-bar__pop-up_active' : 'top-bar__pop-up'} onClick={() => setPopUpActive(!popUpActive)}>
