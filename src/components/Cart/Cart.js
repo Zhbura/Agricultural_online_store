@@ -18,51 +18,6 @@ export const CartComp = () => {
 
     const cartProducts = useSelector(selectCart);
 
-    // const increase = (id) => {
-    // setCartProducts((cartProducts) => {
-    // return cartProducts.map((product) => {
-    // if (product.id === id) {
-    // return {
-    // ...product,
-    // count: product.count + 1,
-    // totalPrice: (product.count + 1) * product.price,
-    // }
-    // }
-    // return product
-    // })
-    // })
-    // }
-
-    // const decrease = (id) => {
-    // setCartProducts((cartProducts) => {
-    // return cartProducts.map((product) => {
-    // const newCount = product.count > 1 ? product.count - 1 : 1
-    // if (product.id === id) {
-    // return {
-    // ...product,
-    // count: newCount,
-    // totalPrice: (newCount) * product.price,
-    // }
-    // }
-    // return product
-    // })
-    // })
-    // }
-
-    // const changeValue = (id, value) => {
-    // setCartProducts((cartProducts) => {
-    // return cartProducts.map((product) => {
-    // if (product.id === id) {
-    // return {
-    // ...product,
-    // count: value,
-    // totalPrice: product.price * value,
-    // }
-    // }
-    // return product
-    // })
-    // })
-    // }
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
