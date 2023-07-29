@@ -1,14 +1,14 @@
 import './Slider.scss';
 
-export const Slider = (props) => {
+export const Slider = ({ products, currentIndex, switchIndex, classSmall, classBig }) => {
     return (
         <>
             <div className="slider">
-                <span className={props.classSmall} />
-                <span className={props.classSmall} />
-                <span className={props.classBig} />
-                <span className={props.classSmall} />
-                <span className={props.classSmall} />
+                {products.map((slide, index) => (
+                    <div
+                        className={`${classSmall}${currentIndex === index ? ` ${classBig}` : ''}`} onClick={() => switchIndex(index)} key={index}>
+                    </div>
+                ))}
             </div>
         </>
     )

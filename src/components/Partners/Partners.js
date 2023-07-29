@@ -1,43 +1,51 @@
 import './Partners.scss';
-import partnerLogo1 from '../../img/partnerLogo1.svg';
-import partnerLogo2 from '../../img/partnerLogo2.svg';
-import partnerLogo3 from '../../img/partnerLogo3.svg';
-import partnerLogo5 from '../../img/partnerLogo5.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Arrow, ArrowRight } from '../SVG/Arrow/Arrow';
-import { Slider } from '../Slider/Slider';
+import Carousel from 'react-multi-carousel';
+import { partners, responsive } from '../../partnersData';
+import 'react-multi-carousel/lib/styles.css';
 
 export const Partners = () => {
+
     return (
         <>
             <div className="partners">
                 <PageHeadingTwice> Партнеры</PageHeadingTwice>
                 <div className="partners__items">
-                    <div className="arrow-circle">
-                        <Arrow />
-                    </div>
-                    <div className="partners__logo">
-                        <img src={partnerLogo1} alt="partnerLogo1" />
-                    </div>
-                    <div className="partners__logo">
-                        <img src={partnerLogo2} alt="partnerLogo2" />
-                    </div>
-                    <div className="partners__logo">
-                        <img src={partnerLogo3} alt="partnerLogo3" />
-                    </div>
-                    <div className="partners__logo">
-                        <img src={partnerLogo5} alt="partnerLogo5" />
-                    </div>
-                    <div className="arrow-circle">
-                        <ArrowRight />
-                    </div>
+                    <Carousel
+                        responsive={responsive}
+                        showDots={true}
+                        customRightArrow={<CustomRightArrow />}
+                        customLeftArrow={<CustomLeftArrow />}
+                        customDot={<CustomDot />}
+                    >
+                        {partners.map(logo => (
+                            <div className="partner-logo" key={logo.id}>
+                                <img src={logo.img} alt={logo.alt} />
+                            </div>
+                        ))}
+                    </Carousel>
                 </div>
-                <div className="partners__slider">
-                    <Slider classSmall="slider__notActive"
-                        classBig="slider__active" />
-                </div>
-
             </div>
         </>
     )
 }
+
+const CustomRightArrow = ({ onClick }) => {
+    return <div className="partners__arrow-circle partners__arrow-circle_right" onClick={() => onClick()}><ArrowRight /> </div>;
+};
+
+const CustomLeftArrow = ({ onClick }) => {
+    return <div className="partners__arrow-circle partners__arrow-circle_left" onClick={() => onClick()}><Arrow /> </div>;
+};
+
+const CustomDot = ({ onClick, ...rest }) => {
+    const { active } = rest;
+
+    return (
+        <span
+            className={active ? "partners__slider partners__slider_active" :
+                "partners__slider partners__slider_notActive"}
+            onClick={() => onClick()} />
+    );
+};

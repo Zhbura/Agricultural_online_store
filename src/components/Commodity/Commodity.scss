@@ -1,0 +1,26 @@
+.product-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    height: 47px;
+    border: 1px solid #E74E13;
+    border-radius: 90px;
+    text-align: center;
+    color: #E74E13;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+
+    img,
+    svg {
+        margin-right: 11px;
+    }
+
+    &_orange {
+        background: #E74E13;
+        color: #FFFFFF;
+        margin-right: 20px;
+    }
+
+}

@@ -5,8 +5,11 @@
     border: 1px solid #8C3213;
     position: relative;
 
-    svg {
+    svg,
+    img {
         position: absolute;
+        width: 16px;
+        height: 16px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -39,21 +42,9 @@
     }
 }
 
-// .circle-icon:hover {
-//     background: #8C3213;
-
-//     svg {
-//         fill: #FFFFFF;
-//     }
-// }
-
 .icon-quantity {
     position: relative;
     display: flex;
-
-    &:not(:first-child) {
-        margin-left: 16px;
-    }
 
     span {
         box-sizing: content-box;
@@ -70,13 +61,6 @@
         width: 14px;
         text-align: center;
         padding: 2px;
-    }
-
-    // ??
-    &_white {
-        svg {
-            fill: white;
-        }
     }
 }
 

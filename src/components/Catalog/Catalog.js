@@ -10,8 +10,9 @@ import { changeShowFilter } from '../../store/catalog/action';
 import { useState } from 'react';
 import { FilterCatalogBig } from '../FilterCatalog/FilterCatalogBig';
 import { DropdownCatalog } from '../Dropdown/DropdownCatalog';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
-export const Catalog = (props) => {
+export const Catalog = ({ title, products, addToCart, addToWishList }) => {
     const [selected, setSelected] = useState('');
 
     const dispatch = useDispatch();
@@ -19,11 +20,41 @@ export const Catalog = (props) => {
     const showFilter = () => {
         dispatch(changeShowFilter);
     };
+
+    const breadcrumbs = [
+        {
+            name: "Каталог",
+            to: "/catalog"
+        },
+        {
+            name: `${title}`,
+            to: "/catalog"
+        },
+    ];
+
+    //стейт для текущей страницы которую нужно отображать
+    const [currentPage, setCurrentPage] = useState(1);
+
+    // стейт для количества отображаемых элементов на каждой странице
+    const [productsPerPage] = useState(3);
+
+    // индекс последней страницы 5
+    const lastProductIndex = currentPage * productsPerPage;
+
+    // индекс первой страницы 0
+    const firstProductIndex = lastProductIndex - productsPerPage;
+
+    //текущая страница
+    const currentProduct = products.slice(firstProductIndex, lastProductIndex);
+
+    // функция для нажатия на кружки пагинации
+    const paginate = pageNumber => setCurrentPage(pageNumber);
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="catalog">
                 <PageHeadingTwice>
-                    {props.title}
+                    {title}
                 </PageHeadingTwice>
                 <div className="catalog-wrap catalog-wrap_top container">
                     <div className="result">Показано 621 товар</div>
@@ -47,28 +78,29 @@ export const Catalog = (props) => {
                 </div>
                 <div className="catalog-wrap container">
                     <FilterCatalogBig />
-                    <div>
+                    <div className="wrap-page">
                         <div className="catalog-product">
-                            <ProductCard name="Петуния Софистика F1" alt="Петуния Софистика F1" img={require("../../img/newProducts1.png")} price="20" />
-                            <ProductCard name="Скор 250 ЕС К. Э." alt="Скор 250 ЕС К. Э." img={require("../../img/newProducts3.png")} price="200" />
-                            <ProductCard name="Хорус" alt="Хорус" img={require("../../img/newProducts4.png")} price="320" />
-                            <ProductCard name="Агрикола" alt="Агрикола, удобрение для орхидей" img={require("../../img/newProducts2.png")} price="170" />
-                            <ProductCard name="Петуния Софистика F1" alt="Петуния Софистика F1" img={require("../../img/newProducts1.png")} price="20" />
-                            <ProductCard name="Скор 250 ЕС К. Э." alt="Скор 250 ЕС К. Э." img={require("../../img/newProducts3.png")} price="200" />
-                            <ProductCard name="Хорус" alt="Хорус" img={require("../../img/newProducts4.png")} price="320" />
-                            <ProductCard name="Агрикола" alt="Агрикола, удобрение для орхидей" img={require("../../img/newProducts2.png")} price="170" />
-                            <ProductCard name="Петуния Софистика F1" alt="Петуния Софистика F1" img={require("../../img/newProducts1.png")} price="20" />
-                            <ProductCard name="Скор 250 ЕС К. Э." alt="Скор 250 ЕС К. Э." img={require("../../img/newProducts3.png")} price="200" />
-                            <ProductCard name="Хорус" alt="Хорус" img={require("../../img/newProducts4.png")} price="320" />
-                            <ProductCard name="Агрикола" alt="Агрикола, удобрение для орхидей" img={require("../../img/newProducts2.png")} price="170" />
-                            <ProductCard name="Петуния Софистика F1" alt="Петуния Софистика F1" img={require("../../img/newProducts1.png")} price="20" />
-                            <ProductCard name="Скор 250 ЕС К. Э." alt="Скор 250 ЕС К. Э." img={require("../../img/newProducts3.png")} price="200" />
-                            <ProductCard name="Хорус" alt="Хорус" img={require("../../img/newProducts4.png")} price="320" />
+                            {currentProduct.map((arrayProducts, index) => (
+                                arrayProducts.map((product, i) => (
+                                    <ProductCard
+                                        key={product.id}
+                                        product={product}
+                                        addToCart={addToCart}
+                                        addToWishList={addToWishList}
+                                    />
+                                ))
+                            ))}
                         </div>
-                        <Pagination />
+                        <Pagination
+                            productsPerPage={productsPerPage}
+                            totalProducts={products.length}
+                            paginate={paginate}
+                            currentPage={currentPage}
+                            setCurrentPage={setCurrentPage}
+                        />
                     </div>
                 </div>
-            </div>
+            </div >
             <SeedsCatalog />
         </>
     )

@@ -1,13 +1,25 @@
 import './Order.scss';
 import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
-import productImg from '../../img/productImgBig.png';
-import cancel from '../../img/cancelGrey.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Link } from 'react-router-dom';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
+import { OrderProduct, OrderProductSmall } from '../OrderProduct/OrderProduct';
 
-export const Order = () => {
+export const Order = ({ total, cartProducts }) => {
+    const breadcrumbs = [
+        {
+            name: "Корзина",
+            to: "/cart"
+        },
+        {
+            name: "Заказ",
+            to: "/order"
+        }
+    ];
+
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="order">
                 <PageHeadingTwice>Оформление заказа</PageHeadingTwice>
                 <div className="container">
@@ -65,65 +77,15 @@ export const Order = () => {
                     </div>
                     <div className="order__right">
                         <h4 className="order__heading">Товары в корзине</h4>
-                        <div className="cart-order">
-                            <div className="order__image">
-                                <img src={productImg} alt="Гербицид Комманд" />
-                            </div>
-                            <div className="order__info-right">
-                                <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
-                                <div className="order__price-quantity">
-                                    <p>7814,63 грн <span>x1</span></p>
-                                </div>
-                            </div>
-                            <img className="order__cancel" src={cancel} alt="Удалить выбранный товар" />
-                        </div>
-                        <div className="cart-order">
-                            <div className="order__image">
-                                <img src={productImg} alt="Гербицид Комманд" />
-                            </div>
-                            <div className="order__info-right">
-                                <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
-                                <div className="order__price-quantity">
-                                    <p>7814,63 грн <span>x1</span></p>
-                                </div>
-                            </div>
-                            <img className="order__cancel" src={cancel} alt="Удалить выбранный товар" />
-                        </div>
-                        <div className="cart-order_small">
-                            <div className="order__info-top">
-                                <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
-                                <img className="order__cancel" src={cancel} alt="Удалить выбранный товар" />
-                            </div>
-                            <div className="order__info-bottom">
-                                <div className="order__image">
-                                    <img src={productImg} alt="Гербицид Комманд" />
-                                </div>
-                                <div className="order__info-right">
-                                    <div className="order__price-quantity">
-                                        <p>7814,63 грн <span>x1</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="cart-order_small">
-                            <div className="order__info-top">
-                                <h3 className="order__title">Гербицид Комманд®, ФМС Украина</h3>
-                                <img className="order__cancel" src={cancel} alt="Удалить выбранный товар" />
-                            </div>
-                            <div className="order__info-bottom">
-                                <div className="order__image">
-                                    <img src={productImg} alt="Гербицид Комманд" />
-                                </div>
-                                <div className="order__info-right">
-                                    <div className="order__price-quantity">
-                                        <p>7814,63 грн <span>x1</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {cartProducts.map(product => (
+                            <OrderProduct product={product} key={product.id} />
+                        ))}
+                        {cartProducts.map(product => (
+                            <OrderProductSmall product={product} key={product.id} />
+                        ))}
                         <div className="order__buy-product">
-                            <p className="order__buy-product_margin">Итого: <span>2 товара </span></p>
-                            <p>На сумму: <span>15 629,26</span></p>
+                            <p className="order__buy-product_margin">Итого: <span>{total.count} товара </span></p>
+                            <p>На сумму: <span>{total.cost} руб</span></p>
                         </div>
                         <div className="order__confirm">
                             <Link to="/thanks_order" className="order__link">Подтвердить заказ</Link>

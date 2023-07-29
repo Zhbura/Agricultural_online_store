@@ -1,9 +1,17 @@
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import './AboutСompany.scss';
 
 export const AboutСompany = () => {
+    const breadcrumbs = [
+        {
+            name: "О компании",
+            to: "/aboutcompany"
+        },
+    ];
     return (
         <>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="about-company">
                 <div className="container">
                     <PageHeadingTwice>О компании</PageHeadingTwice>

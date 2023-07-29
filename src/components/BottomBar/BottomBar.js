@@ -10,41 +10,50 @@ import { Dropdown } from '../Dropdown/Dropdown';
 
 export const BottomBar = () => {
     const [selected, setSelected] = useState('');
-
+    const options = [
+        {
+            id: 1,
+            name: "Семена",
+            svg: <Seeds />,
+            to: '/catalog_seeds'
+        },
+        {
+            id: 2,
+            name: "Средства защиты растений",
+            svg: <Sapling />,
+            to: '/catalog_plant_protection',
+        },
+        {
+            id: 3,
+            name: "Удобрения",
+            svg: <Fertilizers />,
+            to: '/catalog_fertilizers',
+        },
+        {
+            id: 4,
+            name: "Кормовая группа",
+            svg: <FeedGroup />,
+            to: '/catalog_feed_group',
+        },
+        {
+            id: 5,
+            name: "Агроному в помощь",
+            svg: <Farmer />,
+            to: '/catalog_farmer_help',
+        },
+    ];
     return (
         <>
             <div className="bottom-bar">
                 <div className="container">
-                    <Dropdown selected={selected} setSelected={setSelected} />
-                    <div className="bottom-bar__item">
-                        <Link to="/catalog_seeds" className="bottom-bar__link">
-                            <Seeds /> Семена
-                        </Link>
-                    </div>
-                    <div className="bottom-bar__item">
-                        <Link to='/plantprotection' className="bottom-bar__link">
-                            <Sapling />
-                            Средства защиты растений
-                        </Link>
-                    </div>
-                    <div className="bottom-bar__item">
-                        <Link to="/catalog_fertilizers" className="bottom-bar__link">
-                            <Fertilizers />
-                            Удобрения
-                        </Link>
-                    </div>
-                    <div className="bottom-bar__item">
-                        <Link to="/catalog_feed_group" className="bottom-bar__link">
-                            <FeedGroup />
-                            Кормовая группа
-                        </Link>
-                    </div>
-                    <div className="bottom-bar__item">
-                        <Link to="/catalog_farmer_help" className="bottom-bar__link">
-                            <Farmer />
-                            Агроному в помощь
-                        </Link>
-                    </div>
+                    <Dropdown selected={selected} setSelected={setSelected} options={options} />
+                    {options.map(option => (
+                        <div className="bottom-bar__item" key={option.id}>
+                            <Link to={option.to} className="bottom-bar__link">
+                                {option.svg} {option.name}
+                            </Link>
+                        </div>
+                    ))}
                 </div>
             </div>
         </>

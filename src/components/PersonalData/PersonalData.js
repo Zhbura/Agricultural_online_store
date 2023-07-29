@@ -1,12 +1,24 @@
 import './PersonalData.scss';
 import pencil from '../../img/pencilCorrect.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const PersonalData = () => {
+    const breadcrumbs = [
+        {
+            name: "Личный кабинет",
+            to: "/personal_account"
+        },
+        {
+            name: "Личные данные",
+            to: "/personal_data"
+        },
+    ];
     return (
         <>
             <div className="personal-data">
-                <PageHeadingTwice>Личный данные</PageHeadingTwice>
+                <Breadcrumbs breadcrumbs={breadcrumbs} />
+                <PageHeadingTwice>Личные данные</PageHeadingTwice>
                 <form className="personal-data__form">
                     <div className="wrap-personalData">
                         <div className="personal-data__text"> Имя

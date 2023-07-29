@@ -1,31 +1,36 @@
 import './NewProducts.scss';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
-import { ProductCard } from '../ProductСard/ProductСard';
-import { Arrow, ArrowRight } from '../SVG/Arrow/Arrow';
-import { Slider } from '../Slider/Slider';
+import { useState } from 'react';
+import { Slider } from "../Slider/Slider";
+import { ProductItems } from '../ProductСard/ProductItems';
 
-export const NewProducts = () => {
+export const NewProducts = ({ products, addToCart, addToWishList }) => {
+    const [currentProduct, setCurrentProduct] = useState(0);
+
+    const prev = () => {
+        const index = currentProduct > 0 ? currentProduct - 1 : products.length - 1;
+        setCurrentProduct(index)
+    }
+
+    const next = () => {
+        const index = currentProduct < products.length - 1 ? currentProduct + 1 : 0;
+        setCurrentProduct(index)
+    }
+
+    const switchIndex = (index) => {
+        setCurrentProduct(index);
+    }
     return (
         <>
             <div className="new-products">
                 <PageHeadingTwice>Новинки</PageHeadingTwice>
-                <div className="products">
-                    <div className="arrow-circle">
-                        <Arrow />
-                    </div>
-                    <div className="products__items">
-                        <ProductCard name="Петуния Софистика F1" alt="Петуния Софистика F1" img={require("../../img/newProducts1.png")} price="20" />
-                        <ProductCard name="Скор 250 ЕС К. Э." alt="Скор 250 ЕС К. Э." img={require("../../img/newProducts3.png")} price="200" />
-                        <ProductCard name="Хорус" alt="Хорус" img={require("../../img/newProducts4.png")} price="320" />
-                        <ProductCard name="Агрикола" alt="Агрикола, удобрение для орхидей" img={require("../../img/newProducts2.png")} price="170" />
-                    </div>
-                    <div className="arrow-circle">
-                        <ArrowRight />
-                    </div>
-                </div>
+                <ProductItems products={products} prevEl={prev} nextEl={next} currentIndex={currentProduct} addToCart={addToCart} addToWishList={addToWishList} />
                 <div className="new-products__slider">
-                    <Slider classSmall="slider__notActive"
-                        classBig="slider__active" />
+                    <Slider
+                        classSmall="slider__notActive"
+                        classBig="slider__active"
+                        products={products} currentIndex={currentProduct} switchIndex={switchIndex}
+                    />
                 </div>
             </div>
         </>

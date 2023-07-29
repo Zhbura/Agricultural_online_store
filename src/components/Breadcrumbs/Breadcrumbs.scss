@@ -1,0 +1,38 @@
+.bread-crumbs {
+    padding-bottom: 8px;
+
+    &__list-items {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+    }
+
+    &__list-item {
+        padding-left: 8px;
+
+        &:not(:first-child)::before {
+            color: #84C551;
+            content: "●";
+            padding-right: 8px;
+        }
+
+        &_last {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 22px;
+            color: rgba(0, 0, 0, 0.5);
+
+            @media (min-width: 320px) and (max-width: 767px) {
+                text-align: center;
+            }
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+}
