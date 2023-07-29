@@ -11,8 +11,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectShowMenu } from '../../store/menu/selectors';
 import { changeMenuShow } from '../../store/menu/actions';
 import { ContactDetails } from '../ContactDetails/ContactDetails';
+import { costCart, countCart } from '../../store/cart/selectors';
 
-export const Menu = ({ total, totalWish }) => {
+export const Menu = ({ totalWish }) => {
 
     const showMenu = useSelector(selectShowMenu);
 
@@ -21,6 +22,10 @@ export const Menu = ({ total, totalWish }) => {
     const hideMenu = () => {
         dispatch(changeMenuShow);
     };
+
+    const totalCount = useSelector(countCart);
+    const costTotal = useSelector(costCart);
+
     return (
         <>
             <div className={showMenu ? 'menu menu_active' : 'menu'}>
@@ -49,10 +54,10 @@ export const Menu = ({ total, totalWish }) => {
                                 </div>
                                 <div className="icon-quantity">
                                     <div className="circle-icon circle-icon_white">
-                                        <Link to='/cart'><Cart /><span>{total.count}</span></Link>
+                                        <Link to='/cart'><Cart /><span>{totalCount}</span></Link>
                                     </div>
                                 </div>
-                                <p className="header__price header__price_white">{total.cost} руб</p>
+                                <p className="header__price header__price_white">{costTotal} руб</p>
                             </div>
                         </div>
                         <div className="menu-wrap menu-wrap_margin">

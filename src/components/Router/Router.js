@@ -29,11 +29,8 @@ import { Product } from "../Product/Product";
 import { useEffect, useState } from 'react';
 import { WishList } from "../WishList/WishList";
 import { products } from "../../productsData";
-import { useSelector } from "react-redux";
-import { selectCart } from "../../store/cart/selectors";
 
 export const Router = () => {
-
     const [wishList, setWishList] = useState([]);
 
     const addToWishList = (id, product) => {
@@ -50,38 +47,6 @@ export const Router = () => {
         }
     }
 
-    const [cartProducts, setCartProducts] = useState([]);
-    // const cartProducts = useSelector(selectProduct);
-
-    // const addToCart = (id, product) => {
-    // const productExist = cartProducts.find((product) => product.id === id);
-    // if (productExist) {
-    // setCartProducts(cartProducts.map((product) =>
-    // product.id === id ?
-    // {
-    // ...productExist,
-    // count: productExist.count + 1,
-    // totalPrice: (productExist.count + 1) * productExist.price,
-    // } : product
-    // ))
-    // } else {
-    // setCartProducts([...cartProducts, product])
-    // }
-    // }
-
-    const [total, setTotal] = useState({
-        count: cartProducts.reduce((prev, current) => prev + current.count, 0),
-        cost: cartProducts.reduce((prev, current) => prev + current.totalPrice, 0),
-    })
-
-    useEffect(() => {
-        setTotal({
-            count: cartProducts.reduce((prev, current) => (prev + current.count), 0),
-            cost: cartProducts.reduce((prev, current) => (prev + current.totalPrice), 0),
-        })
-    },
-        [cartProducts])
-
     const [totalWish, setTotalWish] = useState(
         wishList.reduce((prev, current) => prev + current.count, 0)
     )
@@ -94,7 +59,7 @@ export const Router = () => {
     return (
         <>
             <Routes>
-                <Route path="/" element={<Layout total={total} totalWish={totalWish} />}>
+                <Route path="/" element={<Layout totalWish={totalWish} />}>
                     <Route index
                         element={<Main
                             products={products}
@@ -128,10 +93,7 @@ export const Router = () => {
                         />
                     </Route>
                     <Route path="order"
-                        element={<Order
-                            total={total}
-                            cartProducts={cartProducts}
-                        />}
+                        element={<Order />}
                     />
                     <Route path="thanks_order" element={<ThanksOrder />} />
                     <Route path="aboutcompany" element={<AboutСompany />} />
@@ -188,12 +150,7 @@ export const Router = () => {
                     <Route path="privacypolicy" element={<PrivacyPolicy />} />
                     <Route path="refund" element={<Refund />} />
                     <Route path="codex" element={<Codex />} />
-                    <Route path="cart"
-                        element={<CartComp
-                        // cartProducts={cartProducts}
-                        // setCartProducts={setCartProducts}
-                        />}
-                    />
+                    <Route path="cart" element={<CartComp />} />
                     <Route path="wish_list"
                         element={<WishList
                             wishList={wishList}
