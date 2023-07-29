@@ -1,7 +1,7 @@
 import { ProductCard } from "./ProductСard"
 import { Arrow, ArrowRight } from "../SVG/Arrow/Arrow"
 
-export const ProductItems = ({ products, prevEl, nextEl, currentIndex, addToCart, addToWishList }) => {
+export const ProductItems = ({ products, prevEl, nextEl, currentIndex, addToWishList }) => {
     return (
         <>
             <div className="products">
@@ -14,7 +14,11 @@ export const ProductItems = ({ products, prevEl, nextEl, currentIndex, addToCart
                     >
                         {products.map((arrayProducts, index) => (
                             arrayProducts.map(product => (
-                                <ProductCard key={product.id} product={product} addToCart={addToCart} addToWishList={addToWishList} />
+                                <ProductCard
+                                    key={product.id}
+                                    product={product}
+                                    addToWishList={addToWishList}
+                                />
                             ))
                         ))}
                     </div>
@@ -22,7 +26,11 @@ export const ProductItems = ({ products, prevEl, nextEl, currentIndex, addToCart
                         style={{ transform: `translateX(${-currentIndex * 275}px)` }}
                     >
                         {products[0].map((product, index) => (
-                            <ProductCard key={index} product={product} addToCart={addToCart} addToWishList={addToWishList} />
+                            <ProductCard
+                                key={index}
+                                product={product}
+                                addToWishList={addToWishList}
+                            />
                         ))}
                     </div>
                 </div>

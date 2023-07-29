@@ -3,9 +3,12 @@ import { Cart } from '../SVG/Icon/Cart';
 import './ProductСard.scss';
 import { Heart } from '../SVG/Icon/Heart';
 import cancel from '../../img/cancelGrey.svg';
+import { useDispatch } from 'react-redux';
+import { addProductCart } from '../../store/cart/action';
 
-export const ProductCard = ({ product, addToCart, addToWishList, deleteProductWishList }) => {
+export const ProductCard = ({ product, addToWishList, deleteProductWishList }) => {
     const { id, name, alt, img, price, to } = product;
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -25,11 +28,12 @@ export const ProductCard = ({ product, addToCart, addToWishList, deleteProductWi
                         <p className="product-card__price">{price} руб.</p>
                         <p className="product-card__quantity">1 шт</p>
                     </div>
-                    <div className="product-card__cart" onClick={() => addToCart(id, product)}>
+                    <div className="product-card__cart"
+                        onClick={() => dispatch(addProductCart(product, id))}>
                         <div className="circle-icon circle-icon_hover"><Cart /></div>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

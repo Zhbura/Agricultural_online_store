@@ -29,6 +29,8 @@ import { Product } from "../Product/Product";
 import { useEffect, useState } from 'react';
 import { WishList } from "../WishList/WishList";
 import { products } from "../../productsData";
+import { useSelector } from "react-redux";
+import { selectCart } from "../../store/cart/selectors";
 
 export const Router = () => {
 
@@ -49,22 +51,23 @@ export const Router = () => {
     }
 
     const [cartProducts, setCartProducts] = useState([]);
+    // const cartProducts = useSelector(selectProduct);
 
-    const addToCart = (id, product) => {
-        const productExist = cartProducts.find((product) => product.id === id);
-        if (productExist) {
-            setCartProducts(cartProducts.map((product) =>
-                product.id === id ?
-                    {
-                        ...productExist,
-                        count: productExist.count + 1,
-                        totalPrice: (productExist.count + 1) * productExist.price,
-                    } : product
-            ))
-        } else {
-            setCartProducts([...cartProducts, product])
-        }
-    }
+    // const addToCart = (id, product) => {
+    // const productExist = cartProducts.find((product) => product.id === id);
+    // if (productExist) {
+    // setCartProducts(cartProducts.map((product) =>
+    // product.id === id ?
+    // {
+    // ...productExist,
+    // count: productExist.count + 1,
+    // totalPrice: (productExist.count + 1) * productExist.price,
+    // } : product
+    // ))
+    // } else {
+    // setCartProducts([...cartProducts, product])
+    // }
+    // }
 
     const [total, setTotal] = useState({
         count: cartProducts.reduce((prev, current) => prev + current.count, 0),
@@ -95,14 +98,12 @@ export const Router = () => {
                     <Route index
                         element={<Main
                             products={products}
-                            addToCart={addToCart}
                             addToWishList={addToWishList}
                         />}
                     />
                     <Route path="product"
                         element={<Commodity
                             products={products}
-                            addToCart={addToCart}
                             addToWishList={addToWishList}
                         />}>
                         <Route path="petunia" element={<Product
@@ -146,7 +147,6 @@ export const Router = () => {
                         element={<Catalog
                             title="Средства защиты растений"
                             products={products}
-                            addToCart={addToCart}
                             addToWishList={addToWishList}
                         />}
                     />
@@ -154,7 +154,6 @@ export const Router = () => {
                         element={<Catalog
                             title="Семена"
                             products={products}
-                            addToCart={addToCart}
                             addToWishList={addToWishList}
                         />}
                     />
@@ -162,7 +161,6 @@ export const Router = () => {
                         element={<Catalog
                             title="Удобрения"
                             products={products}
-                            addToCart={addToCart}
                             addToWishList={addToWishList}
                         />}
                     />
@@ -170,7 +168,6 @@ export const Router = () => {
                         lement={<Catalog
                             title="Кормовая группа"
                             products={products}
-                            addToCart={addToCart}
                             addToWishList={addToWishList}
                         />}
                     />
@@ -178,7 +175,6 @@ export const Router = () => {
                         element={<Catalog
                             title="Агроному в помощь"
                             products={products}
-                            addToCart={addToCart}
                             addToWishList={addToWishList}
                         />}
                     />
@@ -194,15 +190,14 @@ export const Router = () => {
                     <Route path="codex" element={<Codex />} />
                     <Route path="cart"
                         element={<CartComp
-                            cartProducts={cartProducts}
-                            setCartProducts={setCartProducts}
+                        // cartProducts={cartProducts}
+                        // setCartProducts={setCartProducts}
                         />}
                     />
                     <Route path="wish_list"
                         element={<WishList
                             wishList={wishList}
                             setWishList={setWishList}
-                            addToCart={addToCart}
                         />}
                     />
                     <Route path="*" element={<Error />} />

@@ -2,7 +2,7 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { ProductCard } from '../ProductСard/ProductСard';
 import './WishList.scss';
 
-export const WishList = ({ wishList, setWishList, addToCart }) => {
+export const WishList = ({ wishList, setWishList }) => {
 
     const deleteProductWishList = (id) => {
         setWishList((wishList) => wishList.filter((product) => id !== product.id));
@@ -21,7 +21,6 @@ export const WishList = ({ wishList, setWishList, addToCart }) => {
                                 key={product.id}
                                 product={product}
                                 deleteProductWishList={deleteProductWishList}
-                                addToCart={addToCart}
                             />
                         ))}
                     </div>)
