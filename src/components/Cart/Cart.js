@@ -8,7 +8,7 @@ import { CartProduct } from '../CartProduct/CartProduct';
 import { useSelector } from 'react-redux';
 import { selectCart } from '../../store/cart/selectors';
 
-export const CartComp = ({ }) => {
+export const CartComp = () => {
     const breadcrumbs = [
         {
             name: "Корзина",
@@ -17,10 +17,6 @@ export const CartComp = ({ }) => {
     ];
 
     const cartProducts = useSelector(selectCart);
-
-    // const deleteProduct = (id) => {
-    // setCartProducts((cartProducts) => cartProducts.filter((product) => id !== product.id));
-    // }
 
     // const increase = (id) => {
     // setCartProducts((cartProducts) => {

@@ -5,17 +5,22 @@ import cancel from '../../img/cancelGrey.svg';
 import { Counter } from '../Counter/Counter';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteProductCart } from '../../store/cart/action';
 
-export const CartProduct = ({ product, increase, decrease, changeValue, deleteProduct }) => {
+export const CartProduct = ({ product }) => {
     const { id, img, name, totalPrice, priceFor, count, to } = product;
     const [selected, setSelected] = useState(priceFor[0]);
+
+    const dispatch = useDispatch();
 
     return (
         <>
             <div className="cart-product">
-                <h3 className="cart-product__title"><Link className="cart-product__link" to={`/product/${to}`}>{name}</Link>
+                <h3 className="cart-product__title">
+                    <Link className="cart-product__link" to={`/product/${to}`}>{name}</Link>
                     <img className="cart-product__cancel" src={cancel} alt="Удалить выбранный товар"
-                        onClick={() => deleteProduct(id)}
+                        onClick={() => dispatch(deleteProductCart(id))}
                     />
                 </h3>
                 <div className="cart-product__info">
@@ -48,9 +53,6 @@ export const CartProduct = ({ product, increase, decrease, changeValue, deletePr
                         <div className="cart-product__quantity">
                             <p className="cart-product__quantity-text">Количество</p>
                             <Counter count={count}
-                                increase={increase}
-                                decrease={decrease}
-                                changeValue={changeValue}
                                 id={id}
                             />
                         </div>
