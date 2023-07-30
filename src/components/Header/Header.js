@@ -8,11 +8,13 @@ import { Link } from 'react-router-dom';
 import { ContactDetails } from '../ContactDetails/ContactDetails';
 import { useSelector } from 'react-redux';
 import { costCart, countCart } from '../../store/cart/selectors';
+import { countWishList } from '../../store/wishList/selectors';
 
-export const Header = ({ totalWish }) => {
+export const Header = () => {
     const totalCount = useSelector(countCart);
     const costTotal = useSelector(costCart);
-    
+
+    const totalWish = useSelector(countWishList);
     return (
         <>
             <header className="header">

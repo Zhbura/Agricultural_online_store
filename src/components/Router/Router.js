@@ -26,55 +26,23 @@ import { Refund } from "../Refund/Refund";
 import { Codex } from "../Codex/Codex";
 import { CartComp } from "../Cart/Cart";
 import { Product } from "../Product/Product";
-import { useEffect, useState } from 'react';
 import { WishList } from "../WishList/WishList";
 import { products } from "../../productsData";
 
 export const Router = () => {
-    const [wishList] = useState([]);
-    
-    const [totalWish, setTotalWish] = useState(
-        wishList.reduce((prev, current) => prev + current.count, 0)
-    )
 
-    useEffect(() => {
-        setTotalWish(
-            wishList.reduce((prev, current) => prev + current.count, 0)
-        )
-    }, [wishList])
     return (
         <>
             <Routes>
-                <Route path="/" element={<Layout totalWish={totalWish} />}>
-                    <Route index
-                        element={<Main
-                            products={products}
-                        />}
-                    />
-                    <Route path="product"
-                        element={<Commodity
-                            products={products}
-                        />}>
-                        <Route path="petunia" element={<Product
-                            totalWish={totalWish}
-                            product={products[0][0]} />}
-                        />
-                        <Route path="skor" element={<Product
-                            totalWish={totalWish}
-                            product={products[0][1]} />}
-                        />
-                        <Route path="horys" element={<Product
-                            totalWish={totalWish}
-                            product={products[0][2]} />}
-                        />
-                        <Route path="agrikola" element={<Product
-                            totalWish={totalWish}
-                            product={products[0][3]} />}
-                        />
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Main products={products} />} />
+                    <Route path="product" element={<Commodity products={products} />}>
+                        <Route path="petunia" element={<Product product={products[0][0]} />} />
+                        <Route path="skor" element={<Product product={products[0][1]} />} />
+                        <Route path="horys" element={<Product product={products[0][2]} />} />
+                        <Route path="agrikola" element={<Product product={products[0][3]} />} />
                     </Route>
-                    <Route path="order"
-                        element={<Order />}
-                    />
+                    <Route path="order" element={<Order />} />
                     <Route path="thanks_order" element={<ThanksOrder />} />
                     <Route path="aboutcompany" element={<AboutСompany />} />
                     <Route path="teemcompany" element={<TeamCompany />} />

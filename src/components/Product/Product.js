@@ -10,14 +10,16 @@ import visa from '../../img/visa.svg';
 import availabilityImg from '../../img/availability.svg';
 import { ImageSlider } from '../ImageSlider/ImageSlider';
 import { Details } from '../Details/Details';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToWishList } from '../../store/wishList/action';
+import { countWishList } from '../../store/wishList/selectors'
 
-export const Product = ({ product, totalWish }) => {
+export const Product = ({ product }) => {
     const { id, img, name, priceFor, price, availability } = product;
 
     const dispatch = useDispatch();
 
+    const totalWish = useSelector(countWishList);
     return (
         <>
             <div className="product">

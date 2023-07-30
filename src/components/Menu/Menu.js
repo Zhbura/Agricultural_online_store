@@ -12,8 +12,9 @@ import { selectShowMenu } from '../../store/menu/selectors';
 import { changeMenuShow } from '../../store/menu/actions';
 import { ContactDetails } from '../ContactDetails/ContactDetails';
 import { costCart, countCart } from '../../store/cart/selectors';
+import { countWishList } from '../../store/wishList/selectors';
 
-export const Menu = ({ totalWish }) => {
+export const Menu = () => {
 
     const showMenu = useSelector(selectShowMenu);
 
@@ -26,6 +27,7 @@ export const Menu = ({ totalWish }) => {
     const totalCount = useSelector(countCart);
     const costTotal = useSelector(costCart);
 
+    const totalWish = useSelector(countWishList);
     return (
         <>
             <div className={showMenu ? 'menu menu_active' : 'menu'}>
