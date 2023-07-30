@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Slider } from "../Slider/Slider";
 import { ProductItems } from '../ProductСard/ProductItems';
 
-export const NewProducts = ({ products, addToWishList }) => {
+export const NewProducts = ({ products }) => {
     const [currentProduct, setCurrentProduct] = useState(0);
 
     const prev = () => {
@@ -28,7 +28,6 @@ export const NewProducts = ({ products, addToWishList }) => {
                     products={products}
                     prevEl={prev} nextEl={next}
                     currentIndex={currentProduct}
-                    addToWishList={addToWishList}
                 />
 
                 <div className="new-products__slider">

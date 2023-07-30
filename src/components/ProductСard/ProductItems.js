@@ -1,7 +1,7 @@
 import { ProductCard } from "./ProductСard"
 import { Arrow, ArrowRight } from "../SVG/Arrow/Arrow"
 
-export const ProductItems = ({ products, prevEl, nextEl, currentIndex, addToWishList }) => {
+export const ProductItems = ({ products, prevEl, nextEl, currentIndex }) => {
     return (
         <>
             <div className="products">
@@ -17,7 +17,6 @@ export const ProductItems = ({ products, prevEl, nextEl, currentIndex, addToWish
                                 <ProductCard
                                     key={product.id}
                                     product={product}
-                                    addToWishList={addToWishList}
                                 />
                             ))
                         ))}
@@ -29,7 +28,6 @@ export const ProductItems = ({ products, prevEl, nextEl, currentIndex, addToWish
                             <ProductCard
                                 key={index}
                                 product={product}
-                                addToWishList={addToWishList}
                             />
                         ))}
                     </div>

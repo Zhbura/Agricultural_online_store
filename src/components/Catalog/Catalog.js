@@ -12,7 +12,7 @@ import { FilterCatalogBig } from '../FilterCatalog/FilterCatalogBig';
 import { DropdownCatalog } from '../Dropdown/DropdownCatalog';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
-export const Catalog = ({ title, products, addToWishList }) => {
+export const Catalog = ({ title, products }) => {
     const [selected, setSelected] = useState('');
 
     const dispatch = useDispatch();
@@ -85,7 +85,6 @@ export const Catalog = ({ title, products, addToWishList }) => {
                                     <ProductCard
                                         key={product.id}
                                         product={product}
-                                        addToWishList={addToWishList}
                                     />
                                 ))
                             ))}
