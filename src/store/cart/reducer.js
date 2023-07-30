@@ -1,6 +1,7 @@
 import {
     ADD_PRODUCT, DELETE_PRODUCT, INCREASE_PRODUCT, DECREASE_PRODUCT,
-    CHANGE_VALUE_PRODUCT
+    CHANGE_VALUE_PRODUCT,
+    CHANGE_DROPDOWN
 } from "./action";
 
 const initialState = [];
@@ -25,7 +26,19 @@ export const cartReducer = (state = initialState, action) => {
                 return [...state, action.payload.product];
             }
         }
-
+        case CHANGE_DROPDOWN: {
+            return [
+                ...state.map((product) => {
+                    if (product.id === action.payload.id) {
+                        return {
+                            ...product,
+                            totalPrice: product.count * product.price * action.payload.number
+                        }
+                    }
+                    return product
+                })
+            ]
+        }
         case DELETE_PRODUCT: {
             return state.filter(({ id }) => id !== action.payload);
         }
@@ -33,11 +46,11 @@ export const cartReducer = (state = initialState, action) => {
         case INCREASE_PRODUCT: {
             return [
                 ...state.map((product) => {
-                    if (product.id === action.payload) {
+                    if (product.id === action.payload.id) {
                         return {
                             ...product,
                             count: product.count + 1,
-                            totalPrice: (product.count + 1) * product.price
+                            totalPrice: (product.count + 1) * product.price * action.payload.number
                         }
                     }
                     return product
@@ -49,11 +62,11 @@ export const cartReducer = (state = initialState, action) => {
             return [
                 ...state.map((product) => {
                     const newCount = product.count > 1 ? product.count - 1 : 1;
-                    if (product.id === action.payload) {
+                    if (product.id === action.payload.id) {
                         return {
                             ...product,
                             count: newCount,
-                            totalPrice: (newCount) * product.price
+                            totalPrice: (newCount) * product.price * action.payload.number
                         }
                     }
                     return product
@@ -68,7 +81,7 @@ export const cartReducer = (state = initialState, action) => {
                         return {
                             ...product,
                             count: action.payload.value,
-                            totalPrice: product.price * action.payload.value
+                            totalPrice: product.price * action.payload.value * action.payload.number
                         }
                     }
                     return product

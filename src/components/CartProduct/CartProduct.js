@@ -49,10 +49,13 @@ export const CartProduct = ({ product }) => {
                             selected={selected}
                             setSelected={setSelected}
                             options={priceFor}
+                            id={id}
                         />
                         <div className="cart-product__quantity">
                             <p className="cart-product__quantity-text">Количество</p>
-                            <Counter count={count}
+                            <Counter
+                                count={count}
+                                selected={selected}
                                 id={id}
                             />
                         </div>
