@@ -5,9 +5,9 @@ import { Heart } from '../SVG/Icon/Heart';
 import cancel from '../../img/cancelGrey.svg';
 import { useDispatch } from 'react-redux';
 import { addProductCart } from '../../store/cart/action';
-import { addToWishList } from '../../store/wishList/action';
+import { addToWishList, deleteProductWishList } from '../../store/wishList/action';
 
-export const ProductCard = ({ product, deleteProductWishList }) => {
+export const ProductCard = ({ product }) => {
     const { id, name, alt, img, price, to } = product;
     const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ export const ProductCard = ({ product, deleteProductWishList }) => {
                     <div className="circle-icon circle-icon_hover"><Heart /></div>
                 </div>
                 <img className="product-card__cancel" src={cancel} alt="Удалить выбранный товар"
-                    onClick={() => deleteProductWishList(id)}
+                    onClick={() => dispatch(deleteProductWishList(id))}
                 />
                 <div className="product-card__info-product">
                     <div className="product-card__text">

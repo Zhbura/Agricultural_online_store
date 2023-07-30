@@ -1,4 +1,4 @@
-import { ADD_PRODUCT } from './action';
+import { ADD_PRODUCT, DELETE_PRODUCT } from './action';
 
 const initialState = [];
 
@@ -21,6 +21,9 @@ export const wishListReducer = (state = initialState, action) => {
             }
         }
 
+        case DELETE_PRODUCT: {
+            return state.filter(({ id }) => id !== action.payload);
+        }
         default:
             return state;
     }

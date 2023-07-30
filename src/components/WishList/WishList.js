@@ -5,10 +5,6 @@ import './WishList.scss';
 import { selectWishList } from '../../store/wishList/selectors';
 
 export const WishList = () => {
-
-    // const deleteProductWishList = (id) => {
-    //     setWishList((wishList) => wishList.filter((product) => id !== product.id));
-    // }
     const wishList = useSelector(selectWishList);
 
     return (
@@ -23,7 +19,6 @@ export const WishList = () => {
                             <ProductCard
                                 key={product.id}
                                 product={product}
-                            // deleteProductWishList={deleteProductWishList}
                             />
                         ))}
                     </div>)
