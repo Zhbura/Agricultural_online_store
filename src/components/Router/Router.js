@@ -35,12 +35,20 @@ export const Router = () => {
         <>
             <Routes>
                 <Route path="/" element={<Layout />}>
-                    <Route index element={<Main products={products} />} />
-                    <Route path="product" element={<Commodity products={products} />}>
-                        <Route path="petunia" element={<Product product={products[0][0]} />} />
-                        <Route path="skor" element={<Product product={products[0][1]} />} />
-                        <Route path="horys" element={<Product product={products[0][2]} />} />
-                        <Route path="agrikola" element={<Product product={products[0][3]} />} />
+                    <Route index element={<Main />} />
+                    <Route path="product" element={<Commodity />}>
+                        <Route path="petunia"
+                            element={<Product product={products[0][0]} />}
+                        />
+                        <Route path="skor"
+                            element={<Product product={products[0][1]} />}
+                        />
+                        <Route path="horys"
+                            element={<Product product={products[0][2]} />}
+                        />
+                        <Route path="agrikola"
+                            element={<Product product={products[0][3]} />}
+                        />
                     </Route>
                     <Route path="order" element={<Order />} />
                     <Route path="thanks_order" element={<ThanksOrder />} />
@@ -54,34 +62,17 @@ export const Router = () => {
                     <Route path="registration" element={<Registration />} />
                     <Route path="catalog" element={<PlantProtection />} />
                     <Route path="catalog_plant_protection"
-                        element={<Catalog
-                            title="Средства защиты растений"
-                            products={products}
-                        />}
+                        element={<Catalog title="Средства защиты растений" />}
                     />
-                    <Route path="catalog_seeds"
-                        element={<Catalog
-                            title="Семена"
-                            products={products}
-                        />}
-                    />
+                    <Route path="catalog_seeds" element={<Catalog title="Семена" />} />
                     <Route path="catalog_fertilizers"
-                        element={<Catalog
-                            title="Удобрения"
-                            products={products}
-                        />}
+                        element={<Catalog title="Удобрения" />}
                     />
                     <Route path="catalog_feed_group"
-                        lement={<Catalog
-                            title="Кормовая группа"
-                            products={products}
-                        />}
+                        element={<Catalog title="Кормовая группа" />}
                     />
                     <Route path="catalog_farmer_help"
-                        element={<Catalog
-                            title="Агроному в помощь"
-                            products={products}
-                        />}
+                        element={<Catalog title="Агроному в помощь" />}
                     />
                     <Route path="personal_account" element={<PersonalAccount />}>
                         <Route index element={<Cabinet />} />

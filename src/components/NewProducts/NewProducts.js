@@ -3,8 +3,9 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { useState } from 'react';
 import { Slider } from "../Slider/Slider";
 import { ProductItems } from '../ProductСard/ProductItems';
+import { products } from '../../productsData';
 
-export const NewProducts = ({ products }) => {
+export const NewProducts = () => {
     const [currentProduct, setCurrentProduct] = useState(0);
 
     const prev = () => {

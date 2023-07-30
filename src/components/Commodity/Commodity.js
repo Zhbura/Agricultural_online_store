@@ -5,8 +5,9 @@ import { Outlet } from 'react-router-dom';
 import { useState } from 'react';
 import { Slider } from '../Slider/Slider';
 import { ProductItems } from '../ProductСard/ProductItems';
+import { products } from '../../productsData';
 
-export const Commodity = ({ products }) => {
+export const Commodity = () => {
     const [currentProduct, setCurrentProduct] = useState(0);
 
     const prev = () => {
