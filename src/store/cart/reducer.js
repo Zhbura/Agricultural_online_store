@@ -30,10 +30,25 @@ export const cartReducer = (state = initialState, action) => {
             return [
                 ...state.map((product) => {
                     if (product.id === action.payload.id) {
-                        return {
-                            ...product,
-                            totalPrice: product.count * product.price * action.payload.number
+                        let totalPriceBeforeDiscount = product.count * product.price * action.payload.number;
+
+                        if (action.payload.number > 1 && action.payload.number < 5) {
+                            return {
+                                ...product,
+                                totalPrice: Math.round((totalPriceBeforeDiscount) - (totalPriceBeforeDiscount * 0.05))
+                            }
+                        } if (action.payload.number >= 5) {
+                            return {
+                                ...product,
+                                totalPrice: Math.round((totalPriceBeforeDiscount) - (totalPriceBeforeDiscount * 0.1))
+                            }
+                        } else {
+                            return {
+                                ...product,
+                                totalPrice: totalPriceBeforeDiscount
+                            }
                         }
+
                     }
                     return product
                 })
@@ -47,10 +62,25 @@ export const cartReducer = (state = initialState, action) => {
             return [
                 ...state.map((product) => {
                     if (product.id === action.payload.id) {
-                        return {
-                            ...product,
-                            count: product.count + 1,
-                            totalPrice: (product.count + 1) * product.price * action.payload.number
+                        let totalPriceBeforeDiscount = (product.count + 1) * product.price * action.payload.number;
+                        if (action.payload.number > 1 && action.payload.number < 5) {
+                            return {
+                                ...product,
+                                count: product.count + 1,
+                                totalPrice: Math.round((totalPriceBeforeDiscount) - (totalPriceBeforeDiscount * 0.05))
+                            }
+                        } if (action.payload.number >= 5) {
+                            return {
+                                ...product,
+                                count: product.count + 1,
+                                totalPrice: Math.round((totalPriceBeforeDiscount) - (totalPriceBeforeDiscount * 0.1))
+                            }
+                        } else {
+                            return {
+                                ...product,
+                                count: product.count + 1,
+                                totalPrice: totalPriceBeforeDiscount
+                            }
                         }
                     }
                     return product
@@ -63,11 +93,28 @@ export const cartReducer = (state = initialState, action) => {
                 ...state.map((product) => {
                     const newCount = product.count > 1 ? product.count - 1 : 1;
                     if (product.id === action.payload.id) {
-                        return {
-                            ...product,
-                            count: newCount,
-                            totalPrice: (newCount) * product.price * action.payload.number
+                        let totalPriceBeforeDiscount = (newCount) * product.price * action.payload.number;
+                        if (action.payload.number > 1 && action.payload.number < 5) {
+                            return {
+                                ...product,
+                                count: newCount,
+                                totalPrice: Math.round((totalPriceBeforeDiscount) - (totalPriceBeforeDiscount * 0.05))
+                            }
                         }
+                        if (action.payload.number >= 5) {
+                            return {
+                                ...product,
+                                count: newCount,
+                                totalPrice: Math.round((totalPriceBeforeDiscount) - (totalPriceBeforeDiscount * 0.1))
+                            }
+                        } else {
+                            return {
+                                ...product,
+                                count: newCount,
+                                totalPrice: totalPriceBeforeDiscount
+                            }
+                        }
+
                     }
                     return product
                 })
@@ -79,11 +126,28 @@ export const cartReducer = (state = initialState, action) => {
                 ...state.map((product) => {
                     if (product.id === action.payload.id) {
                         if (action.payload.value > 0) {
-                            return {
-                                ...product,
-                                count: action.payload.value,
-                                totalPrice: product.price * action.payload.value * action.payload.number
+                            let totalPriceBeforeDiscount = product.price * action.payload.value * action.payload.number;
+                            if (action.payload.number > 1 && action.payload.number < 5) {
+                                return {
+                                    ...product,
+                                    count: action.payload.value,
+                                    totalPrice: Math.round((totalPriceBeforeDiscount) - (totalPriceBeforeDiscount * 0.05))
+                                }
                             }
+                            if (action.payload.number >= 5) {
+                                return {
+                                    ...product,
+                                    count: action.payload.value,
+                                    totalPrice: Math.round((totalPriceBeforeDiscount) - (totalPriceBeforeDiscount * 0.1))
+                                }
+                            } else {
+                                return {
+                                    ...product,
+                                    count: action.payload.value,
+                                    totalPrice: totalPriceBeforeDiscount
+                                }
+                            }
+
                         }
                     }
                     return product
