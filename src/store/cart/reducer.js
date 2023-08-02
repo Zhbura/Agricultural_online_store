@@ -78,10 +78,12 @@ export const cartReducer = (state = initialState, action) => {
             return [
                 ...state.map((product) => {
                     if (product.id === action.payload.id) {
-                        return {
-                            ...product,
-                            count: action.payload.value,
-                            totalPrice: product.price * action.payload.value * action.payload.number
+                        if (action.payload.value > 0) {
+                            return {
+                                ...product,
+                                count: action.payload.value,
+                                totalPrice: product.price * action.payload.value * action.payload.number
+                            }
                         }
                     }
                     return product
