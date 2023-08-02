@@ -12,7 +12,6 @@ export const DropdownCart = ({ selected, setSelected, options, id }) => {
         dispatch(changePriceFor(id, selected))
     }, [selected])
 
-    console.log(selected)
     return (
         <>
             <div className="dropdown-cart">

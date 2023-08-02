@@ -6,17 +6,29 @@ import cancel from '../../img/cancelGrey.svg';
 import { useDispatch } from 'react-redux';
 import { addProductCart } from '../../store/cart/action';
 import { addToWishList, deleteProductWishList } from '../../store/wishList/action';
+import { useState } from 'react';
 
 export const ProductCard = ({ product }) => {
     const { id, name, alt, img, price, to } = product;
+
     const dispatch = useDispatch();
 
+    const [click, setClick] = useState(true);
+
+    const addProductWishList = (id, product) => {
+        dispatch(addToWishList(id, product))
+        setClick(false)
+    }
     return (
         <>
             <div className="product-card" key={id}>
                 <img className="product-card__main-img" src={img[0]} alt={alt} />
-                <div className="product-card__heart" onClick={() => dispatch(addToWishList(id, product))}>
-                    <div className="circle-icon circle-icon_hover"><Heart /></div>
+                <div onClick={() => addProductWishList(id, product)}
+                    className={click ? "product-card__heart" : "product-card__heart product-card__heart_click"}
+                >
+                    <div className={click ? "circle-icon circle-icon_hover" : "circle-icon circle-icon_click"}>
+                        <Heart />
+                    </div>
                 </div>
                 <img className="product-card__cancel" src={cancel} alt="Удалить выбранный товар"
                     onClick={() => dispatch(deleteProductWishList(id))}
