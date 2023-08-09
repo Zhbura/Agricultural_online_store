@@ -1,12 +1,11 @@
+import { useSelector } from 'react-redux';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { ProductCard } from '../ProductСard/ProductСard';
 import './WishList.scss';
+import { selectWishList } from '../../store/wishList/selectors';
 
-export const WishList = ({ wishList, setWishList, addToCart }) => {
-
-    const deleteProductWishList = (id) => {
-        setWishList((wishList) => wishList.filter((product) => id !== product.id));
-    }
+export const WishList = () => {
+    const wishList = useSelector(selectWishList);
 
     return (
         <>
@@ -20,8 +19,6 @@ export const WishList = ({ wishList, setWishList, addToCart }) => {
                             <ProductCard
                                 key={product.id}
                                 product={product}
-                                deleteProductWishList={deleteProductWishList}
-                                addToCart={addToCart}
                             />
                         ))}
                     </div>)

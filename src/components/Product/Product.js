@@ -10,10 +10,16 @@ import visa from '../../img/visa.svg';
 import availabilityImg from '../../img/availability.svg';
 import { ImageSlider } from '../ImageSlider/ImageSlider';
 import { Details } from '../Details/Details';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToWishList } from '../../store/wishList/action';
+import { countWishList } from '../../store/wishList/selectors'
 
-export const Product = ({ product, totalWish, addToWishList }) => {
+export const Product = ({ product }) => {
     const { id, img, name, priceFor, price, availability } = product;
 
+    const dispatch = useDispatch();
+
+    const totalWish = useSelector(countWishList);
     return (
         <>
             <div className="product">
@@ -67,7 +73,7 @@ export const Product = ({ product, totalWish, addToWishList }) => {
                                 <Cart />
                                 Купить
                             </div>
-                            <div className="icon-quantity" onClick={() => addToWishList(id, product)}>
+                            <div className="icon-quantity" onClick={() => dispatch(addToWishList(id, product))}>
                                 <div className="circle-icon circle-icon_hover">
                                     <Heart /><span>{totalWish}</span>
                                 </div>

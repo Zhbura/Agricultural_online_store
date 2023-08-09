@@ -4,8 +4,10 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { OrderProduct, OrderProductSmall } from '../OrderProduct/OrderProduct';
+import { costCart, countCart, selectCart } from '../../store/cart/selectors';
+import { useSelector } from 'react-redux';
 
-export const Order = ({ total, cartProducts }) => {
+export const Order = () => {
     const breadcrumbs = [
         {
             name: "Корзина",
@@ -16,6 +18,11 @@ export const Order = ({ total, cartProducts }) => {
             to: "/order"
         }
     ];
+
+    const totalCount = useSelector(countCart);
+    const costTotal = useSelector(costCart);
+
+    const cartProducts = useSelector(selectCart);
 
     return (
         <>
@@ -84,8 +91,8 @@ export const Order = ({ total, cartProducts }) => {
                             <OrderProductSmall product={product} key={product.id} />
                         ))}
                         <div className="order__buy-product">
-                            <p className="order__buy-product_margin">Итого: <span>{total.count} товара </span></p>
-                            <p>На сумму: <span>{total.cost} руб</span></p>
+                            <p className="order__buy-product_margin">Итого: <span>{totalCount} шт </span></p>
+                            <p>На сумму: <span>{costTotal} руб</span></p>
                         </div>
                         <div className="order__confirm">
                             <Link to="/thanks_order" className="order__link">Подтвердить заказ</Link>

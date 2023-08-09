@@ -154,6 +154,18 @@
     }
 }
 
+.product-card .product-card__heart .circle-icon_click {
+    background: #8C3213;
+
+    svg {
+        fill: #FFFFFF;
+    }
+}
+
+.product-card .product-card__heart_click {
+    opacity: 1;
+}
+
 .carousel {
     margin: 0 auto;
     overflow: hidden;

@@ -5,14 +5,14 @@ import { Partners } from '../Partners/Partners';
 import { Seeds } from '../Seeds/Seeds';
 import { Stocks } from '../Stocks/Stocks';
 
-export const Main = ({ products, addToCart, addToWishList }) => {
+export const Main = () => {
 
     return (
         <>
             <BrandWrap />
             <InfoCompany />
-            <NewProducts products={products} addToCart={addToCart} addToWishList={addToWishList} />
-            <Stocks products={products} addToCart={addToCart} addToWishList={addToWishList} />
+            <NewProducts  />
+            <Stocks />
             <Partners />
             <Seeds />
         </>

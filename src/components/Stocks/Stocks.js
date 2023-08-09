@@ -4,8 +4,9 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { useState } from 'react';
 import { Slider } from "../Slider/Slider";
 import { ProductItems } from '../ProductСard/ProductItems';
+import { products } from '../../productsData';
 
-export const Stocks = ({ products, addToCart, addToWishList }) => {
+export const Stocks = () => {
     const [currentProduct, setCurrentProduct] = useState(0);
 
     const prev = () => {
@@ -27,12 +28,19 @@ export const Stocks = ({ products, addToCart, addToWishList }) => {
                 <div className="page-heading_white">
                     <PageHeadingTwice>Акции</PageHeadingTwice>
                 </div>
-                <ProductItems products={products} prevEl={prev} nextEl={next} currentIndex={currentProduct} addToCart={addToCart} addToWishList={addToWishList} />
+                <ProductItems
+                    products={products}
+                    prevEl={prev}
+                    nextEl={next}
+                    currentIndex={currentProduct}
+                />
                 <div className="stocks__slider">
                     <Slider
                         classSmall="slider__notActive slider__notActive_green"
                         classBig="slider__active slider__active_green"
-                        products={products} currentIndex={currentProduct} switchIndex={switchIndex}
+                        products={products}
+                        currentIndex={currentProduct}
+                        switchIndex={switchIndex}
                     />
                 </div>
                 <div className="stocks__btn">

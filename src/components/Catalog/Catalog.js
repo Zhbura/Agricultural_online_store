@@ -11,8 +11,9 @@ import { useState } from 'react';
 import { FilterCatalogBig } from '../FilterCatalog/FilterCatalogBig';
 import { DropdownCatalog } from '../Dropdown/DropdownCatalog';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
+import { products } from '../../productsData';
 
-export const Catalog = ({ title, products, addToCart, addToWishList }) => {
+export const Catalog = ({ title }) => {
     const [selected, setSelected] = useState('');
 
     const dispatch = useDispatch();
@@ -85,8 +86,6 @@ export const Catalog = ({ title, products, addToCart, addToWishList }) => {
                                     <ProductCard
                                         key={product.id}
                                         product={product}
-                                        addToCart={addToCart}
-                                        addToWishList={addToWishList}
                                     />
                                 ))
                             ))}
