@@ -13,6 +13,7 @@ import { Details } from '../Details/Details';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToWishList } from '../../store/wishList/action';
 import { countWishList } from '../../store/wishList/selectors'
+import { addProductCart } from '../../store/cart/action'
 
 export const Product = ({ product }) => {
     const { id, img, name, priceFor, price, availability } = product;
@@ -69,7 +70,9 @@ export const Product = ({ product }) => {
                             <p className="product__text">Цена за {priceFor[0]} шт</p>
                         </div>
                         <div className="product__toolbar">
-                            <div className="product-btn product-btn_orange icon_white">
+                            <div className="product-btn product-btn_orange icon_white"
+                                onClick={() => dispatch(addProductCart(product, id))}
+                            >
                                 <Cart />
                                 Купить
                             </div>
