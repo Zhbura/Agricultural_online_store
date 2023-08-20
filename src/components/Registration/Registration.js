@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { useState } from 'react';
 import { ButtonForm } from '../Button/ButtonForm';
+import { signUp } from '../../services/firebase';
 
 export const Registration = () => {
     const breadcrumbs = [
@@ -14,6 +15,7 @@ export const Registration = () => {
     ];
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
+    const [error, setError] = useState("");
 
     const handleChangeEmail = (e) => {
         setEmail(e.target.value);
@@ -21,6 +23,23 @@ export const Registration = () => {
 
     const handleChangePass = (e) => {
         setPass(e.target.value);
+    }
+
+    const handleSignUp = async () => {
+        try {
+            await signUp(email, pass);
+        } catch (e) {
+            setError(e.message);
+        }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        handleSignUp();
+
+        setEmail('');
+        setPass('');
     }
 
     return (
@@ -35,31 +54,28 @@ export const Registration = () => {
                     только для оформления заказов и более удобной работы с сайтом.
                 </p>
                 <div className="registration__data">
-                    <form className="contacts-form">
-                        <div className="contacts-form__wrap-data">
+                    <form className="contacts-form" onSubmit={handleSubmit}>
+                        {/* <div className="contacts-form__wrap-data">
                             <input className="contacts-form__data" type="text" value="Имя" />
                             <input className="contacts-form__data" type="text" value="Фамилия" />
-                        </div>
+                        </div> */}
                         <div className="contacts-form__wrap-data">
-                            <input className="contacts-form__data" type="text" value="Телефон" />
+                            {/* <input className="contacts-form__data" type="text" value="Телефон" /> */}
                             <input className="contacts-form__data" type="email" placeholder="E-mail"
                                 value={email} onChange={handleChangeEmail} />
                         </div>
                         <input className="contacts-form__password" type="password" placeholder="Пароль"
                             value={pass} onChange={handleChangePass} />
-                        <input className="contacts-form__password contacts-form__password_margin"
+                        {/* <input className="contacts-form__password contacts-form__password_margin"
                             type="text"
-                            value="Подтвердите пароль" />
+                            value="Подтвердите пароль" /> */}
                         <label className="registration__data-protection">я согласен на обработку и защиту
                             <span className="registration__data-protection_span"> персональных данных</span>
                             <input type="checkbox" name="radio" />
                             <span className="registration__data-protection_checkmark"></span>
                         </label>
-                        <ButtonForm>
-                            {/* <Link to="/personal_account" className="btn-form__link"> */}
-                            Зарегистрироваться
-                            {/* </Link> */}
-                        </ButtonForm>
+                        <ButtonForm>Зарегистрироваться</ButtonForm>
+                        {error && <span>{error}</span>}
                     </form>
                     <p className="registration__text">
                         Если вы уже зарегистрированы на сайте, пожалуйста войдите в свою

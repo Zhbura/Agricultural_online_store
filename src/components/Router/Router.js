@@ -29,12 +29,25 @@ import { Product } from "../Product/Product";
 import { WishList } from "../WishList/WishList";
 import { products } from "../../productsData";
 import { Authorization } from "../Authorization/Authorization";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PublicRoute } from "../PublicRoute/PublicRoute";
 import { PrivateRoute } from "../PrivateRoute/PrivateRoute";
+import { auth } from "../../services/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 export const Router = () => {
     const [authed, setAuthed] = useState(false);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setAuthed(true);
+            } else {
+                setAuthed(false);
+            }
+        })
+        return unsubscribe;
+    }, [])
 
     return (
         <>

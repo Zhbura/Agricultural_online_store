@@ -3,6 +3,7 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import './Authorization.scss';
 import { useState } from 'react';
 import { ButtonForm } from '../Button/ButtonForm';
+import { login } from '../../services/firebase';
 
 export const Authorization = () => {
     const [email, setEmail] = useState('');
@@ -17,6 +18,23 @@ export const Authorization = () => {
         setPass(e.target.value);
     }
 
+    const handleSignIn = async () => {
+        try {
+            await login(email, pass);
+        } catch (e) {
+            setError(e.message);
+        }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        handleSignIn();
+
+        setEmail('');
+        setPass('');
+    }
+
     return (
         <>
             <div className="authorization">
@@ -27,16 +45,12 @@ export const Authorization = () => {
                     условиях не разглашаем личные данные клиентов. Контактная информация будет использована
                     только для оформления заказов и более удобной работы с сайтом.
                 </p>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <input className="authorization__input" type="text" placeholder="Логин"
                         value={email} onChange={handleChangeEmail} />
                     <input className="authorization__input" type="password" placeholder="Пароль"
                         value={pass} onChange={handleChangePass} />
-                    <ButtonForm>
-                        {/* <Link to="/personal_account" className="btn-form__link"> */}
-                        Войти
-                        {/* </Link> */}
-                    </ButtonForm>
+                    <ButtonForm>  Войти </ButtonForm>
                     {error && <span>{error}</span>}
                 </form>
                 <p className="authorization__text">
