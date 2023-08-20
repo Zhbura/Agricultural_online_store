@@ -3,6 +3,7 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { useState } from 'react';
+import { ButtonForm } from '../Button/ButtonForm';
 
 export const Registration = () => {
     const breadcrumbs = [
@@ -54,9 +55,9 @@ export const Registration = () => {
                             <input type="checkbox" name="radio" />
                             <span className="registration__data-protection_checkmark"></span>
                         </label>
-                        <div className="btn-form">
+                        <ButtonForm>
                             <Link to="/personal_account" className="btn-form__link">Зарегистрироваться</Link>
-                        </div>
+                        </ButtonForm>
                     </form>
                     <p className="registration__text">
                         Если вы уже зарегистрированы на сайте, пожалуйста войдите в свою

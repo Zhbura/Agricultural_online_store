@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import './Authorization.scss';
 import { useState } from 'react';
+import { ButtonForm } from '../Button/ButtonForm';
 
 export const Authorization = () => {
     const [email, setEmail] = useState('');
@@ -31,9 +32,9 @@ export const Authorization = () => {
                         value={email} onChange={handleChangeEmail} />
                     <input className="authorization__input" type="password" placeholder="Пароль"
                         value={pass} onChange={handleChangePass} />
-                    <div className="btn-form">
+                    <ButtonForm>
                         <Link to="/personal_account" className="btn-form__link">Войти</Link>
-                    </div>
+                    </ButtonForm>
                     {error && <span>{error}</span>}
                 </form>
                 <p className="authorization__text">

@@ -5,6 +5,7 @@ import gps from '../../img/icon/gps.svg';
 import time from '../../img/icon/time.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
+import { ButtonForm } from '../Button/ButtonForm';
 
 export const Contacts = () => {
     const breadcrumbs = [
@@ -117,7 +118,7 @@ export const Contacts = () => {
                                 <input className="contacts-form__data" type="email" value="E-mail" />
                             </div>
                             <input className="contacts-form__comment" type="text" value="Комментарий" />
-                            <div className="contacts-form__btn">Отправить</div>
+                            <ButtonForm>Отправить</ButtonForm>
                         </form>
                     </div>
                 </div>
