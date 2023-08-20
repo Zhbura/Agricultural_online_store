@@ -29,8 +29,12 @@ import { Product } from "../Product/Product";
 import { WishList } from "../WishList/WishList";
 import { products } from "../../productsData";
 import { Authorization } from "../Authorization/Authorization";
+import { useState } from "react";
+import { PublicRoute } from "../PublicRoute/PublicRoute";
+import { PrivateRoute } from "../PrivateRoute/PrivateRoute";
 
 export const Router = () => {
+    const [authed, setAuthed] = useState(false);
 
     return (
         <>
@@ -60,8 +64,10 @@ export const Router = () => {
                     <Route path="partners" element={<PartnersComp />} />
                     <Route path="news" element={<News />} />
                     <Route path="contacts" element={<Contacts />} />
-                    <Route path="registration" element={<Registration />} />
-                    <Route path="authorization" element={<Authorization />} />
+                    <Route path="authorization" element={<PublicRoute authed={authed} />}>
+                        <Route index element={<Authorization />} />
+                        <Route path="registration" element={<Registration />} />
+                    </Route>
                     <Route path="catalog" element={<PlantProtection />} />
                     <Route path="catalog_plant_protection"
                         element={<Catalog title="Средства защиты растений" />}
@@ -76,12 +82,14 @@ export const Router = () => {
                     <Route path="catalog_farmer_help"
                         element={<Catalog title="Агроному в помощь" />}
                     />
-                    <Route path="personal_account" element={<PersonalAccount />}>
-                        <Route index element={<Cabinet />} />
-                        <Route path="current_orders" element={<CurrentOrders />} />
-                        <Route path="personal_data" element={<PersonalData />} />
-                        <Route path="order_history" element={<OrderHistory />} />
-                        <Route path="change_password" element={<ChangePassword />} />
+                    <Route path="personal_account" element={<PrivateRoute authed={authed} />}>
+                        <Route path="" element={<PersonalAccount />}>
+                            <Route index element={<Cabinet />} />
+                            <Route path="current_orders" element={<CurrentOrders />} />
+                            <Route path="personal_data" element={<PersonalData />} />
+                            <Route path="order_history" element={<OrderHistory />} />
+                            <Route path="change_password" element={<ChangePassword />} />
+                        </Route>
                     </Route>
                     <Route path="privacypolicy" element={<PrivacyPolicy />} />
                     <Route path="refund" element={<Refund />} />

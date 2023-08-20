@@ -39,7 +39,7 @@ export const TopBar = () => {
                     <span className="top-bar__line" />
                     <div className="top-bar__login">
                         <img src={logOut} alt="Войти" />
-                        <NavLink to='/registration' className={setActive}>Вход | Регистрация</NavLink>
+                        <NavLink to='/authorization' className={setActive}>Вход | Регистрация</NavLink>
                     </div>
                     <div className="top-bar__menu" onClick={showMenu}>
                         <img src={menu} alt="Меню" />

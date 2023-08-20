@@ -33,13 +33,15 @@ export const Authorization = () => {
                     <input className="authorization__input" type="password" placeholder="Пароль"
                         value={pass} onChange={handleChangePass} />
                     <ButtonForm>
-                        <Link to="/personal_account" className="btn-form__link">Войти</Link>
+                        {/* <Link to="/personal_account" className="btn-form__link"> */}
+                        Войти
+                        {/* </Link> */}
                     </ButtonForm>
                     {error && <span>{error}</span>}
                 </form>
                 <p className="authorization__text">
                     Если вы ещё не зарегистрированы на сайте, пожалуйста
-                    <Link to="/registration"> зарегистрируйтесь</Link>.
+                    <Link to="registration"> зарегистрируйтесь</Link>.
                 </p>
             </div>
         </>

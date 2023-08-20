@@ -56,7 +56,9 @@ export const Registration = () => {
                             <span className="registration__data-protection_checkmark"></span>
                         </label>
                         <ButtonForm>
-                            <Link to="/personal_account" className="btn-form__link">Зарегистрироваться</Link>
+                            {/* <Link to="/personal_account" className="btn-form__link"> */}
+                            Зарегистрироваться
+                            {/* </Link> */}
                         </ButtonForm>
                     </form>
                     <p className="registration__text">
