@@ -28,6 +28,7 @@ import { CartComp } from "../Cart/Cart";
 import { Product } from "../Product/Product";
 import { WishList } from "../WishList/WishList";
 import { products } from "../../productsData";
+import { Authorization } from "../Authorization/Authorization";
 
 export const Router = () => {
 
@@ -60,6 +61,7 @@ export const Router = () => {
                     <Route path="news" element={<News />} />
                     <Route path="contacts" element={<Contacts />} />
                     <Route path="registration" element={<Registration />} />
+                    <Route path="authorization" element={<Authorization />} />
                     <Route path="catalog" element={<PlantProtection />} />
                     <Route path="catalog_plant_protection"
                         element={<Catalog title="Средства защиты растений" />}
