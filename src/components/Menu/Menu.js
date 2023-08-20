@@ -1,5 +1,5 @@
 import './Menu.scss';
-import logOut from '../../img/logOut.svg';
+import login from '../../img/login.svg';
 import search from '../../img/search.svg';
 import closeMenu from '../../img/closeMenu.svg';
 import logoWhite from '../../img/logoWhite.svg';
@@ -34,7 +34,7 @@ export const Menu = () => {
                 <div className="menu__top-bar">
                     <div className="container">
                         <div className="top-bar__login menu__login">
-                            <img src={logOut} alt="Войти" />
+                            <img src={login} alt="Войти" />
                             <Link to='/registration' className="top-bar__link">Вход | Регистрация</Link>
                         </div>
                         <div className="menu__close" onClick={hideMenu}>

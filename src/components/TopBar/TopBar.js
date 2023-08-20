@@ -1,5 +1,5 @@
 import './TopBar.scss';
-import logOut from '../../img/logOut.svg';
+import login from '../../img/login.svg';
 import menu from '../../img/menu.svg';
 import { useState } from 'react';
 import { Menu } from '../Menu/Menu';
@@ -38,7 +38,7 @@ export const TopBar = () => {
                     </nav>
                     <span className="top-bar__line" />
                     <div className="top-bar__login">
-                        <img src={logOut} alt="Войти" />
+                        <img src={login} alt="Войти" />
                         <NavLink to='/authorization' className={setActive}>Вход | Регистрация</NavLink>
                     </div>
                     <div className="top-bar__menu" onClick={showMenu}>

@@ -90,10 +90,16 @@
         line-height: 20px;
         color: #000000;
         text-decoration: none;
+        cursor: pointer;
 
         svg {
             margin-right: 11px;
             fill: #84BE51;
+        }
+
+        img {
+            margin-right: 11px;
+            transform: rotate(180deg);
         }
 
         &_active {
