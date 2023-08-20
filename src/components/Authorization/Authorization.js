@@ -51,7 +51,7 @@ export const Authorization = () => {
                     <input className="authorization__input" type="password" placeholder="Пароль"
                         value={pass} onChange={handleChangePass} />
                     <ButtonForm>  Войти </ButtonForm>
-                    {error && <span>{error}</span>}
+                    {error && <span className="err-msg">{error}</span>}
                 </form>
                 <p className="authorization__text">
                     Если вы ещё не зарегистрированы на сайте, пожалуйста

@@ -75,7 +75,7 @@ export const Registration = () => {
                             <span className="registration__data-protection_checkmark"></span>
                         </label>
                         <ButtonForm>Зарегистрироваться</ButtonForm>
-                        {error && <span>{error}</span>}
+                        {error && <span className="err-msg">{error}</span>}
                     </form>
                     <p className="registration__text">
                         Если вы уже зарегистрированы на сайте, пожалуйста войдите в свою

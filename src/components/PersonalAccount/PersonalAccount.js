@@ -12,12 +12,14 @@ import exit from '../../img/login.svg';
 export const PersonalAccount = () => {
     const [popUpActive, setPopUpActive] = useState(false);
     const setActive = ({ isActive }) => isActive ? 'cabinet-popUp__link_active cabinet-popUp__link' : 'cabinet-popUp__link';
+  
+    const [error, setError] = useState("");
 
     const handleLogOut = async () => {
         try {
             await logOut();
-        } catch (err) {
-            console.log(err)
+        } catch (e) {
+            setError(e.message);
         }
     }
 
@@ -99,6 +101,7 @@ export const PersonalAccount = () => {
                                 Выход
                             </p>
                         </div>
+                        {error && <span className="err-msg">{error}</span>}
                         <Outlet />
                     </div>
                 </div>
