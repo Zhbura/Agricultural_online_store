@@ -52,7 +52,7 @@ export const Router = () => {
     return (
         <>
             <Routes>
-                <Route path="/" element={<Layout />}>
+                <Route path="/" element={<Layout authed={authed} />}>
                     <Route index element={<Main />} />
                     <Route path="product" element={<Commodity />}>
                         <Route path="petunia"

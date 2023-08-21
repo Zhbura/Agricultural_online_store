@@ -1,13 +1,16 @@
 import './TopBar.scss';
 import login from '../../img/login.svg';
+import user from '../../img/user.svg';
 import menu from '../../img/menu.svg';
 import { useState } from 'react';
 import { Menu } from '../Menu/Menu';
 import { Link, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { changeMenuShow } from '../../store/menu/actions';
+import { useSelector } from 'react-redux';
+import { selectUserName } from '../../store/registration/selectors';
 
-export const TopBar = () => {
+export const TopBar = ({ authed }) => {
     const [popUpActive, setPopUpActive] = useState(false);
 
     const setActive = ({ isActive }) => isActive ? 'top-bar__link top-bar__link_active' : 'top-bar__link';
@@ -17,6 +20,9 @@ export const TopBar = () => {
     const showMenu = () => {
         dispatch(changeMenuShow);
     };
+
+    const userName = useSelector(selectUserName);
+
     return (
         <>
             <div id="navigation" className="top-bar">
@@ -37,10 +43,19 @@ export const TopBar = () => {
                         <NavLink to='/contacts' className={setActive}>Контакты</NavLink>
                     </nav>
                     <span className="top-bar__line" />
-                    <div className="top-bar__login">
-                        <img src={login} alt="Войти" />
-                        <NavLink to='/authorization' className={setActive}>Вход | Регистрация</NavLink>
-                    </div>
+                    {authed ? <div className="top-bar__user">
+                        <NavLink to='/personal_account' className={setActive}>
+                            <img src={user} alt={userName} />
+                            {userName}
+                        </NavLink>
+                    </div> :
+                        <div className="top-bar__login">
+                            <img src={login} alt="Войти" />
+                            <NavLink to='/authorization' className={setActive}>
+                                Вход | Регистрация
+                            </NavLink>
+                        </div>
+                    }
                     <div className="top-bar__menu" onClick={showMenu}>
                         <img src={menu} alt="Меню" />
                     </div>

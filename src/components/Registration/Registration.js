@@ -5,6 +5,9 @@ import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { useState } from 'react';
 import { ButtonForm } from '../Button/ButtonForm';
 import { signUp } from '../../services/firebase';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerName } from '../../store/registration/action';
+import { selectUserName } from '../../store/registration/selectors';
 
 export const Registration = () => {
     const breadcrumbs = [
@@ -14,13 +17,23 @@ export const Registration = () => {
         },
     ];
     const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
     const [pass, setPass] = useState('');
     const [error, setError] = useState("");
+
+    const dispatch = useDispatch();
+
+    // const handleChangeUser = () => {
+
+    //     dispatch(registerName(name));
+    // }
 
     const handleChangeEmail = (e) => {
         setEmail(e.target.value);
     }
-
+    const handleChangeName = (e) => {
+        setName(e.target.value);
+    }
     const handleChangePass = (e) => {
         setPass(e.target.value);
     }
@@ -37,10 +50,12 @@ export const Registration = () => {
         e.preventDefault();
 
         handleSignUp();
+        dispatch(registerName(name));
 
         setEmail('');
         setPass('');
     }
+
 
     return (
         <>
@@ -55,10 +70,11 @@ export const Registration = () => {
                 </p>
                 <div className="registration__data">
                     <form className="contacts-form" onSubmit={handleSubmit}>
-                        {/* <div className="contacts-form__wrap-data">
-                            <input className="contacts-form__data" type="text" value="Имя" />
-                            <input className="contacts-form__data" type="text" value="Фамилия" />
-                        </div> */}
+                        <div className="contacts-form__wrap-data">
+                            <input className="contacts-form__data" type="text" placeholder="Имя"
+                                value={name} onChange={handleChangeName} />
+                            {/* <input className="contacts-form__data" type="text" value="Фамилия" /> */}
+                        </div>
                         <div className="contacts-form__wrap-data">
                             {/* <input className="contacts-form__data" type="text" value="Телефон" /> */}
                             <input className="contacts-form__data" type="email" placeholder="E-mail"
@@ -74,7 +90,9 @@ export const Registration = () => {
                             <input type="checkbox" name="radio" />
                             <span className="registration__data-protection_checkmark"></span>
                         </label>
+                        {/* <ButtonForm onClick={handleChangeUser}>Зарегистрироваться</ButtonForm> */}
                         <ButtonForm>Зарегистрироваться</ButtonForm>
+
                         {error && <span className="err-msg">{error}</span>}
                     </form>
                     <p className="registration__text">
