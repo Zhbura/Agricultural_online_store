@@ -83,6 +83,10 @@
     }
 
     &__user {
+        @media (min-width: 320px) and (max-width: 900px) {
+            margin-left: 41px;
+        }
+
         img {
             margin-right: 8px;
         }

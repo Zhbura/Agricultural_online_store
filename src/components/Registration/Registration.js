@@ -6,8 +6,8 @@ import { useState } from 'react';
 import { ButtonForm } from '../Button/ButtonForm';
 import { signUp } from '../../services/firebase';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerName } from '../../store/registration/action';
-import { selectUserName } from '../../store/registration/selectors';
+import { registerEmail, registerName, registerPass, registerPassConfirm, registerPhone, registerSurname } from '../../store/registration/action';
+import { selectUserEmail, selectUserName, selectUserPass, selectUserPassConfirm, selectUserPhone, selectUserSurname } from '../../store/registration/selectors';
 
 export const Registration = () => {
     const breadcrumbs = [
@@ -16,27 +16,9 @@ export const Registration = () => {
             to: "/registration"
         },
     ];
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-    const [pass, setPass] = useState('');
     const [error, setError] = useState("");
 
     const dispatch = useDispatch();
-
-    // const handleChangeUser = () => {
-
-    //     dispatch(registerName(name));
-    // }
-
-    const handleChangeEmail = (e) => {
-        setEmail(e.target.value);
-    }
-    const handleChangeName = (e) => {
-        setName(e.target.value);
-    }
-    const handleChangePass = (e) => {
-        setPass(e.target.value);
-    }
 
     const handleSignUp = async () => {
         try {
@@ -50,12 +32,14 @@ export const Registration = () => {
         e.preventDefault();
 
         handleSignUp();
-        dispatch(registerName(name));
-
-        setEmail('');
-        setPass('');
     }
 
+    const userName = useSelector(selectUserName);
+    const userSurname = useSelector(selectUserSurname);
+    const phone = useSelector(selectUserPhone);
+    const passConfirm = useSelector(selectUserPassConfirm);
+    const pass = useSelector(selectUserPass);
+    const email = useSelector(selectUserEmail);
 
     return (
         <>
@@ -72,27 +56,27 @@ export const Registration = () => {
                     <form className="contacts-form" onSubmit={handleSubmit}>
                         <div className="contacts-form__wrap-data">
                             <input className="contacts-form__data" type="text" placeholder="Имя"
-                                value={name} onChange={handleChangeName} />
-                            {/* <input className="contacts-form__data" type="text" value="Фамилия" /> */}
+                                value={userName} onChange={(e) => dispatch(registerName(e.target.value))} />
+                            <input className="contacts-form__data" type="text" placeholder="Фамилия"
+                                value={userSurname} onChange={(e) => dispatch(registerSurname(e.target.value))} />
                         </div>
                         <div className="contacts-form__wrap-data">
-                            {/* <input className="contacts-form__data" type="text" value="Телефон" /> */}
+                            <input className="contacts-form__data" type="text" placeholder="Телефон"
+                                value={phone} onChange={(e) => dispatch(registerPhone(e.target.value))} />
                             <input className="contacts-form__data" type="email" placeholder="E-mail"
-                                value={email} onChange={handleChangeEmail} />
+                                value={email} onChange={(e) => dispatch(registerEmail(e.target.value))} />
                         </div>
                         <input className="contacts-form__password" type="password" placeholder="Пароль"
-                            value={pass} onChange={handleChangePass} />
-                        {/* <input className="contacts-form__password contacts-form__password_margin"
-                            type="text"
-                            value="Подтвердите пароль" /> */}
+                            value={pass} onChange={(e) => dispatch(registerPass(e.target.value))} />
+                        <input className="contacts-form__password contacts-form__password_margin"
+                            type="text" placeholder="Подтвердите пароль"
+                            value={passConfirm} onChange={(e) => dispatch(registerPassConfirm(e.target.value))} />
                         <label className="registration__data-protection">я согласен на обработку и защиту
                             <span className="registration__data-protection_span"> персональных данных</span>
                             <input type="checkbox" name="radio" />
                             <span className="registration__data-protection_checkmark"></span>
                         </label>
-                        {/* <ButtonForm onClick={handleChangeUser}>Зарегистрироваться</ButtonForm> */}
                         <ButtonForm>Зарегистрироваться</ButtonForm>
-
                         {error && <span className="err-msg">{error}</span>}
                     </form>
                     <p className="registration__text">

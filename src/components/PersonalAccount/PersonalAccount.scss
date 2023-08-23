@@ -136,11 +136,12 @@
         &_small {
             width: 290px;
             margin: 0 auto;
+            background: #FFFFFF;
+            border-radius: 20px;
 
             @media (min-width: 767px) {
                 display: none;
             }
-
         }
     }
 }
@@ -161,4 +162,10 @@
 
 .cabinet-popUp__items.active {
     display: block;
+}
+
+.cabinet .bread-crumbs {
+    @media (min-width: 320px) and (max-width: 767px) {
+        margin-top: 30px;
+    }
 }

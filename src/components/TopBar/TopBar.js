@@ -8,7 +8,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { changeMenuShow } from '../../store/menu/actions';
 import { useSelector } from 'react-redux';
-import { selectUserName } from '../../store/registration/selectors';
+import { selectUserName, selectUserSurname } from '../../store/registration/selectors';
 
 export const TopBar = ({ authed }) => {
     const [popUpActive, setPopUpActive] = useState(false);
@@ -22,6 +22,7 @@ export const TopBar = ({ authed }) => {
     };
 
     const userName = useSelector(selectUserName);
+    const userSurname = useSelector(selectUserSurname);
 
     return (
         <>
@@ -46,7 +47,7 @@ export const TopBar = ({ authed }) => {
                     {authed ? <div className="top-bar__user">
                         <NavLink to='/personal_account' className={setActive}>
                             <img src={user} alt={userName} />
-                            {userName}
+                            {userName} {userSurname}
                         </NavLink>
                     </div> :
                         <div className="top-bar__login">
