@@ -1,11 +1,20 @@
 import './Contacts.scss';
-import phone from '../../img/icon/phone.svg';
-import email from '../../img/icon/email.svg';
+import phoneImg from '../../img/icon/phone.svg';
+import emailImg from '../../img/icon/email.svg';
 import gps from '../../img/icon/gps.svg';
 import time from '../../img/icon/time.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { ButtonForm } from '../Button/ButtonForm';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+    guestRegisterComment,
+    guestRegisterEmail,
+    guestRegisterName,
+    guestRegisterPhone,
+    guestRegisterSurname
+} from '../../store/guest/action';
+import { selectGuest } from '../../store/guest/selectors';
 
 export const Contacts = () => {
     const breadcrumbs = [
@@ -14,6 +23,11 @@ export const Contacts = () => {
             to: "/partners"
         },
     ];
+
+    const dispatch = useDispatch();
+
+    const { name, surname, phone, email, comment } = useSelector(selectGuest);
+
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -26,29 +40,31 @@ export const Contacts = () => {
                                 <div className="contacts__details-item">
                                     <div className="contacts__icon">
                                         <div className="circle-icon">
-                                            <img src={gps} alt="adress" />
+                                            <img src={gps} alt="Адрес: Россия, 
+                                            Московская область, Химки, Петербургское шоссе, 122" />
                                         </div>
                                     </div>
                                     <p className="contacts__adress">
-                                        Украина, Винницкая область, Винница,
-                                        Хмельницкое шоссе, 122
+                                        Россия, Московская область, Химки,
+                                        Петербургское шоссе, 122
                                     </p>
                                 </div>
                                 <div className="contacts__details-item">
                                     <div className="contacts__icon">
                                         <div className="circle-icon">
-                                            <img src={time} alt="time work" />
+                                            <img src={time} alt="Время работы: 
+                                            Понедельник - Пятница, 9:00 - 18:00" />
                                         </div>
                                     </div>
                                     <p>
                                         <span className="contacts__text-days">Пн-Пт</span>
-                                        <br /> 9.00-18.00
+                                        <br /> 9:00-18:00
                                     </p>
                                 </div>
                                 <div className="contacts__details-item">
                                     <div className="contacts__icon">
                                         <div className="circle-icon">
-                                            <img src={email} alt="email" />
+                                            <img src={emailImg} alt="Электронная почта: shop@ukrsemena.com" />
                                         </div>
                                     </div>
                                     <p>shop@ukrsemena.com</p>
@@ -69,33 +85,37 @@ export const Contacts = () => {
                                 <div className="contacts__details-item">
                                     <div className="contacts__icon">
                                         <div className="circle-icon">
-                                            <img src={time} alt="time work" />
+                                            <img src={time} alt="Время работы: 
+                                            Понедельник - Пятница, 9:00 - 17:00" />
                                         </div>
                                     </div>
                                     <p>
                                         <span className="contacts__text-days">Пн-Пт</span>
-                                        <br />  9-00-17-00
+                                        <br />  9:00-17:00
                                     </p>
                                 </div>
                                 <div className="contacts__details-item">
                                     <div className="contacts__icon">
                                         <div className="circle-icon">
-                                            <img src={phone} alt="phone" />
+                                            <img src={phoneImg} alt="Номер телефона: 
+                                            1)+7(950) 42-42-820 2) +7(950) 42-42-824 " />
                                         </div>
                                     </div>
                                     <div>
-                                        <p>(050) 42-42-820</p>
-                                        <p>(050) 42-42-824</p>
+                                        <p>+7(950) 42-42-820</p>
+                                        <p>+7(950) 42-42-824</p>
                                     </div>
                                 </div>
                                 <div className="contacts__details-item">
                                     <div className="contacts__icon">
                                         <div className="circle-icon">
-                                            <img src={phone} alt="phone" />
+                                            <img src={phoneImg} alt="Номер телефона: 
+                                            1)+7(950) 42-42-820 2) +7(950) 42-42-824" />
                                         </div>
                                     </div>
                                     <div>
-                                        <p>(097) 182-51-41</p><p>(098) 123-70-00</p>
+                                        <p>+7(097) 182-51-41</p>
+                                        <p>+7(098) 123-70-00</p>
                                     </div>
                                 </div>
                             </div>
@@ -108,16 +128,23 @@ export const Contacts = () => {
                             у вас возникли вопросы или предложения, и мы в
                             ближайшее время ответим вам.
                         </p>
-                        <form className="contacts-form">
+                        <form className="contacts-form" onSubmit={(e) => e.preventDefault()}>
                             <div className="contacts-form__wrap-data">
-                                <input className="contacts-form__data" type="text" value="Имя" />
-                                <input className="contacts-form__data" type="text" value="Фамилия" />
+                                <input className="contacts-form__data" type="text" placeholder='Имя'
+                                    value={name} onChange={(e) => dispatch(guestRegisterName(e.target.value))} />
+                                <input className="contacts-form__data" type="text" placeholder="Фамилия"
+                                    value={surname} onChange={(e) => dispatch(guestRegisterSurname(e.target.value))} />
                             </div>
                             <div className="contacts-form__wrap-data">
-                                <input className="contacts-form__data" type="text" value="Телефон" />
-                                <input className="contacts-form__data" type="email" value="E-mail" />
+                                <input className="contacts-form__data" type="text" placeholder="Телефон"
+                                    value={phone} onChange={(e) => dispatch(guestRegisterPhone(e.target.value))} />
+                                <input className="contacts-form__data" type="email" placeholder="E-mail"
+                                    value={email} onChange={(e) => dispatch(guestRegisterEmail(e.target.value))}
+                                />
                             </div>
-                            <input className="contacts-form__comment" type="text" value="Комментарий" />
+                            <input className="contacts-form__comment" type="text" placeholder="Комментарий"
+                                value={comment} onChange={(e) => dispatch(guestRegisterComment(e.target.value))}
+                            />
                             <ButtonForm>Отправить</ButtonForm>
                         </form>
                     </div>
