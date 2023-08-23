@@ -1,4 +1,4 @@
-import { REGISTER_EMAIL, REGISTER_NAME, REGISTER_PASSWORD, REGISTER_PASSWORD_CONFIRMATION, REGISTER_PHONE, REGISTER_SURNAME } from './action';
+import { REGISTER_ADRESS, REGISTER_EMAIL, REGISTER_NAME, REGISTER_PASSWORD, REGISTER_PASSWORD_CONFIRMATION, REGISTER_PHONE, REGISTER_SURNAME } from './action';
 
 const initialState = {
     email: '',
@@ -7,6 +7,7 @@ const initialState = {
     phone: '',
     password: '',
     passwordConfirm: '',
+    adress: '',
 }
 
 export const registrationReducer = (state = initialState, action) => {
@@ -40,6 +41,11 @@ export const registrationReducer = (state = initialState, action) => {
             return {
                 ...state,
                 password: action.payload
+            }
+        case REGISTER_ADRESS:
+            return {
+                ...state,
+                adress: action.payload
             }
         default:
             return state
