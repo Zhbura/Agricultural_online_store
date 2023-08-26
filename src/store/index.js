@@ -5,6 +5,7 @@ import { cartReducer } from './cart/reducer';
 import { wishListReducer } from './wishList/reducer';
 import { registrationReducer } from './registration/reducer';
 import { guestReducer } from './guest/reducer';
+import { orderReducer } from './order/reducer';
 
 const rootReducer = combineReducers({
     catalog: catalogReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     wishList: wishListReducer,
     registration: registrationReducer,
     guest: guestReducer,
+    order: orderReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

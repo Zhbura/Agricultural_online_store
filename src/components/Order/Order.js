@@ -5,7 +5,16 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { OrderProduct, OrderProductSmall } from '../OrderProduct/OrderProduct';
 import { costCart, countCart, selectCart } from '../../store/cart/selectors';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUserOrder } from '../../store/order/selectors';
+import {
+    orderComment,
+    orderEmail,
+    orderName,
+    orderPhone,
+    orderPostcode,
+    orderSurname
+} from '../../store/order/action';
 
 export const Order = () => {
     const breadcrumbs = [
@@ -24,6 +33,10 @@ export const Order = () => {
 
     const cartProducts = useSelector(selectCart);
 
+    const { name, surname, phone, email, comment, postcode } = useSelector(selectUserOrder);
+
+    const dispatch = useDispatch();
+
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -35,14 +48,19 @@ export const Order = () => {
                             <h4 className="order__heading">Ваши контакты</h4>
                             <form className="contacts-form">
                                 <div className="contacts-form__wrap-data">
-                                    <input className="contacts-form__data" type="text" value="Имя" />
-                                    <input className="contacts-form__data" type="text" value="Фамилия" />
+                                    <input className="contacts-form__data" type="text" placeholder="Имя"
+                                        value={name} onChange={(e) => dispatch(orderName(e.target.value))} />
+                                    <input className="contacts-form__data" type="text" placeholder="Фамилия"
+                                        value={surname} onChange={(e) => dispatch(orderSurname(e.target.value))} />
                                 </div>
                                 <div className="contacts-form__wrap-data">
-                                    <input className="contacts-form__data" type="text" value="Телефон" />
-                                    <input className="contacts-form__data" type="email" value="E-mail" />
+                                    <input className="contacts-form__data" type="text" placeholder="Телефон"
+                                        value={phone} onChange={(e) => dispatch(orderPhone(e.target.value))} />
+                                    <input className="contacts-form__data" type="email" placeholder="E-mail"
+                                        value={email} onChange={(e) => dispatch(orderEmail(e.target.value))} />
                                 </div>
-                                <input className="contacts-form__comment" type="text" value="Комментарий" />
+                                <input className="contacts-form__comment" type="text" placeholder="Комментарий"
+                                    value={comment} onChange={(e) => dispatch(orderComment(e.target.value))} />
                             </form>
                         </div>
                         <span className="order__separator-horizontal" />
@@ -61,7 +79,8 @@ export const Order = () => {
                                     <p className="order__text arrow-checkbox_orange">Отделение<ArrowCheckbox /></p>
                                 </div>
                                 <div className="order__btn-popUp">
-                                    <input className="order__text" type="text" value="Почтовый индекс" />
+                                    <input className="order__text" type="text" placeholder="Почтовый индекс"
+                                        value={postcode} onChange={(e) => dispatch(orderPostcode(e.target.value))} />
                                 </div>
                             </div>
                         </div>
@@ -70,15 +89,15 @@ export const Order = () => {
                             <h4 className="order__heading">Оплата</h4>
                             <label className="input-wrap order__text">Наличные
                                 <input type="radio" name="payment" value="cash" />
-                                <span className="checkmark"></span>
+                                <span className="checkmark" />
                             </label>
                             <label className="input-wrap order__text">Оплата картой
                                 <input type="radio" name="payment" value="cardPayment" />
-                                <span className="checkmark"></span>
+                                <span className="checkmark" />
                             </label>
                             <label className="input-wrap order__text">Оплата картой онлайн
                                 <input type="radio" name="payment" value="cardPaymentOnline" />
-                                <span className="checkmark"></span>
+                                <span className="checkmark" />
                             </label>
                         </div>
                     </div>
