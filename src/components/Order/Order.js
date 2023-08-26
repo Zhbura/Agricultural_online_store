@@ -1,5 +1,4 @@
 import './Order.scss';
-import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
@@ -8,13 +7,18 @@ import { costCart, countCart, selectCart } from '../../store/cart/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserOrder } from '../../store/order/selectors';
 import {
+    orderCity,
     orderComment,
+    orderDepartment,
     orderEmail,
     orderName,
     orderPhone,
     orderPostcode,
+    orderRegion,
     orderSurname
 } from '../../store/order/action';
+import { DropdownOrder } from '../Dropdown/DropdownOrder';
+import { useState } from 'react';
 
 export const Order = () => {
     const breadcrumbs = [
@@ -37,6 +41,15 @@ export const Order = () => {
 
     const dispatch = useDispatch();
 
+    const cities = ["Москва", "Санкт-Петербург", "Тверь"];
+    const [city, setCity] = useState("");
+
+    const regions = ["Московская область", "Ленинградская область", "Тверская область"];
+    const [region, setRegion] = useState('');
+
+    const departments = ['№ 1', '№ 2', '№ 3'];
+    const [department, setDepartment] = useState('');
+
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -48,15 +61,15 @@ export const Order = () => {
                             <h4 className="order__heading">Ваши контакты</h4>
                             <form className="contacts-form">
                                 <div className="contacts-form__wrap-data">
-                                    <input className="contacts-form__data" type="text" placeholder="Имя"
+                                    <input className="order-input" type="text" placeholder="Имя"
                                         value={name} onChange={(e) => dispatch(orderName(e.target.value))} />
-                                    <input className="contacts-form__data" type="text" placeholder="Фамилия"
+                                    <input className="order-input" type="text" placeholder="Фамилия"
                                         value={surname} onChange={(e) => dispatch(orderSurname(e.target.value))} />
                                 </div>
                                 <div className="contacts-form__wrap-data">
-                                    <input className="contacts-form__data" type="text" placeholder="Телефон"
+                                    <input className="order-input" type="text" placeholder="Телефон"
                                         value={phone} onChange={(e) => dispatch(orderPhone(e.target.value))} />
-                                    <input className="contacts-form__data" type="email" placeholder="E-mail"
+                                    <input className="order-input" type="email" placeholder="E-mail"
                                         value={email} onChange={(e) => dispatch(orderEmail(e.target.value))} />
                                 </div>
                                 <input className="contacts-form__comment" type="text" placeholder="Комментарий"
@@ -67,21 +80,28 @@ export const Order = () => {
                         <div className="order__delivery">
                             <h4 className="order__heading">Доставка</h4>
                             <div className="wrap-contacts wrap-contacts_margin">
-                                <div className="order__btn-popUp">
-                                    <p className="order__text arrow-checkbox_orange">Область<ArrowCheckbox /></p>
-                                </div>
-                                <div className="order__btn-popUp">
-                                    <p className="order__text arrow-checkbox_orange">Город<ArrowCheckbox /></p>
-                                </div>
+                                <DropdownOrder
+                                    array={regions}
+                                    selected={region}
+                                    setSelected={setRegion}
+                                    dispatchOrder={orderRegion}
+                                    initialValue="Область" />
+                                <DropdownOrder
+                                    array={cities}
+                                    selected={city}
+                                    setSelected={setCity}
+                                    dispatchOrder={orderCity}
+                                    initialValue="Город" />
                             </div>
                             <div className="wrap-contacts">
-                                <div className="order__btn-popUp">
-                                    <p className="order__text arrow-checkbox_orange">Отделение<ArrowCheckbox /></p>
-                                </div>
-                                <div className="order__btn-popUp">
-                                    <input className="order__text" type="text" placeholder="Почтовый индекс"
-                                        value={postcode} onChange={(e) => dispatch(orderPostcode(e.target.value))} />
-                                </div>
+                                <DropdownOrder
+                                    array={departments}
+                                    selected={department}
+                                    setSelected={setDepartment}
+                                    dispatchOrder={orderDepartment}
+                                    initialValue="Отделение" />
+                                <input className="order-input" type="text" placeholder="Почтовый индекс"
+                                    value={postcode} onChange={(e) => dispatch(orderPostcode(e.target.value))} />
                             </div>
                         </div>
                         <span className="order__separator-horizontal" />

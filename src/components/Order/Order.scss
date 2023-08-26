@@ -53,30 +53,6 @@
         display: block;
     }
 
-    &__delivery {
-        input {
-            display: block;
-            cursor: pointer;
-            width: 99%;
-            border: none;
-            outline: none;
-        }
-    }
-
-    &__btn-popUp {
-        width: 255px;
-        height: 40px;
-        padding: 10px 20px;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        border-radius: 90px;
-        background: #FFFFFF;
-
-        @media (min-width: 320px) and (max-width: 767px) {
-            width: 290px;
-            margin-bottom: 15px;
-        }
-    }
-
     &__text {
         font-weight: 400;
         font-size: 16px;
@@ -183,16 +159,6 @@
         }
     }
 
-    &__data {
-        margin-bottom: 20px;
-        width: 255px;
-
-        @media (min-width: 320px) and (max-width: 767px) {
-            width: 290px;
-        }
-    }
-
-    &__data,
     &__comment,
     &__password {
         background: #FFFFFF;
@@ -235,6 +201,28 @@
             margin-top: 20px;
         }
     }
+}
+
+.order-input {
+    width: 255px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 90px;
+    padding: 10px 0 10px 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #484848;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        width: 290px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.contacts-form .order-input {
+    margin-bottom: 20px;
 }
 
 .contacts-form .btn-form {

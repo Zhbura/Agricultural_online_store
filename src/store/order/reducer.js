@@ -57,17 +57,17 @@ export const orderReducer = (state = initialState, action) => {
         case ORDER_REGION:
             return {
                 ...state,
-                postcode: action.payload
+                region: action.payload
             }
         case ORDER_CITY:
             return {
                 ...state,
-                postcode: action.payload
+                city: action.payload
             }
         case ORDER_DEPARTMENT:
             return {
                 ...state,
-                postcode: action.payload
+                department: action.payload
             }
         default:
             return state
