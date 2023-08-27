@@ -55,15 +55,15 @@ export const Registration = () => {
                 <div className="registration__data">
                     <form className="contacts-form" onSubmit={handleSubmit}>
                         <div className="contacts-form__wrap-data">
-                            <input className="contacts-form__data" type="text" placeholder="Имя"
+                            <input className="input-data" type="text" placeholder="Имя"
                                 value={userName} onChange={(e) => dispatch(registerName(e.target.value))} />
-                            <input className="contacts-form__data" type="text" placeholder="Фамилия"
+                            <input className="input-data" type="text" placeholder="Фамилия"
                                 value={userSurname} onChange={(e) => dispatch(registerSurname(e.target.value))} />
                         </div>
                         <div className="contacts-form__wrap-data">
-                            <input className="contacts-form__data" type="text" placeholder="Телефон"
+                            <input className="input-data" type="text" placeholder="Телефон"
                                 value={phone} onChange={(e) => dispatch(registerPhone(e.target.value))} />
-                            <input className="contacts-form__data" type="email" placeholder="E-mail"
+                            <input className="input-data" type="email" placeholder="E-mail"
                                 value={email} onChange={(e) => dispatch(registerEmail(e.target.value))} />
                         </div>
                         <input className="contacts-form__password" type="password" placeholder="Пароль"

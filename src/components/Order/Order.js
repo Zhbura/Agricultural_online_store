@@ -61,15 +61,15 @@ export const Order = () => {
                             <h4 className="order__heading">Ваши контакты</h4>
                             <form className="contacts-form">
                                 <div className="contacts-form__wrap-data">
-                                    <input className="order-input" type="text" placeholder="Имя"
+                                    <input className="input-data" type="text" placeholder="Имя"
                                         value={name} onChange={(e) => dispatch(orderName(e.target.value))} />
-                                    <input className="order-input" type="text" placeholder="Фамилия"
+                                    <input className="input-data" type="text" placeholder="Фамилия"
                                         value={surname} onChange={(e) => dispatch(orderSurname(e.target.value))} />
                                 </div>
                                 <div className="contacts-form__wrap-data">
-                                    <input className="order-input" type="text" placeholder="Телефон"
+                                    <input className="input-data" type="text" placeholder="Телефон"
                                         value={phone} onChange={(e) => dispatch(orderPhone(e.target.value))} />
-                                    <input className="order-input" type="email" placeholder="E-mail"
+                                    <input className="input-data" type="email" placeholder="E-mail"
                                         value={email} onChange={(e) => dispatch(orderEmail(e.target.value))} />
                                 </div>
                                 <input className="contacts-form__comment" type="text" placeholder="Комментарий"
@@ -100,7 +100,7 @@ export const Order = () => {
                                     setSelected={setDepartment}
                                     dispatchOrder={orderDepartment}
                                     initialValue="Отделение" />
-                                <input className="order-input" type="text" placeholder="Почтовый индекс"
+                                <input className="input-data" type="text" placeholder="Почтовый индекс"
                                     value={postcode} onChange={(e) => dispatch(orderPostcode(e.target.value))} />
                             </div>
                         </div>
