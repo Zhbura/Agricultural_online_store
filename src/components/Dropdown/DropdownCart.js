@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { ArrowCheckbox, ArrowCheckboxUp } from "../SVG/ArrowCheckbox/ArrowCheckbox"
+import { ArrowCheckbox } from "../SVG/ArrowCheckbox/ArrowCheckbox"
 import { useDispatch } from "react-redux";
 import { changePriceFor } from "../../store/cart/action";
 
@@ -18,7 +18,7 @@ export const DropdownCart = ({ selected, setSelected, options, id }) => {
                 <div className="dropdown-cart__btn arrow-checkbox_orange"
                     onClick={() => setIsActive(!isActive)}>
                     {selected}
-                    {isActive ? <ArrowCheckboxUp /> : <ArrowCheckbox />}
+                    <p className={isActive ? "svg-up" : ""}><ArrowCheckbox /></p>
                 </div>
                 {isActive &&
                     <div className="dropdown-cart__content">

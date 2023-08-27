@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ArrowCheckbox, ArrowCheckboxUp } from "../SVG/ArrowCheckbox/ArrowCheckbox"
+import { ArrowCheckbox } from "../SVG/ArrowCheckbox/ArrowCheckbox"
 
 export const DropdownCatalog = ({ selected, setSelected }) => {
     const [isActive, setIsActive] = useState(false);
@@ -44,7 +44,7 @@ export const DropdownCatalog = ({ selected, setSelected }) => {
                         {selected.name}
                         {initialValue && <p>Гербициды <span>(229)</span></p>}
                         <span className="dropdown-catalog__line" />
-                        {isActive ? <ArrowCheckboxUp /> : <ArrowCheckbox />}
+                        <p className={isActive ? "svg-up" : ""}><ArrowCheckbox /></p>
                     </div>
                     {isActive && (
                         <div className="dropdown-catalog__content">

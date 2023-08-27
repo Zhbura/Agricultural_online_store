@@ -1,5 +1,5 @@
 import './Seeds.scss';
-import { ArrowCheckbox, ArrowCheckboxUp } from '../SVG/ArrowCheckbox/ArrowCheckbox';
+import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import { PageHeadingOnce } from '../PageHeading/PageHeading';
 import { useState } from 'react';
 
@@ -45,7 +45,7 @@ export const Seeds = () => {
                     </div>
                     <div className="seeds__pop-up arrow-checkbox_white" onClick={() => setTextActive(!textActive)}> {textActive ?
                         <p>Читать полностью <ArrowCheckbox /></p> :
-                        <p>Скрыть текст <ArrowCheckboxUp /></p>}
+                        <p className="svg-up">Скрыть текст <ArrowCheckbox /></p>}
                     </div>
                 </div>
             </div>

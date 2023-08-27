@@ -21,7 +21,7 @@ export const DropdownOrder = ({ array, selected, setSelected, dispatchOrder, ini
                     onClick={() => setIsActive(!isActive)} >
                     {selected}
                     {showInitVal && initialValue}
-                    <p className={isActive ? "dropdown-order__svg-up" : ""}><ArrowCheckbox /></p>
+                    <p className={isActive ? "svg-up" : ""}><ArrowCheckbox /></p>
                 </div>
                 {isActive &&
                     <div className="dropdown-order__content">
