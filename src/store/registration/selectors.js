@@ -1,3 +1,4 @@
+export const selectUserRegistered = (state) => state.registration;
 export const selectUserEmail = (state) => state.registration.email;
 export const selectUserName = (state) => state.registration.name;
 export const selectUserSurname = (state) => state.registration.surname;

@@ -5,24 +5,9 @@ import gps from '../../img/icon/gps.svg';
 import time from '../../img/icon/time.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
-import { ButtonForm } from '../Button/ButtonForm';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-    guestRegisterComment,
-    guestRegisterEmail,
-    guestRegisterName,
-    guestRegisterPhone,
-    guestRegisterSurname
-} from '../../store/guest/action';
-import { selectGuest } from '../../store/guest/selectors';
-import {
-    selectUserEmail,
-    selectUserName,
-    selectUserPhone,
-    selectUserSurname
-}
-    from '../../store/registration/selectors';
 import { useState } from 'react';
+import { ContactsFormGuest } from '../Form/ContactsFormGuest';
+import { ContactsFormRegistered } from '../Form/ContactsFormRegistered';
 
 export const Contacts = () => {
     const breadcrumbs = [
@@ -32,25 +17,8 @@ export const Contacts = () => {
         },
     ];
 
-    const dispatch = useDispatch();
-
-    const { name, surname, phone, email, comment } = useSelector(selectGuest);
-
-    const nameRegisteredUser = useSelector(selectUserName);
-    const surnameRegisteredUser = useSelector(selectUserSurname);
-    const phoneRegisteredUser = useSelector(selectUserPhone);
-    const emailRegisteredUser = useSelector(selectUserEmail);
-
     const [formContacts, setFormContacts] = useState(true);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        dispatch(guestRegisterName(nameRegisteredUser))
-        dispatch(guestRegisterSurname(surnameRegisteredUser))
-        dispatch(guestRegisterPhone(phoneRegisteredUser))
-        dispatch(guestRegisterEmail(emailRegisteredUser))
-    }
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -156,42 +124,8 @@ export const Contacts = () => {
                             <button className="data-registration__btn" onClick={() => setFormContacts(false)}>Да</button>
                             <button className="data-registration__btn" onClick={() => setFormContacts(true)}>Нет</button>
                         </div>
-                        {!formContacts && <form className="contacts-form" onSubmit={handleSubmit}>
-                            <div className="contacts-form__wrap-data">
-                                <p className="input-data" >{nameRegisteredUser} </p>
-                                <p className="input-data"> {surnameRegisteredUser}</p>
-                            </div>
-                            <div className="contacts-form__wrap-data">
-                                <p className="input-data"> {phoneRegisteredUser}</p>
-                                <p className="input-data"> {emailRegisteredUser}</p>
-                            </div>
-                            <input className="contacts-form__comment" type="text" placeholder="Комментарий"
-                                value={comment} onChange={(e) => dispatch(guestRegisterComment(e.target.value))}
-                            />
-                            <ButtonForm>Отправить</ButtonForm>
-                        </form>
-                        }
-                        {formContacts &&
-                            <form className="contacts-form" onSubmit={(e) => e.preventDefault()}>
-                                <div className="contacts-form__wrap-data">
-                                    <input className="input-data" type="text" placeholder='Имя'
-                                        value={name} onChange={(e) => dispatch(guestRegisterName(e.target.value))} />
-                                    <input className="input-data" type="text" placeholder="Фамилия"
-                                        value={surname} onChange={(e) => dispatch(guestRegisterSurname(e.target.value))} />
-                                </div>
-                                <div className="contacts-form__wrap-data">
-                                    <input className="input-data" type="text" placeholder="Телефон"
-                                        value={phone} onChange={(e) => dispatch(guestRegisterPhone(e.target.value))} />
-                                    <input className="input-data" type="email" placeholder="E-mail"
-                                        value={email} onChange={(e) => dispatch(guestRegisterEmail(e.target.value))}
-                                    />
-                                </div>
-                                <input className="contacts-form__comment" type="text" placeholder="Комментарий"
-                                    value={comment} onChange={(e) => dispatch(guestRegisterComment(e.target.value))}
-                                />
-                                <ButtonForm>Отправить</ButtonForm>
-                            </form>
-                        }
+                        {!formContacts && <ContactsFormRegistered /> }
+                        {formContacts && <ContactsFormGuest /> }
                     </div>
                 </div>
             </div>
