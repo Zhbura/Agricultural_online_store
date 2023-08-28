@@ -152,6 +152,10 @@
     line-height: 20px;
     color: #000000;
 
+    @media (min-width: 320px) and (max-width: 767px) {
+        flex-direction: column;
+    }
+
     &__btn {
         font-weight: 600;
         font-size: 16px;
@@ -164,5 +168,9 @@
         border: none;
         cursor: pointer;
         margin-left: 20px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            margin-top: 10px;
+        }
     }
 }

@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUserOrder } from '../../store/order/selectors';
 import {
     orderCity,
-    orderComment,
     orderDepartment,
     orderEmail,
     orderName,
@@ -19,6 +18,9 @@ import {
 } from '../../store/order/action';
 import { DropdownOrder } from '../Dropdown/DropdownOrder';
 import { useState } from 'react';
+import { OrderFormGuest } from '../Form/OrderFormGuest';
+import { OrderFormRegistered } from '../Form/OrderFormRegistered';
+import { selectUserRegistered } from '../../store/registration/selectors';
 
 export const Order = () => {
     const breadcrumbs = [
@@ -37,8 +39,6 @@ export const Order = () => {
 
     const cartProducts = useSelector(selectCart);
 
-    const { name, surname, phone, email, comment, postcode } = useSelector(selectUserOrder);
-
     const dispatch = useDispatch();
 
     const cities = ["Москва", "Санкт-Петербург", "Тверь"];
@@ -50,6 +50,20 @@ export const Order = () => {
     const departments = ['№ 1', '№ 2', '№ 3'];
     const [department, setDepartment] = useState('');
 
+    const [formOrder, setFormOrder] = useState(true);
+
+    const { postcode } = useSelector(selectUserOrder);
+
+
+    const { name, surname, phone, email } = useSelector(selectUserRegistered);
+
+    const handleSubmit = () => {
+
+        dispatch(orderName(name))
+        dispatch(orderSurname(surname))
+        dispatch(orderPhone(phone))
+        dispatch(orderEmail(email))
+    }
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -59,22 +73,13 @@ export const Order = () => {
                     <div className="order__left">
                         <div>
                             <h4 className="order__heading">Ваши контакты</h4>
-                            <form className="contacts-form">
-                                <div className="contacts-form__wrap-data">
-                                    <input className="input-data" type="text" placeholder="Имя"
-                                        value={name} onChange={(e) => dispatch(orderName(e.target.value))} />
-                                    <input className="input-data" type="text" placeholder="Фамилия"
-                                        value={surname} onChange={(e) => dispatch(orderSurname(e.target.value))} />
-                                </div>
-                                <div className="contacts-form__wrap-data">
-                                    <input className="input-data" type="text" placeholder="Телефон"
-                                        value={phone} onChange={(e) => dispatch(orderPhone(e.target.value))} />
-                                    <input className="input-data" type="email" placeholder="E-mail"
-                                        value={email} onChange={(e) => dispatch(orderEmail(e.target.value))} />
-                                </div>
-                                <input className="contacts-form__comment" type="text" placeholder="Комментарий"
-                                    value={comment} onChange={(e) => dispatch(orderComment(e.target.value))} />
-                            </form>
+                            <div className="data-registration">
+                                <p> Взять данные из личного кабинета?</p>
+                                <button className="data-registration__btn" onClick={() => setFormOrder(false)}>Да</button>
+                                <button className="data-registration__btn" onClick={() => setFormOrder(true)}>Нет</button>
+                            </div>
+                            {formOrder && <OrderFormGuest />}
+                            {!formOrder && <OrderFormRegistered />}
                         </div>
                         <span className="order__separator-horizontal" />
                         <div className="order__delivery">
@@ -133,9 +138,18 @@ export const Order = () => {
                             <p className="order__buy-product_margin">Итого: <span>{totalCount} шт </span></p>
                             <p>На сумму: <span>{costTotal} руб</span></p>
                         </div>
-                        <div className="order__confirm">
-                            <Link to="/thanks_order" className="order__link">Подтвердить заказ</Link>
-                        </div>
+                        {formOrder &&
+                            <div className="order__confirm">
+                                <Link to="/thanks_order" className="order__link">Подтвердить заказ</Link>
+                            </div>
+                        }
+                        {!formOrder &&
+                            <div className="order__confirm" onClick={() => handleSubmit()}>
+                                <Link to="/thanks_order" className="order__link">
+                                    Подтвердить заказ
+                                </Link>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

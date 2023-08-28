@@ -149,12 +149,16 @@
     }
 }
 
-.contacts-form .input-data {
-    margin-bottom: 20px;
+.order .contacts-form__wrap-data {
+    @media (min-width: 768px) {
+        width: 540px;
+    }
 }
 
-.contacts-form .btn-form {
-    margin-top: 30px;
+.order .data-registration {
+    @media (min-width: 768px) {
+        width: 540px;
+    }
 }
 
 .input-wrap {
