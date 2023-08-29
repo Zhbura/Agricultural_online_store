@@ -1,0 +1,18 @@
+.input-big {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 90px;
+    padding: 10px 0 10px 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #484848;
+    width: 540px;
+    display: block;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        width: 290px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

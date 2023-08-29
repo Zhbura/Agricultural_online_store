@@ -8,24 +8,6 @@
         padding: 0 15px 40px 15px;
     }
 
-    &__input {
-        width: 540px;
-        display: block;
-        background: #FFFFFF;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        border-radius: 90px;
-        padding: 10px 0 10px 20px;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 20px;
-        color: #484848;
-        margin-top: 20px;
-
-        @media (min-width: 320px) and (max-width: 767px) {
-            width: 290px;
-        }
-    }
-
     &__text {
         font-weight: 400;
         font-size: 16px;
@@ -68,10 +50,14 @@
 
 .err-msg {
     display: block;
-padding-top: 30px;
-font-weight: 400;
-font-size: 16px;
-line-height: 20px;
-text-align: center;
-color: #f70404;
+    padding-top: 30px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #f70404;
+}
+
+.authorization .input-big:first-child {
+    margin-bottom: 20px;
 }

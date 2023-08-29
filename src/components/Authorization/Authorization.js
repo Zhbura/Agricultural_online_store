@@ -4,19 +4,12 @@ import './Authorization.scss';
 import { useState } from 'react';
 import { ButtonForm } from '../Button/ButtonForm';
 import { login } from '../../services/firebase';
+import { InputBig } from '../Inputs/InputBig';
 
 export const Authorization = () => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [error, setError] = useState("");
-
-    const handleChangeEmail = (e) => {
-        setEmail(e.target.value);
-    }
-
-    const handleChangePass = (e) => {
-        setPass(e.target.value);
-    }
 
     const handleSignIn = async () => {
         try {
@@ -46,10 +39,8 @@ export const Authorization = () => {
                     только для оформления заказов и более удобной работы с сайтом.
                 </p>
                 <form onSubmit={handleSubmit}>
-                    <input className="authorization__input" type="text" placeholder="Логин"
-                        value={email} onChange={handleChangeEmail} />
-                    <input className="authorization__input" type="password" placeholder="Пароль"
-                        value={pass} onChange={handleChangePass} />
+                    <InputBig placeholder="Логин" type="email" value={email} setFunc={setEmail} />
+                    <InputBig placeholder="Пароль" type="password" value={pass} setFunc={setPass} />
                     <ButtonForm>  Войти </ButtonForm>
                     {error && <span className="err-msg">{error}</span>}
                 </form>

@@ -5,6 +5,7 @@ export const REGISTER_PHONE = 'REGISTRATION::REGISTER_PHONE';
 export const REGISTER_PASSWORD = 'REGISTRATION::REGISTER_PASSWORD';
 export const REGISTER_PASSWORD_CONFIRMATION = 'REGISTRATION::REGISTER_PASSWORD_CONFIRMATION';
 export const REGISTER_ADRESS = 'REGISTRATION::REGISTER_ADRESS';
+export const REGISTER_USER = 'REGISTRATION::REGISTER_USER';
 
 export const registerEmail = (email) => ({
     type: REGISTER_EMAIL,
@@ -40,3 +41,15 @@ export const registerAdress = (adress) => ({
     type: REGISTER_ADRESS,
     payload: adress
 });
+
+export const registerUser = (name, surname, phone, email, password, passConfirm) => ({
+    type: REGISTER_USER,
+    payload: {
+        name,
+        surname,
+        phone,
+        email,
+        password,
+        passConfirm
+    }
+})

@@ -8,25 +8,13 @@
         }
     }
 
-    &__comment,
-    &__password {
+    &__comment {
         background: #FFFFFF;
         border: 1px solid rgba(0, 0, 0, 0.2);
-        border-radius: 90px;
-        padding: 10px 0 10px 20px;
         font-weight: 400;
         font-size: 16px;
         line-height: 20px;
         color: #484848;
-
-        @media (min-width: 320px) and (max-width: 767px) {
-            width: 290px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    }
-
-    &__comment {
         border-radius: 20px;
         width: 540px;
         padding: 10px 0 70px 20px;
@@ -35,19 +23,6 @@
             width: 290px;
             margin-left: auto;
             margin-right: auto;
-        }
-    }
-
-    &__password {
-        width: 540px;
-        display: block;
-
-        @media (min-width: 320px) and (max-width: 767px) {
-            width: 290px;
-        }
-
-        &_margin {
-            margin-top: 20px;
         }
     }
 }

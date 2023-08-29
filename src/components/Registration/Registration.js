@@ -5,9 +5,10 @@ import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { useState } from 'react';
 import { ButtonForm } from '../Button/ButtonForm';
 import { signUp } from '../../services/firebase';
-import { useDispatch, useSelector } from 'react-redux';
-import { registerEmail, registerName, registerPass, registerPassConfirm, registerPhone, registerSurname } from '../../store/registration/action';
-import { selectUserEmail, selectUserName, selectUserPass, selectUserPassConfirm, selectUserPhone, selectUserSurname } from '../../store/registration/selectors';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../store/registration/action';
+import { InputContacts } from '../Inputs/InputContacts';
+import { InputBig } from '../Inputs/InputBig';
 
 export const Registration = () => {
     const breadcrumbs = [
@@ -17,12 +18,18 @@ export const Registration = () => {
         },
     ];
     const [error, setError] = useState("");
+    const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [passConfirm, setPassConfirm] = useState('');
 
     const dispatch = useDispatch();
 
     const handleSignUp = async () => {
         try {
-            await signUp(email, pass);
+            await signUp(email, password);
         } catch (e) {
             setError(e.message);
         }
@@ -32,14 +39,14 @@ export const Registration = () => {
         e.preventDefault();
 
         handleSignUp();
-    }
 
-    const userName = useSelector(selectUserName);
-    const userSurname = useSelector(selectUserSurname);
-    const phone = useSelector(selectUserPhone);
-    const passConfirm = useSelector(selectUserPassConfirm);
-    const pass = useSelector(selectUserPass);
-    const email = useSelector(selectUserEmail);
+        dispatch(registerUser(name, surname, phone, email, password, passConfirm));
+
+        setName('');
+        setSurname('');
+        setPhone('');
+        setEmail('');
+    }
 
     return (
         <>
@@ -55,22 +62,17 @@ export const Registration = () => {
                 <div className="registration__data">
                     <form className="contacts-form" onSubmit={handleSubmit}>
                         <div className="contacts-form__wrap-data">
-                            <input className="input-data" type="text" placeholder="Имя"
-                                value={userName} onChange={(e) => dispatch(registerName(e.target.value))} />
-                            <input className="input-data" type="text" placeholder="Фамилия"
-                                value={userSurname} onChange={(e) => dispatch(registerSurname(e.target.value))} />
+                            <InputContacts placeholder="Имя" type="text" value={name} setFunc={setName} />
+                            <InputContacts placeholder="Фамилия" type="text" value={surname} setFunc={setSurname} />
                         </div>
                         <div className="contacts-form__wrap-data">
-                            <input className="input-data" type="text" placeholder="Телефон"
-                                value={phone} onChange={(e) => dispatch(registerPhone(e.target.value))} />
-                            <input className="input-data" type="email" placeholder="E-mail"
-                                value={email} onChange={(e) => dispatch(registerEmail(e.target.value))} />
+                            <InputContacts placeholder="Телефон" type="text" value={phone} setFunc={setPhone} />
+                            <InputContacts placeholder="E-mail" type="email" value={email} setFunc={setEmail} />
                         </div>
-                        <input className="contacts-form__password" type="password" placeholder="Пароль"
-                            value={pass} onChange={(e) => dispatch(registerPass(e.target.value))} />
-                        <input className="contacts-form__password contacts-form__password_margin"
-                            type="text" placeholder="Подтвердите пароль"
-                            value={passConfirm} onChange={(e) => dispatch(registerPassConfirm(e.target.value))} />
+                        <div className="registration__wrap-inputs">
+                            <InputBig placeholder="Пароль" type="password" value={password} setFunc={setPassword} />
+                            <InputBig placeholder="Подтвердите пароль" type="password" value={passConfirm} setFunc={setPassConfirm} />
+                        </div>
                         <label className="registration__data-protection">я согласен на обработку и защиту
                             <span className="registration__data-protection_span"> персональных данных</span>
                             <input type="checkbox" name="radio" />
