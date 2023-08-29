@@ -1,16 +1,10 @@
 
 import './Form.scss';
 import { ButtonForm } from "../Button/ButtonForm";
-import {
-    guestRegisterComment,
-    guestRegisterEmail,
-    guestRegisterName,
-    guestRegisterPhone,
-    guestRegisterSurname
-} from '../../store/guest/action';
+import { guestData } from '../../store/guest/action';
 import { selectUserRegistered } from '../../store/registration/selectors';
 import { useDispatch, useSelector } from "react-redux";
-import { selectGuest } from "../../store/guest/selectors";
+import { useState } from 'react';
 
 export const ContactsFormRegistered = () => {
     const dispatch = useDispatch();
@@ -18,16 +12,14 @@ export const ContactsFormRegistered = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(guestRegisterName(name))
-        dispatch(guestRegisterSurname(surname))
-        dispatch(guestRegisterPhone(phone))
-        dispatch(guestRegisterEmail(email))
+        dispatch(guestData(email, name, surname, phone, comment));
+
+        setComment('');
     }
 
     const { name, surname, phone, email } = useSelector(selectUserRegistered);
 
-    const { comment } = useSelector(selectGuest);
-
+    const [comment, setComment] = useState('');
 
     return (
         <>
@@ -41,7 +33,7 @@ export const ContactsFormRegistered = () => {
                     <p className="input-data"> {email}</p>
                 </div>
                 <input className="contacts-form__comment" type="text" placeholder="Комментарий"
-                    value={comment} onChange={(e) => dispatch(guestRegisterComment(e.target.value))}
+                    value={comment} onChange={(e) => setComment(e.target.value)}
                 />
                 <ButtonForm>Отправить</ButtonForm>
             </form>

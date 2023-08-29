@@ -11,7 +11,7 @@ import {
     registerSurname
 }
     from '../../store/registration/action';
-import { InputBox } from './InputBox';
+import { InputBox } from '../Inputs/InputBox';
 
 export const PersonalData = () => {
     const breadcrumbs = [

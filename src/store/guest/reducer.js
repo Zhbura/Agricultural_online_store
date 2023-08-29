@@ -1,4 +1,4 @@
-import { GUEST_COMMENT, GUEST_EMAIL, GUEST_NAME, GUEST_PHONE, GUEST_SURNAME } from "./action"
+import { GUEST_DATA } from "./action"
 
 const initialState = {
     email: '',
@@ -10,31 +10,14 @@ const initialState = {
 
 export const guestReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GUEST_EMAIL:
+        case GUEST_DATA:
             return {
                 ...state,
-                email: action.payload
-            }
-        case GUEST_NAME:
-            return {
-                ...state,
-                name: action.payload
-            }
-        case GUEST_SURNAME:
-            return {
-                ...state,
-                surname: action.payload
-            }
-        case GUEST_PHONE:
-            return {
-                ...state,
-                phone: action.payload
-            }
-     
-        case GUEST_COMMENT:
-            return {
-                ...state,
-                comment: action.payload
+                email: action.payload.email,
+                name: action.payload.name,
+                surname: action.payload.surname,
+                phone: action.payload.phone,
+                comment: action.payload.comment,
             }
         default:
             return state
