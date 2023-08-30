@@ -1,18 +1,15 @@
 import { useEffect, useState } from 'react';
 import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import './Dropdown.scss';
-import { useDispatch } from 'react-redux';
 
-export const DropdownOrder = ({ array, selected, setSelected, dispatchOrder, initialValue }) => {
+export const DropdownOrder = ({ array, selected, setSelected, initialValue }) => {
 
     const [isActive, setIsActive] = useState(false);
 
     const [showInitVal, setShowInitVal] = useState(true);
 
-    const dispatch = useDispatch();
-
     useEffect(() => {
-        dispatch(dispatchOrder(selected))
+        setSelected(selected)
     }, [selected])
     return (
         <>

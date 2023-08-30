@@ -1,14 +1,4 @@
-import {
-    ORDER_CITY,
-    ORDER_COMMENT,
-    ORDER_DEPARTMENT,
-    ORDER_EMAIL,
-    ORDER_NAME,
-    ORDER_PHONE,
-    ORDER_POSTCODE,
-    ORDER_REGION,
-    ORDER_SURNAME
-} from "./action"
+import { ORDER_USER_DATA } from "./action"
 
 const initialState = {
     email: '',
@@ -24,50 +14,18 @@ const initialState = {
 
 export const orderReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ORDER_EMAIL:
+        case ORDER_USER_DATA:
             return {
                 ...state,
-                email: action.payload
-            }
-        case ORDER_NAME:
-            return {
-                ...state,
-                name: action.payload
-            }
-        case ORDER_SURNAME:
-            return {
-                ...state,
-                surname: action.payload
-            }
-        case ORDER_PHONE:
-            return {
-                ...state,
-                phone: action.payload
-            }
-        case ORDER_COMMENT:
-            return {
-                ...state,
-                comment: action.payload
-            }
-        case ORDER_POSTCODE:
-            return {
-                ...state,
-                postcode: action.payload
-            }
-        case ORDER_REGION:
-            return {
-                ...state,
-                region: action.payload
-            }
-        case ORDER_CITY:
-            return {
-                ...state,
-                city: action.payload
-            }
-        case ORDER_DEPARTMENT:
-            return {
-                ...state,
-                department: action.payload
+                email: action.payload.email,
+                name: action.payload.name,
+                surname: action.payload.surname,
+                phone: action.payload.phone,
+                comment: action.payload.comment,
+                postcode: action.payload.postcode,
+                region: action.payload.region,
+                city: action.payload.city,
+                department: action.payload.department
             }
         default:
             return state

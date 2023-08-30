@@ -33,7 +33,7 @@ export const PersonalData = () => {
             <div className="personal-data">
                 <Breadcrumbs breadcrumbs={breadcrumbs} />
                 <PageHeadingTwice>Личные данные</PageHeadingTwice>
-                <form className="personal-data__form">
+                <div className="personal-data__form">
                     <div className="wrap-data">
                         <InputBox text="Имя" value={name} dispatchRegister={registerName} />
                         <InputBox text="Фамилия" value={surname} dispatchRegister={registerSurname} />
@@ -44,13 +44,12 @@ export const PersonalData = () => {
                     </div >
                     <div className="input-box">Адрес для доставки
                         <div className="personal-data__input-adress">
-                            <input type="adress" placeholder="Москва, ул. Текстильная, д. 5"
+                            <input type="adress"
                                 value={adress} onChange={(e) => dispatch(registerAdress(e.target.value))} />
                         </div>
                     </div>
-                    <div className="cabinet-btn">Сохранить</div>
-                </form >
-            </div >
+                </div>
+            </div>
         </>
     )
 }

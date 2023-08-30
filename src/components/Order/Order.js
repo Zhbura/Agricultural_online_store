@@ -5,22 +5,12 @@ import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { OrderProduct, OrderProductSmall } from '../OrderProduct/OrderProduct';
 import { costCart, countCart, selectCart } from '../../store/cart/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserOrder } from '../../store/order/selectors';
-import {
-    orderCity,
-    orderDepartment,
-    orderEmail,
-    orderName,
-    orderPhone,
-    orderPostcode,
-    orderRegion,
-    orderSurname
-} from '../../store/order/action';
+import { orderUserData } from '../../store/order/action';
 import { DropdownOrder } from '../Dropdown/DropdownOrder';
 import { useState } from 'react';
-import { OrderFormGuest } from '../Form/OrderFormGuest';
 import { OrderFormRegistered } from '../Form/OrderFormRegistered';
 import { selectUserRegistered } from '../../store/registration/selectors';
+import { InputContacts } from '../Inputs/InputContacts';
 
 export const Order = () => {
     const breadcrumbs = [
@@ -41,28 +31,32 @@ export const Order = () => {
 
     const dispatch = useDispatch();
 
-    const cities = ["Москва", "Санкт-Петербург", "Тверь"];
-    const [city, setCity] = useState("");
-
     const regions = ["Московская область", "Ленинградская область", "Тверская область"];
-    const [region, setRegion] = useState('');
-
+    const cities = ["Москва", "Санкт-Петербург", "Тверь"];
     const departments = ['№ 1', '№ 2', '№ 3'];
-    const [department, setDepartment] = useState('');
 
     const [formOrder, setFormOrder] = useState(true);
 
-    const { postcode } = useSelector(selectUserOrder);
-
+    const [orderName, setName] = useState('');
+    const [orderSurname, setSurname] = useState('');
+    const [orderPhone, setPhone] = useState('');
+    const [orderEmail, setEmail] = useState('');
+    const [orderComment, setComment] = useState('');
+    const [postcode, setPostcode] = useState('');
+    const [region, setRegion] = useState('');
+    const [city, setCity] = useState('');
+    const [department, setDepartment] = useState('');
 
     const { name, surname, phone, email } = useSelector(selectUserRegistered);
 
-    const handleSubmit = () => {
+    const handleOrderDataReg = () => {
+        dispatch(orderUserData(email, name, surname, phone, orderComment,
+            postcode, region, city, department))
+    }
 
-        dispatch(orderName(name))
-        dispatch(orderSurname(surname))
-        dispatch(orderPhone(phone))
-        dispatch(orderEmail(email))
+    const handleOrderDataGuest = () => {
+        dispatch(orderUserData(orderEmail, orderName, orderSurname, orderPhone,
+            orderComment, postcode, region, city, department))
     }
     return (
         <>
@@ -78,8 +72,23 @@ export const Order = () => {
                                 <button className="data-registration__btn" onClick={() => setFormOrder(false)}>Да</button>
                                 <button className="data-registration__btn" onClick={() => setFormOrder(true)}>Нет</button>
                             </div>
-                            {formOrder && <OrderFormGuest />}
-                            {!formOrder && <OrderFormRegistered />}
+                            <div className="contacts-form">
+                                {formOrder &&
+                                    <div>
+                                        <div className="contacts-form__wrap-data">
+                                            <InputContacts placeholder="Имя" type="text" value={orderName} setFunc={setName} />
+                                            <InputContacts placeholder="Фамилия" type="text" value={orderSurname} setFunc={setSurname} />
+                                        </div>
+                                        <div className="contacts-form__wrap-data">
+                                            <InputContacts placeholder="Телефон" type="text" value={orderPhone} setFunc={setPhone} />
+                                            <InputContacts placeholder="E-mail" type="email" value={orderEmail} setFunc={setEmail} />
+                                        </div>
+                                    </div>
+                                }
+                                {!formOrder && <OrderFormRegistered />}
+                                <input className="contacts-form__comment" type="text" placeholder="Комментарий"
+                                    value={orderComment} onChange={(e) => setComment(e.target.value)} />
+                            </div>
                         </div>
                         <span className="order__separator-horizontal" />
                         <div className="order__delivery">
@@ -89,13 +98,11 @@ export const Order = () => {
                                     array={regions}
                                     selected={region}
                                     setSelected={setRegion}
-                                    dispatchOrder={orderRegion}
                                     initialValue="Область" />
                                 <DropdownOrder
                                     array={cities}
                                     selected={city}
                                     setSelected={setCity}
-                                    dispatchOrder={orderCity}
                                     initialValue="Город" />
                             </div>
                             <div className="wrap-contacts">
@@ -103,10 +110,10 @@ export const Order = () => {
                                     array={departments}
                                     selected={department}
                                     setSelected={setDepartment}
-                                    dispatchOrder={orderDepartment}
-                                    initialValue="Отделение" />
+                                    initialValue="Отделение"
+                                />
                                 <input className="input-data" type="text" placeholder="Почтовый индекс"
-                                    value={postcode} onChange={(e) => dispatch(orderPostcode(e.target.value))} />
+                                    value={postcode} onChange={(e) => setPostcode(e.target.value)} />
                             </div>
                         </div>
                         <span className="order__separator-horizontal" />
@@ -139,14 +146,14 @@ export const Order = () => {
                             <p>На сумму: <span>{costTotal} руб</span></p>
                         </div>
                         {formOrder &&
-                            <div className="order__confirm">
+                            <div className="order__confirm" onClick={() => handleOrderDataGuest()}>
                                 <Link to="/thanks_order" className="order__link">Подтвердить заказ</Link>
                             </div>
                         }
                         {!formOrder &&
-                            <div className="order__confirm" onClick={() => handleSubmit()}>
+                            <div className="order__confirm" onClick={() => handleOrderDataReg()}>
                                 <Link to="/thanks_order" className="order__link">
-                                    Подтвердить заказ
+                                Подтвердить заказ
                                 </Link>
                             </div>
                         }
