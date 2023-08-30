@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { OrderFormRegistered } from '../Form/OrderFormRegistered';
 import { selectUserRegistered } from '../../store/registration/selectors';
 import { InputContacts } from '../Inputs/InputContacts';
+import { InputComment } from '../Inputs/InputComment';
 
 export const Order = () => {
     const breadcrumbs = [
@@ -86,8 +87,7 @@ export const Order = () => {
                                     </div>
                                 }
                                 {!formOrder && <OrderFormRegistered />}
-                                <input className="contacts-form__comment" type="text" placeholder="Комментарий"
-                                    value={orderComment} onChange={(e) => setComment(e.target.value)} />
+                                <InputComment placeholder="Комментарий" type="text" value={orderComment} setFunc={setComment} />
                             </div>
                         </div>
                         <span className="order__separator-horizontal" />
@@ -153,7 +153,7 @@ export const Order = () => {
                         {!formOrder &&
                             <div className="order__confirm" onClick={() => handleOrderDataReg()}>
                                 <Link to="/thanks_order" className="order__link">
-                                Подтвердить заказ
+                                    Подтвердить заказ
                                 </Link>
                             </div>
                         }

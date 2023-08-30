@@ -1,9 +1,10 @@
 import { ButtonForm } from "../Button/ButtonForm";
-import { guestData} from '../../store/guest/action';
+import { guestData } from '../../store/guest/action';
 import './Form.scss';
 import { useDispatch } from "react-redux";
 import { InputContacts } from "../Inputs/InputContacts";
 import { useState } from "react";
+import { InputComment } from "../Inputs/InputComment";
 
 export const ContactsFormGuest = () => {
 
@@ -17,7 +18,7 @@ export const ContactsFormGuest = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         dispatch(guestData(email, name, surname, phone, comment));
 
         setName('');
@@ -37,9 +38,7 @@ export const ContactsFormGuest = () => {
                     <InputContacts placeholder="Телефон" type="text" value={phone} setFunc={setPhone} />
                     <InputContacts placeholder="E-mail" type="email" value={email} setFunc={setEmail} />
                 </div>
-                <input className="contacts-form__comment" type="text" placeholder="Комментарий"
-                    value={comment} onChange={(e) => setComment(e.target.value)}
-                />
+                <InputComment placeholder="Комментарий" type="text" value={comment} setFunc={setComment} />
                 <ButtonForm>Отправить</ButtonForm>
             </form>
         </>

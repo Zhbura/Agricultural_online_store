@@ -27,26 +27,6 @@
         margin-bottom: 15px;
     }
 
-    &__comment {
-        background: #FFFFFF;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        border-radius: 20px;
-        width: 540px;
-        padding: 10px 0 70px 20px;
-
-        @media (min-width: 320px) and (max-width: 767px) {
-            width: 290px;
-        }
-
-        input {
-            display: block;
-            cursor: pointer;
-            width: 99%;
-            border: none;
-            outline: none;
-        }
-    }
-
     &__separator-horizontal {
         margin: 30px auto 25px auto;
         border: 1px solid rgba(0, 0, 0, 0.2);

@@ -5,6 +5,7 @@ import { guestData } from '../../store/guest/action';
 import { selectUserRegistered } from '../../store/registration/selectors';
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from 'react';
+import { InputComment } from '../Inputs/InputComment';
 
 export const ContactsFormRegistered = () => {
     const dispatch = useDispatch();
@@ -32,9 +33,7 @@ export const ContactsFormRegistered = () => {
                     <p className="input-data"> {phone}</p>
                     <p className="input-data"> {email}</p>
                 </div>
-                <input className="contacts-form__comment" type="text" placeholder="Комментарий"
-                    value={comment} onChange={(e) => setComment(e.target.value)}
-                />
+                <InputComment placeholder="Комментарий" type="text" value={comment} setFunc={setComment} />
                 <ButtonForm>Отправить</ButtonForm>
             </form>
         </>
