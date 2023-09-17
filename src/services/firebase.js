@@ -6,6 +6,7 @@ import {
     signInWithEmailAndPassword,
     signOut
 } from "firebase/auth";
+import { getDatabase, ref } from "firebase/database";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -29,3 +30,16 @@ export const signUp = (email, password) =>
 export const login = (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
 export const logOut = () => signOut(auth);
+
+export const db = getDatabase(app);
+
+export const guestNameRef = ref(db, 'guest/name');
+export const guestSurnameRef = ref(db, 'guest/surname');
+export const guestPhoneRef = ref(db, 'guest/phone');
+export const guestEmailRef = ref(db, 'guest/email');
+export const guestCommentRef = ref(db, 'guest/comment');
+
+
+
+
+
