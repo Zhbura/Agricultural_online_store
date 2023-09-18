@@ -49,7 +49,10 @@ export const orderRegionRef = ref(db, 'order/region');
 export const orderCityRef = ref(db, 'order/city');
 export const orderDepartmentRef = ref(db, 'order/department');
 
-
+export const registrationNameRef = ref(db, 'registration/name');
+export const registrationSurnameRef = ref(db, 'registration/surname');
+export const registrationPhoneRef = ref(db, 'registration/phone');
+export const registrationEmailRef = ref(db, 'registration/email');
 
 
 
