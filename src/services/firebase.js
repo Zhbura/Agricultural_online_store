@@ -39,6 +39,16 @@ export const guestPhoneRef = ref(db, 'guest/phone');
 export const guestEmailRef = ref(db, 'guest/email');
 export const guestCommentRef = ref(db, 'guest/comment');
 
+export const orderNameRef = ref(db, 'order/name');
+export const orderSurnameRef = ref(db, 'order/surname');
+export const orderPhoneRef = ref(db, 'order/phone');
+export const orderEmailRef = ref(db, 'order/email');
+export const orderCommentRef = ref(db, 'order/comment');
+export const orderPostcodeRef = ref(db, 'order/postcode');
+export const orderRegionRef = ref(db, 'order/region');
+export const orderCityRef = ref(db, 'order/city');
+export const orderDepartmentRef = ref(db, 'order/department');
+
 
 
 

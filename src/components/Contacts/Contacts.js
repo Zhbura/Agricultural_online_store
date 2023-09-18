@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { ContactsFormGuest } from '../Form/ContactsFormGuest';
 import { ContactsFormRegistered } from '../Form/ContactsFormRegistered';
 
-export const Contacts = () => {
+export const Contacts = ({ authed }) => {
     const breadcrumbs = [
         {
             name: "Партнёры",
@@ -119,13 +119,14 @@ export const Contacts = () => {
                             у вас возникли вопросы или предложения, и мы в
                             ближайшее время ответим вам.
                         </p>
-                        <div className="data-registration">
+                        {authed && <div className="data-registration">
                             <p> Взять данные из личного кабинета?</p>
                             <button className="data-registration__btn" onClick={() => setFormContacts(false)}>Да</button>
                             <button className="data-registration__btn" onClick={() => setFormContacts(true)}>Нет</button>
                         </div>
-                        {!formContacts && <ContactsFormRegistered /> }
-                        {formContacts && <ContactsFormGuest /> }
+                        }
+                        {!formContacts && <ContactsFormRegistered />}
+                        {formContacts && <ContactsFormGuest />}
                     </div>
                 </div>
             </div>

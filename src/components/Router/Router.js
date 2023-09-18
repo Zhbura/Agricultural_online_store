@@ -68,7 +68,7 @@ export const Router = () => {
                             element={<Product product={products[0][3]} />}
                         />
                     </Route>
-                    <Route path="order" element={<Order />} />
+                    <Route path="order" element={<Order authed={authed} />} />
                     <Route path="thanks_order" element={<ThanksOrder />} />
                     <Route path="aboutcompany" element={<AboutСompany />} />
                     <Route path="teemcompany" element={<TeamCompany />} />
@@ -76,7 +76,7 @@ export const Router = () => {
                     <Route path="pay" element={<Pay />} />
                     <Route path="partners" element={<PartnersComp />} />
                     <Route path="news" element={<News />} />
-                    <Route path="contacts" element={<Contacts />} />
+                    <Route path="contacts" element={<Contacts authed={authed} />} />
                     <Route path="authorization" element={<PublicRoute authed={authed} />}>
                         <Route index element={<Authorization />} />
                         <Route path="registration" element={<Registration />} />

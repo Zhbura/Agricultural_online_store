@@ -12,8 +12,20 @@ import { OrderCart } from './OrderCart';
 import { OrderPayment } from './OrderPayment';
 import { OrderDelivery } from './OrderDelivery';
 import { OrderFormGuest } from '../Form/OrderFormGuest';
+import { set } from 'firebase/database';
+import {
+    orderCityRef,
+    orderCommentRef,
+    orderDepartmentRef,
+    orderEmailRef,
+    orderNameRef,
+    orderPhoneRef,
+    orderPostcodeRef,
+    orderRegionRef,
+    orderSurnameRef
+} from '../../services/firebase';
 
-export const Order = () => {
+export const Order = ({ authed }) => {
     const breadcrumbs = [
         {
             name: "Корзина",
@@ -42,11 +54,31 @@ export const Order = () => {
     const { name, surname, phone, email } = useSelector(selectUserRegistered);
 
     const handleOrderDataReg = () => {
+        set(orderNameRef, name)
+        set(orderSurnameRef, surname)
+        set(orderPhoneRef, phone)
+        set(orderEmailRef, email)
+        set(orderCommentRef, orderComment)
+        set(orderPostcodeRef, postcode)
+        set(orderRegionRef, region)
+        set(orderCityRef, city)
+        set(orderDepartmentRef, department)
+
         dispatch(orderUserData(email, name, surname, phone, orderComment,
             postcode, region, city, department))
     }
 
     const handleOrderDataGuest = () => {
+        set(orderNameRef, orderName)
+        set(orderSurnameRef, orderSurname)
+        set(orderPhoneRef, orderPhone)
+        set(orderEmailRef, orderEmail)
+        set(orderCommentRef, orderComment)
+        set(orderPostcodeRef, postcode)
+        set(orderRegionRef, region)
+        set(orderCityRef, city)
+        set(orderDepartmentRef, department)
+
         dispatch(orderUserData(orderEmail, orderName, orderSurname, orderPhone,
             orderComment, postcode, region, city, department))
     }
@@ -60,11 +92,12 @@ export const Order = () => {
                     <div className="order__left">
                         <div>
                             <h4 className="order__heading">Ваши контакты</h4>
-                            <div className="data-registration">
+                            {authed && <div className="data-registration">
                                 <p> Взять данные из личного кабинета?</p>
                                 <button className="data-registration__btn" onClick={() => setFormOrder(false)}>Да</button>
                                 <button className="data-registration__btn" onClick={() => setFormOrder(true)}>Нет</button>
                             </div>
+                            }
                             <div className="contacts-form">
                                 {formOrder && <OrderFormGuest
                                     orderName={orderName} setName={setName}
