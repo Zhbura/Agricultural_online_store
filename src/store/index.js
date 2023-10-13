@@ -6,6 +6,8 @@ import { wishListReducer } from './wishList/reducer';
 import { registrationReducer } from './registration/reducer';
 import { guestReducer } from './guest/reducer';
 import { orderReducer } from './order/reducer';
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 const rootReducer = combineReducers({
     catalog: catalogReducer,
@@ -17,6 +19,15 @@ const rootReducer = combineReducers({
     order: orderReducer,
 });
 
+const persistConfig = {
+    key: "agriculturalStore",
+    storage,
+}
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export const store = createStore(rootReducer, composeEnhancers());
+export const store = createStore(persistedReducer, composeEnhancers());
+
+export const persistor = persistStore(store);
