@@ -4,18 +4,11 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { useState } from 'react';
 import { ButtonForm } from '../Button/ButtonForm';
-import {
-    registrationEmailRef,
-    registrationNameRef,
-    registrationPhoneRef,
-    registrationSurnameRef,
-    signUp
-} from '../../services/firebase';
+import { signUp } from '../../services/firebase';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../store/registration/action';
 import { InputContacts } from '../Inputs/InputContacts';
 import { InputBig } from '../Inputs/InputBig';
-import { set } from 'firebase/database';
 
 export const Registration = () => {
     const breadcrumbs = [
@@ -46,11 +39,6 @@ export const Registration = () => {
         e.preventDefault();
 
         handleSignUp();
-
-        set(registrationNameRef, name)
-        set(registrationSurnameRef, surname)
-        set(registrationPhoneRef, phone)
-        set(registrationEmailRef, email)
 
         dispatch(registerUser(name, surname, phone, email, password, passConfirm));
 

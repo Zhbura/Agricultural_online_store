@@ -5,9 +5,6 @@ import { useDispatch } from "react-redux";
 import { InputContacts } from "../Inputs/InputContacts";
 import { useState } from "react";
 import { InputComment } from "../Inputs/InputComment";
-import { set } from "firebase/database";
-import { guestCommentRef, guestEmailRef, guestNameRef, guestPhoneRef, guestSurnameRef } from '../../services/firebase';
-
 
 export const ContactsFormGuest = () => {
 
@@ -21,12 +18,6 @@ export const ContactsFormGuest = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        set(guestNameRef, name)
-        set(guestSurnameRef, surname)
-        set(guestPhoneRef, phone)
-        set(guestEmailRef, email)
-        set(guestCommentRef, comment)
 
         dispatch(guestData(email, name, surname, phone, comment));
 

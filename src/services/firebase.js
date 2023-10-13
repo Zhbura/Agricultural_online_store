@@ -31,28 +31,28 @@ export const login = (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
 export const logOut = () => signOut(auth);
 
-export const db = getDatabase(app);
+// export const db = getDatabase(app);
 
-export const guestNameRef = ref(db, 'guest/name');
-export const guestSurnameRef = ref(db, 'guest/surname');
-export const guestPhoneRef = ref(db, 'guest/phone');
-export const guestEmailRef = ref(db, 'guest/email');
-export const guestCommentRef = ref(db, 'guest/comment');
+// export const guestNameRef = ref(db, 'guest/name');
+// export const guestSurnameRef = ref(db, 'guest/surname');
+// export const guestPhoneRef = ref(db, 'guest/phone');
+// export const guestEmailRef = ref(db, 'guest/email');
+// export const guestCommentRef = ref(db, 'guest/comment');
 
-export const orderNameRef = ref(db, 'order/name');
-export const orderSurnameRef = ref(db, 'order/surname');
-export const orderPhoneRef = ref(db, 'order/phone');
-export const orderEmailRef = ref(db, 'order/email');
-export const orderCommentRef = ref(db, 'order/comment');
-export const orderPostcodeRef = ref(db, 'order/postcode');
-export const orderRegionRef = ref(db, 'order/region');
-export const orderCityRef = ref(db, 'order/city');
-export const orderDepartmentRef = ref(db, 'order/department');
+// export const orderNameRef = ref(db, 'order/name');
+// export const orderSurnameRef = ref(db, 'order/surname');
+// export const orderPhoneRef = ref(db, 'order/phone');
+// export const orderEmailRef = ref(db, 'order/email');
+// export const orderCommentRef = ref(db, 'order/comment');
+// export const orderPostcodeRef = ref(db, 'order/postcode');
+// export const orderRegionRef = ref(db, 'order/region');
+// export const orderCityRef = ref(db, 'order/city');
+// export const orderDepartmentRef = ref(db, 'order/department');
 
-export const registrationNameRef = ref(db, 'registration/name');
-export const registrationSurnameRef = ref(db, 'registration/surname');
-export const registrationPhoneRef = ref(db, 'registration/phone');
-export const registrationEmailRef = ref(db, 'registration/email');
+// export const registrationNameRef = ref(db, 'registration/name');
+// export const registrationSurnameRef = ref(db, 'registration/surname');
+// export const registrationPhoneRef = ref(db, 'registration/phone');
+// export const registrationEmailRef = ref(db, 'registration/email');
 
 
 

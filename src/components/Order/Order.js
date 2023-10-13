@@ -12,18 +12,6 @@ import { OrderCart } from './OrderCart';
 import { OrderPayment } from './OrderPayment';
 import { OrderDelivery } from './OrderDelivery';
 import { OrderFormGuest } from '../Form/OrderFormGuest';
-import { set } from 'firebase/database';
-import {
-    orderCityRef,
-    orderCommentRef,
-    orderDepartmentRef,
-    orderEmailRef,
-    orderNameRef,
-    orderPhoneRef,
-    orderPostcodeRef,
-    orderRegionRef,
-    orderSurnameRef
-} from '../../services/firebase';
 
 export const Order = ({ authed }) => {
     const breadcrumbs = [
@@ -54,30 +42,12 @@ export const Order = ({ authed }) => {
     const { name, surname, phone, email } = useSelector(selectUserRegistered);
 
     const handleOrderDataReg = () => {
-        set(orderNameRef, name)
-        set(orderSurnameRef, surname)
-        set(orderPhoneRef, phone)
-        set(orderEmailRef, email)
-        set(orderCommentRef, orderComment)
-        set(orderPostcodeRef, postcode)
-        set(orderRegionRef, region)
-        set(orderCityRef, city)
-        set(orderDepartmentRef, department)
 
         dispatch(orderUserData(email, name, surname, phone, orderComment,
             postcode, region, city, department))
     }
 
     const handleOrderDataGuest = () => {
-        set(orderNameRef, orderName)
-        set(orderSurnameRef, orderSurname)
-        set(orderPhoneRef, orderPhone)
-        set(orderEmailRef, orderEmail)
-        set(orderCommentRef, orderComment)
-        set(orderPostcodeRef, postcode)
-        set(orderRegionRef, region)
-        set(orderCityRef, city)
-        set(orderDepartmentRef, department)
 
         dispatch(orderUserData(orderEmail, orderName, orderSurname, orderPhone,
             orderComment, postcode, region, city, department))
