@@ -2,6 +2,8 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import './OrderHistory.scss';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { OrderedProduct, OrderedProductSmall } from '../OrderedProduct/OrderedProduct';
+import { useSelector } from 'react-redux';
+import { selectHistoryOrder } from '../../store/historyOrder/selectors';
 
 export const OrderHistory = () => {
     const breadcrumbs = [
@@ -14,18 +16,25 @@ export const OrderHistory = () => {
             to: "/order_history"
         },
     ];
+
+    const orderHistory = useSelector(selectHistoryOrder);
+
     return (
         <>
             <div className="order-history">
                 <Breadcrumbs breadcrumbs={breadcrumbs} />
                 <PageHeadingTwice>История заказов</PageHeadingTwice>
                 <div className="ordered-products">
-                    <OrderedProduct />
-                    <OrderedProduct />
-                    <OrderedProduct />
-                    <OrderedProductSmall />
-                    <OrderedProductSmall />
-                    <OrderedProductSmall />
+                    {orderHistory.map((arrayProducts) => (
+                        arrayProducts.map(product => (
+                            <OrderedProduct product={product} key={product.id} />
+                        ))
+                    ))}
+                    {orderHistory.map((arrayProducts) => (
+                        arrayProducts.map(product => (
+                            <OrderedProductSmall product={product} key={product.id} />
+                        ))
+                    ))}
                 </div>
             </div>
         </>
