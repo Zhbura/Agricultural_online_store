@@ -1,8 +1,17 @@
+import { useEffect, useState } from 'react';
 import './OrderedProduct.scss';
+import { StatusAway, StatusCompeted, StatusPaid } from './OrderedProductStatus';
 
-export const OrderedProduct = ({ product, paid, away, completed }) => {
+export const OrderedProduct = ({ product }) => {
     const { name, img, count, totalPrice } = product;
+    const [statusArr] = useState([<StatusPaid />, <StatusCompeted />, <StatusAway />]);
+    const [status, setStatus] = useState()
 
+    useEffect(() => {
+        const random = Math.floor(Math.random() * statusArr.length)
+        setStatus(statusArr[random])
+    },
+        [])
     return (
         <>
             <div className="ordered-product">
@@ -12,14 +21,9 @@ export const OrderedProduct = ({ product, paid, away, completed }) => {
                 <div className="ordered-product_middle">
                     <h3 className="ordered-product__title">{name}</h3>
                     <div className="ordered-product__data">
-                        <p className="ordered-product__quantity">Количество {count}</p>
+                        <p className="ordered-product__quantity">Количество x{count}</p>
                         <p className="ordered-product__date">05.04.2023</p>
-                        {paid &&
-                            <p className="ordered-product__status ordered-product__status_paid">Оплачен</p>}
-                        {away &&
-                            <p className="ordered-product__status ordered-product__status_away">В дороге</p>}
-                        {completed &&
-                            <p className="ordered-product__status ordered-product__status_completed">Завершен</p>}
+                        {status}
                     </div>
                 </div>
                 <p className="ordered-product__price">{totalPrice} руб</p>
@@ -29,9 +33,17 @@ export const OrderedProduct = ({ product, paid, away, completed }) => {
     )
 }
 
-export const OrderedProductSmall = ({ product, paid, away, completed }) => {
+export const OrderedProductSmall = ({ product }) => {
     const { name, img, count, totalPrice } = product;
 
+    const [statusArr] = useState([<StatusPaid />, <StatusCompeted />, <StatusAway />]);
+    const [status, setStatus] = useState()
+
+    useEffect(() => {
+        const random = Math.floor(Math.random() * statusArr.length)
+        setStatus(statusArr[random])
+    },
+        [])
     return (
         <>
             <div className="ordered-product_small">
@@ -50,12 +62,7 @@ export const OrderedProductSmall = ({ product, paid, away, completed }) => {
                 </div>
                 <div className="ordered-product__data">
                     <p className="ordered-product__date">05.04.2023</p>
-                    {paid &&
-                        <p className="ordered-product__status ordered-product__status_paid">Оплачен</p>}
-                    {away &&
-                        <p className="ordered-product__status ordered-product__status_away">В дороге</p>}
-                    {completed &&
-                        <p className="ordered-product__status ordered-product__status_completed">Завершен</p>}
+                    {status}
                 </div>
             </div>
             <span className="ordered-product__horisontal-line ordered-product__horisontal-line_small" />
