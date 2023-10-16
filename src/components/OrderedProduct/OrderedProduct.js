@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
 import './OrderedProduct.scss';
 import { StatusAway, StatusCompeted, StatusPaid } from './OrderedProductStatus';
+import { useSelector } from 'react-redux';
+import { selectDateHistory } from '../../store/historyOrder/selectors';
 
 export const OrderedProduct = ({ product }) => {
     const { name, img, count, totalPrice } = product;
     const [statusArr] = useState([<StatusPaid />, <StatusCompeted />, <StatusAway />]);
     const [status, setStatus] = useState()
+
+    const dateOrder = useSelector(selectDateHistory);
 
     useEffect(() => {
         const random = Math.floor(Math.random() * statusArr.length)
@@ -22,7 +26,7 @@ export const OrderedProduct = ({ product }) => {
                     <h3 className="ordered-product__title">{name}</h3>
                     <div className="ordered-product__data">
                         <p className="ordered-product__quantity">Количество x{count}</p>
-                        <p className="ordered-product__date">05.04.2023</p>
+                        <p className="ordered-product__date">{dateOrder}</p>
                         {status}
                     </div>
                 </div>
@@ -38,6 +42,8 @@ export const OrderedProductSmall = ({ product }) => {
 
     const [statusArr] = useState([<StatusPaid />, <StatusCompeted />, <StatusAway />]);
     const [status, setStatus] = useState()
+
+    const dateOrder = useSelector(selectDateHistory);
 
     useEffect(() => {
         const random = Math.floor(Math.random() * statusArr.length)
@@ -61,7 +67,7 @@ export const OrderedProductSmall = ({ product }) => {
                     </div>
                 </div>
                 <div className="ordered-product__data">
-                    <p className="ordered-product__date">05.04.2023</p>
+                    <p className="ordered-product__date">{dateOrder}</p>
                     {status}
                 </div>
             </div>
