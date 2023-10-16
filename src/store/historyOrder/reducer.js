@@ -5,7 +5,7 @@ const initialState = [];
 export const historyOrderReducer = (state = initialState, action) => {
     switch (action.type) {
         case ORDER_PRODUCT: {
-            return [...state, action.payload.products];
+            return [...state, ...action.payload.products]
         }
 
         default:

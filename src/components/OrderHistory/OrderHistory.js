@@ -25,16 +25,14 @@ export const OrderHistory = () => {
                 <Breadcrumbs breadcrumbs={breadcrumbs} />
                 <PageHeadingTwice>История заказов</PageHeadingTwice>
                 <div className="ordered-products">
-                    {orderHistory.map((arrayProducts) => (
-                        arrayProducts.map(product => (
-                            <OrderedProduct product={product} key={product.id} />
-                        ))
-                    ))}
-                    {orderHistory.map((arrayProducts) => (
-                        arrayProducts.map(product => (
-                            <OrderedProductSmall product={product} key={product.id} />
-                        ))
-                    ))}
+                    {orderHistory.map(product => (
+                        <OrderedProduct product={product} key={product.id} />
+                    ))
+                    }
+                    {orderHistory.map(product => (
+                        <OrderedProductSmall product={product} key={product.id} />
+                    ))
+                    }
                 </div>
             </div>
         </>
