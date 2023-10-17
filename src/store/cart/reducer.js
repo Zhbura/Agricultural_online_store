@@ -1,7 +1,8 @@
 import {
     ADD_PRODUCT, DELETE_PRODUCT, INCREASE_PRODUCT, DECREASE_PRODUCT,
     CHANGE_VALUE_PRODUCT,
-    CHANGE_DROPDOWN
+    CHANGE_DROPDOWN,
+    DELETE_ALL_PRODUCT
 } from "./action";
 
 const initialState = [];
@@ -57,7 +58,9 @@ export const cartReducer = (state = initialState, action) => {
         case DELETE_PRODUCT: {
             return state.filter(({ id }) => id !== action.payload);
         }
-
+        case DELETE_ALL_PRODUCT: {
+            state.splice(0, state.length);
+        }
         case INCREASE_PRODUCT: {
             return [
                 ...state.map((product) => {
