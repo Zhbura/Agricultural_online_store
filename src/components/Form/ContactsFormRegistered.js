@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from 'react';
 import { InputComment } from '../Inputs/InputComment';
 
-export const ContactsFormRegistered = () => {
+export const ContactsFormRegistered = ({ setMsg, msg }) => {
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
@@ -34,7 +34,7 @@ export const ContactsFormRegistered = () => {
                     <p className="input-data"> {email}</p>
                 </div>
                 <InputComment placeholder="Комментарий" type="text" value={comment} setFunc={setComment} />
-                <ButtonForm>Отправить</ButtonForm>
+                <ButtonForm setMsg={setMsg} msg={msg}>Отправить</ButtonForm>
             </form>
         </>
     )

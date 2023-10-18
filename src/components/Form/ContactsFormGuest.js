@@ -6,7 +6,7 @@ import { InputContacts } from "../Inputs/InputContacts";
 import { useState } from "react";
 import { InputComment } from "../Inputs/InputComment";
 
-export const ContactsFormGuest = () => {
+export const ContactsFormGuest = ({ setMsg, msg }) => {
 
     const dispatch = useDispatch();
 
@@ -15,6 +15,7 @@ export const ContactsFormGuest = () => {
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [comment, setComment] = useState('');
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -39,7 +40,7 @@ export const ContactsFormGuest = () => {
                     <InputContacts placeholder="E-mail" type="email" value={email} setFunc={setEmail} />
                 </div>
                 <InputComment placeholder="Комментарий" type="text" value={comment} setFunc={setComment} />
-                <ButtonForm>Отправить</ButtonForm>
+                <ButtonForm setMsg={setMsg} msg={msg}>Отправить</ButtonForm>
             </form>
         </>
     )

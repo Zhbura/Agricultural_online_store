@@ -174,3 +174,52 @@
         }
     }
 }
+
+.contacts-msg {
+    background: #ffffff;
+    border-radius: 20px;
+    margin: 30px 15px;
+    padding: 30px; 
+
+    @media (min-width: 768px) {
+        width: 540px;
+        margin: 30px auto;
+    }
+
+    &__heading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__wrap {
+        background: #84BE51;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        position: relative;
+    }
+
+    &__check-mark {
+        color: #ffffff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__heading-text {
+        margin-left: 15px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    &__text {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 20px;
+    }
+}

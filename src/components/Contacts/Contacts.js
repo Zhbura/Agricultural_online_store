@@ -8,6 +8,7 @@ import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { useState } from 'react';
 import { ContactsFormGuest } from '../Form/ContactsFormGuest';
 import { ContactsFormRegistered } from '../Form/ContactsFormRegistered';
+import { ContactsMsg } from './ContactsMsg';
 
 export const Contacts = ({ authed }) => {
     const breadcrumbs = [
@@ -18,6 +19,7 @@ export const Contacts = ({ authed }) => {
     ];
 
     const [formContacts, setFormContacts] = useState(true);
+    const [msg, setMsg] = useState(false)
 
     return (
         <>
@@ -113,7 +115,7 @@ export const Contacts = ({ authed }) => {
                         </div>
                     </div>
                     <PageHeadingTwice> Напишите нам</PageHeadingTwice>
-                    <div className="contacts__personal-data">
+                    {!msg && <div className="contacts__personal-data">
                         <p className="contacts__text contacts__text_bottom">
                             Введите ваши контактные данные и текст сообщения, если
                             у вас возникли вопросы или предложения, и мы в
@@ -125,9 +127,10 @@ export const Contacts = ({ authed }) => {
                             <button className="data-registration__btn" onClick={() => setFormContacts(true)}>Нет</button>
                         </div>
                         }
-                        {!formContacts && <ContactsFormRegistered />}
-                        {formContacts && <ContactsFormGuest />}
-                    </div>
+                        {!formContacts && <ContactsFormRegistered setMsg={setMsg} msg={msg} />}
+                        {formContacts && <ContactsFormGuest setMsg={setMsg} msg={msg} />}
+                    </div>}
+                    {msg && <ContactsMsg />}
                 </div>
             </div>
         </>
