@@ -1,7 +1,5 @@
 .brand-wrap {
     padding-top: 42px;
-    background-image: url(../../img/backgroundBrandWrap.png);
-    background-size: cover;
 
     .container {
         display: flex;
@@ -90,4 +88,9 @@
             }
         }
     }
+}
+
+.background-container {
+    background-image: url(../../img/backgroundBrandWrap.png);
+    background-size: cover;
 }

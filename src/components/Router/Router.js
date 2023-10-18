@@ -19,7 +19,7 @@ import { PersonalData } from "../PersonalData/PersonalData";
 import { OrderHistory } from "../OrderHistory/OrderHistory";
 import { ChangePassword } from "../ChangePassword/ChangePassword";
 import { Cabinet } from "../PersonalAccount/Cabinet";
-import { Layout } from "../Layout/Layout";
+import { LayoutTop } from "../Layout/LayoutTop";
 import { Error } from "../Error/Error";
 import { PrivacyPolicy } from "../PrivacyPolicy/PrivacyPolicy";
 import { Refund } from "../Refund/Refund";
@@ -34,6 +34,7 @@ import { PublicRoute } from "../PublicRoute/PublicRoute";
 import { PrivateRoute } from "../PrivateRoute/PrivateRoute";
 import { auth } from "../../services/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { LayoutBottom } from "../Layout/LayoutBottom";
 
 export const Router = () => {
     const [authed, setAuthed] = useState(false);
@@ -52,64 +53,66 @@ export const Router = () => {
     return (
         <>
             <Routes>
-                <Route path="/" element={<Layout authed={authed} />}>
+                <Route path="/" element={<LayoutTop authed={authed} />}>
                     <Route index element={<Main />} />
-                    <Route path="product" element={<Commodity />}>
-                        <Route path="petunia"
-                            element={<Product product={products[0][0]} />}
-                        />
-                        <Route path="skor"
-                            element={<Product product={products[0][1]} />}
-                        />
-                        <Route path="horys"
-                            element={<Product product={products[0][2]} />}
-                        />
-                        <Route path="agrikola"
-                            element={<Product product={products[0][3]} />}
-                        />
-                    </Route>
-                    <Route path="order" element={<Order authed={authed} />} />
-                    <Route path="thanks_order" element={<ThanksOrder />} />
-                    <Route path="aboutcompany" element={<AboutСompany />} />
-                    <Route path="teemcompany" element={<TeamCompany />} />
-                    <Route path="agreement" element={<Agreement />} />
-                    <Route path="pay" element={<Pay />} />
-                    <Route path="partners" element={<PartnersComp />} />
-                    <Route path="news" element={<News />} />
-                    <Route path="contacts" element={<Contacts authed={authed} />} />
-                    <Route path="authorization" element={<PublicRoute authed={authed} />}>
-                        <Route index element={<Authorization />} />
-                        <Route path="registration" element={<Registration />} />
-                    </Route>
-                    <Route path="catalog" element={<PlantProtection />} />
-                    <Route path="catalog_plant_protection"
-                        element={<Catalog title="Средства защиты растений" />}
-                    />
-                    <Route path="catalog_seeds" element={<Catalog title="Семена" />} />
-                    <Route path="catalog_fertilizers"
-                        element={<Catalog title="Удобрения" />}
-                    />
-                    <Route path="catalog_feed_group"
-                        element={<Catalog title="Кормовая группа" />}
-                    />
-                    <Route path="catalog_farmer_help"
-                        element={<Catalog title="Агроному в помощь" />}
-                    />
-                    <Route path="personal_account" element={<PrivateRoute authed={authed} />}>
-                        <Route path="" element={<PersonalAccount />}>
-                            <Route index element={<Cabinet />} />
-                            <Route path="current_orders" element={<CurrentOrders />} />
-                            <Route path="personal_data" element={<PersonalData />} />
-                            <Route path="order_history" element={<OrderHistory />} />
-                            <Route path="change_password" element={<ChangePassword />} />
+                    <Route path="/" element={<LayoutBottom />}>
+                        <Route path="product" element={<Commodity />}>
+                            <Route path="petunia"
+                                element={<Product product={products[0][0]} />}
+                            />
+                            <Route path="skor"
+                                element={<Product product={products[0][1]} />}
+                            />
+                            <Route path="horys"
+                                element={<Product product={products[0][2]} />}
+                            />
+                            <Route path="agrikola"
+                                element={<Product product={products[0][3]} />}
+                            />
                         </Route>
+                        <Route path="order" element={<Order authed={authed} />} />
+                        <Route path="thanks_order" element={<ThanksOrder />} />
+                        <Route path="aboutcompany" element={<AboutСompany />} />
+                        <Route path="teemcompany" element={<TeamCompany />} />
+                        <Route path="agreement" element={<Agreement />} />
+                        <Route path="pay" element={<Pay />} />
+                        <Route path="partners" element={<PartnersComp />} />
+                        <Route path="news" element={<News />} />
+                        <Route path="contacts" element={<Contacts authed={authed} />} />
+                        <Route path="authorization" element={<PublicRoute authed={authed} />}>
+                            <Route index element={<Authorization />} />
+                            <Route path="registration" element={<Registration />} />
+                        </Route>
+                        <Route path="catalog" element={<PlantProtection />} />
+                        <Route path="catalog_plant_protection"
+                            element={<Catalog title="Средства защиты растений" />}
+                        />
+                        <Route path="catalog_seeds" element={<Catalog title="Семена" />} />
+                        <Route path="catalog_fertilizers"
+                            element={<Catalog title="Удобрения" />}
+                        />
+                        <Route path="catalog_feed_group"
+                            element={<Catalog title="Кормовая группа" />}
+                        />
+                        <Route path="catalog_farmer_help"
+                            element={<Catalog title="Агроному в помощь" />}
+                        />
+                        <Route path="personal_account" element={<PrivateRoute authed={authed} />}>
+                            <Route path="" element={<PersonalAccount />}>
+                                <Route index element={<Cabinet />} />
+                                <Route path="current_orders" element={<CurrentOrders />} />
+                                <Route path="personal_data" element={<PersonalData />} />
+                                <Route path="order_history" element={<OrderHistory />} />
+                                <Route path="change_password" element={<ChangePassword />} />
+                            </Route>
+                        </Route>
+                        <Route path="privacypolicy" element={<PrivacyPolicy />} />
+                        <Route path="refund" element={<Refund />} />
+                        <Route path="codex" element={<Codex />} />
+                        <Route path="cart" element={<CartComp />} />
+                        <Route path="wish_list" element={<WishList />} />
+                        <Route path="*" element={<Error />} />
                     </Route>
-                    <Route path="privacypolicy" element={<PrivacyPolicy />} />
-                    <Route path="refund" element={<Refund />} />
-                    <Route path="codex" element={<Codex />} />
-                    <Route path="cart" element={<CartComp />} />
-                    <Route path="wish_list" element={<WishList />} />
-                    <Route path="*" element={<Error />} />
                 </Route>
             </Routes>
         </>
