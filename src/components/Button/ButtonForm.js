@@ -17,8 +17,9 @@ export const ButtonForm = (props) => {
 
     return (
         <>
-            <button className="btn-form"
+            <button className={props.formValid ? 'btn-form' : 'btn-form btn-form_disabled'}
                 onClick={() => showMsgTimer()}
+                disabled={!props.formValid}
             >{props.children}</button>
         </>
     )

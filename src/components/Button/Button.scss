@@ -34,6 +34,12 @@
     color: #FFFFFF;
     padding: 13px;
     border: none;
+    cursor: pointer;
+
+    &_disabled {
+        background: grey;
+        cursor: not-allowed;
+    }
 
     @media (min-width: 320px) and (max-width: 767px) {
         width: 290px;
