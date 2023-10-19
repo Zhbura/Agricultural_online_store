@@ -4,7 +4,7 @@ import { ButtonForm } from "../Button/ButtonForm";
 import { guestData } from '../../store/guest/action';
 import { selectUserRegistered } from '../../store/registration/selectors';
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { InputComment } from '../Inputs/InputComment';
 
 export const ContactsFormRegistered = ({ setMsg, msg }) => {
@@ -22,6 +22,30 @@ export const ContactsFormRegistered = ({ setMsg, msg }) => {
 
     const [comment, setComment] = useState('');
 
+    const [commentDirty, setCommentDirty] = useState(false);
+
+    const [commentError, setCommentError] = useState(`*Обязательное поле для ввода`);
+
+    const [formValid, setFormValid] = useState(false);
+
+    useEffect(() => {
+        if (commentError) {
+            setFormValid(false)
+        } else {
+            setFormValid(true)
+        }
+    }, [commentError])
+
+    const blurHandler = (e) => {
+        switch (e.target.title) {
+            case `comment`:
+                setCommentDirty(true)
+                break
+        }
+    }
+
+    const regExpComment = /[а-яё0-9a-z]/;
+
     return (
         <>
             <form className="contacts-form" onSubmit={handleSubmit}>
@@ -33,8 +57,21 @@ export const ContactsFormRegistered = ({ setMsg, msg }) => {
                     <p className="input-data"> {phone}</p>
                     <p className="input-data"> {email}</p>
                 </div>
-                <InputComment placeholder="Комментарий" type="text" value={comment} setFunc={setComment} />
-                <ButtonForm setMsg={setMsg} msg={msg}>Отправить</ButtonForm>
+                <div className="contacts-form__wrap-input">
+                    {(commentDirty && commentError) &&
+                        <p className="contacts-form__error-msg">{commentError}</p>}
+                    <InputComment
+                        placeholder="Комментарий"
+                        type="text"
+                        value={comment}
+                        setFunc={setComment}
+                        title='comment'
+                        funcBlur={blurHandler}
+                        regExp={regExpComment}
+                        setMsgErr={setCommentError}
+                    />
+                </div>
+                <ButtonForm setMsg={setMsg} msg={msg} formValid={formValid}>Отправить</ButtonForm>
             </form>
         </>
     )
