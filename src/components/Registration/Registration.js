@@ -2,13 +2,14 @@ import './Registration.scss';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ButtonForm } from '../Button/ButtonForm';
 import { signUp } from '../../services/firebase';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../store/registration/action';
 import { InputContacts } from '../Inputs/InputContacts';
 import { InputBig } from '../Inputs/InputBig';
+import { InputPassConfirm } from '../Inputs/InputPassConfirm';
 
 export const Registration = () => {
     const breadcrumbs = [
@@ -24,6 +25,7 @@ export const Registration = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passConfirm, setPassConfirm] = useState('');
+    const [checked, setChecked] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -50,6 +52,64 @@ export const Registration = () => {
         setPassConfirm('');
     }
 
+    // Для проверки валидности формы регистрации
+
+    const [nameError, setNameError] = useState(`*Обязательное поле для ввода`);
+    const [surnameError, setSurnameError] = useState(`*Обязательное поле для ввода`);
+    const [emailError, setEmailError] = useState(`*Обязательное поле для ввода`);
+    const [phoneError, setPhoneError] = useState(`*Обязательное поле для ввода`);
+    const [passwordError, setPasswordError] = useState(`*Обязательное поле для ввода`);
+    const [passConfirmError, setPassConfirmError] = useState(`*Обязательное поле для ввода`);
+
+    const [nameDirty, setNameDirty] = useState(false);
+    const [surnameDirty, setSurnameDirty] = useState(false);
+    const [emailDirty, setEmailDirty] = useState(false);
+    const [phoneDirty, setPhoneDirty] = useState(false);
+    const [passwordDirty, setPasswordDirty] = useState(false);
+    const [passConfirmDirty, setPassConfirmDirty] = useState(false);
+
+    const [formValid, setFormValid] = useState(false);
+
+    const [passСomparison, setPassComparison] = useState(false);
+
+    // Форма не будет также валидна пока пароль и подтверждение пароля не будут совпадать !passСomparison
+    // checked Для согласия обработки данных
+    useEffect(() => {
+        if (nameError || surnameError || emailError || phoneError || passwordError || passConfirmError || !passСomparison || !checked) {
+            setFormValid(false)
+        } else {
+            setFormValid(true)
+        }
+    }, [nameError, surnameError, emailError, phoneError, passwordError, passConfirmError, passСomparison, checked])
+
+    const blurHandler = (e) => {
+        switch (e.target.title) {
+            case `name`:
+                setNameDirty(true)
+                break
+            case `surname`:
+                setSurnameDirty(true)
+                break
+            case `email`:
+                setEmailDirty(true)
+                break
+            case `phone`:
+                setPhoneDirty(true)
+                break
+            case `password`:
+                setPasswordDirty(true)
+                break
+            case `passConfirm`:
+                setPassConfirmDirty(true)
+                break
+        }
+    }
+
+    const regExpName = /^[А-Я][а-яё]*$/;
+    const regExpEmail = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/;
+    const regExpPhone = /^[\d\+][\d\(\)\ -]{4,14}\d$/;
+    const regExpPassword = /[0-9a-zA-Z!@#$%^&*]{8,}$/;
+
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -64,23 +124,109 @@ export const Registration = () => {
                 <div className="registration__data">
                     <form className="contacts-form" onSubmit={handleSubmit}>
                         <div className="contacts-form__wrap-data">
-                            <InputContacts placeholder="Имя" type="text" value={name} setFunc={setName} />
-                            <InputContacts placeholder="Фамилия" type="text" value={surname} setFunc={setSurname} />
+                            <div className="contacts-form__wrap-input">
+                                {(nameDirty && nameError) &&
+                                    <p className="contacts-form__error-msg">{nameError}</p>}
+                                <InputContacts
+                                    placeholder="Имя"
+                                    type="text"
+                                    value={name}
+                                    setFunc={setName}
+                                    title='name'
+                                    funcBlur={blurHandler}
+                                    regExp={regExpName}
+                                    setMsgErr={setNameError}
+                                />
+                            </div>
+                            <div className="contacts-form__wrap-input">
+                                {(surnameDirty && surnameError) &&
+                                    <p className="contacts-form__error-msg">{surnameError}</p>}
+                                <InputContacts
+                                    placeholder="Фамилия"
+                                    type="text"
+                                    value={surname}
+                                    setFunc={setSurname}
+                                    title='surname'
+                                    funcBlur={blurHandler}
+                                    regExp={regExpName}
+                                    setMsgErr={setSurnameError}
+                                />
+                            </div>
                         </div>
                         <div className="contacts-form__wrap-data">
-                            <InputContacts placeholder="Телефон" type="text" value={phone} setFunc={setPhone} />
-                            <InputContacts placeholder="E-mail" type="email" value={email} setFunc={setEmail} />
+                            <div className="contacts-form__wrap-input">
+                                {(phoneDirty && phoneError) &&
+                                    <p className="contacts-form__error-msg">{phoneError}</p>}
+                                <InputContacts
+                                    placeholder="Телефон"
+                                    type="text"
+                                    value={phone}
+                                    setFunc={setPhone}
+                                    title='phone'
+                                    funcBlur={blurHandler}
+                                    regExp={regExpPhone}
+                                    setMsgErr={setPhoneError}
+                                />
+                            </div>
+                            <div className="contacts-form__wrap-input">
+                                {(emailDirty && emailError) &&
+                                    <p className="contacts-form__error-msg">{emailError}</p>}
+                                <InputContacts
+                                    placeholder="E-mail"
+                                    type="email"
+                                    value={email}
+                                    setFunc={setEmail}
+                                    title='email'
+                                    funcBlur={blurHandler}
+                                    regExp={regExpEmail}
+                                    setMsgErr={setEmailError}
+                                />
+                            </div>
                         </div>
                         <div className="registration__wrap-inputs">
-                            <InputBig placeholder="Пароль" type="password" value={password} setFunc={setPassword} />
-                            <InputBig placeholder="Подтвердите пароль" type="password" value={passConfirm} setFunc={setPassConfirm} />
+                            <div className="contacts-form__wrap-input contacts-form__wrap-input_margin">
+                                {(passwordDirty && passwordError) &&
+                                    <p className="contacts-form__error-msg">{passwordError}</p>}
+                                <InputBig
+                                    placeholder="Пароль"
+                                    type="password"
+                                    value={password}
+                                    setFunc={setPassword}
+                                    title='password'
+                                    funcBlur={blurHandler}
+                                    regExp={regExpPassword}
+                                    setMsgErr={setPasswordError}
+                                    passwordDirty={passwordDirty}
+                                    passConfirmDirty={passConfirmDirty}
+                                    setPassComparison={setPassComparison}
+                                    passConfirm={passConfirm}
+                                />
+                            </div>
+                            <div className="contacts-form__wrap-input">
+                                {(passConfirmDirty && passConfirmError) &&
+                                    <p className="contacts-form__error-msg">{passConfirmError}</p>}
+                                <InputPassConfirm
+                                    value={passConfirm}
+                                    setFunc={setPassConfirm}
+                                    passСomparison={passСomparison}
+                                    setPassComparison={setPassComparison}
+                                    password={password}
+                                    title='passConfirm'
+                                    funcBlur={blurHandler}
+                                    regExp={regExpPassword}
+                                    setMsgErr={setPassConfirmError}
+                                />
+                            </div>
+
                         </div>
                         <label className="registration__data-protection">я согласен на обработку и защиту
                             <span className="registration__data-protection_span"> персональных данных</span>
-                            <input type="checkbox" name="radio" />
+                            <input type="checkbox" name="radio" checked={checked}
+                                onChange={() => setChecked(!checked)}
+                            />
                             <span className="registration__data-protection_checkmark"></span>
                         </label>
-                        <ButtonForm>Зарегистрироваться</ButtonForm>
+                        <ButtonForm formValid={formValid}>Зарегистрироваться</ButtonForm>
                         {error && <span className="err-msg">{error}</span>}
                     </form>
                     <p className="registration__text">

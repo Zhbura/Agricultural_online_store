@@ -37,6 +37,10 @@
         display: flex;
         flex-direction: column;
         position: relative;
+
+        &_margin {
+            margin-bottom: 30px;
+        }
     }
 
     &__error-msg {
