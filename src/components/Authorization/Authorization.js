@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import './Authorization.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ButtonForm } from '../Button/ButtonForm';
 import { login } from '../../services/firebase';
 import { InputBig } from '../Inputs/InputBig';
@@ -11,6 +11,38 @@ export const Authorization = () => {
     const [pass, setPass] = useState('');
     const [error, setError] = useState("");
 
+    // Для проверки валидности формы
+    const [emailError, setEmailError] = useState(`*Обязательное поле для ввода`);
+    const [passwordError, setPasswordError] = useState(`*Обязательное поле для ввода`);
+
+    const [emailDirty, setEmailDirty] = useState(false);
+    const [passwordDirty, setPasswordDirty] = useState(false);
+
+    const [formValid, setFormValid] = useState(false);
+
+    useEffect(() => {
+        if (emailError || passwordError) {
+            setFormValid(false)
+        } else {
+            setFormValid(true)
+        }
+    }, [emailError, passwordError])
+
+    const blurHandler = (e) => {
+        switch (e.target.title) {
+            case `email`:
+                setEmailDirty(true)
+                break
+            case `password`:
+                setPasswordDirty(true)
+                break
+        }
+    }
+
+    const regExpEmail = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/;
+    const regExpPassword = /[0-9a-zA-Z!@#$%^&*]{8,}$/;
+
+    // Для аутентификации через firebase
     const handleSignIn = async () => {
         try {
             await login(email, pass);
@@ -39,9 +71,34 @@ export const Authorization = () => {
                     только для оформления заказов и более удобной работы с сайтом.
                 </p>
                 <form onSubmit={handleSubmit}>
-                    <InputBig placeholder="Логин" type="email" value={email} setFunc={setEmail} />
-                    <InputBig placeholder="Пароль" type="password" value={pass} setFunc={setPass} />
-                    <ButtonForm>  Войти </ButtonForm>
+                    <div className="authorization__input-wrap authorization__input-wrap_margin">
+                        {(emailDirty && emailError) &&
+                            <p className="authorization__error-msg">{emailError}</p>}
+                        <InputBig
+                            placeholder="Логин"
+                            type="email"
+                            value={email}
+                            setFunc={setEmail}
+                            title='email'
+                            funcBlur={blurHandler}
+                            regExp={regExpEmail}
+                            setMsgErr={setEmailError} />
+                    </div>
+                    <div className="authorization__input-wrap">
+                        {(passwordDirty && passwordError) &&
+                            <p className="authorization__error-msg">{passwordError}</p>}
+                        <InputBig
+                            placeholder="Пароль"
+                            type="password"
+                            value={pass}
+                            setFunc={setPass}
+                            title='password'
+                            funcBlur={blurHandler}
+                            regExp={regExpPassword}
+                            setMsgErr={setPasswordError}
+                        />
+                    </div>
+                    <ButtonForm formValid={formValid}>  Войти </ButtonForm>
                     {error && <span className="err-msg">{error}</span>}
                 </form>
                 <p className="authorization__text">
