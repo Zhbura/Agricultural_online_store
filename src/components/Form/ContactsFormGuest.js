@@ -1,10 +1,10 @@
-import { ButtonForm } from "../Button/ButtonForm";
 import { guestData } from '../../store/guest/action';
 import './Form.scss';
 import { useDispatch } from "react-redux";
 import { InputContacts } from "../Inputs/InputContacts";
 import { useEffect, useState } from "react";
 import { InputComment } from "../Inputs/InputComment";
+import { ButtonContacts } from "../Button/ButtonContacts";
 
 export const ContactsFormGuest = ({ setMsg, msg }) => {
 
@@ -76,7 +76,7 @@ export const ContactsFormGuest = ({ setMsg, msg }) => {
     const regExpEmail = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/;
     const regExpPhone = /^[\d\+][\d\(\)\ -]{4,14}\d$/;
     const regExpComment = /[а-яё0-9a-z]/;
-    
+
     return (
         <>
             <form className="contacts-form" onSubmit={handleSubmit}>
@@ -127,7 +127,8 @@ export const ContactsFormGuest = ({ setMsg, msg }) => {
                     </div>
                     <div className="contacts-form__wrap-input">
                         {(emailDirty && emailError) &&
-                            <p className="contacts-form__error-msg">{emailError}</p>}
+                            <p
+                                className="contacts-form__error-msg">{emailError}</p>}
                         <InputContacts
                             placeholder="E-mail"
                             type="email"
@@ -154,7 +155,7 @@ export const ContactsFormGuest = ({ setMsg, msg }) => {
                         setMsgErr={setCommentError}
                     />
                 </div>
-                <ButtonForm setMsg={setMsg} msg={msg} formValid={formValid} >Отправить</ButtonForm>
+                <ButtonContacts setMsg={setMsg} msg={msg} formValid={formValid}>Отправить</ButtonContacts>
             </form>
         </>
     )

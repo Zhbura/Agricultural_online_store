@@ -1,11 +1,11 @@
 
 import './Form.scss';
-import { ButtonForm } from "../Button/ButtonForm";
 import { guestData } from '../../store/guest/action';
 import { selectUserRegistered } from '../../store/registration/selectors';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import { InputComment } from '../Inputs/InputComment';
+import { ButtonContacts } from '../Button/ButtonContacts';
 
 export const ContactsFormRegistered = ({ setMsg, msg }) => {
     const dispatch = useDispatch();
@@ -71,7 +71,7 @@ export const ContactsFormRegistered = ({ setMsg, msg }) => {
                         setMsgErr={setCommentError}
                     />
                 </div>
-                <ButtonForm setMsg={setMsg} msg={msg} formValid={formValid}>Отправить</ButtonForm>
+                <ButtonContacts setMsg={setMsg} msg={msg} formValid={formValid}>Отправить</ButtonContacts>
             </form>
         </>
     )
