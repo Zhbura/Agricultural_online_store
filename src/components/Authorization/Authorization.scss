@@ -38,23 +38,6 @@
             margin-right: auto;
         }
     }
-
-    &__input-wrap {
-        position: relative;
-
-        &_margin {
-            margin: 20px 0;
-        }
-    }
-
-    &__error-msg {
-        position: absolute;
-        top: -15px;
-        left: 10px;
-        color: red;
-        font-size: 12px;
-        line-height: 14px;
-    }
 }
 
 .authorization .btn-form {
@@ -74,7 +57,3 @@
     text-align: center;
     color: #f70404;
 }
-
-// .authorization .input-big:first-child {
-//     margin-bottom: 20px;
-// }

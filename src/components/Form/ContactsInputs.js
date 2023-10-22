@@ -58,9 +58,9 @@ export const ContactsInputs = ({ email, name, surname, phone, comment,
     return (
         <>
             <div className="contacts-form__wrap-data contacts-form__wrap-data_margin">
-                <div className="contacts-form__wrap-input">
+                <div className="wrap-input">
                     {(nameDirty && nameError) &&
-                        <p className="contacts-form__error-msg">{nameError}</p>}
+                        <p className="wrap-input__error-msg">{nameError}</p>}
                     <InputContacts
                         placeholder="Имя"
                         type="text"
@@ -72,9 +72,9 @@ export const ContactsInputs = ({ email, name, surname, phone, comment,
                         setMsgErr={setNameError}
                     />
                 </div>
-                <div className="contacts-form__wrap-input">
+                <div className="wrap-input">
                     {(surnameDirty && surnameError) &&
-                        <p className="contacts-form__error-msg">{surnameError}</p>}
+                        <p className="wrap-input__error-msg">{surnameError}</p>}
                     <InputContacts
                         placeholder="Фамилия"
                         type="text"
@@ -88,9 +88,9 @@ export const ContactsInputs = ({ email, name, surname, phone, comment,
                 </div>
             </div>
             <div className="contacts-form__wrap-data">
-                <div className="contacts-form__wrap-input">
+                <div className="wrap-input">
                     {(phoneDirty && phoneError) &&
-                        <p className="contacts-form__error-msg">{phoneError}</p>}
+                        <p className="wrap-input__error-msg">{phoneError}</p>}
                     <InputContacts
                         placeholder="Телефон"
                         type="text"
@@ -102,10 +102,9 @@ export const ContactsInputs = ({ email, name, surname, phone, comment,
                         setMsgErr={setPhoneError}
                     />
                 </div>
-                <div className="contacts-form__wrap-input">
+                <div className="wrap-input">
                     {(emailDirty && emailError) &&
-                        <p
-                            className="contacts-form__error-msg">{emailError}</p>}
+                        <p className="wrap-input__error-msg">{emailError}</p>}
                     <InputContacts
                         placeholder="E-mail"
                         type="email"
@@ -118,9 +117,9 @@ export const ContactsInputs = ({ email, name, surname, phone, comment,
                     />
                 </div>
             </div>
-            <div className="contacts-form__wrap-input">
+            <div className="wrap-input">
                 {(commentDirty && commentError) &&
-                    <p className="contacts-form__error-msg">{commentError}</p>}
+                    <p className="wrap-input__error-msg">{commentError}</p>}
                 <InputComment
                     placeholder="Комментарий"
                     type="text"

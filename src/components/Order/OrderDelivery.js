@@ -59,9 +59,9 @@ export const OrderDelivery = ({ setDeliveryValid }) => {
                         setSelected={setDepartment}
                         initialValue="Отделение"
                     />
-                    <div className="contacts-form__wrap-input">
+                    <div className="wrap-input">
                         {(postcodeDirty && postcodeError) &&
-                            <p className="contacts-form__error-msg">{postcodeError}</p>}
+                            <p className="wrap-input__error-msg">{postcodeError}</p>}
                         <InputContacts
                             placeholder="Почтовый индекс"
                             type="text"

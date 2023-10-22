@@ -71,9 +71,9 @@ export const Authorization = () => {
                     только для оформления заказов и более удобной работы с сайтом.
                 </p>
                 <form onSubmit={handleSubmit}>
-                    <div className="authorization__input-wrap authorization__input-wrap_margin">
+                    <div className="wrap-input wrap-input_margin">
                         {(emailDirty && emailError) &&
-                            <p className="authorization__error-msg">{emailError}</p>}
+                            <p className="wrap-input__error-msg">{emailError}</p>}
                         <InputBig
                             placeholder="Логин"
                             type="email"
@@ -84,9 +84,9 @@ export const Authorization = () => {
                             regExp={regExpEmail}
                             setMsgErr={setEmailError} />
                     </div>
-                    <div className="authorization__input-wrap">
+                    <div className="wrap-input">
                         {(passwordDirty && passwordError) &&
-                            <p className="authorization__error-msg">{passwordError}</p>}
+                            <p className="wrap-input__error-msg">{passwordError}</p>}
                         <InputBig
                             placeholder="Пароль"
                             type="password"

@@ -57,9 +57,9 @@ export const ContactsFormRegistered = ({ setMsg, msg }) => {
                     <p className="input-data"> {phone}</p>
                     <p className="input-data"> {email}</p>
                 </div>
-                <div className="contacts-form__wrap-input">
+                <div className="wrap-input">
                     {(commentDirty && commentError) &&
-                        <p className="contacts-form__error-msg">{commentError}</p>}
+                        <p className="wrap-input__error-msg">{commentError}</p>}
                     <InputComment
                         placeholder="Комментарий"
                         type="text"

@@ -124,9 +124,9 @@ export const Registration = () => {
                 <div className="registration__data">
                     <form className="contacts-form" onSubmit={handleSubmit}>
                         <div className="contacts-form__wrap-data">
-                            <div className="contacts-form__wrap-input">
+                            <div className="wrap-input">
                                 {(nameDirty && nameError) &&
-                                    <p className="contacts-form__error-msg">{nameError}</p>}
+                                    <p className="wrap-input__error-msg">{nameError}</p>}
                                 <InputContacts
                                     placeholder="Имя"
                                     type="text"
@@ -138,9 +138,9 @@ export const Registration = () => {
                                     setMsgErr={setNameError}
                                 />
                             </div>
-                            <div className="contacts-form__wrap-input">
+                            <div className="wrap-input">
                                 {(surnameDirty && surnameError) &&
-                                    <p className="contacts-form__error-msg">{surnameError}</p>}
+                                    <p className="wrap-input__error-msg">{surnameError}</p>}
                                 <InputContacts
                                     placeholder="Фамилия"
                                     type="text"
@@ -154,9 +154,9 @@ export const Registration = () => {
                             </div>
                         </div>
                         <div className="contacts-form__wrap-data">
-                            <div className="contacts-form__wrap-input">
+                            <div className="wrap-input">
                                 {(phoneDirty && phoneError) &&
-                                    <p className="contacts-form__error-msg">{phoneError}</p>}
+                                    <p className="wrap-input__error-msg">{phoneError}</p>}
                                 <InputContacts
                                     placeholder="Телефон"
                                     type="text"
@@ -168,9 +168,9 @@ export const Registration = () => {
                                     setMsgErr={setPhoneError}
                                 />
                             </div>
-                            <div className="contacts-form__wrap-input">
+                            <div className="wrap-input">
                                 {(emailDirty && emailError) &&
-                                    <p className="contacts-form__error-msg">{emailError}</p>}
+                                    <p className="wrap-input__error-msg">{emailError}</p>}
                                 <InputContacts
                                     placeholder="E-mail"
                                     type="email"
@@ -184,9 +184,9 @@ export const Registration = () => {
                             </div>
                         </div>
                         <div className="registration__wrap-inputs">
-                            <div className="contacts-form__wrap-input contacts-form__wrap-input_margin">
+                            <div className="wrap-input wrap-input_margin">
                                 {(passwordDirty && passwordError) &&
-                                    <p className="contacts-form__error-msg">{passwordError}</p>}
+                                    <p className="wrap-input__error-msg">{passwordError}</p>}
                                 <InputBig
                                     placeholder="Пароль"
                                     type="password"
@@ -202,9 +202,9 @@ export const Registration = () => {
                                     passConfirm={passConfirm}
                                 />
                             </div>
-                            <div className="contacts-form__wrap-input">
+                            <div className="wrap-input">
                                 {(passConfirmDirty && passConfirmError) &&
-                                    <p className="contacts-form__error-msg">{passConfirmError}</p>}
+                                    <p className="wrap-input__error-msg">{passConfirmError}</p>}
                                 <InputPassConfirm
                                     value={passConfirm}
                                     setFunc={setPassConfirm}
@@ -217,7 +217,6 @@ export const Registration = () => {
                                     setMsgErr={setPassConfirmError}
                                 />
                             </div>
-
                         </div>
                         <label className="registration__data-protection">я согласен на обработку и защиту
                             <span className="registration__data-protection_span"> персональных данных</span>
