@@ -47,3 +47,24 @@
         margin-right: auto;
     }
 }
+
+.btn-order {
+    width: 480px;
+    height: 47px;
+    background: #E74E13;
+    border-radius: 90px;
+    text-align: center;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        width: 250px;
+        margin: 20px auto 0 auto;
+    }
+
+    &_disabled {
+        background: grey;
+        cursor: not-allowed;
+    }
+}

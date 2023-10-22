@@ -3,15 +3,14 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { useDispatch, useSelector } from 'react-redux';
 import { orderUserData } from '../../store/order/action';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { OrderFormRegistered } from '../Form/OrderFormRegistered';
 import { selectUserRegistered } from '../../store/registration/selectors';
-import { InputComment } from '../Inputs/InputComment';
 import { ButtonOrder } from '../Button/ButtonOrder';
 import { OrderCart } from './OrderCart';
 import { OrderPayment } from './OrderPayment';
 import { OrderDelivery } from './OrderDelivery';
-import { OrderFormGuest } from '../Form/OrderFormGuest';
+import { ContactsInputs } from '../Form/ContactsInputs';
 
 export const Order = ({ authed }) => {
     const breadcrumbs = [
@@ -34,23 +33,37 @@ export const Order = ({ authed }) => {
     const [orderPhone, setPhone] = useState('');
     const [orderEmail, setEmail] = useState('');
     const [orderComment, setComment] = useState('');
-    const [postcode, setPostcode] = useState('');
-    const [region, setRegion] = useState('');
-    const [city, setCity] = useState('');
-    const [department, setDepartment] = useState('');
 
-    const { name, surname, phone, email } = useSelector(selectUserRegistered);
+    // Для валидности всей формы заказа (3-х её частей)
+    const [inputContactValid, setInputContactValid] = useState(false);
+    const [deliveryValid, setDeliveryValid] = useState(false);
+    const [paymentCheckedValid, setPaymentCheckedValid] = useState(false);
+
+    const [formValidOrder, setFormValidOrder] = useState(false);
+
+    const [formValid, setFormValid] = useState(false);
+
+    useEffect(() => {
+        if (inputContactValid && deliveryValid && paymentCheckedValid) {
+            setFormValidOrder(true)
+        } else {
+            setFormValidOrder(false)
+        }
+    }, [deliveryValid, inputContactValid, paymentCheckedValid])
+
+    // Для получения данных пользователя при регистрации
+    const user = useSelector(selectUserRegistered);
 
     const handleOrderDataReg = () => {
 
-        dispatch(orderUserData(email, name, surname, phone, orderComment,
-            postcode, region, city, department))
+        dispatch(orderUserData(user.email, user.name, user.surname, user.phone, orderComment,
+            user.postcode, user.region, user.city, user.department))
     }
 
     const handleOrderDataGuest = () => {
 
         dispatch(orderUserData(orderEmail, orderName, orderSurname, orderPhone,
-            orderComment, postcode, region, city, department))
+            orderComment, user.postcode, user.region, user.city, user.department))
     }
 
     return (
@@ -64,35 +77,42 @@ export const Order = ({ authed }) => {
                             <h4 className="order__heading">Ваши контакты</h4>
                             {authed && <div className="data-registration">
                                 <p> Взять данные из личного кабинета?</p>
-                                <button className="data-registration__btn" onClick={() => setFormOrder(false)}>Да</button>
-                                <button className="data-registration__btn" onClick={() => setFormOrder(true)}>Нет</button>
-                            </div>
-                            }
+                                <button className="data-registration__btn"
+                                    onClick={() => setFormOrder(false)}>
+                                    Да
+                                </button>
+                                <button className="data-registration__btn"
+                                    onClick={() => setFormOrder(true)}>
+                                    Нет
+                                </button>
+                            </div>}
                             <div className="contacts-form">
-                                {formOrder && <OrderFormGuest
-                                    orderName={orderName} setName={setName}
-                                    orderSurname={orderSurname} setSurname={setSurname}
-                                    orderPhone={orderPhone} setPhone={setPhone}
-                                    orderEmail={orderEmail} setEmail={setEmail}
+                                {formOrder && <ContactsInputs
+                                    email={orderEmail} setEmail={setEmail}
+                                    name={orderName} setName={setName}
+                                    surname={orderSurname} setSurname={setSurname}
+                                    phone={orderPhone} setPhone={setPhone}
+                                    comment={orderComment} setComment={setComment}
+                                    setFormValid={setFormValid}
+                                    setInputContactValid={setInputContactValid}
                                 />}
                                 {!formOrder && <OrderFormRegistered />}
-                                <InputComment placeholder="Комментарий" type="text" value={orderComment} setFunc={setComment} />
                             </div>
                         </div>
                         <span className="order__separator-horizontal" />
                         <OrderDelivery
-                            region={region} setRegion={setRegion}
-                            city={city} setCity={setCity}
-                            department={department} setDepartment={setDepartment}
-                            postcode={postcode} setPostcode={setPostcode}
+                            setDeliveryValid={setDeliveryValid}
                         />
                         <span className="order__separator-horizontal" />
-                        <OrderPayment />
+                        <OrderPayment
+                            paymentCheckedValid={paymentCheckedValid}
+                            setPaymentCheckedValid={setPaymentCheckedValid}
+                        />
                     </div>
                     <div className="order__product">
                         <OrderCart />
-                        {formOrder && <ButtonOrder sendOrderData={handleOrderDataGuest} />}
-                        {!formOrder && <ButtonOrder sendOrderData={handleOrderDataReg} />}
+                        {formOrder && <ButtonOrder sendOrderData={handleOrderDataGuest} formValid={formValidOrder} />}
+                        {!formOrder && <ButtonOrder sendOrderData={handleOrderDataReg} formValid={formValidOrder} />}
                     </div>
                 </div>
             </div>

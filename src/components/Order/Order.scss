@@ -85,20 +85,6 @@
         }
     }
 
-    &__confirm {
-        width: 480px;
-        height: 47px;
-        background: #E74E13;
-        border-radius: 90px;
-        text-align: center;
-        margin-top: 20px;
-
-        @media (min-width: 320px) and (max-width: 767px) {
-            width: 250px;
-            margin: 20px auto 0 auto;
-        }
-    }
-
     &__link {
         text-decoration: none;
         height: 100%;
