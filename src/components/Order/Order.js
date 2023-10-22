@@ -96,7 +96,8 @@ export const Order = ({ authed }) => {
                                     setFormValid={setFormValid}
                                     setInputContactValid={setInputContactValid}
                                 />}
-                                {!formOrder && <OrderFormRegistered />}
+                                {!formOrder &&
+                                    <OrderFormRegistered setInputContactValid={setInputContactValid} />}
                             </div>
                         </div>
                         <span className="order__separator-horizontal" />

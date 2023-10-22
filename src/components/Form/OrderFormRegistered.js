@@ -1,21 +1,25 @@
 import './Form.scss';
 import { useSelector } from "react-redux";
 import { selectUserRegistered } from "../../store/registration/selectors";
+import { ContactsInputsReg } from './ContactsInputsReg';
+import { useState } from 'react';
 
-export const OrderFormRegistered = () => {
+export const OrderFormRegistered = ({ setInputContactValid }) => {
 
     const { name, surname, phone, email } = useSelector(selectUserRegistered);
+    const [comment, setComment] = useState('');
 
     return (
         <>
-            <div className="contacts-form__wrap-data">
-                <p className="input-data" >{name} </p>
-                <p className="input-data"> {surname}</p>
-            </div>
-            <div className="contacts-form__wrap-data">
-                <p className="input-data"> {phone}</p>
-                <p className="input-data"> {email}</p>
-            </div>
+            <ContactsInputsReg
+                email={email}
+                name={name}
+                surname={surname}
+                phone={phone}
+                comment={comment}
+                setComment={setComment}
+                setFormValid={setInputContactValid}
+            />
         </>
     )
 }

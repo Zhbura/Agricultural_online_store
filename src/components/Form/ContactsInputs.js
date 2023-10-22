@@ -1,5 +1,5 @@
-import { InputComment } from "../Inputs/InputComment"
-import { InputContacts } from "../Inputs/InputContacts"
+import { InputComment } from "../Inputs/InputComment";
+import { InputContacts } from "../Inputs/InputContacts";
 import { useEffect, useState } from "react";
 
 export const ContactsInputs = ({ email, name, surname, phone, comment,
