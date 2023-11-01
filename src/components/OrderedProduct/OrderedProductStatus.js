@@ -14,7 +14,7 @@ export const StatusAway = () => {
     )
 }
 
-export const StatusCompeted = () => {
+export const StatusCompleted = () => {
     return (
         <>
             <p className="ordered-product__status ordered-product__status_completed">Завершен</p>

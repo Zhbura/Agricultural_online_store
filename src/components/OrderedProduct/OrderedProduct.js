@@ -1,21 +1,9 @@
-import { useEffect, useState } from 'react';
 import './OrderedProduct.scss';
-import { StatusAway, StatusCompeted, StatusPaid } from './OrderedProductStatus';
-import { useSelector } from 'react-redux';
-import { selectDateHistory } from '../../store/historyOrder/selectors';
+import { StatusAway, StatusCompleted, StatusPaid } from './OrderedProductStatus';
 
 export const OrderedProduct = ({ product }) => {
-    const { name, img, count, totalPrice } = product;
-    const [statusArr] = useState([<StatusPaid />, <StatusCompeted />, <StatusAway />]);
-    const [status, setStatus] = useState()
+    const { name, img, count, totalPrice, status, date } = product;
 
-    const dateOrder = useSelector(selectDateHistory);
-
-    useEffect(() => {
-        const random = Math.floor(Math.random() * statusArr.length)
-        setStatus(statusArr[random])
-    },
-        [])
     return (
         <>
             <div className="ordered-product">
@@ -26,8 +14,10 @@ export const OrderedProduct = ({ product }) => {
                     <h3 className="ordered-product__title">{name}</h3>
                     <div className="ordered-product__data">
                         <p className="ordered-product__quantity">Количество x{count}</p>
-                        <p className="ordered-product__date">{dateOrder}</p>
-                        {status}
+                        <p className="ordered-product__date">{date}</p>
+                        {(status === "Оплачен") && <StatusPaid />}
+                        {(status === "В дороге") && <StatusAway />}
+                        {(status === "Завершен") && <StatusCompleted />}
                     </div>
                 </div>
                 <p className="ordered-product__price">{totalPrice} руб</p>
@@ -38,18 +28,8 @@ export const OrderedProduct = ({ product }) => {
 }
 
 export const OrderedProductSmall = ({ product }) => {
-    const { name, img, count, totalPrice } = product;
+    const { name, img, count, totalPrice, status, date } = product;
 
-    const [statusArr] = useState([<StatusPaid />, <StatusCompeted />, <StatusAway />]);
-    const [status, setStatus] = useState()
-
-    const dateOrder = useSelector(selectDateHistory);
-
-    useEffect(() => {
-        const random = Math.floor(Math.random() * statusArr.length)
-        setStatus(statusArr[random])
-    },
-        [])
     return (
         <>
             <div className="ordered-product_small">
@@ -67,8 +47,10 @@ export const OrderedProductSmall = ({ product }) => {
                     </div>
                 </div>
                 <div className="ordered-product__data">
-                    <p className="ordered-product__date">{dateOrder}</p>
-                    {status}
+                    <p className="ordered-product__date">{date}</p>
+                    {(status === "Оплачен") && <StatusPaid />}
+                    {(status === "В дороге") && <StatusAway />}
+                    {(status === "Завершен") && <StatusCompleted />}
                 </div>
             </div>
             <span className="ordered-product__horisontal-line ordered-product__horisontal-line_small" />

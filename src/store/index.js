@@ -1,4 +1,4 @@
-import { createStore, compose, combineReducers } from 'redux';
+import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import { catalogReducer } from './catalog/reducer';
 import { menuReducer } from './menu/reducer';
 import { cartReducer } from './cart/reducer';
@@ -9,6 +9,7 @@ import { orderReducer } from './order/reducer';
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { historyOrderReducer } from './historyOrder/reducer';
+import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
     catalog: catalogReducer,
@@ -18,7 +19,7 @@ const rootReducer = combineReducers({
     registration: registrationReducer,
     guest: guestReducer,
     order: orderReducer,
-    historyOrder: historyOrderReducer
+    historyOrder: historyOrderReducer,
 });
 
 const persistConfig = {
@@ -30,6 +31,8 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export const store = createStore(persistedReducer, composeEnhancers());
+export const store = createStore(
+    persistedReducer,
+    composeEnhancers(applyMiddleware(thunk)));
 
 export const persistor = persistStore(store);

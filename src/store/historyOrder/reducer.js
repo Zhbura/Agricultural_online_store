@@ -1,9 +1,6 @@
-import { ORDER_PRODUCT } from "./action";
+import { ORDER_PRODUCT, STATUS_ORDER_PRODUCT } from "./action";
 
-const initialState = {
-    products: [],
-    date: '',
-};
+const initialState = [];
 
 const addLeadingZero = (d) => {
     return (d < 10) ? '0' + d : d;
@@ -16,12 +13,36 @@ export const historyOrderReducer = (state = initialState, action) => {
             let year = objDate.getFullYear();
             let month = addLeadingZero(objDate.getMonth() + 1);
             let day = addLeadingZero(objDate.getDate());
-            
-            return {
-                ...state,
-                products: [...state.products, ...action.payload.products],
-                date: `${day}.${month}.${year}`
-            }
+
+            const date = `${day}.${month}.${year}`;
+
+            const products = action.payload.products.map((product) => {
+                return {
+                    ...product,
+                    date: date,
+                }
+            })
+
+            return [...state, ...products]
+
+        }
+
+        case STATUS_ORDER_PRODUCT: {
+
+            const products = state.map((product) => {
+                if (product.batch === action.payload.idBatchProducts) {
+                    return {
+                        ...product,
+                        status: action.payload.status,
+                    }
+                } else {
+                    return {
+                        ...product
+                    }
+                }
+            })
+
+            return [...products]
         }
 
         default:

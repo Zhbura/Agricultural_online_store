@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom"
-import { historyOrder } from "../../store/historyOrder/action";
+import { addHistoryOrderWithThunk } from "../../store/historyOrder/action";
 import { selectCart } from "../../store/cart/selectors";
-import { deleteAllProductCart } from "../../store/cart/action";
 
 export const ButtonOrder = ({ sendOrderData, formValid }) => {
     const dispatch = useDispatch();
@@ -14,8 +13,7 @@ export const ButtonOrder = ({ sendOrderData, formValid }) => {
         <>
             <button className={formValid ? "btn-order" : "btn-order btn-order_disabled"} onClick={() => {
                 sendOrderData()
-                dispatch(historyOrder(cartProducts, dateOrder))
-                dispatch(deleteAllProductCart())
+                dispatch(addHistoryOrderWithThunk(cartProducts, dateOrder))
             }}
                 disabled={!formValid}
             >
