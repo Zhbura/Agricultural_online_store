@@ -1,5 +1,3 @@
-import { nanoid } from "nanoid";
-
 export const ORDER_PRODUCT = 'HISTORY::ORDER_PRODUCT';
 export const STATUS_ORDER_PRODUCT = 'HISTORY::STATUS_ORDER_PRODUCT';
 
@@ -11,58 +9,29 @@ export const historyOrder = (products, date) => ({
     }
 })
 
-export const statusOrder = (status, idBatchProducts) => ({
+export const statusOrder = (status, id) => ({
     type: STATUS_ORDER_PRODUCT,
     payload: {
         status,
-        idBatchProducts,
+        id,
     }
 })
 
 let timeoutPaid;
 let timeoutAway;
 let timeoutCompleted;
+
 export const addHistoryOrderWithThunk = (products, date) => (dispatch, getState) => {
+    dispatch(historyOrder(products, date));
 
-    const idBatchProducts = nanoid();
+    const sendStatusOrder = (status, id) => {
+        dispatch(statusOrder(status, id))
+    }
 
-    const newProducts = products.map((product) => {
-        return {
-            ...product,
-            batch: idBatchProducts,
-        }
+    products.map((product) => {
+        timeoutPaid = setTimeout(sendStatusOrder, 30000, "Оплачен", product.id);
+        timeoutAway = setTimeout(sendStatusOrder, 60000, "В дороге", product.id);
+        timeoutCompleted = setTimeout(sendStatusOrder, 90000, "Завершен", product.id);
     })
-    dispatch(historyOrder(newProducts, date));
-
-    if (newProducts) {
-        newProducts.map((product) => {
-            if (product.status === undefined) {
-                clearTimeout(timeoutPaid)
-                timeoutPaid = setTimeout(() => {
-                    const status = "Оплачен"
-
-                    dispatch(statusOrder(status, idBatchProducts))
-                }, 7000)
-            }
-        })
-    }
-
-    if (newProducts) {
-        clearTimeout(timeoutAway);
-        timeoutAway = setTimeout(() => {
-            const status = "В дороге"
-
-            dispatch(statusOrder(status, idBatchProducts))
-        }, 14000)
-    }
-
-    if (newProducts) {
-        clearTimeout(timeoutCompleted);
-        timeoutCompleted = setTimeout(() => {
-            const status = "Завершен"
-
-            dispatch(statusOrder(status, idBatchProducts))
-        }, 21000)
-    }
 
 }

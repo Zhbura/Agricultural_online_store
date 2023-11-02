@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom"
 import { addHistoryOrderWithThunk } from "../../store/historyOrder/action";
 import { selectCart } from "../../store/cart/selectors";
+import { deleteAllProductCart } from "../../store/cart/action";
+import { nanoid } from "nanoid";
 
 export const ButtonOrder = ({ sendOrderData, formValid }) => {
     const dispatch = useDispatch();
@@ -9,11 +11,22 @@ export const ButtonOrder = ({ sendOrderData, formValid }) => {
 
     const dateOrder = new Date();
 
+    const sendOrderProduct = () => {
+        const orderProduct = cartProducts.map((product) => {
+            return {
+                ...product,
+                id: nanoid(),
+                status: "В обработке",
+            }
+        })
+        dispatch(addHistoryOrderWithThunk(orderProduct, dateOrder))
+        dispatch(deleteAllProductCart())
+    }
     return (
         <>
             <button className={formValid ? "btn-order" : "btn-order btn-order_disabled"} onClick={() => {
                 sendOrderData()
-                dispatch(addHistoryOrderWithThunk(cartProducts, dateOrder))
+                sendOrderProduct()
             }}
                 disabled={!formValid}
             >

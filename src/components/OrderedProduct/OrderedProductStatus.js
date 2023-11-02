@@ -1,3 +1,11 @@
+export const StatusProcessing = () => {
+    return (
+        <>
+            <p className="ordered-product__status ordered-product__status_processing">В обработке</p>
+        </>
+    )
+}
+
 export const StatusPaid = () => {
     return (
         <>

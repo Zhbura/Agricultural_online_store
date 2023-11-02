@@ -18,7 +18,7 @@ export const OrderHistory = () => {
     ];
 
     const orderHistory = useSelector(selectHistoryOrder);
-
+    console.log(orderHistory)
     return (
         <>
             <div className="order-history">

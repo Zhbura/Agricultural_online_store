@@ -28,9 +28,8 @@ export const historyOrderReducer = (state = initialState, action) => {
         }
 
         case STATUS_ORDER_PRODUCT: {
-
             const products = state.map((product) => {
-                if (product.batch === action.payload.idBatchProducts) {
+                if (product.id === action.payload.id) {
                     return {
                         ...product,
                         status: action.payload.status,

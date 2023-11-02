@@ -1,5 +1,5 @@
 import './OrderedProduct.scss';
-import { StatusAway, StatusCompleted, StatusPaid } from './OrderedProductStatus';
+import { StatusAway, StatusCompleted, StatusPaid, StatusProcessing } from './OrderedProductStatus';
 
 export const OrderedProduct = ({ product }) => {
     const { name, img, count, totalPrice, status, date } = product;
@@ -15,6 +15,7 @@ export const OrderedProduct = ({ product }) => {
                     <div className="ordered-product__data">
                         <p className="ordered-product__quantity">Количество x{count}</p>
                         <p className="ordered-product__date">{date}</p>
+                        {(status === "В обработке") && <StatusProcessing />}
                         {(status === "Оплачен") && <StatusPaid />}
                         {(status === "В дороге") && <StatusAway />}
                         {(status === "Завершен") && <StatusCompleted />}
