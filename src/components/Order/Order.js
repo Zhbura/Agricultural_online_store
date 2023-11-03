@@ -110,7 +110,7 @@ export const Order = ({ authed }) => {
                             setPaymentCheckedValid={setPaymentCheckedValid}
                         />
                     </div>
-                    <div className="order__product">
+                    <div className="order__products">
                         <OrderCart />
                         {formOrder && <ButtonOrder sendOrderData={handleOrderDataGuest} formValid={formValidOrder} />}
                         {!formOrder && <ButtonOrder sendOrderData={handleOrderDataReg} formValid={formValidOrder} />}

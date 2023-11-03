@@ -11,6 +11,7 @@ export const OrderCart = () => {
     return (
         <>
             <h4 className="order__heading">Товары в корзине</h4>
+            <div className="order__products-scroll">
             {cartProducts.length === 0 ? <h3 className="cart__text">Ваша корзина пуста!</h3> :
                 (cartProducts.map(product => (
                     <OrderProduct product={product} key={product.id} />
@@ -19,6 +20,7 @@ export const OrderCart = () => {
             {cartProducts.map(product => (
                 <OrderProductSmall product={product} key={product.id} />
             ))}
+            </div>
             <div className="order__buy-product">
                 <p className="order__buy-product_margin">Итого: <span>{totalCount} шт </span></p>
                 <p>На сумму: <span>{costTotal} руб</span></p>

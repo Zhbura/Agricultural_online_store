@@ -46,6 +46,7 @@
     &__cancel {
         cursor: pointer;
         margin-left: auto;
+        margin-right: 20px;
 
         @media (min-width: 320px) and (max-width: 767px) {
             width: 12px;

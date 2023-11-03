@@ -29,7 +29,7 @@ export const ContactsInputsReg = ({ setFormValid, name, surname, phone, email, c
 
     return (
         <>
-            <div className="contacts-form__wrap-data">
+            <div className="contacts-form__wrap-data contacts-form__wrap-data_margin">
                 <p className="input-data" >{name} </p>
                 <p className="input-data"> {surname}</p>
             </div>
