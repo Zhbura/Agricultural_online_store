@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom"
-import { addHistoryOrderWithThunk } from "../../store/historyOrder/action";
+import { addHistoryOrderWithThunk } from "../../store/orderProducts/action";
 import { selectCart } from "../../store/cart/selectors";
 import { deleteAllProductCart } from "../../store/cart/action";
 import { nanoid } from "nanoid";

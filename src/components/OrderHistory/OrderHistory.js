@@ -3,7 +3,8 @@ import './OrderHistory.scss';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { OrderedProduct, OrderedProductSmall } from '../OrderedProduct/OrderedProduct';
 import { useSelector } from 'react-redux';
-import { selectHistoryOrder } from '../../store/historyOrder/selectors';
+import { selectHistoryOrder, selectHistoryOrders } from '../../store/orderProducts/selectors';
+import { useState } from 'react';
 
 export const OrderHistory = () => {
     const breadcrumbs = [
@@ -17,7 +18,9 @@ export const OrderHistory = () => {
         },
     ];
 
-    const orderHistory = useSelector(selectHistoryOrder);
+    const [showStatus] = useState(false);
+
+    const orderHistory = useSelector(selectHistoryOrders);
 
     return (
         <>
@@ -30,11 +33,11 @@ export const OrderHistory = () => {
                     </h3>}
                 <div className="ordered-products">
                     {orderHistory.map((product, index) => (
-                        <OrderedProduct product={product} key={index} />
+                        <OrderedProduct product={product} key={index} showStatus={showStatus} />
                     ))}
 
                     {orderHistory.map((product, index) => (
-                        <OrderedProductSmall product={product} key={index} />
+                        <OrderedProductSmall product={product} key={index} showStatus={showStatus} />
                     ))}
                 </div>
             </div>

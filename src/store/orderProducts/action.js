@@ -1,5 +1,6 @@
 export const ORDER_PRODUCT = 'HISTORY::ORDER_PRODUCT';
 export const STATUS_ORDER_PRODUCT = 'HISTORY::STATUS_ORDER_PRODUCT';
+export const COMPLETED_STATUS_ORDER_PRODUCT = 'HISTORY::COMPLETED_STATUS_ORDER_PRODUCT';
 
 export const historyOrder = (products, date) => ({
     type: ORDER_PRODUCT,
@@ -17,9 +18,14 @@ export const statusOrder = (status, id) => ({
     }
 })
 
+export const completedStatusOrder = () => ({
+    type: COMPLETED_STATUS_ORDER_PRODUCT
+})
+
 let timeoutPaid;
 let timeoutAway;
 let timeoutCompleted;
+let timeoutDelete;
 
 export const addHistoryOrderWithThunk = (products, date) => (dispatch, getState) => {
     dispatch(historyOrder(products, date));
@@ -34,4 +40,9 @@ export const addHistoryOrderWithThunk = (products, date) => (dispatch, getState)
         timeoutCompleted = setTimeout(sendStatusOrder, 90000, "Завершен", product.id);
     })
 
+    const сompletedOrder = () => {
+        dispatch(completedStatusOrder())
+    }
+
+    timeoutDelete = setTimeout(сompletedOrder, 120000);
 }

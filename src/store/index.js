@@ -8,7 +8,7 @@ import { guestReducer } from './guest/reducer';
 import { orderReducer } from './order/reducer';
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { historyOrderReducer } from './historyOrder/reducer';
+import { orderProductsReducer } from './orderProducts/reducer';
 import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
     registration: registrationReducer,
     guest: guestReducer,
     order: orderReducer,
-    historyOrder: historyOrderReducer,
+    orderProducts: orderProductsReducer,
 });
 
 const persistConfig = {

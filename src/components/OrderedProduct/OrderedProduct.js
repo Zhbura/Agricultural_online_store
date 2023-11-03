@@ -1,7 +1,7 @@
 import './OrderedProduct.scss';
 import { StatusAway, StatusCompleted, StatusPaid, StatusProcessing } from './OrderedProductStatus';
 
-export const OrderedProduct = ({ product }) => {
+export const OrderedProduct = ({ product, showStatus }) => {
     const { name, img, count, totalPrice, status, date } = product;
 
     return (
@@ -18,7 +18,7 @@ export const OrderedProduct = ({ product }) => {
                         {(status === "В обработке") && <StatusProcessing />}
                         {(status === "Оплачен") && <StatusPaid />}
                         {(status === "В дороге") && <StatusAway />}
-                        {(status === "Завершен") && <StatusCompleted />}
+                        {showStatus && (status === "Завершен") && <StatusCompleted />}
                     </div>
                 </div>
                 <p className="ordered-product__price">{totalPrice} руб</p>
@@ -28,7 +28,7 @@ export const OrderedProduct = ({ product }) => {
     )
 }
 
-export const OrderedProductSmall = ({ product }) => {
+export const OrderedProductSmall = ({ product, showStatus }) => {
     const { name, img, count, totalPrice, status, date } = product;
 
     return (
@@ -51,7 +51,7 @@ export const OrderedProductSmall = ({ product }) => {
                     <p className="ordered-product__date">{date}</p>
                     {(status === "Оплачен") && <StatusPaid />}
                     {(status === "В дороге") && <StatusAway />}
-                    {(status === "Завершен") && <StatusCompleted />}
+                    {showStatus && (status === "Завершен") && <StatusCompleted />}
                 </div>
             </div>
             <span className="ordered-product__horisontal-line ordered-product__horisontal-line_small" />
