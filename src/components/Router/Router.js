@@ -35,6 +35,7 @@ import { PrivateRoute } from "../PrivateRoute/PrivateRoute";
 import { auth } from "../../services/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { LayoutBottom } from "../Layout/LayoutBottom";
+import { CatalogProductsFilter } from "../CatalogProductsFilter/CatalogProductsFilter";
 
 export const Router = () => {
     const [authed, setAuthed] = useState(false);
@@ -83,6 +84,7 @@ export const Router = () => {
                             <Route index element={<Authorization />} />
                             <Route path="registration" element={<Registration />} />
                         </Route>
+                        <Route path="catalog_product_filter" element={<CatalogProductsFilter />} />
                         <Route path="catalog" element={<PlantProtection />} />
                         <Route path="catalog_plant_protection"
                             element={<Catalog title="Средства защиты растений" />}

@@ -10,6 +10,7 @@ import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { orderProductsReducer } from './orderProducts/reducer';
 import thunk from 'redux-thunk';
+import { searchReducer } from './search/reducer';
 
 const rootReducer = combineReducers({
     catalog: catalogReducer,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     guest: guestReducer,
     order: orderReducer,
     orderProducts: orderProductsReducer,
+    search: searchReducer,
 });
 
 const persistConfig = {
