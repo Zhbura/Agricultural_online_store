@@ -1,6 +1,5 @@
 import './Menu.scss';
 import login from '../../img/login.svg';
-import search from '../../img/search.svg';
 import closeMenu from '../../img/closeMenu.svg';
 import logoWhite from '../../img/logoWhite.svg';
 import { Comparison } from '../SVG/Icon/Comparison';
@@ -13,6 +12,7 @@ import { changeMenuShow } from '../../store/menu/actions';
 import { ContactDetails } from '../ContactDetails/ContactDetails';
 import { costCart, countCart } from '../../store/cart/selectors';
 import { countWishList } from '../../store/wishList/selectors';
+import { SearchForm } from '../Header/SearchForm';
 
 export const Menu = () => {
 
@@ -64,11 +64,7 @@ export const Menu = () => {
                         </div>
                         <div className="menu-wrap menu-wrap_margin">
                             <div className="circle-icon circle-icon_white"><Comparison /></div>
-                            <form className="header__search-form header__search-form_small">
-                                <input type="text" placeholder="Поиск..." />
-                                <span />
-                                <img src={search} alt="Поиск" />
-                            </form>
+                            <SearchForm />
                         </div>
                         <ContactDetails
                             classContactDetails="contact-details"

@@ -95,11 +95,7 @@
     }
 }
 
-// .menu {
-//     transition: 0.5s;
-//     transform: translateX(320px);
-// }
-
-// .menu.active {
-//     transform: translateX(0%);
-// }
+.menu .search-form {
+    display: flex;
+    margin-left: 20px;
+}

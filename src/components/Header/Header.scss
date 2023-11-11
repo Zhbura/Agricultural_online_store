@@ -15,53 +15,79 @@
         }
     }
 
-    &__search-form {
-        padding: 10px 0 10px 15px;
-        width: 340px;
-        height: 40px;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        border-radius: 90px;
+    &__toolBar {
         display: flex;
-        background: #FFFFFF;
-        position: relative;
+        align-items: center;
+    }
 
-        @media (min-width: 320px) and (max-width: 1200px) {
-            width: 230px;
+    &__price {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        color: #000000;
+        margin-left: 8px;
+
+        &_white {
+            color: #ffffff;
         }
+    }
 
-        span {
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            height: 28px;
-            display: block;
-            align-self: center;
+    &__link {
+        display: block;
+        height: 100%;
+    }
+}
+
+.header .icon-quantity {
+    @media (min-width: 320px) and (max-width: 767px) {
+        &:first-child {
+            margin-right: 16px;
         }
+    }
 
-        input {
-            border: none;
-            display: block;
-            outline: none;
-            width: 100%;
-            cursor: pointer;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 20px;
-            color: #484848;
+    @media (min-width: 768px) {
+        &:not(:first-child) {
+            margin-left: 16px;
         }
+    }
+}
 
-        img {
-            margin-left: 22px;
-            margin-right: 14px;
-        }
+.search-form {
+    padding: 10px 0 10px 15px;
+    width: 340px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 90px;
+    display: flex;
+    background: #FFFFFF;
+    position: relative;
 
-        @media (min-width: 320px) and (max-width: 900px) {
-            &_hidden {
-                display: none;
-            }
+    @media (min-width: 320px) and (max-width: 1200px) {
+        width: 230px;
+    }
 
-            &_small {
-                margin-left: 20px;
-            }
-        }
+    span {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        height: 28px;
+        display: block;
+        align-self: center;
+    }
+
+    input {
+        border: none;
+        display: block;
+        outline: none;
+        width: 98%;
+        cursor: pointer;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #484848;
+    }
+
+    img {
+        margin-left: 22px;
+        margin-right: 14px;
     }
 
     &__autocomplete {
@@ -110,40 +136,10 @@
             transition: cubic-bezier(1, 0, 0, 1) .3s all;
         }
     }
-
-    &__toolBar {
-        display: flex;
-        align-items: center;
-    }
-
-    &__price {
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 15px;
-        color: #000000;
-        margin-left: 8px;
-
-        &_white {
-            color: #ffffff;
-        }
-    }
-
-    &__link {
-        display: block;
-        height: 100%;
-    }
 }
 
-.header .icon-quantity {
-    @media (min-width: 320px) and (max-width: 767px) {
-        &:first-child {
-            margin-right: 16px;
-        }
-    }
-
-    @media (min-width: 768px) {
-        &:not(:first-child) {
-            margin-left: 16px;
-        }
+.header .search-form {
+    @media (min-width: 320px) and (max-width: 900px) {
+        display: none;
     }
 }
