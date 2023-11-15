@@ -22,7 +22,7 @@ export const Menu = () => {
     const dispatch = useDispatch();
 
     const hideMenu = () => {
-        dispatch(changeMenuShow);
+        dispatch(changeMenuShow(false));
     };
 
     const totalCount = useSelector(countCart);
@@ -35,7 +35,7 @@ export const Menu = () => {
 
     const handleClick = (event) => {
         if (menuRef.current && !menuRef.current.contains(event.target)) {
-            dispatch(changeMenuShow)
+            dispatch(changeMenuShow(false))
         }
     }
 

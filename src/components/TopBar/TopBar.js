@@ -18,7 +18,7 @@ export const TopBar = ({ authed }) => {
     const dispatch = useDispatch();
 
     const showMenu = () => {
-        dispatch(changeMenuShow);
+        dispatch(changeMenuShow(true));
     };
 
     const userName = useSelector(selectUserName);
