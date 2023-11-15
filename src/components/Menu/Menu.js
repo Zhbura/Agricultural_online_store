@@ -13,6 +13,7 @@ import { ContactDetails } from '../ContactDetails/ContactDetails';
 import { costCart, countCart } from '../../store/cart/selectors';
 import { countWishList } from '../../store/wishList/selectors';
 import { SearchForm } from '../Header/SearchForm';
+import { useEffect, useRef } from 'react';
 
 export const Menu = () => {
 
@@ -28,9 +29,25 @@ export const Menu = () => {
     const costTotal = useSelector(costCart);
 
     const totalWish = useSelector(countWishList);
+
+    //Создание рефа на компонент меню для закрытия его при клике вне данного компонента
+    const menuRef = useRef(null);
+
+    const handleClick = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+            dispatch(changeMenuShow)
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClick)
+        return () => {
+            document.removeEventListener("mousedown", handleClick)
+        }
+    }, [])
     return (
         <>
-            <div className={showMenu ? 'menu menu_active' : 'menu'}>
+            <div className={showMenu ? 'menu menu_active' : 'menu'} ref={menuRef}>
                 <div className="menu__top-bar">
                     <div className="container">
                         <div className="top-bar__login menu__login">
