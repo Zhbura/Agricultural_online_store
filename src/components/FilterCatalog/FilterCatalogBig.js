@@ -1,17 +1,36 @@
+import { useDispatch, useSelector } from "react-redux";
+import { chooseCategoryProducts } from "../../store/catalog/action";
+import { selectCountAdjuvants, selectCountAllPpp, selectCountDesiccants, selectCountFungicides, selectCountHerbicides, selectCountInsecticides, selectCountProtectants, selectCountRetardants, selectCountRodenticides } from "../../store/catalog/selectors";
+
 export const FilterCatalogBig = () => {
+    const dispatch = useDispatch();
+
+    const categories = [
+        { key: "allPpp", name: "Все товары", count: useSelector(selectCountAllPpp) },
+        { key: "fungicides", name: "Фунгициды", count: useSelector(selectCountFungicides) },
+        { key: "insecticides", name: "Инсектициды", count: useSelector(selectCountInsecticides) },
+        { key: "herbicides", name: "Гербициды", count: useSelector(selectCountHerbicides) },
+        { key: "desiccants", name: "Десиканты", count: useSelector(selectCountDesiccants) },
+        { key: "adjuvants", name: "Адъюванты", count: useSelector(selectCountAdjuvants) },
+        { key: "rodenticides", name: "Родентициды", count: useSelector(selectCountRodenticides) },
+        { key: "retardants", name: "Ретарданты", count: useSelector(selectCountRetardants) },
+        { key: "protectants", name: "Протравители", count: useSelector(selectCountProtectants) },
+    ]
+
+    const chooseCategory = (category) => {
+        dispatch(chooseCategoryProducts(category))
+    }
+
     return (
         <>
             <div className="filter-items">
                 <div className="filter">
                     <div className="filter__text">
-                        <p>Гербициды <span>(229)</span></p>
-                        <p>Фунгициды <span>(9)</span></p>
-                        <p>Инсектициды <span>(209)</span></p>
-                        <p>Десиканты <span>(120)</span></p>
-                        <p>Протравители <span>(215)</span></p>
-                        <p>Адъюванты <span>(410)</span></p>
-                        <p>Родентициды <span>(30)</span></p>
-                        <p>Ретарданты <span>(229)</span></p>
+                        {categories.map((item) => (
+                            <p key={item.key}
+                                onClick={() => { chooseCategory(item.key) }}
+                            >{item.name} <span>({item.count})</span></p>
+                        ))}
                     </div>
                 </div>
                 <div className="filter">

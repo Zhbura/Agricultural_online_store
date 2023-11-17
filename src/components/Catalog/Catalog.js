@@ -5,13 +5,14 @@ import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { SeedsCatalog } from '../SeedsCatalog/SeedsCatalog';
 import { ProductCard } from '../ProductСard/ProductСard';
 import { FilterCatalogSmall } from '../FilterCatalog/FilterCatalogSmall';
-import { useDispatch } from 'react-redux';
-import { changeShowFilter } from '../../store/catalog/action';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeShowFilter} from '../../store/catalog/action';
 import { useState } from 'react';
 import { FilterCatalogBig } from '../FilterCatalog/FilterCatalogBig';
 import { DropdownCatalog } from '../Dropdown/DropdownCatalog';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { products } from '../../productsData';
+import { selectFilterProducts } from '../../store/catalog/selectors';
 
 export const Catalog = ({ title }) => {
     const [selected, setSelected] = useState('');
@@ -50,6 +51,9 @@ export const Catalog = ({ title }) => {
 
     // функция для нажатия на кружки пагинации
     const paginate = pageNumber => setCurrentPage(pageNumber);
+
+    const filterProducts = useSelector(selectFilterProducts);
+
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -81,22 +85,20 @@ export const Catalog = ({ title }) => {
                     <FilterCatalogBig />
                     <div className="wrap-page">
                         <div className="catalog-product">
-                            {currentProduct.map((arrayProducts, index) => (
-                                arrayProducts.map((product, i) => (
-                                    <ProductCard
-                                        key={product.id}
-                                        product={product}
-                                    />
-                                ))
+                            {filterProducts.map((product) => (
+                                <ProductCard
+                                    key={product.id}
+                                    product={product}
+                                />
                             ))}
                         </div>
-                        <Pagination
+                        {/* <Pagination
                             productsPerPage={productsPerPage}
                             totalProducts={products.length}
                             paginate={paginate}
                             currentPage={currentPage}
                             setCurrentPage={setCurrentPage}
-                        />
+                        /> */}
                     </div>
                 </div>
             </div >

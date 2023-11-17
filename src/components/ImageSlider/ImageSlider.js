@@ -26,9 +26,10 @@ export const ImageSlider = ({ images, name }) => {
         <>
             <div className="image-slider">
                 <div className="image-slider_big">
-                    <div className="arrow-scroll" onClick={prevImage}>
-                        <Arrow />
-                    </div>
+                    {(images.length > 1) ?
+                        <div className="arrow-scroll" onClick={prevImage}>
+                            <Arrow />
+                        </div> : null}
                     <div className="image-slider__wrap">
                         {images.map((image, index) => (
                             <div className={index === current ?
@@ -40,9 +41,10 @@ export const ImageSlider = ({ images, name }) => {
                             </div>
                         ))}
                     </div>
-                    <div className="arrow-scroll arrow_right" onClick={nextImage}>
-                        <Arrow />
-                    </div>
+                    {(images.length > 1) ?
+                        <div className="arrow-scroll arrow_right" onClick={nextImage}>
+                            <Arrow />
+                        </div> : null}
                 </div>
                 <div className="image-slider_small">
                     {images.map((image, index) => (
