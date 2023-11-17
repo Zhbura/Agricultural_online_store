@@ -42,7 +42,6 @@ const initialState = {
 export const catalogReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_SHOW_FILTER: {
-            console.log(state.showFilter)
             return {
                 ...state,
                 showFilter: !state.showFilter,
