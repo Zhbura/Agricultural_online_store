@@ -35,9 +35,7 @@ export const SearchForm = () => {
         dispatch(searchProducts(searchValue));
     }
 
-    const newProducts = [...products[0].slice(0, 4), ...products[1].slice(0, 4), ...products[2].slice(0, 4), ...products[3].slice(0, 4)];
-
-    let filterProducts = newProducts.filter((product) => {
+    let filterProducts = products.filter((product) => {
         return product.name.toLowerCase().includes(searchValue.toLowerCase())
     })
 

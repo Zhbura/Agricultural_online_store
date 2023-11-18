@@ -6,12 +6,11 @@ import { SeedsCatalog } from '../SeedsCatalog/SeedsCatalog';
 import { ProductCard } from '../ProductСard/ProductСard';
 import { FilterCatalogSmall } from '../FilterCatalog/FilterCatalogSmall';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeShowFilter} from '../../store/catalog/action';
+import { changeShowFilter } from '../../store/catalog/action';
 import { useState } from 'react';
 import { FilterCatalogBig } from '../FilterCatalog/FilterCatalogBig';
 import { DropdownCatalog } from '../Dropdown/DropdownCatalog';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
-import { products } from '../../productsData';
 import { selectFilterProducts } from '../../store/catalog/selectors';
 
 export const Catalog = ({ title }) => {
@@ -34,11 +33,13 @@ export const Catalog = ({ title }) => {
         },
     ];
 
+    const filterProducts = useSelector(selectFilterProducts);
+
     //стейт для текущей страницы которую нужно отображать
     const [currentPage, setCurrentPage] = useState(1);
 
     // стейт для количества отображаемых элементов на каждой странице
-    const [productsPerPage] = useState(3);
+    const [productsPerPage] = useState(12);
 
     // индекс последней страницы 5
     const lastProductIndex = currentPage * productsPerPage;
@@ -47,12 +48,11 @@ export const Catalog = ({ title }) => {
     const firstProductIndex = lastProductIndex - productsPerPage;
 
     //текущая страница
-    const currentProduct = products.slice(firstProductIndex, lastProductIndex);
+    const currentProduct = filterProducts.slice(firstProductIndex, lastProductIndex);
 
     // функция для нажатия на кружки пагинации
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
-    const filterProducts = useSelector(selectFilterProducts);
 
     return (
         <>
@@ -85,20 +85,20 @@ export const Catalog = ({ title }) => {
                     <FilterCatalogBig />
                     <div className="wrap-page">
                         <div className="catalog-product">
-                            {filterProducts.map((product) => (
+                            {currentProduct.map((product) => (
                                 <ProductCard
                                     key={product.id}
                                     product={product}
                                 />
                             ))}
                         </div>
-                        {/* <Pagination
+                        <Pagination
                             productsPerPage={productsPerPage}
-                            totalProducts={products.length}
+                            totalProducts={filterProducts.length}
                             paginate={paginate}
                             currentPage={currentPage}
                             setCurrentPage={setCurrentPage}
-                        /> */}
+                        />
                     </div>
                 </div>
             </div >

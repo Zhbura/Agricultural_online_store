@@ -7,15 +7,22 @@ import { ProductItems } from '../ProductСard/ProductItems';
 import { products } from '../../productsData';
 
 export const Stocks = () => {
+    const stocks = [
+        products.slice(16, 20),
+        products.slice(20, 24),
+        products.slice(24, 28),
+        products.slice(4, 8)
+    ];
+
     const [currentProduct, setCurrentProduct] = useState(0);
 
     const prev = () => {
-        const index = currentProduct > 0 ? currentProduct - 1 : products.length - 1;
+        const index = currentProduct > 0 ? currentProduct - 1 : stocks.length - 1;
         setCurrentProduct(index)
     }
 
     const next = () => {
-        const index = currentProduct < products.length - 1 ? currentProduct + 1 : 0;
+        const index = currentProduct < stocks.length - 1 ? currentProduct + 1 : 0;
         setCurrentProduct(index)
     }
 
@@ -29,7 +36,7 @@ export const Stocks = () => {
                     <PageHeadingTwice>Акции</PageHeadingTwice>
                 </div>
                 <ProductItems
-                    products={products}
+                    products={stocks}
                     prevEl={prev}
                     nextEl={next}
                     currentIndex={currentProduct}
@@ -38,7 +45,7 @@ export const Stocks = () => {
                     <Slider
                         classSmall="slider__notActive slider__notActive_green"
                         classBig="slider__active slider__active_green"
-                        products={products}
+                        products={stocks}
                         currentIndex={currentProduct}
                         switchIndex={switchIndex}
                     />

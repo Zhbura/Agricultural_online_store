@@ -51,39 +51,6 @@ export const Router = () => {
         return unsubscribe;
     }, [])
 
-    const cardProducts = [
-        { path: "petunia", product: products[0][0] },
-        { path: "skor", product: products[0][1] },
-        { path: "horys", product: products[0][2] },
-        { path: "agrikola", product: products[0][3] },
-        { path: "phytosporinAnti", product: products[1][0] },
-        { path: "phytosporinSeedlings", product: products[1][1] },
-        { path: "topaz", product: products[1][2] },
-        { path: "roundup", product: products[1][3] },
-        { path: "rimanol", product: products[2][0] },
-        { path: "lintur", product: products[2][1] },
-        { path: "sprut", product: products[2][2] },
-        { path: "strizh", product: products[2][3] },
-        { path: "rubit", product: products[3][0] },
-        { path: "aktara", product: products[3][1] },
-        { path: "arubarin", product: products[3][2] },
-        { path: "movento", product: products[3][3] },
-        { path: "mospilan", product: products[4][0] },
-        { path: "alirin", product: products[4][1] },
-        { path: "karatezeon", product: products[4][2] },
-        { path: "strekar", product: products[4][3] },
-        { path: "gamair", product: products[5][0] },
-        { path: "chistogryad", product: products[5][1] },
-        { path: "tornado", product: products[5][2] },
-        { path: "prilipatel", product: products[5][3] },
-        { path: "florabis", product: products[6][0] },
-        { path: "plantafol", product: products[6][1] },
-        { path: "alar", product: products[6][2] },
-        { path: "regular", product: products[6][3] },
-        { path: "ratobor", product: products[7][0] },
-        { path: "nadzor", product: products[7][1] },
-        { path: "brodefor", product: products[7][2] },
-    ]
     return (
         <>
             <Routes>
@@ -91,9 +58,9 @@ export const Router = () => {
                     <Route index element={<Main />} />
                     <Route path="/" element={<LayoutBottom />}>
                         <Route path="product" element={<Commodity />}>
-                            {cardProducts.map((item, i) => (
-                                <Route key={i} path={item.path}
-                                    element={<Product product={item.product} />}
+                            {products.map((item, i) => (
+                                <Route key={i} path={item.to}
+                                    element={<Product product={item} />}
                                 />
                             ))}
                         </Route>

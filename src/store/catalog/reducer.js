@@ -1,29 +1,18 @@
 import { CHANGE_SHOW_FILTER, CHOOSE_CATEGORY } from "./action";
 import { products } from "../../productsData";
 
-let newProducts = [
-    ...products[0].slice(0, 4),
-    ...products[1].slice(0, 4),
-    ...products[2].slice(0, 4),
-    ...products[3].slice(0, 4),
-    ...products[4].slice(0, 4),
-    ...products[5].slice(0, 4),
-    ...products[6].slice(0, 4),
-    ...products[7].slice(0, 3)
-];
-
 // Все товары из каталога "Средства защиты растений"
-const plantProtectionProducts = newProducts.filter((item) => item.catalog === "PPP");
+const plantProtectionProducts = products.filter((item) => item.catalog === "PPP");
 
 // Товары разных категорий из каталога "Средства защиты растений"
-const fungicides = newProducts.filter((item) => item?.category === "fungicides");
-const herbicides = newProducts.filter((item) => item?.category === "herbicides");
-const insecticides = newProducts.filter((item) => item?.category === "insecticides");
-const desiccants = newProducts.filter((item) => item?.category === "desiccants");
-const adjuvants = newProducts.filter((item) => item?.category === "adjuvants");
-const rodenticides = newProducts.filter((item) => item?.category === "rodenticides");
-const retardants = newProducts.filter((item) => item?.category === "retardants");
-const protectants = newProducts.filter((item) => item?.category === "protectants");
+const fungicides = products.filter((item) => item?.category === "fungicides");
+const herbicides = products.filter((item) => item?.category === "herbicides");
+const insecticides = products.filter((item) => item?.category === "insecticides");
+const desiccants = products.filter((item) => item?.category === "desiccants");
+const adjuvants = products.filter((item) => item?.category === "adjuvants");
+const rodenticides = products.filter((item) => item?.category === "rodenticides");
+const retardants = products.filter((item) => item?.category === "retardants");
+const protectants = products.filter((item) => item?.category === "protectants");
 
 const initialState = {
     showFilter: false,
