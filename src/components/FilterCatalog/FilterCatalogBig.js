@@ -27,9 +27,11 @@ export const FilterCatalogBig = () => {
         { key: "retardants", name: "Ретарданты", count: useSelector(selectCountRetardants) },
         { key: "protectants", name: "Протравители", count: useSelector(selectCountProtectants) },
     ]
+    // Для хранения выбранной категории
+    const [categoryState, setCategoryState] = useState();
 
     const chooseCategory = (category) => {
-        dispatch(chooseCategoryProducts(category))
+        setCategoryState(category)
     }
 
     const manufacturers = [
@@ -42,7 +44,6 @@ export const FilterCatalogBig = () => {
 
     // массив выбранных производителей
     const [selectedManufacturers, setSelectedManufacturers] = useState([]);
-
     const handleFilterButtonClick = (manufacturer) => {
 
         // Если в массиве selectedManufacturers есть кликнутый производитель то удаляем этого производителся из массива 
@@ -56,8 +57,12 @@ export const FilterCatalogBig = () => {
     };
 
     useEffect(() => {
-        dispatch(chooseManufacturersProducts(selectedManufacturers))
-    }, [selectedManufacturers]);
+        if (categoryState) {
+            dispatch(chooseCategoryProducts(categoryState, selectedManufacturers))
+        } else {
+            dispatch(chooseManufacturersProducts(selectedManufacturers))
+        }
+    }, [categoryState, selectedManufacturers]);
 
     return (
         <>

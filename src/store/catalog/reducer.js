@@ -39,15 +39,41 @@ export const catalogReducer = (state = initialState, action) => {
         }
         case CHOOSE_CATEGORY: {
             if (action.payload.category === "allPpp") {
-                return {
-                    ...state,
-                    filterProducts: plantProtectionProducts
+                if (action.payload.manufacturers.length === 0) {
+                    return {
+                        ...state,
+                        filterProducts: plantProtectionProducts
+                    }
+                } else {
+                    let chooseManufacturers = action.payload.manufacturers.map((selectedManufacturer) => {
+                        let manufacturerItems = plantProtectionProducts.filter((item) => item.manufacturer === selectedManufacturer);
+                        return manufacturerItems;
+                    });
+
+                    return {
+                        ...state,
+                        filterProducts: chooseManufacturers.flat()
+                    }
                 }
+
             } else {
-                return {
-                    ...state,
-                    filterProducts: plantProtectionProducts.filter((item) => item.category === action.payload.category)
+                const categoryProduct = plantProtectionProducts.filter((item) => item.category === action.payload.category)
+                if (action.payload.manufacturers.length === 0) {
+                    return {
+                        ...state,
+                        filterProducts: categoryProduct
+                    }
+                } else {
+                    let chooseManufacturers = action.payload.manufacturers.map((selectedManufacturer) => {
+                        let manufacturerItems = categoryProduct.filter((item) => item.manufacturer === selectedManufacturer);
+                        return manufacturerItems;
+                    });
+                    return {
+                        ...state,
+                        filterProducts: chooseManufacturers.flat()
+                    }
                 }
+
             }
         }
         case CHOOSE_MANUFACTURERS: {

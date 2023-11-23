@@ -7,16 +7,17 @@ export const changeShowFilter = {
     type: CHANGE_SHOW_FILTER,
 }
 
-export const chooseCategoryProducts = (category) => ({
+export const chooseCategoryProducts = (category, manufacturers) => ({
     type: CHOOSE_CATEGORY,
     payload: {
-        category
+        category,
+        manufacturers,
     }
 });
 
 export const chooseManufacturersProducts = (manufacturers) => ({
     type: CHOOSE_MANUFACTURERS,
     payload: {
-        manufacturers,
+        manufacturers
     }
 });

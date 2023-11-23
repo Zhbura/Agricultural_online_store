@@ -84,6 +84,10 @@ export const Catalog = ({ title }) => {
                 <div className="catalog-wrap container">
                     <FilterCatalogBig />
                     <div className="wrap-page">
+                        {currentProduct.length === 0 &&
+                            <h3 className="catalog__text">
+                                Извините, по вашему запросу ни чего не найдено!
+                            </h3>}
                         <div className="catalog-product">
                             {currentProduct.map((product) => (
                                 <ProductCard
