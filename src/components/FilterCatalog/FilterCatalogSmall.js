@@ -4,8 +4,9 @@ import { Arrow } from '../SVG/Arrow/Arrow';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectShowFilter } from '../../store/catalog/selectors';
 import { changeShowFilter } from '../../store/catalog/action';
+import { manufacturers } from "../../productsData";
 
-export const FilterCatalogSmall = () => {
+export const FilterCatalogSmall = ({ handleFilterButtonClick }) => {
     const [fabricator, setFabricator] = useState(false);
     const [culture, setCulture] = useState(false);
     const [quantity, setQuantity] = useState(false);
@@ -17,6 +18,7 @@ export const FilterCatalogSmall = () => {
     const hideFilter = () => {
         dispatch(changeShowFilter);
     };
+
     return (
         <>
             <div className={showFilter ? "filter-catalog filter-catalog_active" : "filter-catalog"}>
@@ -25,30 +27,18 @@ export const FilterCatalogSmall = () => {
                     <div className="filter__unit">
                         <div className="filter__heading menu-catalog__heading" onClick={() => setFabricator(!fabricator)}>Производитель </div>
                         <div className={fabricator ? 'filter__part' : 'filter__part_notActive'}>
-                            <label className="input-checkbox">Нертус
-                                <input type="checkbox" name="manufacturer" value="nertys" />
-                                <span className="checkmark-checkbox"></span>
-                            </label>
-                            <label className="input-checkbox">Басф
-                                <input type="checkbox" name="manufacturer" value="basf" />
-                                <span className="checkmark-checkbox"></span>
-                            </label>
-                            <label className="input-checkbox">Адама Украина
-                                <input type="checkbox" name="manufacturer" value="adamaUkraine" />
-                                <span className="checkmark-checkbox"></span>
-                            </label>
-                            <label className="input-checkbox">Байер
-                                <input type="checkbox" name="manufacturer" value="bayer" />
-                                <span className="checkmark-checkbox"></span>
-                            </label>
-                            <label className="input-checkbox">ГДЗ
-                                <input type="checkbox" name="manufacturer" value="gdz" />
-                                <span className="checkmark-checkbox"></span>
-                            </label>
-                            <label className="input-checkbox">Штефес
-                                <input type="checkbox" name="manufacturer" value="stephes" />
-                                <span className="checkmark-checkbox"></span>
-                            </label>
+                            {manufacturers.map((manufacturer) => (
+                                <label key={manufacturer.key}
+                                    className="input-checkbox"
+                                > {manufacturer.name}
+                                    <input
+                                        type="checkbox"
+                                        name="manufacturer"
+                                        onChange={() => handleFilterButtonClick(manufacturer.key)}
+                                    />
+                                    <span className="checkmark-checkbox" />
+                                </label>
+                            ))}
                         </div>
                     </div>
                     <div className="filter__unit">
@@ -161,7 +151,7 @@ export const FilterCatalogSmall = () => {
                             </label>
                         </div>
                     </div>
-                    <div className="filter__btn">Применить</div>
+                    <div className="filter__btn" onClick={hideFilter}>Применить</div>
                 </div>
             </div >
         </>

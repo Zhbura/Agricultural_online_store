@@ -1,69 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
-import { chooseCategoryProducts, chooseManufacturersProducts } from "../../store/catalog/action";
-import {
-    selectCountAdjuvants,
-    selectCountAllPpp,
-    selectCountDesiccants,
-    selectCountFungicides,
-    selectCountHerbicides,
-    selectCountInsecticides,
-    selectCountProtectants,
-    selectCountRetardants,
-    selectCountRodenticides
-} from "../../store/catalog/selectors";
-import { useEffect, useState } from "react";
+import { manufacturers } from "../../productsData";
 
-export const FilterCatalogBig = () => {
-    const dispatch = useDispatch();
-
-    const categories = [
-        { key: "allPpp", name: "Все товары", count: useSelector(selectCountAllPpp) },
-        { key: "fungicides", name: "Фунгициды", count: useSelector(selectCountFungicides) },
-        { key: "insecticides", name: "Инсектициды", count: useSelector(selectCountInsecticides) },
-        { key: "herbicides", name: "Гербициды", count: useSelector(selectCountHerbicides) },
-        { key: "desiccants", name: "Десиканты", count: useSelector(selectCountDesiccants) },
-        { key: "adjuvants", name: "Адъюванты", count: useSelector(selectCountAdjuvants) },
-        { key: "rodenticides", name: "Родентициды", count: useSelector(selectCountRodenticides) },
-        { key: "retardants", name: "Ретарданты", count: useSelector(selectCountRetardants) },
-        { key: "protectants", name: "Протравители", count: useSelector(selectCountProtectants) },
-    ]
-    // Для хранения выбранной категории
-    const [categoryState, setCategoryState] = useState();
-
-    const chooseCategory = (category) => {
-        setCategoryState(category)
-    }
-
-    const manufacturers = [
-        { key: "basf", name: "Басф" },
-        { key: "nertys", name: "Нертус" },
-        { key: "bayer", name: "Байер" },
-        { key: "gdz", name: "ГДЗ" },
-        { key: "stephes", name: "Штефес" },
-    ]
-
-    // массив выбранных производителей
-    const [selectedManufacturers, setSelectedManufacturers] = useState([]);
-    const handleFilterButtonClick = (manufacturer) => {
-
-        // Если в массиве selectedManufacturers есть кликнутый производитель то удаляем этого производителся из массива 
-        // Если же нет то добавляем в массив selectedManufacturers кликнутого производителя
-        if (selectedManufacturers.includes(manufacturer)) {
-            let filters = selectedManufacturers.filter((el) => el !== manufacturer);
-            setSelectedManufacturers(filters);
-        } else {
-            setSelectedManufacturers([...selectedManufacturers, manufacturer]);
-        }
-    };
-
-    useEffect(() => {
-        if (categoryState) {
-            dispatch(chooseCategoryProducts(categoryState, selectedManufacturers))
-        } else {
-            dispatch(chooseManufacturersProducts(selectedManufacturers))
-        }
-    }, [categoryState, selectedManufacturers]);
-
+export const FilterCatalogBig = ({ handleFilterButtonClick, categories, setCategoryState }) => {
     return (
         <>
             <div className="filter-items">
@@ -71,7 +8,7 @@ export const FilterCatalogBig = () => {
                     <div className="filter__text">
                         {categories.map((item) => (
                             <p key={item.key}
-                                onClick={() => { chooseCategory(item.key) }}
+                                onClick={() => { setCategoryState(item.key) }}
                             >{item.name} <span>({item.count})</span></p>
                         ))}
                     </div>

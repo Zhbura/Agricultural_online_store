@@ -545,3 +545,11 @@ export const products = [
         manufacturer: "nertys",
     },
 ]
+
+export const manufacturers = [
+    { key: "basf", name: "Басф" },
+    { key: "nertys", name: "Нертус" },
+    { key: "bayer", name: "Байер" },
+    { key: "gdz", name: "ГДЗ" },
+    { key: "stephes", name: "Штефес" },
+]

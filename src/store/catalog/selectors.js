@@ -1,5 +1,6 @@
 export const selectShowFilter = (state) => state.catalog.showFilter;
 export const selectFilterProducts = (state) => state.catalog.filterProducts;
+export const selectCountFilterProducts = (state) => state.catalog.filterProducts.length;
 export const selectCountAllPpp = (state) => state.catalog.countAllPpp;
 export const selectCountFungicides = (state) => state.catalog.countFungicides;
 export const selectCountHerbicides = (state) => state.catalog.countHerbicides;

@@ -6,14 +6,33 @@ import { SeedsCatalog } from '../SeedsCatalog/SeedsCatalog';
 import { ProductCard } from '../ProductСard/ProductСard';
 import { FilterCatalogSmall } from '../FilterCatalog/FilterCatalogSmall';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeShowFilter } from '../../store/catalog/action';
-import { useState } from 'react';
+import {
+    changeShowFilter,
+    chooseCategoryProducts,
+    chooseManufacturersProducts
+} from '../../store/catalog/action';
+import { useEffect, useState } from 'react';
 import { FilterCatalogBig } from '../FilterCatalog/FilterCatalogBig';
 import { DropdownCatalog } from '../Dropdown/DropdownCatalog';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
-import { selectFilterProducts } from '../../store/catalog/selectors';
+import {
+    selectCountFilterProducts,
+    selectFilterProducts
+} from '../../store/catalog/selectors';
+import {
+    selectCountAdjuvants,
+    selectCountAllPpp,
+    selectCountDesiccants,
+    selectCountFungicides,
+    selectCountHerbicides,
+    selectCountInsecticides,
+    selectCountProtectants,
+    selectCountRetardants,
+    selectCountRodenticides
+} from "../../store/catalog/selectors";
 
 export const Catalog = ({ title }) => {
+    // Для работы dropdown
     const [selected, setSelected] = useState('');
 
     const dispatch = useDispatch();
@@ -34,7 +53,9 @@ export const Catalog = ({ title }) => {
     ];
 
     const filterProducts = useSelector(selectFilterProducts);
+    const countFilterProducts = useSelector(selectCountFilterProducts);
 
+    //Для пагинации
     //стейт для текущей страницы которую нужно отображать
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -53,6 +74,50 @@ export const Catalog = ({ title }) => {
     // функция для нажатия на кружки пагинации
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
+    //Для работы ФИЛЬТРА
+
+    // Массив категорий 
+    const categories = [
+        { key: "allPpp", name: "Все товары", count: useSelector(selectCountAllPpp) },
+        { key: "fungicides", name: "Фунгициды", count: useSelector(selectCountFungicides) },
+        { key: "insecticides", name: "Инсектициды", count: useSelector(selectCountInsecticides) },
+        { key: "herbicides", name: "Гербициды", count: useSelector(selectCountHerbicides) },
+        { key: "desiccants", name: "Десиканты", count: useSelector(selectCountDesiccants) },
+        { key: "adjuvants", name: "Адъюванты", count: useSelector(selectCountAdjuvants) },
+        { key: "rodenticides", name: "Родентициды", count: useSelector(selectCountRodenticides) },
+        { key: "retardants", name: "Ретарданты", count: useSelector(selectCountRetardants) },
+        { key: "protectants", name: "Протравители", count: useSelector(selectCountProtectants) },
+    ]
+
+    // Для хранения выбранной категории
+    const [categoryState, setCategoryState] = useState();
+
+    // массив выбранных производителей
+    const [selectedManufacturers, setSelectedManufacturers] = useState([]);
+
+    // Функция для добавления производителя в массив выбранных производителей
+    const handleFilterButtonClick = (manufacturer) => {
+        // Если в массиве selectedManufacturers есть кликнутый производитель то удаляем этого производителся из массива 
+        // Если же нет то добавляем в массив selectedManufacturers кликнутого производителя
+        if (selectedManufacturers.includes(manufacturer)) {
+            let filters = selectedManufacturers.filter((el) => el !== manufacturer);
+            setSelectedManufacturers(filters);
+        } else {
+            setSelectedManufacturers([...selectedManufacturers, manufacturer]);
+        }
+    };
+
+    useEffect(() => {
+        if (categoryState) {
+            dispatch(chooseCategoryProducts(categoryState, selectedManufacturers))
+        } else {
+            dispatch(chooseManufacturersProducts(selectedManufacturers))
+        }
+        if (selected.key) {
+            dispatch(chooseCategoryProducts(selected.key, selectedManufacturers))
+        }
+    }, [categoryState, selectedManufacturers, selected.key]);
+
 
     return (
         <>
@@ -62,7 +127,7 @@ export const Catalog = ({ title }) => {
                     {title}
                 </PageHeadingTwice>
                 <div className="catalog-wrap catalog-wrap_top container">
-                    <div className="result">Показано 621 товар</div>
+                    <div className="result">Показано {countFilterProducts} товар</div>
                     <div className="sort arrow-checkbox_grey">
                         <input type="text" placeholder="Сортировать по" />
                         <span /><ArrowCheckbox />
@@ -72,17 +137,25 @@ export const Catalog = ({ title }) => {
                     <div className="wrap-small_top">
                         <div className="filter-small" onClick={showFilter}>Фильтр
                         </div>
-                        <FilterCatalogSmall />
+                        <FilterCatalogSmall handleFilterButtonClick={handleFilterButtonClick} />
                         <div className="sort arrow-checkbox_grey">
                             <input type="text" placeholder="Сортировать по" />
                             <span /><ArrowCheckbox />
                         </div>
                     </div>
-                    <DropdownCatalog selected={selected} setSelected={setSelected} />
-                    <div className="result">Показано 621 товар</div>
+                    <DropdownCatalog
+                        categories={categories}
+                        selected={selected}
+                        setSelected={setSelected}
+                        setCategoryState={setCategoryState} />
+                    <div className="result">Показано {countFilterProducts} товар</div>
                 </div>
                 <div className="catalog-wrap container">
-                    <FilterCatalogBig />
+                    <FilterCatalogBig
+                        handleFilterButtonClick={handleFilterButtonClick}
+                        categories={categories}
+                        setCategoryState={setCategoryState}
+                    />
                     <div className="wrap-page">
                         {currentProduct.length === 0 &&
                             <h3 className="catalog__text">
