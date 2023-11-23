@@ -17,6 +17,7 @@ export const products = [
         priceFor: [1, 5, 10, 15],
         count: 1,
         catalog: "seeds",
+        manufacturer: "nertys",
     },
     {
         id: 2,
@@ -35,6 +36,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "fungicides",
+        manufacturer: "basf",
     },
     {
         id: 3,
@@ -53,6 +55,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "fungicides",
+        manufacturer: "bayer",
     },
     {
         id: 4,
@@ -71,6 +74,7 @@ export const products = [
         priceFor: [1, 3, 6, 9],
         count: 1,
         catalog: "fertilizer",
+        manufacturer: "gdz",
     },
     {
         id: 5,
@@ -89,6 +93,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "fungicides",
+        manufacturer: "gdz",
     },
     {
         id: 6,
@@ -103,10 +108,11 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "fungicides",
+        manufacturer: "basf",
     },
     {
         id: 7,
-        name: "Топаз, средство от болезней растений",
+        name: "Топаз",
         alt: "Топаз, средство от болезней растений",
         img: [
             require("./img/product/topaz/topaz.png"),
@@ -120,6 +126,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "fungicides",
+        manufacturer: "nertys",
     },
     {
         id: 8,
@@ -134,10 +141,11 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "herbicides",
+        manufacturer: "gdz",
     },
     {
         id: 9,
-        name: "Риманол, средство от сорняков",
+        name: "Риманол",
         alt: "Риманол, средство от сорняков",
         img: [
             require("./img/product/rimanol/rimanol.png"),
@@ -151,6 +159,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "herbicides",
+        manufacturer: "gdz",
     },
     {
         id: 10,
@@ -165,6 +174,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "herbicides",
+        manufacturer: "basf",
     },
     {
         id: 11,
@@ -182,10 +192,11 @@ export const products = [
         priceFor: [1, 3, 6, 9],
         catalog: "PPP",
         category: "herbicides",
+        manufacturer: "bayer",
     },
     {
         id: 12,
-        name: "Стриж, средство от сорняков",
+        name: "Стриж",
         alt: "Стриж, средство от сорняков",
         img: [
             require("./img/product/strizh/strizh.png"),
@@ -200,10 +211,11 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "herbicides",
+        manufacturer: "basf",
     },
     {
         id: 13,
-        name: "Рубит Санти, средство от сорняков",
+        name: "Рубит Санти",
         alt: "Рубит Санти, средство от сорняков",
         img: [require("./img/product/rubit/rubit.png")],
         price: 54,
@@ -213,6 +225,7 @@ export const products = [
         priceFor: [1, 5, 10, 15],
         catalog: "PPP",
         category: "herbicides",
+        manufacturer: "nertys",
     },
     {
         id: 14,
@@ -227,6 +240,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "insecticides",
+        manufacturer: "stephes",
     },
     {
         id: 15,
@@ -245,6 +259,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "insecticides",
+        manufacturer: "gdz",
     },
     {
         id: 16,
@@ -263,6 +278,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "insecticides",
+        manufacturer: "gdz",
     },
     {
         id: 17,
@@ -280,6 +296,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "insecticides",
+        manufacturer: "stephes",
     },
     {
         id: 18,
@@ -294,6 +311,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "protectants",
+        manufacturer: "bayer",
     },
     {
         id: 19,
@@ -311,6 +329,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "protectants",
+        manufacturer: "gdz",
     },
     {
         id: 20,
@@ -325,6 +344,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "protectants",
+        manufacturer: "nertys",
     },
     {
         id: 21,
@@ -341,10 +361,11 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "protectants",
+        manufacturer: "bayer",
     },
     {
         id: 22,
-        name: "Чистогряд, средство от сорняков",
+        name: "Чистогряд",
         alt: "Чистогряд, средство от сорняков",
         img: [require("./img/product/chistogryad/chistogryad.png")],
         price: 87,
@@ -355,10 +376,11 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "desiccants",
+        manufacturer: "stephes",
     },
     {
         id: 23,
-        name: "Торнадо, средство от сорняков",
+        name: "Торнадо",
         alt: "Торнадо, средство от сорняков",
         img: [
             require("./img/product/tornado/tornado.png"),
@@ -374,10 +396,11 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "desiccants",
+        manufacturer: "bayer",
     },
     {
         id: 24,
-        name: "Прилипатель - адъювант ЖУСС Аква",
+        name: "Прилипатель ЖУСС Аква",
         alt: "Прилипатель - адъювант ЖУСС Аква",
         img: [
             require("./img/product/prilipatel/prilipatel.png"),
@@ -392,6 +415,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "adjuvants",
+        manufacturer: "stephes",
     },
     {
         id: 25,
@@ -411,6 +435,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "adjuvants",
+        manufacturer: "bayer",
     },
     {
         id: 26,
@@ -430,6 +455,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "adjuvants",
+        manufacturer: "basf",
     },
     {
         id: 27,
@@ -444,6 +470,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "rodenticides",
+        manufacturer: "nertys",
     },
     {
         id: 28,
@@ -458,6 +485,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "rodenticides",
+        manufacturer: "gdz",
     },
     {
         id: 29,
@@ -477,10 +505,11 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "retardants",
+        manufacturer: "bayer",
     },
     {
         id: 30,
-        name: "Nadzor, гранулы от мышей и крыс",
+        name: "Nadzor от мышей и крыс",
         alt: "Nadzor, гранулы от мышей и крыс",
         img: [
             require("./img/product/nadzor/nadzor.png"),
@@ -496,6 +525,7 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "retardants",
+        manufacturer: "basf",
     },
     {
         id: 31,
@@ -512,5 +542,6 @@ export const products = [
         count: 1,
         catalog: "PPP",
         category: "retardants",
+        manufacturer: "nertys",
     },
 ]

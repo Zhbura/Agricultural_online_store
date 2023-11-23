@@ -1,4 +1,4 @@
-import { CHANGE_SHOW_FILTER, CHOOSE_CATEGORY } from "./action";
+import { CHANGE_SHOW_FILTER, CHOOSE_CATEGORY, CHOOSE_MANUFACTURERS } from "./action";
 import { products } from "../../productsData";
 
 // Все товары из каталога "Средства защиты растений"
@@ -16,6 +16,7 @@ const protectants = products.filter((item) => item?.category === "protectants");
 
 const initialState = {
     showFilter: false,
+    manufacturerProducts: [],
     filterProducts: plantProtectionProducts,
     countAllPpp: plantProtectionProducts.length,
     countFungicides: fungicides.length,
@@ -49,6 +50,24 @@ export const catalogReducer = (state = initialState, action) => {
                 }
             }
         }
+        case CHOOSE_MANUFACTURERS: {
+            if (action.payload.manufacturers.length > 0) {
+                let chooseManufacturers = action.payload.manufacturers.map((selectedManufacturer) => {
+                    let manufacturerItems = plantProtectionProducts.filter((item) => item.manufacturer === selectedManufacturer);
+                    return manufacturerItems;
+                });
+                return {
+                    ...state,
+                    filterProducts: chooseManufacturers.flat()
+                }
+            } else {
+                return {
+                    ...state,
+                    filterProducts: plantProtectionProducts
+                }
+            }
+        }
+
         default:
             return state;
     }

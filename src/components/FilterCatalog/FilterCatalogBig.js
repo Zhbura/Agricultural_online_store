@@ -1,6 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { chooseCategoryProducts } from "../../store/catalog/action";
-import { selectCountAdjuvants, selectCountAllPpp, selectCountDesiccants, selectCountFungicides, selectCountHerbicides, selectCountInsecticides, selectCountProtectants, selectCountRetardants, selectCountRodenticides } from "../../store/catalog/selectors";
+import { chooseCategoryProducts, chooseManufacturersProducts } from "../../store/catalog/action";
+import {
+    selectCountAdjuvants,
+    selectCountAllPpp,
+    selectCountDesiccants,
+    selectCountFungicides,
+    selectCountHerbicides,
+    selectCountInsecticides,
+    selectCountProtectants,
+    selectCountRetardants,
+    selectCountRodenticides
+} from "../../store/catalog/selectors";
+import { useEffect, useState } from "react";
 
 export const FilterCatalogBig = () => {
     const dispatch = useDispatch();
@@ -21,6 +32,33 @@ export const FilterCatalogBig = () => {
         dispatch(chooseCategoryProducts(category))
     }
 
+    const manufacturers = [
+        { key: "basf", name: "Басф" },
+        { key: "nertys", name: "Нертус" },
+        { key: "bayer", name: "Байер" },
+        { key: "gdz", name: "ГДЗ" },
+        { key: "stephes", name: "Штефес" },
+    ]
+
+    // массив выбранных производителей
+    const [selectedManufacturers, setSelectedManufacturers] = useState([]);
+
+    const handleFilterButtonClick = (manufacturer) => {
+
+        // Если в массиве selectedManufacturers есть кликнутый производитель то удаляем этого производителся из массива 
+        // Если же нет то добавляем в массив selectedManufacturers кликнутого производителя
+        if (selectedManufacturers.includes(manufacturer)) {
+            let filters = selectedManufacturers.filter((el) => el !== manufacturer);
+            setSelectedManufacturers(filters);
+        } else {
+            setSelectedManufacturers([...selectedManufacturers, manufacturer]);
+        }
+    };
+
+    useEffect(() => {
+        dispatch(chooseManufacturersProducts(selectedManufacturers))
+    }, [selectedManufacturers]);
+
     return (
         <>
             <div className="filter-items">
@@ -37,30 +75,18 @@ export const FilterCatalogBig = () => {
                     <div className="filter__title">Фильтр</div>
                     <div className="filter__unit">
                         <div className="filter__heading">Производитель </div>
-                        <label className="input-checkbox">Нертус
-                            <input type="checkbox" name="manufacturer" value="nertys" />
-                            <span className="checkmark-checkbox"></span>
-                        </label>
-                        <label className="input-checkbox">Басф
-                            <input type="checkbox" name="manufacturer" value="basf" />
-                            <span className="checkmark-checkbox"></span>
-                        </label>
-                        <label className="input-checkbox">Адама Украина
-                            <input type="checkbox" name="manufacturer" value="adamaUkraine" />
-                            <span className="checkmark-checkbox"></span>
-                        </label>
-                        <label className="input-checkbox">Байер
-                            <input type="checkbox" name="manufacturer" value="bayer" />
-                            <span className="checkmark-checkbox"></span>
-                        </label>
-                        <label className="input-checkbox">ГДЗ
-                            <input type="checkbox" name="manufacturer" value="gdz" />
-                            <span className="checkmark-checkbox"></span>
-                        </label>
-                        <label className="input-checkbox">Штефес
-                            <input type="checkbox" name="manufacturer" value="stephes" />
-                            <span className="checkmark-checkbox"></span>
-                        </label>
+                        {manufacturers.map((manufacturer) => (
+                            <label key={manufacturer.key}
+                                className="input-checkbox"
+                            > {manufacturer.name}
+                                <input
+                                    type="checkbox"
+                                    name="manufacturer"
+                                    onChange={() => handleFilterButtonClick(manufacturer.key)}
+                                />
+                                <span className="checkmark-checkbox" />
+                            </label>
+                        ))}
                     </div>
                     <div className="filter__unit">
                         <div className="filter__heading">Культура </div>
