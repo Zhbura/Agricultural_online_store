@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom"
 import { addHistoryOrderWithThunk } from "../../store/orderProducts/action";
 import { selectCart } from "../../store/cart/selectors";
-import { deleteAllProductCart } from "../../store/cart/action";
+import {  deleteProductCart } from "../../store/cart/action";
 import { nanoid } from "nanoid";
 
 export const ButtonOrder = ({ sendOrderData, formValid }) => {
@@ -20,7 +20,10 @@ export const ButtonOrder = ({ sendOrderData, formValid }) => {
             }
         })
         dispatch(addHistoryOrderWithThunk(orderProduct, dateOrder))
-        dispatch(deleteAllProductCart())
+
+        cartProducts.map((product) => (
+            dispatch(deleteProductCart(product.id))
+        ))
     }
     return (
         <>

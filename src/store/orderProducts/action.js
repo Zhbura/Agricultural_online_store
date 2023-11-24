@@ -22,11 +22,6 @@ export const completedStatusOrder = () => ({
     type: COMPLETED_STATUS_ORDER_PRODUCT
 })
 
-let timeoutPaid;
-let timeoutAway;
-let timeoutCompleted;
-let timeoutDelete;
-
 export const addHistoryOrderWithThunk = (products, date) => (dispatch, getState) => {
     dispatch(historyOrder(products, date));
 
@@ -35,14 +30,14 @@ export const addHistoryOrderWithThunk = (products, date) => (dispatch, getState)
     }
 
     products.map((product) => {
-        timeoutPaid = setTimeout(sendStatusOrder, 30000, "Оплачен", product.id);
-        timeoutAway = setTimeout(sendStatusOrder, 60000, "В дороге", product.id);
-        timeoutCompleted = setTimeout(sendStatusOrder, 90000, "Завершен", product.id);
+        setTimeout(sendStatusOrder, 30000, "Оплачен", product.id);
+        setTimeout(sendStatusOrder, 60000, "В дороге", product.id);
+        setTimeout(sendStatusOrder, 90000, "Завершен", product.id);
     })
 
     const сompletedOrder = () => {
         dispatch(completedStatusOrder())
     }
 
-    timeoutDelete = setTimeout(сompletedOrder, 120000);
+    setTimeout(сompletedOrder, 120000);
 }

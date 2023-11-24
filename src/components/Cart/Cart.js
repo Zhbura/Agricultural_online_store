@@ -17,7 +17,7 @@ export const CartComp = () => {
     ];
 
     const cartProducts = useSelector(selectCart);
-
+    console.log(cartProducts[8])
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
