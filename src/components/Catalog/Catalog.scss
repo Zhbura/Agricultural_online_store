@@ -29,55 +29,6 @@
     }
 }
 
-.sort {
-    padding: 10px 0 10px 15px;
-    max-width: 260px;
-    height: 40px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 90px;
-    display: flex;
-    background: #FFFFFF;
-    align-items: center;
-
-    @media (min-width: 320px) and (max-width: 899px) {
-        width: 135px;
-        padding-left: 6px;
-    }
-
-    svg {
-        margin-left: 22px;
-        margin-right: 14px;
-
-        @media (min-width: 320px) and (max-width: 900px) {
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-    }
-
-    span {
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        height: 28px;
-    }
-
-    input {
-        border: none;
-        display: block;
-        outline: none;
-        width: 100%;
-        cursor: pointer;
-        color: #484848;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        border-radius: 90px;
-
-        @media (min-width: 320px) and (max-width: 899px) {
-            font-size: 11px;
-            line-height: 15px;
-        }
-    }
-}
-
 .result {
     font-weight: 400;
     font-size: 16px;

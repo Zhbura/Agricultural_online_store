@@ -1,6 +1,5 @@
 import './Catalog.scss';
 import { Pagination } from '../Pagination/Pagination';
-import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { SeedsCatalog } from '../SeedsCatalog/SeedsCatalog';
 import { ProductCard } from '../ProductСard/ProductСard';
@@ -30,6 +29,7 @@ import {
     selectCountRetardants,
     selectCountRodenticides
 } from "../../store/catalog/selectors";
+import { DropdownCatalogSort } from '../Dropdown/DropdownCatalogSort';
 
 export const Catalog = ({ title }) => {
     // Для работы dropdown
@@ -52,7 +52,7 @@ export const Catalog = ({ title }) => {
         },
     ];
 
-    const filterProducts = useSelector(selectFilterProducts);
+    let filterProducts = useSelector(selectFilterProducts);
     const countFilterProducts = useSelector(selectCountFilterProducts);
 
     //Для пагинации
@@ -68,8 +68,11 @@ export const Catalog = ({ title }) => {
     // индекс первой страницы 0
     const firstProductIndex = lastProductIndex - productsPerPage;
 
-    //текущая страница
-    const currentProduct = filterProducts.slice(firstProductIndex, lastProductIndex);
+    // Для хранения значения значения сортировки цены
+    const [sort, setSort] = useState('');
+
+    //текущая страница отображающая на странице и применяемая к ней сортировка по цене товаров
+    const currentProduct = filterProducts.sort((a, b) => sort === "increase" ? a.price - b.price : sort === "decrease" ? b.price - a.price : "").slice(firstProductIndex, lastProductIndex);
 
     // функция для нажатия на кружки пагинации
     const paginate = pageNumber => setCurrentPage(pageNumber);
@@ -87,7 +90,7 @@ export const Catalog = ({ title }) => {
         { key: "rodenticides", name: "Родентициды", count: useSelector(selectCountRodenticides) },
         { key: "retardants", name: "Ретарданты", count: useSelector(selectCountRetardants) },
         { key: "protectants", name: "Протравители", count: useSelector(selectCountProtectants) },
-    ]
+    ];
 
     // Для хранения выбранной категории
     const [categoryState, setCategoryState] = useState();
@@ -116,8 +119,8 @@ export const Catalog = ({ title }) => {
         if (selected.key) {
             dispatch(chooseCategoryProducts(selected.key, selectedManufacturers))
         }
-    }, [categoryState, selectedManufacturers, selected.key]);
 
+    }, [categoryState, selectedManufacturers, selected.key,]);
 
     return (
         <>
@@ -128,26 +131,21 @@ export const Catalog = ({ title }) => {
                 </PageHeadingTwice>
                 <div className="catalog-wrap catalog-wrap_top container">
                     <div className="result">Показано {countFilterProducts} товар</div>
-                    <div className="sort arrow-checkbox_grey">
-                        <input type="text" placeholder="Сортировать по" />
-                        <span /><ArrowCheckbox />
-                    </div>
+                    <DropdownCatalogSort setSort={setSort} />
                 </div>
                 <div className="wrap-small">
                     <div className="wrap-small_top">
                         <div className="filter-small" onClick={showFilter}>Фильтр
                         </div>
                         <FilterCatalogSmall handleFilterButtonClick={handleFilterButtonClick} />
-                        <div className="sort arrow-checkbox_grey">
-                            <input type="text" placeholder="Сортировать по" />
-                            <span /><ArrowCheckbox />
-                        </div>
+                        <DropdownCatalogSort setSort={setSort} />
                     </div>
                     <DropdownCatalog
                         categories={categories}
                         selected={selected}
                         setSelected={setSelected}
-                        setCategoryState={setCategoryState} />
+                        setCategoryState={setCategoryState}
+                    />
                     <div className="result">Показано {countFilterProducts} товар</div>
                 </div>
                 <div className="catalog-wrap container">
