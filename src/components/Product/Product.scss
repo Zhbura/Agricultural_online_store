@@ -35,14 +35,18 @@
         color: #1E6140;
         margin-bottom: 26px;
 
-        img {
-            margin-right: 5px;
-            display: block;
+        &_red {
+            color: red;
         }
     }
 
     &__fabricator {
         padding-top: 7px;
+
+        div {
+            display: flex;
+            align-items: center;
+        }
     }
 
     &__heading {
