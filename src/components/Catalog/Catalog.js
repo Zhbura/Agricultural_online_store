@@ -144,7 +144,7 @@ export const Catalog = ({ title }) => {
         if (selected.key) {
             dispatch(chooseCategoryProducts(selected.key, selectedManufacturers, quantitativeStock)) // Для маленького разрешения экрана, выбор категории и производителя
         }
-  
+
     }, [categoryState, selectedManufacturers, selected.key, quantitativeStock]);
 
     return (
@@ -162,7 +162,10 @@ export const Catalog = ({ title }) => {
                     <div className="wrap-small_top">
                         <div className="filter-small" onClick={showFilter}>Фильтр
                         </div>
-                        <FilterCatalogSmall handleFilterButtonClick={handleFilterButtonClick} />
+                        <FilterCatalogSmall
+                            handleFilterButtonClick={handleFilterButtonClick}
+                            quantitativeStockClick={quantitativeStockClick}
+                        />
                         <DropdownCatalogSort setSort={setSort} />
                     </div>
                     <DropdownCatalog

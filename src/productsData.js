@@ -554,4 +554,25 @@ export const manufacturers = [
     { key: "bayer", name: "Байер" },
     { key: "gdz", name: "ГДЗ" },
     { key: "stephes", name: "Штефес" },
-]
+];
+
+export const cultures = [
+    { key: "sunflower", name: "Подсолнечник" },
+    { key: "corn", name: "Кукуруза" },
+    { key: "wheat", name: "Пшеница" },
+    { key: "barley", name: "Ячмень" },
+    { key: "rapeseed", name: "Рапс" },
+    { key: "soy", name: "Соя" },
+    { key: "peas", name: "Горох" },
+    { key: "pea", name: "Бобы" },
+    { key: "mustard", name: "Горчица" },
+    { key: "polkaDots", name: "Горошек" },
+    { key: "breadbasket", name: "Житняк" },
+    { key: "beans", name: "Фасоль" },
+    { key: "clover", name: "Клевер" },
+    { key: "ovsanitsa", name: "Овсяница" },
+    { key: "timofeevka", name: "Тимофеевка" },
+    { key: "triticale", name: "Тритикале" },
+    { key: "sugarbeet", name: "Сахарная свекла" },
+    { key: "fodderbeetroot", name: "Кормовая свекла" },
+];
