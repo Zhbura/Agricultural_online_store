@@ -8,7 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     changeShowFilter,
     chooseCategoryProducts,
-    chooseManufacturersProducts
+    chooseManufacturersProducts,
+    chooseQuantitativeStockProducts
 } from '../../store/catalog/action';
 import { useEffect, useState } from 'react';
 import { FilterCatalogBig } from '../FilterCatalog/FilterCatalogBig';
@@ -109,18 +110,42 @@ export const Catalog = ({ title }) => {
             setSelectedManufacturers([...selectedManufacturers, manufacturer]);
         }
     };
+    // Для фильтра количества
+    const [selectedQuantitativeStock, setselectedQuantitativeStock] = useState([]);
+    const [quantitativeStock, setQuantitativeStock] = useState(0);
+
+    const quantitativeStockClick = (number) => {
+        if (selectedQuantitativeStock.includes(number)) {
+            let filters = selectedQuantitativeStock.filter((el) => el !== number);
+            if (filters.length > 0) {
+                let maxQuantitativeStock = Math.max.apply(null, filters);
+                setQuantitativeStock(maxQuantitativeStock)
+            } else {
+                setQuantitativeStock(0)
+            }
+            setselectedQuantitativeStock(filters);
+        } else {
+            setselectedQuantitativeStock([...selectedQuantitativeStock, number]);
+            let maxQuantitativeStock = Math.max.apply(null, [...selectedQuantitativeStock, number]);
+            setQuantitativeStock(maxQuantitativeStock)
+        }
+    }
 
     useEffect(() => {
         if (categoryState) {
-            dispatch(chooseCategoryProducts(categoryState, selectedManufacturers))
+            dispatch(chooseCategoryProducts(categoryState, selectedManufacturers, quantitativeStock)) // Если выбрана категория и производитель + кол-во
         } else {
-            dispatch(chooseManufacturersProducts(selectedManufacturers))
+            if (selectedManufacturers.length > 0) {
+                dispatch(chooseManufacturersProducts(selectedManufacturers, quantitativeStock)) //Если выбран только производитель + кол-во
+            } else {
+                dispatch(chooseQuantitativeStockProducts(quantitativeStock)) //Если выбрано только кол-во
+            }
         }
         if (selected.key) {
-            dispatch(chooseCategoryProducts(selected.key, selectedManufacturers))
+            dispatch(chooseCategoryProducts(selected.key, selectedManufacturers, quantitativeStock)) // Для маленького разрешения экрана, выбор категории и производителя
         }
-
-    }, [categoryState, selectedManufacturers, selected.key,]);
+  
+    }, [categoryState, selectedManufacturers, selected.key, quantitativeStock]);
 
     return (
         <>
@@ -153,6 +178,7 @@ export const Catalog = ({ title }) => {
                         handleFilterButtonClick={handleFilterButtonClick}
                         categories={categories}
                         setCategoryState={setCategoryState}
+                        quantitativeStockClick={quantitativeStockClick}
                     />
                     <div className="wrap-page">
                         {currentProduct.length === 0 &&

@@ -1,4 +1,4 @@
-import { CHANGE_SHOW_FILTER, CHOOSE_CATEGORY, CHOOSE_MANUFACTURERS } from "./action";
+import { CHANGE_SHOW_FILTER, CHOOSE_CATEGORY, CHOOSE_MANUFACTURERS, CHOOSE_QUANTITATIVE_STOCK } from "./action";
 import { products } from "../../productsData";
 
 // Все товары из каталога "Средства защиты растений"
@@ -42,7 +42,7 @@ export const catalogReducer = (state = initialState, action) => {
                 if (action.payload.manufacturers.length === 0) {
                     return {
                         ...state,
-                        filterProducts: plantProtectionProducts
+                        filterProducts: plantProtectionProducts.filter((j) => j.quantitativeStock >= action.payload.quantitativeStock)
                     }
                 } else {
                     let chooseManufacturers = action.payload.manufacturers.map((selectedManufacturer) => {
@@ -52,7 +52,7 @@ export const catalogReducer = (state = initialState, action) => {
 
                     return {
                         ...state,
-                        filterProducts: chooseManufacturers.flat()
+                        filterProducts: chooseManufacturers.flat().filter((j) => j.quantitativeStock >= action.payload.quantitativeStock)
                     }
                 }
 
@@ -61,16 +61,17 @@ export const catalogReducer = (state = initialState, action) => {
                 if (action.payload.manufacturers.length === 0) {
                     return {
                         ...state,
-                        filterProducts: categoryProduct
+                        filterProducts: categoryProduct.filter((j) => j.quantitativeStock >= action.payload.quantitativeStock)
                     }
                 } else {
                     let chooseManufacturers = action.payload.manufacturers.map((selectedManufacturer) => {
                         let manufacturerItems = categoryProduct.filter((item) => item.manufacturer === selectedManufacturer);
                         return manufacturerItems;
                     });
+                  
                     return {
                         ...state,
-                        filterProducts: chooseManufacturers.flat()
+                        filterProducts: chooseManufacturers.flat().filter((j) => j.quantitativeStock >= action.payload.quantitativeStock)
                     }
                 }
 
@@ -84,16 +85,22 @@ export const catalogReducer = (state = initialState, action) => {
                 });
                 return {
                     ...state,
-                    filterProducts: chooseManufacturers.flat()
+                    filterProducts: chooseManufacturers.flat().filter((j) => j.quantitativeStock >= action.payload.quantitativeStock)
                 }
             } else {
                 return {
                     ...state,
-                    filterProducts: plantProtectionProducts
+                    filterProducts: plantProtectionProducts.filter((j) => j.quantitativeStock >= action.payload.quantitativeStock)
                 }
             }
         }
+        case CHOOSE_QUANTITATIVE_STOCK: {
 
+            return {
+                ...state,
+                filterProducts: plantProtectionProducts.filter((j) => j.quantitativeStock >= action.payload.quantitativeStock)
+            }
+        }
         default:
             return state;
     }

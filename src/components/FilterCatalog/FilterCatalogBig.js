@@ -1,6 +1,7 @@
 import { manufacturers } from "../../productsData";
 
-export const FilterCatalogBig = ({ handleFilterButtonClick, categories, setCategoryState }) => {
+export const FilterCatalogBig = ({ handleFilterButtonClick, categories, setCategoryState, quantitativeStockClick }) => {
+    const quantitativeStock = [10, 11, 12, 13, 14, 15]
     return (
         <>
             <div className="filter-items">
@@ -111,30 +112,18 @@ export const FilterCatalogBig = ({ handleFilterButtonClick, categories, setCateg
                     </div>
                     <div className="filter__unit">
                         <div className="filter__heading">Количество </div>
-                        <label className="input-checkbox"> 1
-                            <input type="checkbox" name="quantity" value="1" />
-                            <span className="checkmark-checkbox"></span>
-                        </label>
-                        <label className="input-checkbox"> 2
-                            <input type="checkbox" name="quantity" value="2" />
-                            <span className="checkmark-checkbox"></span>
-                        </label>
-                        <label className="input-checkbox"> 3
-                            <input type="checkbox" name="quantity" value="3" />
-                            <span className="checkmark-checkbox"></span>
-                        </label>
-                        <label className="input-checkbox">4
-                            <input type="checkbox" name="quantity" value="4" />
-                            <span className="checkmark-checkbox"></span>
-                        </label>
-                        <label className="input-checkbox"> 5
-                            <input type="checkbox" name="quantity" value="5" />
-                            <span className="checkmark-checkbox"></span>
-                        </label>
-                        <label className="input-checkbox"> 6
-                            <input type="checkbox" name="quantity" value="6" />
-                            <span className="checkmark-checkbox"></span>
-                        </label>
+                        {quantitativeStock.map((number) => (
+                            <label key={number}
+                                className="input-checkbox"
+                            > {number}
+                                <input
+                                    type="checkbox"
+                                    name="quantity"
+                                    onChange={() => quantitativeStockClick(number)}
+                                />
+                                <span className="checkmark-checkbox" />
+                            </label>
+                        ))}
                     </div>
                 </div>
             </div>

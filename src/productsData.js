@@ -18,6 +18,7 @@ export const products = [
         count: 1,
         catalog: "seeds",
         manufacturer: "nertys",
+        quantitativeStock: 10,
     },
     {
         id: 2,
@@ -37,6 +38,7 @@ export const products = [
         catalog: "PPP",
         category: "fungicides",
         manufacturer: "basf",
+        quantitativeStock: 12,
     },
     {
         id: 3,
@@ -56,6 +58,7 @@ export const products = [
         catalog: "PPP",
         category: "fungicides",
         manufacturer: "bayer",
+        quantitativeStock: 10,
     },
     {
         id: 4,
@@ -75,6 +78,7 @@ export const products = [
         count: 1,
         catalog: "fertilizer",
         manufacturer: "gdz",
+        quantitativeStock: 10,
     },
     {
         id: 5,
@@ -94,6 +98,7 @@ export const products = [
         catalog: "PPP",
         category: "fungicides",
         manufacturer: "gdz",
+        quantitativeStock: 12,
     },
     {
         id: 6,
@@ -109,6 +114,7 @@ export const products = [
         catalog: "PPP",
         category: "fungicides",
         manufacturer: "basf",
+        quantitativeStock: 10,
     },
     {
         id: 7,
@@ -127,6 +133,7 @@ export const products = [
         catalog: "PPP",
         category: "fungicides",
         manufacturer: "nertys",
+         quantitativeStock: 9,
     },
     {
         id: 8,
@@ -142,6 +149,7 @@ export const products = [
         catalog: "PPP",
         category: "herbicides",
         manufacturer: "gdz",
+        quantitativeStock: 12,
     },
     {
         id: 9,
@@ -160,6 +168,7 @@ export const products = [
         catalog: "PPP",
         category: "herbicides",
         manufacturer: "gdz",
+         quantitativeStock: 9,
     },
     {
         id: 10,
@@ -175,6 +184,7 @@ export const products = [
         catalog: "PPP",
         category: "herbicides",
         manufacturer: "basf",
+        quantitativeStock: 12,
     },
     {
         id: 11,
@@ -194,6 +204,7 @@ export const products = [
         catalog: "PPP",
         category: "herbicides",
         manufacturer: "bayer",
+        quantitativeStock: 12,
     },
     {
         id: 12,
@@ -213,6 +224,7 @@ export const products = [
         catalog: "PPP",
         category: "herbicides",
         manufacturer: "basf",
+         quantitativeStock: 9,
     },
     {
         id: 13,
@@ -228,6 +240,7 @@ export const products = [
         catalog: "PPP",
         category: "herbicides",
         manufacturer: "nertys",
+        quantitativeStock: 12,
     },
     {
         id: 14,
@@ -243,6 +256,7 @@ export const products = [
         catalog: "PPP",
         category: "insecticides",
         manufacturer: "stephes",
+        quantitativeStock: 12,
     },
     {
         id: 15,
@@ -262,6 +276,7 @@ export const products = [
         catalog: "PPP",
         category: "insecticides",
         manufacturer: "gdz",
+        quantitativeStock: 10,
     },
     {
         id: 16,
@@ -281,6 +296,7 @@ export const products = [
         catalog: "PPP",
         category: "insecticides",
         manufacturer: "gdz",
+        quantitativeStock: 14,
     },
     {
         id: 17,
@@ -299,6 +315,7 @@ export const products = [
         catalog: "PPP",
         category: "insecticides",
         manufacturer: "stephes",
+        quantitativeStock: 14,
     },
     {
         id: 18,
@@ -314,6 +331,7 @@ export const products = [
         catalog: "PPP",
         category: "protectants",
         manufacturer: "bayer",
+        quantitativeStock: 20,
     },
     {
         id: 19,
@@ -332,6 +350,7 @@ export const products = [
         catalog: "PPP",
         category: "protectants",
         manufacturer: "gdz",
+        quantitativeStock: 14,
     },
     {
         id: 20,
@@ -347,6 +366,7 @@ export const products = [
         catalog: "PPP",
         category: "protectants",
         manufacturer: "nertys",
+        quantitativeStock: 20,
     },
     {
         id: 21,
@@ -364,6 +384,7 @@ export const products = [
         catalog: "PPP",
         category: "protectants",
         manufacturer: "bayer",
+        quantitativeStock: 20,
     },
     {
         id: 22,
@@ -379,6 +400,7 @@ export const products = [
         catalog: "PPP",
         category: "desiccants",
         manufacturer: "stephes",
+        quantitativeStock: 14,
     },
     {
         id: 23,
@@ -399,6 +421,7 @@ export const products = [
         catalog: "PPP",
         category: "desiccants",
         manufacturer: "bayer",
+        quantitativeStock: 14,
     },
     {
         id: 24,
@@ -418,6 +441,7 @@ export const products = [
         catalog: "PPP",
         category: "adjuvants",
         manufacturer: "stephes",
+        quantitativeStock: 20,
     },
     {
         id: 25,
@@ -438,6 +462,7 @@ export const products = [
         catalog: "PPP",
         category: "adjuvants",
         manufacturer: "bayer",
+        quantitativeStock: 20,
     },
     {
         id: 26,
@@ -458,6 +483,7 @@ export const products = [
         catalog: "PPP",
         category: "adjuvants",
         manufacturer: "basf",
+        quantitativeStock: 14,
     },
     {
         id: 27,
@@ -473,6 +499,7 @@ export const products = [
         catalog: "PPP",
         category: "rodenticides",
         manufacturer: "nertys",
+        quantitativeStock: 20,
     },
     {
         id: 28,
@@ -488,6 +515,7 @@ export const products = [
         catalog: "PPP",
         category: "rodenticides",
         manufacturer: "gdz",
+        quantitativeStock: 14,
     },
     {
         id: 29,
@@ -508,6 +536,7 @@ export const products = [
         catalog: "PPP",
         category: "retardants",
         manufacturer: "bayer",
+        quantitativeStock: 14,
     },
     {
         id: 30,
@@ -528,6 +557,7 @@ export const products = [
         catalog: "PPP",
         category: "retardants",
         manufacturer: "basf",
+        quantitativeStock: 20,
     },
     {
         id: 31,
@@ -545,6 +575,7 @@ export const products = [
         catalog: "PPP",
         category: "retardants",
         manufacturer: "nertys",
+        quantitativeStock: 20,
     },
 ]
 
