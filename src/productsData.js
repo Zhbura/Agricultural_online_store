@@ -618,9 +618,8 @@ export const products = [
         priceFor: [1, 5, 9],
         count: 1,
         catalog: "seeds",
-        manufacturer: "basf",
         category: "flowers",
-        manufacturer: "nertys",
+        manufacturer: "basf",
         quantitativeStock: 8,
     },
     {

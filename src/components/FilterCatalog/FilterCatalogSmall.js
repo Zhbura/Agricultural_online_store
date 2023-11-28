@@ -4,10 +4,9 @@ import { Arrow } from '../SVG/Arrow/Arrow';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectShowFilter } from '../../store/catalog/selectors';
 import { changeShowFilter } from '../../store/catalog/action';
-import { manufacturers } from "../../productsData";
 import { cultures } from "../../productsData";
 
-export const FilterCatalogSmall = ({ handleFilterButtonClick, quantitativeStockClick }) => {
+export const FilterCatalogSmall = ({ manufacturers, handleFilterButtonClick, quantitativeStockClick }) => {
     const [fabricator, setFabricator] = useState(false);
     const [culture, setCulture] = useState(false);
     const [quantity, setQuantity] = useState(false);
@@ -44,7 +43,7 @@ export const FilterCatalogSmall = ({ handleFilterButtonClick, quantitativeStockC
                             ))}
                         </div>
                     </div>
-                    <div className="filter__unit">
+                    <div className="filter__unit filter__unit_hidden">
                         <div className="filter__heading menu-catalog__heading" onClick={() => setCulture(!culture)}>Культура </div>
                         <div className={culture ? 'filter__part' : 'filter__part_notActive'}>
                             {cultures.map((culture) => (

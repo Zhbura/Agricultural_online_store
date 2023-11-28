@@ -1,7 +1,6 @@
-import { manufacturers } from "../../productsData";
 import { cultures } from "../../productsData";
 
-export const FilterCatalogBig = ({ handleFilterButtonClick, categories, setCategoryState, quantitativeStockClick }) => {
+export const FilterCatalogBig = ({ manufacturers, handleFilterButtonClick, categories, setCategoryState, quantitativeStockClick }) => {
     const quantitativeStock = [10, 11, 12, 13, 14, 15];
 
     return (
@@ -33,7 +32,7 @@ export const FilterCatalogBig = ({ handleFilterButtonClick, categories, setCateg
                             </label>
                         ))}
                     </div>
-                    <div className="filter__unit">
+                    <div className="filter__unit filter__unit_hidden">
                         <div className="filter__heading">Культура </div>
                         {cultures.map((culture) => (
                             <label key={culture.key}

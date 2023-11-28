@@ -11,9 +11,11 @@ import storage from "redux-persist/lib/storage";
 import { orderProductsReducer } from './orderProducts/reducer';
 import thunk from 'redux-thunk';
 import { searchReducer } from './search/reducer';
+import { catalogSeedsReducer } from './catalogSeeds/reducer';
 
 const rootReducer = combineReducers({
     catalog: catalogReducer,
+    catalogSeeds: catalogSeedsReducer,
     menu: menuReducer,
     cart: cartReducer,
     wishList: wishListReducer,
@@ -27,7 +29,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
     key: "agriculturalStore",
     storage,
-    blacklist: ['catalog']
+    blacklist: ['catalog']['catalogSeeds']
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
