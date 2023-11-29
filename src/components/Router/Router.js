@@ -38,6 +38,7 @@ import { LayoutBottom } from "../Layout/LayoutBottom";
 import { CatalogProductsFilter } from "../CatalogProductsFilter/CatalogProductsFilter";
 import { CatalogSeeds } from "../Catalog/CatalogSeeds";
 import { CatalogFertilizers } from "../Catalog/CatalogFertilizers";
+import { CatalogFeedGroup } from "../Catalog/CatalogFeedGroup";
 
 export const Router = () => {
     const [authed, setAuthed] = useState(false);
@@ -89,7 +90,7 @@ export const Router = () => {
                             element={<CatalogFertilizers />}
                         />
                         <Route path="catalog_feed_group"
-                            element={<Catalog title="Кормовая группа" />}
+                            element={<CatalogFeedGroup />}
                         />
                         <Route path="catalog_farmer_help"
                             element={<Catalog title="Агроному в помощь" />}

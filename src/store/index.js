@@ -13,11 +13,13 @@ import thunk from 'redux-thunk';
 import { searchReducer } from './search/reducer';
 import { catalogSeedsReducer } from './catalogSeeds/reducer';
 import { catalogFertilizersReducer } from './catalogFertilizers/reducer';
+import { catalogFeedGroupReducer } from './catalogFeedGroup/reducer';
 
 const rootReducer = combineReducers({
     catalog: catalogReducer,
     catalogSeeds: catalogSeedsReducer,
     catalogFertilizers: catalogFertilizersReducer,
+    catalogFeedGroup: catalogFeedGroupReducer,
     menu: menuReducer,
     cart: cartReducer,
     wishList: wishListReducer,
