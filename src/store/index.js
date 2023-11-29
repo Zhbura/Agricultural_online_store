@@ -12,10 +12,12 @@ import { orderProductsReducer } from './orderProducts/reducer';
 import thunk from 'redux-thunk';
 import { searchReducer } from './search/reducer';
 import { catalogSeedsReducer } from './catalogSeeds/reducer';
+import { catalogFertilizersReducer } from './catalogFertilizers/reducer';
 
 const rootReducer = combineReducers({
     catalog: catalogReducer,
     catalogSeeds: catalogSeedsReducer,
+    catalogFertilizers: catalogFertilizersReducer,
     menu: menuReducer,
     cart: cartReducer,
     wishList: wishListReducer,
@@ -29,7 +31,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
     key: "agriculturalStore",
     storage,
-    blacklist: ['catalog']['catalogSeeds']
+    blacklist: ['catalog', 'catalogFertilizers', 'catalogSeeds'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

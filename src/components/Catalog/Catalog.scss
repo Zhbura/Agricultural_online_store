@@ -18,6 +18,16 @@
     display: none;
 }
 
+.catalog-fertilizers {
+    .filter__unit_hidden {
+        display: none;
+    }
+
+    .filter__text p {
+        max-width: 192px;
+    }
+}
+
 .catalog-product {
     display: grid;
     grid-template-columns: repeat(3, 255px);

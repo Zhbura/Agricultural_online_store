@@ -74,6 +74,7 @@ export const products = [
         priceFor: [1, 3, 6, 9],
         count: 1,
         catalog: "fertilizer",
+        category: "universal",
         manufacturer: "stephes",
         quantitativeStock: 10,
     },
@@ -1002,9 +1003,6 @@ export const products = [
         alt: "Брексил",
         img: [
             require("./img/product/breksil/breksil.png"),
-            require("./img/product/breksil/breksilTwo.png"),
-            require("./img/product/breksil/breksilThree.png"),
-            require("./img/product/breksil/breksilFour.png"),
         ],
         price: 59,
         totalPrice: 59,

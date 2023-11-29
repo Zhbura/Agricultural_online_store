@@ -37,6 +37,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { LayoutBottom } from "../Layout/LayoutBottom";
 import { CatalogProductsFilter } from "../CatalogProductsFilter/CatalogProductsFilter";
 import { CatalogSeeds } from "../Catalog/CatalogSeeds";
+import { CatalogFertilizers } from "../Catalog/CatalogFertilizers";
 
 export const Router = () => {
     const [authed, setAuthed] = useState(false);
@@ -85,7 +86,7 @@ export const Router = () => {
                         />
                         <Route path="catalog_seeds" element={<CatalogSeeds />} />
                         <Route path="catalog_fertilizers"
-                            element={<Catalog title="Удобрения" />}
+                            element={<CatalogFertilizers />}
                         />
                         <Route path="catalog_feed_group"
                             element={<Catalog title="Кормовая группа" />}
