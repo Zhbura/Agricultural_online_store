@@ -32,6 +32,10 @@
     display: none;
 }
 
+.catalog-farmer .filter__unit_hidden {
+    display: none;
+}
+
 .catalog-product {
     display: grid;
     grid-template-columns: repeat(3, 255px);

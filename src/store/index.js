@@ -14,12 +14,14 @@ import { searchReducer } from './search/reducer';
 import { catalogSeedsReducer } from './catalogSeeds/reducer';
 import { catalogFertilizersReducer } from './catalogFertilizers/reducer';
 import { catalogFeedGroupReducer } from './catalogFeedGroup/reducer';
+import { catalogFarmerHelpReducer } from './catalogFarmerHelp/reducer';
 
 const rootReducer = combineReducers({
     catalog: catalogReducer,
     catalogSeeds: catalogSeedsReducer,
     catalogFertilizers: catalogFertilizersReducer,
     catalogFeedGroup: catalogFeedGroupReducer,
+    catalogFarmerHelp: catalogFarmerHelpReducer,
     menu: menuReducer,
     cart: cartReducer,
     wishList: wishListReducer,
@@ -33,7 +35,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
     key: "agriculturalStore",
     storage,
-    blacklist: ['catalog', 'catalogFertilizers', 'catalogSeeds'],
+    blacklist: ['catalog', 'catalogFertilizers', 'catalogSeeds', 'catalogFarmerHelp'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

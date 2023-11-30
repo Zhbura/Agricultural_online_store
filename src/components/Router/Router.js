@@ -39,6 +39,7 @@ import { CatalogProductsFilter } from "../CatalogProductsFilter/CatalogProductsF
 import { CatalogSeeds } from "../Catalog/CatalogSeeds";
 import { CatalogFertilizers } from "../Catalog/CatalogFertilizers";
 import { CatalogFeedGroup } from "../Catalog/CatalogFeedGroup";
+import { CatalogFarmerHelp } from "../Catalog/CatalogFarmerHelp";
 
 export const Router = () => {
     const [authed, setAuthed] = useState(false);
@@ -93,7 +94,7 @@ export const Router = () => {
                             element={<CatalogFeedGroup />}
                         />
                         <Route path="catalog_farmer_help"
-                            element={<Catalog title="Агроному в помощь" />}
+                            element={<CatalogFarmerHelp />}
                         />
                         <Route path="personal_account" element={<PrivateRoute authed={authed} />}>
                             <Route path="" element={<PersonalAccount />}>
