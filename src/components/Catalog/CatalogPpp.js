@@ -45,8 +45,8 @@ export const CatalogPpp = () => {
 
     const breadcrumbs = [
         {
-            name: "Каталог",
-            to: "/catalog"
+            name: "Категории",
+            to: "/category_plant_protection"
         },
         {
             name: `Средства защиты растений`,
@@ -54,7 +54,7 @@ export const CatalogPpp = () => {
         },
     ];
 
-    let pppProducts = useSelector(selectFilterPppProducts);
+    let ppProducts = useSelector(selectFilterPppProducts);
     const countPppProducts = useSelector(selectCountFilterPppProducts);
 
     //Для пагинации
@@ -74,7 +74,7 @@ export const CatalogPpp = () => {
     const [sort, setSort] = useState('');
 
     //текущая страница отображающая на странице и применяемая к ней сортировка по цене товаров
-    const currentProduct = pppProducts.sort((a, b) => sort === "increase" ? a.price - b.price : sort === "decrease" ? b.price - a.price : "").slice(firstProductIndex, lastProductIndex);
+    const currentProduct = ppProducts.sort((a, b) => sort === "increase" ? a.price - b.price : sort === "decrease" ? b.price - a.price : "").slice(firstProductIndex, lastProductIndex);
 
     // функция для нажатия на кружки пагинации
     const paginate = pageNumber => setCurrentPage(pageNumber);
@@ -201,7 +201,7 @@ export const CatalogPpp = () => {
                         </div>
                         <Pagination
                             productsPerPage={productsPerPage}
-                            totalProducts={pppProducts.length}
+                            totalProducts={ppProducts.length}
                             paginate={paginate}
                             currentPage={currentPage}
                             setCurrentPage={setCurrentPage}

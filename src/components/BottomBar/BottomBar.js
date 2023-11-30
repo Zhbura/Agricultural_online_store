@@ -21,7 +21,7 @@ export const BottomBar = () => {
             id: 2,
             name: "Средства защиты растений",
             svg: <Sapling />,
-            to: '/catalog_plant_protection',
+            to: '/category_plant_protection',
         },
         {
             id: 3,

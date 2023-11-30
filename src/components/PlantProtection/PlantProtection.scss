@@ -39,6 +39,7 @@
     }
 
     &__text {
+        display: block;
         background: rgba(255, 255, 255, 0.8);
         padding: 11px 0;
         width: 100%;
@@ -56,5 +57,11 @@
             line-height: 20px;
             padding: 6px 0;
         }
+    }
+}
+
+.plant-protection .plant-protection__item:nth-child(3) {
+    .plant-protection__text {
+        display: none;
     }
 }

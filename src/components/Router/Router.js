@@ -40,6 +40,7 @@ import { CatalogSeeds } from "../Catalog/CatalogSeeds";
 import { CatalogFertilizers } from "../Catalog/CatalogFertilizers";
 import { CatalogFeedGroup } from "../Catalog/CatalogFeedGroup";
 import { CatalogFarmerHelp } from "../Catalog/CatalogFarmerHelp";
+import { Catalog } from "../Catalog/Catalog";
 
 export const Router = () => {
     const [authed, setAuthed] = useState(false);
@@ -82,7 +83,8 @@ export const Router = () => {
                             <Route path="registration" element={<Registration />} />
                         </Route>
                         <Route path="catalog_product_filter" element={<CatalogProductsFilter />} />
-                        <Route path="catalog" element={<PlantProtection />} />
+                        <Route path="category_plant_protection" element={<PlantProtection />} />
+                        <Route path="catalog" element={<Catalog />} />
                         <Route path="catalog_plant_protection"
                             element={<CatalogPpp />}
                         />
