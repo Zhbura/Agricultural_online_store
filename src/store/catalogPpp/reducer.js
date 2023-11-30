@@ -16,7 +16,6 @@ const protectants = products.filter((item) => item?.category === "protectants");
 
 const initialState = {
     showFilter: false,
-    manufacturerProducts: [],
     filterProducts: plantProtectionProducts,
     countAllPpp: plantProtectionProducts.length,
     countFungicides: fungicides.length,
@@ -29,7 +28,7 @@ const initialState = {
     countProtectants: protectants.length,
 }
 
-export const catalogReducer = (state = initialState, action) => {
+export const catalogPppReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_SHOW_FILTER: {
             return {
@@ -68,7 +67,7 @@ export const catalogReducer = (state = initialState, action) => {
                         let manufacturerItems = categoryProduct.filter((item) => item.manufacturer === selectedManufacturer);
                         return manufacturerItems;
                     });
-                  
+
                     return {
                         ...state,
                         filterProducts: chooseManufacturers.flat().filter((j) => j.quantitativeStock >= action.payload.quantitativeStock)

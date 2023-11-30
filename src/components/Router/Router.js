@@ -6,7 +6,7 @@ import { ThanksOrder } from "../ThanksOrder/ThanksOrder";
 import { AboutСompany } from "../AboutСompany/AboutСompany";
 import { TeamCompany } from "../TeamCompany/TeamCompany";
 import { Agreement } from "../Agreement/Agreement";
-import { Catalog } from "../Catalog/Catalog";
+import { CatalogPpp } from "../Catalog/CatalogPpp";
 import { Pay } from "../Pay/Pay";
 import { PartnersComp } from "../PartnersComp/PartnersComp";
 import { News } from "../News/News";
@@ -84,7 +84,7 @@ export const Router = () => {
                         <Route path="catalog_product_filter" element={<CatalogProductsFilter />} />
                         <Route path="catalog" element={<PlantProtection />} />
                         <Route path="catalog_plant_protection"
-                            element={<Catalog title="Средства защиты растений" />}
+                            element={<CatalogPpp />}
                         />
                         <Route path="catalog_seeds" element={<CatalogSeeds />} />
                         <Route path="catalog_fertilizers"

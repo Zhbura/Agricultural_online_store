@@ -2,8 +2,8 @@ import { useState } from 'react';
 import './FilterCatalog.scss';
 import { Arrow } from '../SVG/Arrow/Arrow';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectShowFilter } from '../../store/catalog/selectors';
-import { changeShowFilter } from '../../store/catalog/action';
+import { selectShowFilter } from '../../store/catalogPpp/selectors';
+import { changeShowFilter } from '../../store/catalogPpp/action';
 import { cultures } from "../../productsData";
 
 export const FilterCatalogSmall = ({ manufacturers, handleFilterButtonClick, quantitativeStockClick }) => {

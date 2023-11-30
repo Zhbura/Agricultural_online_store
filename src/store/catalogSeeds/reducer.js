@@ -14,8 +14,6 @@ const vegetables = products.filter((item) => item.category === "vegetables");
 const greenery = products.filter((item) => item.category === "greenery");
 
 const initialState = {
-    showFilter: false,
-    manufacturerProducts: [],
     filterProducts: seedsProducts,
     countAllSeeds: seedsProducts.length,
     countFlowers: flowers.length,

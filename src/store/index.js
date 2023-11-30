@@ -1,5 +1,4 @@
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
-import { catalogReducer } from './catalog/reducer';
 import { menuReducer } from './menu/reducer';
 import { cartReducer } from './cart/reducer';
 import { wishListReducer } from './wishList/reducer';
@@ -15,9 +14,10 @@ import { catalogSeedsReducer } from './catalogSeeds/reducer';
 import { catalogFertilizersReducer } from './catalogFertilizers/reducer';
 import { catalogFeedGroupReducer } from './catalogFeedGroup/reducer';
 import { catalogFarmerHelpReducer } from './catalogFarmerHelp/reducer';
+import { catalogPppReducer } from './catalogPpp/reducer';
 
 const rootReducer = combineReducers({
-    catalog: catalogReducer,
+    catalogPpp: catalogPppReducer,
     catalogSeeds: catalogSeedsReducer,
     catalogFertilizers: catalogFertilizersReducer,
     catalogFeedGroup: catalogFeedGroupReducer,
@@ -35,7 +35,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
     key: "agriculturalStore",
     storage,
-    blacklist: ['catalog', 'catalogFertilizers', 'catalogSeeds', 'catalogFarmerHelp'],
+    blacklist: ['catalogPpp', 'catalogFertilizers', 'catalogSeeds', 'catalogFarmerHelp'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

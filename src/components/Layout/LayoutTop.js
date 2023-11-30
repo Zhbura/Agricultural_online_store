@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
 import { TopBar } from "../TopBar/TopBar";
 import { useSelector } from "react-redux";
-import { selectShowFilter } from "../../store/catalog/selectors";
+import { selectShowFilter } from "../../store/catalogPpp/selectors";
 import { selectShowMenu } from "../../store/menu/selectors";
 
 export const LayoutTop = ({ authed }) => {

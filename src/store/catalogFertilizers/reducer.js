@@ -14,8 +14,6 @@ const forflowers = products.filter((item) => item.category === "forflowers");
 const forvegetables = products.filter((item) => item.category === "forvegetables");
 
 const initialState = {
-    showFilter: false,
-    manufacturerProducts: [],
     filterProducts: fertilizersProducts,
     countAllFertilizers: fertilizersProducts.length,
     countUniversal: universal.length,

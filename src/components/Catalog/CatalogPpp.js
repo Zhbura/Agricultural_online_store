@@ -10,15 +10,15 @@ import {
     chooseCategoryProducts,
     chooseManufacturersProducts,
     chooseQuantitativeStockProducts
-} from '../../store/catalog/action';
+} from '../../store/catalogPpp/action';
 import { useEffect, useState } from 'react';
 import { FilterCatalogBig } from '../FilterCatalog/FilterCatalogBig';
 import { DropdownCatalog } from '../Dropdown/DropdownCatalog';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import {
-    selectCountFilterProducts,
-    selectFilterProducts
-} from '../../store/catalog/selectors';
+    selectCountFilterPppProducts,
+    selectFilterPppProducts,
+} from '../../store/catalogPpp/selectors';
 import {
     selectCountAdjuvants,
     selectCountAllPpp,
@@ -29,11 +29,11 @@ import {
     selectCountProtectants,
     selectCountRetardants,
     selectCountRodenticides
-} from "../../store/catalog/selectors";
+} from "../../store/catalogPpp/selectors";
 import { DropdownCatalogSort } from '../Dropdown/DropdownCatalogSort';
 import { manufacturers } from "../../productsData";
 
-export const Catalog = ({ title }) => {
+export const CatalogPpp = () => {
     // Для работы dropdown
     const [selected, setSelected] = useState('');
 
@@ -49,13 +49,13 @@ export const Catalog = ({ title }) => {
             to: "/catalog"
         },
         {
-            name: `${title}`,
-            to: "/catalog"
+            name: `Средства защиты растений`,
+            to: "/catalog_plant_protection"
         },
     ];
 
-    let filterProducts = useSelector(selectFilterProducts);
-    const countFilterProducts = useSelector(selectCountFilterProducts);
+    let pppProducts = useSelector(selectFilterPppProducts);
+    const countPppProducts = useSelector(selectCountFilterPppProducts);
 
     //Для пагинации
     //стейт для текущей страницы которую нужно отображать
@@ -74,7 +74,7 @@ export const Catalog = ({ title }) => {
     const [sort, setSort] = useState('');
 
     //текущая страница отображающая на странице и применяемая к ней сортировка по цене товаров
-    const currentProduct = filterProducts.sort((a, b) => sort === "increase" ? a.price - b.price : sort === "decrease" ? b.price - a.price : "").slice(firstProductIndex, lastProductIndex);
+    const currentProduct = pppProducts.sort((a, b) => sort === "increase" ? a.price - b.price : sort === "decrease" ? b.price - a.price : "").slice(firstProductIndex, lastProductIndex);
 
     // функция для нажатия на кружки пагинации
     const paginate = pageNumber => setCurrentPage(pageNumber);
@@ -153,10 +153,10 @@ export const Catalog = ({ title }) => {
             <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="catalog">
                 <PageHeadingTwice>
-                    {title}
+                    Средства защиты растений
                 </PageHeadingTwice>
                 <div className="catalog-wrap catalog-wrap_top container">
-                    <div className="result">Показано {countFilterProducts} товар</div>
+                    <div className="result">Показано {countPppProducts} товар</div>
                     <DropdownCatalogSort setSort={setSort} />
                 </div>
                 <div className="wrap-small">
@@ -176,7 +176,7 @@ export const Catalog = ({ title }) => {
                         setSelected={setSelected}
                         setCategoryState={setCategoryState}
                     />
-                    <div className="result">Показано {countFilterProducts} товар</div>
+                    <div className="result">Показано {countPppProducts} товар</div>
                 </div>
                 <div className="catalog-wrap container">
                     <FilterCatalogBig
@@ -201,7 +201,7 @@ export const Catalog = ({ title }) => {
                         </div>
                         <Pagination
                             productsPerPage={productsPerPage}
-                            totalProducts={filterProducts.length}
+                            totalProducts={pppProducts.length}
                             paginate={paginate}
                             currentPage={currentPage}
                             setCurrentPage={setCurrentPage}

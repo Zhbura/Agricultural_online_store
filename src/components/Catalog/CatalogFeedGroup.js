@@ -5,7 +5,7 @@ import { SeedsCatalog } from '../SeedsCatalog/SeedsCatalog';
 import { ProductCard } from '../ProductСard/ProductСard';
 import { FilterCatalogSmall } from '../FilterCatalog/FilterCatalogSmall';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeShowFilter } from '../../store/catalog/action';
+import { changeShowFilter } from '../../store/catalogPpp/action';
 import {
     chooseCategoryProducts,
     chooseManufacturersProducts,

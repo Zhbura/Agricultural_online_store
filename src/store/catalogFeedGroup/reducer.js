@@ -14,8 +14,6 @@ const fordogs = products.filter((item) => item.category === "fordogs");
 const forsx = products.filter((item) => item.category === "forsx");
 
 const initialState = {
-    showFilter: false,
-    manufacturerProducts: [],
     filterProducts: feedGroupProducts,
     countAllFeedGroup: feedGroupProducts.length,
     countForCats: forcats.length,
