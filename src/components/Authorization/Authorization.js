@@ -60,6 +60,17 @@ export const Authorization = () => {
         setPass('');
     }
 
+    // Для функции скрыть/показать вводимый пароль
+    const [type, setType] = useState('password');
+
+    const togglePassInput = () => {
+        if (type === "password") {
+            setType("text")
+        } else {
+            setType("password")
+        }
+    }
+
     return (
         <>
             <div className="authorization">
@@ -89,7 +100,7 @@ export const Authorization = () => {
                             <p className="wrap-input__error-msg">{passwordError}</p>}
                         <InputBig
                             placeholder="Пароль"
-                            type="password"
+                            type={type}
                             value={pass}
                             setFunc={setPass}
                             title='password'
@@ -97,6 +108,9 @@ export const Authorization = () => {
                             regExp={regExpPassword}
                             setMsgErr={setPasswordError}
                         />
+                        {pass && <span
+                            className="wrap-input__toggle-pass"
+                            onClick={togglePassInput}>&#128065;</span>}
                     </div>
                     <ButtonForm formValid={formValid}>  Войти </ButtonForm>
                     {error && <span className="err-msg">{error}</span>}

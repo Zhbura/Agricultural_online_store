@@ -110,6 +110,16 @@ export const Registration = () => {
     const regExpPhone = /^[\d\+][\d\(\)\ -]{4,14}\d$/;
     const regExpPassword = /[0-9a-zA-Z!@#$%^&*]{8,}$/;
 
+    // Для функции скрыть/показать вводимый пароль
+    const [type, setType] = useState('password');
+
+    const togglePassInput = () => {
+        if (type === "password") {
+            setType("text")
+        } else {
+            setType("password")
+        }
+    }
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -189,7 +199,7 @@ export const Registration = () => {
                                     <p className="wrap-input__error-msg">{passwordError}</p>}
                                 <InputBig
                                     placeholder="Пароль"
-                                    type="password"
+                                    type={type}
                                     value={password}
                                     setFunc={setPassword}
                                     title='password'
@@ -200,7 +210,11 @@ export const Registration = () => {
                                     passConfirmDirty={passConfirmDirty}
                                     setPassComparison={setPassComparison}
                                     passConfirm={passConfirm}
+                                    togglePassInput={togglePassInput}
                                 />
+                                {password && <span
+                                    className="wrap-input__toggle-pass"
+                                    onClick={togglePassInput}>&#128065;</span>}
                             </div>
                             <div className="wrap-input">
                                 {(passConfirmDirty && passConfirmError) &&
