@@ -60,24 +60,25 @@ export const cartReducer = (state = initialState, action) => {
         case INCREASE_PRODUCT: {
             return [
                 ...state.map((product) => {
+                    const newCount = (product.count < product.quantitativeStock) ? product.count + 1 : product.quantitativeStock;
                     if (product.id === action.payload.id) {
-                        let totalPriceBeforeDiscount = (product.count + 1) * product.price * action.payload.number;
+                        let totalPriceBeforeDiscount = (newCount) * product.price * action.payload.number;
                         if (action.payload.number > 1 && action.payload.number < 5) {
                             return {
                                 ...product,
-                                count: product.count + 1,
+                                count: newCount,
                                 totalPrice: Math.round((totalPriceBeforeDiscount) - (totalPriceBeforeDiscount * 0.05))
                             }
                         } if (action.payload.number >= 5) {
                             return {
                                 ...product,
-                                count: product.count + 1,
+                                count: newCount,
                                 totalPrice: Math.round((totalPriceBeforeDiscount) - (totalPriceBeforeDiscount * 0.1))
                             }
                         } else {
                             return {
                                 ...product,
-                                count: product.count + 1,
+                                count: newCount,
                                 totalPrice: totalPriceBeforeDiscount
                             }
                         }
@@ -123,26 +124,27 @@ export const cartReducer = (state = initialState, action) => {
         case CHANGE_VALUE_PRODUCT: {
             return [
                 ...state.map((product) => {
+                    const newCount = (action.payload.value < product.quantitativeStock) ? action.payload.value : product.quantitativeStock;
                     if (product.id === action.payload.id) {
-                        if (action.payload.value > 0) {
-                            let totalPriceBeforeDiscount = product.price * action.payload.value * action.payload.number;
+                        if (newCount > 0) {
+                            let totalPriceBeforeDiscount = product.price * newCount * action.payload.number;
                             if (action.payload.number > 1 && action.payload.number < 5) {
                                 return {
                                     ...product,
-                                    count: action.payload.value,
+                                    count: newCount,
                                     totalPrice: Math.round((totalPriceBeforeDiscount) - (totalPriceBeforeDiscount * 0.05))
                                 }
                             }
                             if (action.payload.number >= 5) {
                                 return {
                                     ...product,
-                                    count: action.payload.value,
+                                    count: newCount,
                                     totalPrice: Math.round((totalPriceBeforeDiscount) - (totalPriceBeforeDiscount * 0.1))
                                 }
                             } else {
                                 return {
                                     ...product,
-                                    count: action.payload.value,
+                                    count: newCount,
                                     totalPrice: totalPriceBeforeDiscount
                                 }
                             }
@@ -153,7 +155,6 @@ export const cartReducer = (state = initialState, action) => {
                 })
             ]
         }
-
         default:
             return state;
     }
