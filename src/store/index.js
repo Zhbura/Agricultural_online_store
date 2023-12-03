@@ -15,6 +15,7 @@ import { catalogFertilizersReducer } from './catalogFertilizers/reducer';
 import { catalogFeedGroupReducer } from './catalogFeedGroup/reducer';
 import { catalogFarmerHelpReducer } from './catalogFarmerHelp/reducer';
 import { catalogPppReducer } from './catalogPpp/reducer';
+import { reviewsReducer } from './reviews/reducer';
 
 const rootReducer = combineReducers({
     catalogPpp: catalogPppReducer,
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
     order: orderReducer,
     orderProducts: orderProductsReducer,
     search: searchReducer,
+    reviews: reviewsReducer,
 });
 
 const persistConfig = {

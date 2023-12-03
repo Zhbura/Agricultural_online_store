@@ -16,7 +16,7 @@ import { addProductCart } from '../../store/cart/action';
 import { manufacturers } from '../../productsData';
 
 export const Product = ({ product }) => {
-    const { id, img, name, priceFor, price, manufacturer, quantitativeStock } = product;
+    const { id, img, name, priceFor, price, manufacturer, quantitativeStock, to } = product;
 
     const dispatch = useDispatch();
 
@@ -79,8 +79,7 @@ export const Product = ({ product }) => {
                         </div>
                         <div className="product__toolbar">
                             <div className="product-btn product-btn_orange icon_white"
-                                onClick={() => dispatch(addProductCart(product, id))}
-                            >
+                                onClick={() => dispatch(addProductCart(product, id))}>
                                 <Cart />
                                 Купить
                             </div>
@@ -94,7 +93,10 @@ export const Product = ({ product }) => {
                     </div>
                 </div>
             </div>
-            <Details name={name} />
+            <Details
+                name={name}
+                to={to}
+            />
         </>
     )
 }
