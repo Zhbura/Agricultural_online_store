@@ -1,7 +1,7 @@
 import './Commodity.scss';
 import { Button } from '../Button/Button';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { useState } from 'react';
 import { Slider } from '../Slider/Slider';
 import { ProductItems } from '../ProductСard/ProductItems';
@@ -55,7 +55,7 @@ export const Commodity = () => {
                         />
                     </div>
                     <div className="stocks__btn">
-                        <Button>Смотреть все товары</Button>
+                        <Button> <Link to='/catalog'>Смотреть все товары</Link> </Button>
                     </div>
                 </div>
             </div>

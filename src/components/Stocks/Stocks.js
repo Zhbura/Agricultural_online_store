@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Slider } from "../Slider/Slider";
 import { ProductItems } from '../ProductСard/ProductItems';
 import { products } from '../../productsData';
+import { Link } from 'react-router-dom';
 
 export const Stocks = () => {
     const stocks = [
@@ -51,7 +52,7 @@ export const Stocks = () => {
                     />
                 </div>
                 <div className="stocks__btn">
-                    <Button>Смотреть все товары</Button>
+                    <Button> <Link to='/catalog'>Смотреть все товары</Link> </Button>
                 </div>
             </div>
         </>

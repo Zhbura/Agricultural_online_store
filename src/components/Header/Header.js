@@ -37,9 +37,9 @@ export const Header = () => {
                             </div>
                         </div>
                         <div className="icon-quantity">
-                            <div className="circle-icon circle-icon_hover circle-icon_hidden">
+                            <button className="circle-icon circle-icon_hover circle-icon_hidden">
                                 <Comparison />
-                            </div>
+                            </button>
                         </div>
                         <div className="icon-quantity">
                             <div className="circle-icon circle-icon_hover">

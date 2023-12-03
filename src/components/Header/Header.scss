@@ -39,6 +39,10 @@
 }
 
 .header .icon-quantity {
+    button {
+        cursor: not-allowed;
+    }
+
     @media (min-width: 320px) and (max-width: 767px) {
         &:first-child {
             margin-right: 16px;
