@@ -23,6 +23,7 @@ export const reviewsReducer = (state = initialState, action) => {
                 surname: action.payload.surname,
                 text: action.payload.text,
                 date: date,
+                rating: action.payload.rating,
             }
 
             if (state[action.payload.toReviews]) {

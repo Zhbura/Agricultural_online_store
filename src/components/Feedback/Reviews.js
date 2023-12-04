@@ -6,6 +6,13 @@ export const Reviews = ({ active, addReview, errReviews, to }) => {
 
     const reviews = useSelector(selectReviews);
 
+    const stars = [
+        { key: 1, content: `★` },
+        { key: 2, content: `★` },
+        { key: 3, content: `★` },
+        { key: 4, content: `★` },
+        { key: 5, content: `★` },
+    ];
     return (
         <>
             <div className={active ? "reviews" : "reviews reviews_active"}>
@@ -21,11 +28,25 @@ export const Reviews = ({ active, addReview, errReviews, to }) => {
                                     <div>
                                         <div className="reviews__name">
                                             <div><p className="reviews__circle"><span>{item.name[0]}</span></p></div>
-                                            <h3 className="reviews__name-author">{item.name} {item.surname[0]}.</h3>
+                                            <h3 className="reviews__name-author">{item.name}  {item.surname[0]}.
+                                            </h3>
                                         </div>
                                         <p className="reviews__text">{item.text}</p>
                                     </div>
-                                    <p className="reviews__date">{item.date}</p>
+                                    <div className="reviews__date-rating">
+                                        <p className="reviews__date">{item.date}</p>
+                                        <p className="reviews__stars-rating">
+                                            {stars.map((star) => (
+                                                <span
+                                                    className={star.key <= +item.rating ?
+                                                        "reviews__star-rating  reviews__star-rating_active" :
+                                                        "reviews__star-rating"}
+                                                    key={star.key} >
+                                                    {star.content}
+                                                </span>
+                                            ))}
+                                        </p>
+                                    </div>
                                 </div>
                             ))
                         }

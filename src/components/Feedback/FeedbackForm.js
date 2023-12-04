@@ -13,16 +13,46 @@ export const FeedbackForm = ({ setFormActive, to }) => {
 
     const dateReview = new Date();
 
+    const [rating, setRaiting] = useState(0);
+    const [hover, setHover] = useState(0);
+    const stars = [`★`, `★`, `★`, `★`, `★`];
+
+    const [errMsg, setErrMsg] = useState(false);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addReviewProduct(to, name, surname, textReview, dateReview))
+        if (rating > 0) {
+            dispatch(addReviewProduct(to, name, surname, textReview, dateReview, rating))
+        } else {
+            setErrMsg(true)
+        }
         setTextReview("");
     }
+
     return (
         <>
             <div className="feedback">
                 <form className="feedback__form"
                     onSubmit={handleSubmit} >
+                    <div className="rating">
+                        {stars.map((star, index) => {
+                            index += 1;
+                            return (
+                                <span key={index}
+                                    className={index <= (hover || rating) ? "star star_active" : "star"}
+                                    onClick={() => {
+                                        setRaiting(index)
+                                        setErrMsg(false)
+                                    }}
+                                    onMouseEnter={() => setHover(index)}
+                                    onMouseLeave={() => setHover(rating)}
+                                >{star}
+                                </span>
+                            )
+                        })}
+                        <p className="rating__text">Оцените покупку.</p>
+                    </div>
+                    {errMsg && <p className="feedback__err-msg">Вы забыли оценить покупку.</p>}
                     <input
                         className="feedback__input feedback__review"
                         type="text"

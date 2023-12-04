@@ -24,6 +24,10 @@
         padding: 20px 10px;
     }
 
+    &__form {
+        position: relative;
+    }
+
     &__input {
         border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 20px;
@@ -48,6 +52,14 @@
         @media (min-width: 768px) {
             margin-top: 40px;
         }
+    }
+
+    &__err-msg {
+        color: red;
+        font-size: 16px;
+        line-height: 18px;
+        position: absolute;
+        top: 55px;
     }
 }
 
@@ -138,11 +150,16 @@
         }
     }
 
+    &__date-rating {
+        display: flex;
+    }
+
     &__date {
         font-weight: 400;
         font-size: 16px;
         line-height: 20px;
         color: rgba(0, 0, 0, 0.2);
+        margin-right: 20px;
 
         @media (min-width: 320px) and (max-width: 767px) {
             font-size: 14px;
@@ -152,6 +169,19 @@
     &__text-err {
         margin-top: 20px;
         color: rgba(0, 0, 0, 0.4);
+    }
+
+    &__stars-rating {
+        margin-top: -7px;
+    }
+
+    &__star-rating {
+        color: #E5E5E5;
+        font-size: 20px;
+
+        &_active {
+            color: orange;
+        }
     }
 }
 
@@ -164,5 +194,24 @@
     @media (min-width: 320px) and (max-width: 1199px) {
         display: flex;
         flex-direction: column;
+    }
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+
+    &__text {
+        margin-left: 40px;
+    }
+}
+
+.star {
+    color: #E5E5E5;
+    font-size: 40px;
+
+    &_active {
+        color: orange;
     }
 }
