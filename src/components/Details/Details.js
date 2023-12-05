@@ -10,9 +10,14 @@ export const Details = ({ name, to }) => {
         <>
             <div className="details">
                 <div className="details__title">
-                    <p className={active ? "details__link details__link_active" : "details__link"} onClick={() => setActive(true)}>Описание </p>
-                    <p className={active ? "details__link" : "details__link details__link_active"}
-                        onClick={() => setActive(false)}>Отзывы</p>
+                    <p
+                        className={active ? "details__link details__link_active" : "details__link"}
+                        onClick={() => setActive(true)}>Описание
+                    </p>
+                    <p
+                        className={active ? "details__link" : "details__link details__link_active"}
+                        onClick={() => setActive(false)}>Отзывы
+                    </p>
                 </div>
                 <Description
                     active={active}

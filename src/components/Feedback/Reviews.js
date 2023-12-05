@@ -1,6 +1,7 @@
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { useSelector } from 'react-redux';
 import { selectReviews } from '../../store/reviews/selectors';
+import { StarRating } from './StarRating';
 
 export const Reviews = ({ active, addReview, errReviews, to }) => {
 
@@ -25,15 +26,15 @@ export const Reviews = ({ active, addReview, errReviews, to }) => {
                             reviews[to].map((item, i) => (
                                 <div className="reviews__item"
                                     key={i}>
-                                    <div>
-                                        <div className="reviews__name">
-                                            <div><p className="reviews__circle"><span>{item.name[0]}</span></p></div>
-                                            <h3 className="reviews__name-author">{item.name}  {item.surname[0]}.
-                                            </h3>
+                                    <div className="reviews__data">
+                                        <div className="reviews__name-letter">
+                                            <p className="reviews__circle">
+                                                <span>{item.name[0]}</span>
+                                            </p>
                                         </div>
-                                        <p className="reviews__text">{item.text}</p>
-                                    </div>
-                                    <div className="reviews__date-rating">
+                                        <h3 className="reviews__name-author">
+                                            {item.name} {item.surname[0]}.
+                                        </h3>
                                         <p className="reviews__date">{item.date}</p>
                                         <p className="reviews__stars-rating">
                                             {stars.map((star) => (
@@ -47,21 +48,27 @@ export const Reviews = ({ active, addReview, errReviews, to }) => {
                                             ))}
                                         </p>
                                     </div>
+                                    <p className="reviews__text-comment">{item.text}</p>
                                 </div>
                             ))
                         }
                     </div>
                     <div className="reviews_right">
-                        <button
-                            className="product-btn product-btn_orange"
-                            onClick={() => addReview()}
-                        >
-                            Добавить отзыв
-                        </button>
-                        {errReviews && <p className="reviews__text-err"> Извините, но отзывы могут оставлять только те, кто
-                            купил товар. Так мы формируем честный рейтинг. </p>}
+                        {reviews[to] === undefined ? null :
+                            <StarRating arr={reviews[to]} />}
+                        <div className="reviews__btn">
+                            <button
+                                className="product-btn product-btn_orange"
+                                onClick={() => addReview()} >
+                                Добавить отзыв
+                            </button>
+                            {errReviews && <p className="reviews__text-err">
+                                Извините, но отзывы могут оставлять только те, кто
+                                купил товар. Так мы формируем честный рейтинг. </p>}
+                        </div>
                     </div>
                 </div>
+
             </div >
         </>
     )
