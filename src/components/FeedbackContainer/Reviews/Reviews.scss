@@ -1,0 +1,139 @@
+.reviews {
+    width: 1110px;
+    padding: 40px 80px;
+    background: #FFFFFF;
+    border-radius: 0 20px 20px 20px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+    display: none;
+    position: relative;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        width: 735px;
+        padding: 20px;
+    }
+
+    @media (min-width: 320px) and (max-width: 767px) {
+        width: 290px;
+        padding: 20px 10px;
+    }
+
+    &_active {
+        display: block;
+    }
+
+    &_left {
+        margin-top: 50px;
+
+        @media (min-width: 1200px) {
+            width: 50%;
+        }
+    }
+
+    &_right {
+        margin-top: 50px;
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            max-width: 305px;
+            margin: 0 auto;
+        }
+    }
+
+    &__item {
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__data {
+        display: flex;
+        align-items: center;
+    }
+
+    &__name-author {
+        margin-left: 20px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            margin-left: 5px;
+        }
+    }
+
+    &__text-comment {
+        color: #1E6140;
+        margin-left: 70px;
+        margin-top: 10px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            margin-left: 55px;
+        }
+    }
+
+    &__heading {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 20px;
+    }
+
+    &__circle {
+        border: 1px solid #84C551;
+        background: #84C551;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: relative;
+
+        span {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__date {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: rgba(0, 0, 0, 0.2);
+        margin-left: auto;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            display: none;
+        }
+    }
+
+    &__text-err {
+        margin-top: 20px;
+        color: rgba(0, 0, 0, 0.4);
+        max-width: 300px;
+    }
+
+    &__stars-rating {
+        margin-top: -7px;
+        margin-left: auto;
+        cursor: default;
+    }
+
+    &__star-rating {
+        color: #E5E5E5;
+        font-size: 20px;
+
+        &_active {
+            color: orange;
+        }
+    }
+}
+
+.wrap-reviews {
+    @media (min-width: 1200px) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    @media (min-width: 320px) and (max-width: 1199px) {
+        display: flex;
+        flex-direction: column;
+    }
+}

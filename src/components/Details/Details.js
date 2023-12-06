@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Description } from '../Description/Description';
-import { Feedback } from '../Feedback/Feedback';
+import { FeedbackContainer } from '../FeedbackContainer/FeedbackContainer';
 import './Details.scss';
 
 export const Details = ({ name, to }) => {
@@ -23,7 +23,7 @@ export const Details = ({ name, to }) => {
                     active={active}
                     name={name}
                 />
-                <Feedback
+                <FeedbackContainer
                     active={active}
                     to={to}
                 />

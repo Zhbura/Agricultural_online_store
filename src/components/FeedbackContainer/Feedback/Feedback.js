@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectUserOrder } from "../../store/order/selectors";
+import { selectUserOrder } from "../../../store/order/selectors";
 import { useState } from "react";
-import { addReviewProduct } from "../../store/reviews/actions";
+import { addReviewProduct } from "../../../store/reviews/actions";
+import "./Feedback.scss";
 
-export const FeedbackForm = ({ setFormActive, to }) => {
+export const Feedback = ({ setFormActive, to }) => {
 
     const { name } = useSelector(selectUserOrder);
     const { surname } = useSelector(selectUserOrder);
@@ -34,12 +35,14 @@ export const FeedbackForm = ({ setFormActive, to }) => {
             <div className="feedback">
                 <form className="feedback__form"
                     onSubmit={handleSubmit} >
-                    <div className="rating">
+                    <div className="feedback__rating">
                         {stars.map((star, index) => {
                             index += 1;
                             return (
                                 <span key={index}
-                                    className={index <= (hover || rating) ? "star star_active" : "star"}
+                                    className={index <= (hover || rating) ? 
+                                        "feedback__rating-star feedback__rating-star_active" : 
+                                        "feedback__rating-star"}
                                     onClick={() => {
                                         setRaiting(index)
                                         setErrMsg(false)
@@ -50,7 +53,7 @@ export const FeedbackForm = ({ setFormActive, to }) => {
                                 </span>
                             )
                         })}
-                        <p className="rating__text">Оцените покупку.</p>
+                        <p className="feedback__text">Оцените покупку.</p>
                     </div>
                     {errMsg && <p className="feedback__err-msg">Вы забыли оценить покупку.</p>}
                     <input

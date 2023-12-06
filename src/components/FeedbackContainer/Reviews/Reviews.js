@@ -1,7 +1,8 @@
-import { PageHeadingTwice } from '../PageHeading/PageHeading';
+import { PageHeadingTwice } from '../../PageHeading/PageHeading';
 import { useSelector } from 'react-redux';
-import { selectReviews } from '../../store/reviews/selectors';
-import { StarRating } from './StarRating';
+import { selectReviews } from '../../../store/reviews/selectors';
+import { StarRating } from '../StarRating/StarRating';
+import "./Reviews.scss";
 
 export const Reviews = ({ active, addReview, errReviews, to }) => {
 

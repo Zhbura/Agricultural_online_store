@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import './Feedback.scss';
 import { useSelector } from 'react-redux';
 import { selectHistoryOrders } from '../../store/orderProducts/selectors';
-import { Reviews } from './Reviews';
-import { FeedbackForm } from './FeedbackForm';
+import { Reviews } from './Reviews/Reviews';
+import { Feedback } from './Feedback/Feedback';
 
-export const Feedback = ({ active, to }) => {
+export const FeedbackContainer = ({ active, to }) => {
 
     const historyOrdersProducts = useSelector(selectHistoryOrders);
 
@@ -30,7 +29,7 @@ export const Feedback = ({ active, to }) => {
                     to={to}
                 />
                 : (
-                    <FeedbackForm
+                    <Feedback
                         setFormActive={setFormActive}
                         to={to}
                     />

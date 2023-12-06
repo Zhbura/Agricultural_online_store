@@ -41,6 +41,7 @@
 .header .icon-quantity {
     button {
         cursor: not-allowed;
+        background-color: #E5E5E5;
     }
 
     @media (min-width: 320px) and (max-width: 767px) {
@@ -145,5 +146,11 @@
 .header .search-form {
     @media (min-width: 320px) and (max-width: 900px) {
         display: none;
+    }
+}
+
+.background-container .header .icon-quantity {
+    button {
+        background-color: #fff;
     }
 }

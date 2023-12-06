@@ -1,3 +1,5 @@
+import "./StarRating.scss";
+
 export const StarRating = ({ arr }) => {
 
     let totalRating = arr.reduce((prev, current) => (prev + current.rating), 0);
