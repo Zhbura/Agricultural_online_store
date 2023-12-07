@@ -28,7 +28,7 @@ export const ChangePassword = () => {
                     <label className="change-password__label">Подтвердить пароль
                         <input className="change-password__input" type="password" />
                     </label>
-                    <div className="cabinet-btn">Изменить пароль</div>
+                    <button className="cabinet-btn">Изменить пароль</button>
                 </form>
             </div>
         </>

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUserOrder } from "../../../store/order/selectors";
 import { useState } from "react";
 import { addReviewProduct } from "../../../store/reviews/actions";
+import { MsgAdded } from "./MsgAdded";
 import "./Feedback.scss";
 
 export const Feedback = ({ setFormActive, to }) => {
@@ -24,24 +25,36 @@ export const Feedback = ({ setFormActive, to }) => {
         e.preventDefault();
         if (rating > 0) {
             dispatch(addReviewProduct(to, name, surname, textReview, dateReview, rating))
+            showMsgAdded();
         } else {
             setErrMsg(true)
         }
         setTextReview("");
     }
 
+    const [msgAdded, setMsgAdded] = useState(false);
+
+    const showMsgAdded = () => {
+        let timeout;
+
+
+        timeout = setTimeout(() => {
+            setMsgAdded(true)
+        }, 1500)
+        return () => clearTimeout(timeout)
+    }
     return (
         <>
             <div className="feedback">
-                <form className="feedback__form"
+                {!msgAdded && <form className="feedback__form"
                     onSubmit={handleSubmit} >
                     <div className="feedback__rating">
                         {stars.map((star, index) => {
                             index += 1;
                             return (
                                 <span key={index}
-                                    className={index <= (hover || rating) ? 
-                                        "feedback__rating-star feedback__rating-star_active" : 
+                                    className={index <= (hover || rating) ?
+                                        "feedback__rating-star feedback__rating-star_active" :
                                         "feedback__rating-star"}
                                     onClick={() => {
                                         setRaiting(index)
@@ -65,11 +78,14 @@ export const Feedback = ({ setFormActive, to }) => {
                     />
                     <div className="feedback__btn">
                         <button
-                            className="product-btn product-btn_orange">
+                            className="product-btn product-btn_orange"
+                        // onClick={() => { showMsgAdded() }}
+                        >
                             Добавить отзыв
                         </button>
                     </div>
-                </form>
+                </form>}
+                {msgAdded && <MsgAdded />}
                 <div className="feedback__btn">
                     <button className="product-btn product-btn_orange"
                         onClick={() => setFormActive(false)}

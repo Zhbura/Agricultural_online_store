@@ -81,3 +81,40 @@
         top: 55px;
     }
 }
+
+.msg-added {
+
+    @media (min-width: 768px) {
+        width: 500px;
+        height: 330px;
+        padding-top: 40px;
+    }
+
+    &__heading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__wrap {
+        background: #84BE51;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        position: relative;
+    }
+
+    &__check-mark {
+        color: #ffffff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__heading-text {
+        margin-left: 15px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+}
