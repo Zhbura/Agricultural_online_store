@@ -1,0 +1,1 @@
+export const selectShowSlider = (state) => state.slider.showSlider;

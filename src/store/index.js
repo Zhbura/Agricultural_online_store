@@ -16,6 +16,7 @@ import { catalogFeedGroupReducer } from './catalogFeedGroup/reducer';
 import { catalogFarmerHelpReducer } from './catalogFarmerHelp/reducer';
 import { catalogPppReducer } from './catalogPpp/reducer';
 import { reviewsReducer } from './reviews/reducer';
+import { sliderReducer } from './slider/reducer';
 
 const rootReducer = combineReducers({
     catalogPpp: catalogPppReducer,
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
     orderProducts: orderProductsReducer,
     search: searchReducer,
     reviews: reviewsReducer,
+    slider: sliderReducer,
 });
 
 const persistConfig = {

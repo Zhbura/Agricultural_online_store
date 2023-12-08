@@ -14,6 +14,8 @@ import { addToWishList } from '../../store/wishList/action';
 import { countWishList } from '../../store/wishList/selectors';
 import { addProductCart } from '../../store/cart/action';
 import { manufacturers } from '../../productsData';
+import { SliderAbsolute } from '../ImageSlider/SliderAbsolute';
+import { useState } from 'react';
 
 export const Product = ({ product }) => {
     const { id, img, name, priceFor, price, manufacturer, quantitativeStock, to } = product;
@@ -24,10 +26,13 @@ export const Product = ({ product }) => {
 
     let manufacturerProduct = manufacturers.filter((item) => item.key === manufacturer);
 
+    const [current, setCurrent] = useState(0);
+
     return (
         <>
             <div className="product">
-                <ImageSlider images={img} name={name} />
+                <SliderAbsolute images={img} name={name} current={current} setCurrent={setCurrent} />
+                <ImageSlider images={img} name={name} current={current} setCurrent={setCurrent} />
                 <div className="product_right">
                     <h2 className="product__title">{name}</h2>
                     <div className="product__availability">

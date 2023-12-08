@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Arrow } from "../SVG/Arrow/Arrow";
 import './ImageSlider.scss';
+import { useDispatch } from "react-redux";
+import { changeShowSlider } from "../../store/slider/action";
 
-export const ImageSlider = ({ images, name }) => {
+export const ImageSlider = ({ images, name, current, setCurrent }) => {
+    const dispatch = useDispatch();
 
-    const [current, setCurrent] = useState(0);
     const length = images.length;
 
     const nextImage = () => {
@@ -32,9 +34,12 @@ export const ImageSlider = ({ images, name }) => {
                         </div> : null}
                     <div className="image-slider__wrap">
                         {images.map((image, index) => (
-                            <div className={index === current ?
-                                'image-slider__slide-big image-slider__slide-big_active' :
-                                'image-slider__slide-big'} key={index}>
+                            <div onClick={() => {
+                                dispatch(changeShowSlider)
+                            }}
+                                className={index === current ?
+                                    'image-slider__slide-big image-slider__slide-big_active' :
+                                    'image-slider__slide-big'} key={index}>
                                 {index === current && (
                                     <img src={image} alt={name} />
                                 )}

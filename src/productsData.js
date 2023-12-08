@@ -1154,7 +1154,6 @@ export const products = [
         alt: "Милаторк",
         img: [
             require("./img/product/milatork/milatork.png"),
-            require("./img/product/milatork/milatorkTwo.png"),
         ],
         price: 30,
         totalPrice: 30,
