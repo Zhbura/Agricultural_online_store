@@ -13,8 +13,7 @@
         }
 
         @media (min-width: 768px) and (max-width: 1199px) {
-            padding-left: 30px;
-            padding-right: 30px;
+            padding: 108px 30px;
         }
     }
 
@@ -26,6 +25,8 @@
 
     &__main-img {
         display: block;
+        height: 100%;
+        object-fit: contain;
 
         @media (min-width: 768px) {
             width: 100%;
@@ -76,12 +77,9 @@
 }
 
 .wrap-text {
-    margin-top: 25px;
-    margin-bottom: 37px;
+    margin: 25px 0 37px 0;
 
     @media (min-width: 320px) and (max-width: 767px) {
-        margin-top: 11px;
-        margin-bottom: 31px;
         margin: 11px auto 31px auto;
     }
 }

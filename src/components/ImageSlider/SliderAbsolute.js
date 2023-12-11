@@ -41,7 +41,9 @@ export const SliderAbsolute = ({ images, name, current, setCurrent }) => {
                                 'slider-absolute__slide-big slider-absolute__slide-big_active' :
                                 'slider-absolute__slide-big'} key={index}>
                                 {index === current && (
-                                    <img className="slider-absolute__img" src={image} alt={name} />
+                                    <div className="slider-absolute__wrap-img">
+                                        <img className="slider-absolute__img" src={image} alt={name} />
+                                    </div>
                                 )}
                             </div>
                         ))}

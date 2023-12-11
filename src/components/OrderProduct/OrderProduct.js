@@ -20,9 +20,9 @@ export const OrderProduct = ({ product }) => {
                         <p>{totalPrice} руб <span>x{count}</span></p>
                     </div>
                 </div>
-                <img className="order-product__cancel" src={cancel} alt="Удалить выбранный товар"
-                    onClick={() => dispatch(deleteProductCart(id))}
-                />
+                <button className="order-product__btn-delete" onClick={() => dispatch(deleteProductCart(id))}>
+                    <img src={cancel} alt="Удалить выбранный товар" />
+                </button >
             </div>
         </>
     )
@@ -38,9 +38,9 @@ export const OrderProductSmall = ({ product }) => {
             <div className="order-product_small">
                 <div className="order-product__info-top">
                     <h3 className="order-product__title">{name}</h3>
-                    <img className="order-product__cancel" src={cancel} alt="Удалить выбранный товар"
-                        onClick={() => dispatch(deleteProductCart(id))}
-                    />
+                    <button className="order-product__btn-delete" onClick={() => dispatch(deleteProductCart(id))}>
+                        <img src={cancel} alt="Удалить выбранный товар" />
+                    </button >
                 </div>
                 <div className="order-product__info-bottom">
                     <div className="image-order">

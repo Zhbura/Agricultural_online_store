@@ -1,13 +1,11 @@
 .thanks {
     background: url(../../img/backgroungThanks.png);
     background-size: inherit;
-    padding-top: 162px;
-    padding-bottom: 195px;
+    padding: 162px 0 195px 0;
 
     @media (min-width: 320px) and (max-width: 767px) {
         background-position: center center;
-        padding-top: 130px;
-        padding-bottom: 50px;
+        padding: 130px 0 50px 0;
     }
 
     &__text {
@@ -16,8 +14,7 @@
         line-height: 24px;
         text-align: center;
         color: #FFFFFF;
-        margin-top: 24px;
-        margin-bottom: 46px;
+        margin: 24px 0 46px 0;
         padding: 0 20px;
 
         @media (min-width: 320px) and (max-width: 767px) {

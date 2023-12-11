@@ -14,7 +14,14 @@ export const InputBox = ({ text, value, dispatchRegister }) => {
                         :
                         <div className="input-box__data">
                             <p>{value}</p>
-                            <img className="input-box__img" src={pencil} alt="Исправить данные" onClick={() => setUser(false)} />
+                            <button 
+                            className="input-box__btn"
+                            onClick={() => setUser(false)}>
+                                <img
+                                    src={pencil}
+                                    alt="Исправить данные"
+                                />
+                            </button>
                         </div>
                     }
                 </div>

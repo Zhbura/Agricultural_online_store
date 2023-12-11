@@ -42,8 +42,7 @@
         text-align: left;
 
         svg {
-            margin-right: 19px;
-            margin-left: 25px;
+            margin: 0 19px 0 25px;
         }
     }
 }
@@ -131,8 +130,7 @@
     &__unit {
         display: flex;
         flex-direction: column;
-        margin-top: 17px;
-        margin-bottom: 17px;
+        margin: 17px 0;
         padding-left: 30px;
     }
 

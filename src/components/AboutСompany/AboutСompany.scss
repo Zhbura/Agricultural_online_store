@@ -6,8 +6,7 @@
     }
 
     @media (min-width: 768px) and (max-width: 1200px) {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding: 0 30px 110px 30px;
     }
 
     &__text {
@@ -38,8 +37,7 @@
         font-size: 16px;
         line-height: 20px;
         color: rgba(0, 0, 0, 1);
-        margin-bottom: 3px;
-        margin-left: 17px;
+        margin: 0 0 3px 17px;
     }
 
     &__heading {

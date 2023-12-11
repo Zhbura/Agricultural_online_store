@@ -20,7 +20,9 @@ export const LayoutTop = ({ authed }) => {
                     <Outlet />
                 </div>
                 <Footer />
-            </div >
+            </div>
+            {/* Для экранов меньше 320px */}
+            <h3 className="wrapper-err">Данное приложение не поддерживается на вашем устройстве</h3>
         </>
     )
 }

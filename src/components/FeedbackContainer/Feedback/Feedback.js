@@ -78,9 +78,7 @@ export const Feedback = ({ setFormActive, to }) => {
                     />
                     <div className="feedback__btn">
                         <button
-                            className="product-btn product-btn_orange"
-                        // onClick={() => { showMsgAdded() }}
-                        >
+                            className="product-btn product-btn_orange">
                             Добавить отзыв
                         </button>
                     </div>

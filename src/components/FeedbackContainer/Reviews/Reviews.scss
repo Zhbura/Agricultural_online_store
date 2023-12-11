@@ -59,8 +59,7 @@
 
     &__text-comment {
         color: #1E6140;
-        margin-left: 70px;
-        margin-top: 10px;
+        margin: 10px 0 0 70px;
 
         @media (min-width: 320px) and (max-width: 767px) {
             margin-left: 55px;

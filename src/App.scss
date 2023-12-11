@@ -3,9 +3,27 @@
     display: flex;
     flex-direction: column;
     position: relative; // для затемнения фона при открытии меню
+
+    @media (min-width: 320px) {
+        display: block;
+    }
+
+    @media (min-width: 1px) and (max-width: 319px) {
+        display: none;
+    }
 }
 
 .top {
     flex-grow: 1;
     background: #E5E5E5;
+}
+
+.wrapper-err {
+    @media (min-width: 320px) {
+        display: none;
+    }
+
+    @media (min-width: 1px) and (max-width: 319px) {
+        display: block;
+    }
 }

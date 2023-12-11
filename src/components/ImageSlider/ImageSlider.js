@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Arrow } from "../SVG/Arrow/Arrow";
 import './ImageSlider.scss';
 import { useDispatch } from "react-redux";
@@ -27,21 +26,23 @@ export const ImageSlider = ({ images, name, current, setCurrent }) => {
     return (
         <>
             <div className="image-slider">
-                <div className="image-slider_big">
+                <div className="slider-big">
                     {(images.length > 1) ?
-                        <div className="arrow-scroll" onClick={prevImage}>
+                        <div className="arrow-scroll arrow_left" onClick={prevImage}>
                             <Arrow />
                         </div> : null}
-                    <div className="image-slider__wrap">
+                    <div className="slider-big__container">
                         {images.map((image, index) => (
                             <div onClick={() => {
                                 dispatch(changeShowSlider)
                             }}
                                 className={index === current ?
-                                    'image-slider__slide-big image-slider__slide-big_active' :
-                                    'image-slider__slide-big'} key={index}>
+                                    'slider-big__slide slider-big__slide_active' :
+                                    'slider-big__slide'} key={index}>
                                 {index === current && (
-                                    <img src={image} alt={name} />
+                                    <div className="slider-big__wrap-img">
+                                        <img className="slider-big__main-img" src={image} alt={name} />
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -51,15 +52,17 @@ export const ImageSlider = ({ images, name, current, setCurrent }) => {
                             <Arrow />
                         </div> : null}
                 </div>
-                <div className="image-slider_small">
+                <div className="slider-small">
                     {images.map((image, index) => (
                         <div className={index !== current ?
-                            "image-slider__slide-small image-slider__slide-small_active" :
-                            "image-slider__slide-small"}
+                            "slider-small__slide slider-small__slide_active" :
+                            "slider-small__slide"}
                             key={index}
                             onClick={() => { changeCurrent(index) }}>
                             {index !== current && (
-                                <img src={image} alt={name} />
+                                <div className="slider-small__wrap-img">
+                                    <img className="slider-small__main-img" src={image} alt={name} />
+                                </div>
                             )}
                         </div>
                     ))}

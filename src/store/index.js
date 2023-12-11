@@ -39,7 +39,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
     key: "agriculturalStore",
     storage,
-    blacklist: ['catalogPpp', 'catalogFertilizers', 'catalogSeeds', 'catalogFarmerHelp'],
+    blacklist: ['catalogPpp', 'catalogFertilizers', 'catalogSeeds', 'catalogFarmerHelp', 'slider'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
