@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { deleteProductCart } from '../../store/cart/action';
 
 export const CartProduct = ({ product }) => {
-    const { id, img, name, totalPrice, priceFor, count, to } = product;
+    const { id, img, name, totalPrice, priceFor, count, to, quantitativeStock } = product;
     const [selected, setSelected] = useState(priceFor[0]);
 
     const dispatch = useDispatch();
@@ -19,13 +19,15 @@ export const CartProduct = ({ product }) => {
             <div className="cart-product">
                 <h3 className="cart-product__title">
                     <Link className="cart-product__link" to={`/product/${to}`}>{name}</Link>
-                    <img className="cart-product__cancel" src={cancel} alt="Удалить выбранный товар"
-                        onClick={() => dispatch(deleteProductCart(id))}
-                    />
+                    <button className="cart-product__btn-delete">
+                        <img src={cancel} alt="Удалить выбранный товар"
+                            onClick={() => dispatch(deleteProductCart(id))}
+                        />
+                    </button>
                 </h3>
                 <div className="cart-product__info">
                     <div className="cart-product__info-left">
-                        <div className="cart-product__img">
+                        <div className="cart-product__wrap-img">
                             <img src={img[0]} alt={name} />
                         </div>
                     </div>
@@ -52,12 +54,17 @@ export const CartProduct = ({ product }) => {
                             id={id}
                         />
                         <div className="cart-product__quantity">
-                            <p className="cart-product__quantity-text">Количество</p>
-                            <Counter
-                                count={count}
-                                selected={selected}
-                                id={id}
-                            />
+                            <div>
+                                <p className="cart-product__quantity-text">Количество</p>
+                                <Counter
+                                    count={count}
+                                    selected={selected}
+                                    id={id}
+                                />
+                            </div>
+                            {(count === quantitativeStock) && <p className="cart-product__quantity-err">
+                                Максимальное кол-во заказа {quantitativeStock} шт
+                            </p>}
                         </div>
                     </div>
                 </div>

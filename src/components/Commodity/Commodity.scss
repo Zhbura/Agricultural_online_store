@@ -11,6 +11,7 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 20px;
+    cursor: pointer;
 
     img,
     svg {
@@ -20,7 +21,10 @@
     &_orange {
         background: #E74E13;
         color: #FFFFFF;
-        margin-right: 20px;
     }
 
+}
+
+.product .product__toolbar .product-btn {
+    margin-right: 20px;
 }

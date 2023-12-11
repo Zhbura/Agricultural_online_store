@@ -6,15 +6,22 @@ import { ProductItems } from '../ProductСard/ProductItems';
 import { products } from '../../productsData';
 
 export const NewProducts = () => {
+    const newProducts = [
+        products.slice(0, 4),
+        products.slice(4, 8),
+        products.slice(8, 12),
+        products.slice(12, 16)
+    ];
+
     const [currentProduct, setCurrentProduct] = useState(0);
 
     const prev = () => {
-        const index = currentProduct > 0 ? currentProduct - 1 : products.length - 1;
+        const index = currentProduct > 0 ? currentProduct - 1 : newProducts.length - 1;
         setCurrentProduct(index)
     }
 
     const next = () => {
-        const index = currentProduct < products.length - 1 ? currentProduct + 1 : 0;
+        const index = currentProduct < newProducts.length - 1 ? currentProduct + 1 : 0;
         setCurrentProduct(index)
     }
 
@@ -26,7 +33,7 @@ export const NewProducts = () => {
             <div className="new-products">
                 <PageHeadingTwice>Новинки</PageHeadingTwice>
                 <ProductItems
-                    products={products}
+                    products={newProducts}
                     prevEl={prev} nextEl={next}
                     currentIndex={currentProduct}
                 />
@@ -35,7 +42,7 @@ export const NewProducts = () => {
                     <Slider
                         classSmall="slider__notActive"
                         classBig="slider__active"
-                        products={products}
+                        products={newProducts}
                         currentIndex={currentProduct}
                         switchIndex={switchIndex}
                     />

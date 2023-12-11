@@ -79,7 +79,9 @@
         width: 190px;
         background-repeat: no-repeat;
         background-position: 90px center;
-        cursor: pointer;
+        cursor: not-allowed;
+        border: none;
+        background-color: #E5E5E5;
 
         svg {
             margin-left: 9px;

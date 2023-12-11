@@ -22,7 +22,11 @@ export const ProductCard = ({ product }) => {
     return (
         <>
             <div className="product-card" key={id}>
-                <img className="product-card__main-img" src={img[0]} alt={alt} />
+                <div className="product-card__main-img">
+                    <Link to={`/product/${to}`}>
+                        <img src={img[0]} alt={alt} />
+                    </Link>
+                </div>
                 <div onClick={() => addProductWishList(id, product)}
                     className={click ? "product-card__heart" : "product-card__heart product-card__heart_click"}
                 >
@@ -30,9 +34,13 @@ export const ProductCard = ({ product }) => {
                         <Heart />
                     </div>
                 </div>
-                <img className="product-card__cancel" src={cancel} alt="Удалить выбранный товар"
+                <button
+                    className="product-card__btn-delete"
                     onClick={() => dispatch(deleteProductWishList(id))}
-                />
+                >
+                    <img src={cancel} alt="Удалить выбранный товар"
+                    />
+                </button>
                 <div className="product-card__info-product">
                     <div className="product-card__text">
                         <p className="product-card__name">

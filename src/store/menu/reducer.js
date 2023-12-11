@@ -9,7 +9,7 @@ export const menuReducer = (state = initialState, action) => {
         case CHANGE_MENU_SHOW: {
             return {
                 ...state,
-                showMenu: !state.showMenu,
+                showMenu: action.payload.changeShow,
             };
         }
         default:

@@ -2,6 +2,38 @@
     @media (min-width: 900px) and (max-width: 1200px) {
         padding: 0 30px;
     }
+
+    &__text {
+        margin: 40px 20px 0 20px;
+        background: #FFFFFF;
+        border-radius: 20px;
+        padding: 40px;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 20px;
+    }
+}
+
+.catalog-seeds .filter__unit_hidden {
+    display: none;
+}
+
+.catalog-fertilizers {
+    .filter__unit_hidden {
+        display: none;
+    }
+
+    .filter__text p {
+        max-width: 192px;
+    }
+}
+
+.catalog-feed .filter__unit_hidden {
+    display: none;
+}
+
+.catalog-farmer .filter__unit_hidden {
+    display: none;
 }
 
 .catalog-product {
@@ -19,53 +51,9 @@
     }
 }
 
-.sort {
-    padding: 10px 0 10px 15px;
-    max-width: 260px;
-    height: 40px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 90px;
+.catalog-product-wrap {
     display: flex;
-    background: #FFFFFF;
-    align-items: center;
-
-    @media (min-width: 320px) and (max-width: 899px) {
-        width: 135px;
-        padding-left: 6px;
-    }
-
-    svg {
-        margin-left: 22px;
-        margin-right: 14px;
-
-        @media (min-width: 320px) and (max-width: 900px) {
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-    }
-
-    span {
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        height: 28px;
-    }
-
-    input {
-        border: none;
-        display: block;
-        outline: none;
-        width: 100%;
-        cursor: pointer;
-        color: #484848;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        border-radius: 90px;
-
-        @media (min-width: 320px) and (max-width: 899px) {
-            font-size: 11px;
-            line-height: 15px;
-        }
-    }
+    justify-content: center;
 }
 
 .result {

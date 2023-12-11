@@ -1,18 +1,26 @@
 import './Contacts.scss';
-import phone from '../../img/icon/phone.svg';
-import email from '../../img/icon/email.svg';
+import phoneImg from '../../img/icon/phone.svg';
+import emailImg from '../../img/icon/email.svg';
 import gps from '../../img/icon/gps.svg';
 import time from '../../img/icon/time.svg';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
+import { useState } from 'react';
+import { ContactsFormGuest } from '../Form/ContactsFormGuest';
+import { ContactsFormRegistered } from '../Form/ContactsFormRegistered';
+import { ContactsMsg } from './ContactsMsg';
 
-export const Contacts = () => {
+export const Contacts = ({ authed }) => {
     const breadcrumbs = [
         {
             name: "Партнёры",
             to: "/partners"
         },
     ];
+
+    const [formContacts, setFormContacts] = useState(true);
+    const [msg, setMsg] = useState(false)
+
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -25,29 +33,31 @@ export const Contacts = () => {
                                 <div className="contacts__details-item">
                                     <div className="contacts__icon">
                                         <div className="circle-icon">
-                                            <img src={gps} alt="adress" />
+                                            <img src={gps} alt="Адрес: Россия, 
+                                            Московская область, Химки, Петербургское шоссе, 122" />
                                         </div>
                                     </div>
                                     <p className="contacts__adress">
-                                        Украина, Винницкая область, Винница,
-                                        Хмельницкое шоссе, 122
+                                        Россия, Московская область, Химки,
+                                        Петербургское шоссе, 122
                                     </p>
                                 </div>
                                 <div className="contacts__details-item">
                                     <div className="contacts__icon">
                                         <div className="circle-icon">
-                                            <img src={time} alt="time work" />
+                                            <img src={time} alt="Время работы: 
+                                            Понедельник - Пятница, 9:00 - 18:00" />
                                         </div>
                                     </div>
                                     <p>
                                         <span className="contacts__text-days">Пн-Пт</span>
-                                        <br /> 9.00-18.00
+                                        <br /> 9:00-18:00
                                     </p>
                                 </div>
                                 <div className="contacts__details-item">
                                     <div className="contacts__icon">
                                         <div className="circle-icon">
-                                            <img src={email} alt="email" />
+                                            <img src={emailImg} alt="Электронная почта: shop@ukrsemena.com" />
                                         </div>
                                     </div>
                                     <p>shop@ukrsemena.com</p>
@@ -68,58 +78,59 @@ export const Contacts = () => {
                                 <div className="contacts__details-item">
                                     <div className="contacts__icon">
                                         <div className="circle-icon">
-                                            <img src={time} alt="time work" />
+                                            <img src={time} alt="Время работы: 
+                                            Понедельник - Пятница, 9:00 - 17:00" />
                                         </div>
                                     </div>
                                     <p>
                                         <span className="contacts__text-days">Пн-Пт</span>
-                                        <br />  9-00-17-00
+                                        <br />  9:00-17:00
                                     </p>
                                 </div>
                                 <div className="contacts__details-item">
                                     <div className="contacts__icon">
                                         <div className="circle-icon">
-                                            <img src={phone} alt="phone" />
+                                            <img src={phoneImg} alt="Номер телефона: 
+                                            1)+7(950) 42-42-820 2) +7(950) 42-42-824 " />
                                         </div>
                                     </div>
                                     <div>
-                                        <p>(050) 42-42-820</p>
-                                        <p>(050) 42-42-824</p>
+                                        <p>+7(950) 42-42-820</p>
+                                        <p>+7(950) 42-42-824</p>
                                     </div>
                                 </div>
                                 <div className="contacts__details-item">
                                     <div className="contacts__icon">
                                         <div className="circle-icon">
-                                            <img src={phone} alt="phone" />
+                                            <img src={phoneImg} alt="Номер телефона: 
+                                            1)+7(950) 42-42-820 2) +7(950) 42-42-824" />
                                         </div>
                                     </div>
                                     <div>
-                                        <p>(097) 182-51-41</p><p>(098) 123-70-00</p>
+                                        <p>+7(097) 182-51-41</p>
+                                        <p>+7(098) 123-70-00</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <PageHeadingTwice> Напишите нам</PageHeadingTwice>
-                    <div className="contacts__personal-data">
+                    {!msg && <div className="contacts__personal-data">
                         <p className="contacts__text contacts__text_bottom">
                             Введите ваши контактные данные и текст сообщения, если
                             у вас возникли вопросы или предложения, и мы в
                             ближайшее время ответим вам.
                         </p>
-                        <form className="contacts-form">
-                            <div className="contacts-form__wrap-data">
-                                <input className="contacts-form__data" type="text" value="Имя" />
-                                <input className="contacts-form__data" type="text" value="Фамилия" />
-                            </div>
-                            <div className="contacts-form__wrap-data">
-                                <input className="contacts-form__data" type="text" value="Телефон" />
-                                <input className="contacts-form__data" type="email" value="E-mail" />
-                            </div>
-                            <input className="contacts-form__comment" type="text" value="Комментарий" />
-                            <div className="contacts-form__btn">Отправить</div>
-                        </form>
-                    </div>
+                        {authed && <div className="data-registration">
+                            <p> Взять данные из личного кабинета?</p>
+                            <button className="data-registration__btn" onClick={() => setFormContacts(false)}>Да</button>
+                            <button className="data-registration__btn" onClick={() => setFormContacts(true)}>Нет</button>
+                        </div>
+                        }
+                        {!formContacts && <ContactsFormRegistered setMsg={setMsg} msg={msg} />}
+                        {formContacts && <ContactsFormGuest setMsg={setMsg} msg={msg} />}
+                    </div>}
+                    {msg && <ContactsMsg />}
                 </div>
             </div>
         </>

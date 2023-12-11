@@ -1,4 +1,10 @@
 .dropdown-bar {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #000000;
+
     @media (min-width: 901px) {
         display: none;
     }
@@ -13,8 +19,7 @@
     &__btn {
         width: 290px;
         height: 47px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 0 20px;
         border: 1px solid #1E6140;
         border-radius: 20px;
         cursor: pointer;
@@ -22,15 +27,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        text-transform: uppercase;
-        color: #000000;
-
-        svg {
-            margin-right: 10px;
-        }
 
         &:hover {
             background: #E74E13;
@@ -46,10 +42,6 @@
         display: block;
         height: 100%;
         text-decoration: none;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        text-transform: uppercase;
         color: #000000;
     }
 
@@ -70,11 +62,6 @@
         cursor: pointer;
         border-radius: 20px;
         transition: all 0.2s;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        text-transform: uppercase;
-        color: #000000;
 
         svg {
             vertical-align: middle;
@@ -92,6 +79,9 @@
 }
 
 .dropdown-catalog {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
     position: relative;
 
     &__wrap {
@@ -99,9 +89,6 @@
     }
 
     &__btn {
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 20px;
         color: #84C551;
         display: flex;
         justify-content: space-between;
@@ -148,9 +135,6 @@
         cursor: pointer;
         border-radius: 20px;
         transition: all 0.2s;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 20px;
         color: rgba(0, 0, 0, 0.5);
         text-align: left;
 
@@ -170,6 +154,10 @@
 }
 
 .dropdown-cart {
+    color: #E74E13;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
 
     &__btn {
         display: flex;
@@ -178,13 +166,8 @@
         height: 47px;
         border: 1px solid #E74E13;
         border-radius: 90px;
-        color: #E74E13;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 20px;
         justify-content: space-between;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 0 20px;
         cursor: pointer;
 
         &__link {
@@ -201,7 +184,6 @@
         }
 
         svg {
-            margin-right: 15px;
             vertical-align: middle;
         }
     }
@@ -209,10 +191,6 @@
     &__content {
         border: 1px solid #E74E13;
         border-radius: 20px;
-        color: #E74E13;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 20px;
         padding: 20px;
         margin-top: 10px;
     }
@@ -227,5 +205,135 @@
             background: #E74E13;
             color: #ffffff;
         }
+    }
+}
+
+.dropdown-order {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #484848;
+    position: relative;
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 255px;
+        height: 40px;
+        padding: 10px 20px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 90px;
+        background: #FFFFFF;
+        cursor: pointer;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            width: 290px;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__content {
+        position: absolute;
+        z-index: 1;
+        width: 255px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 20px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            width: 290px;
+        }
+    }
+
+    &__item {
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 20px;
+        transition: all 0.2s;
+
+        &:hover {
+            background: #E74E13;
+            color: #ffffff;
+        }
+    }
+}
+
+.dropdown-sort {
+    position: relative;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+
+    @media (min-width: 320px) and (max-width: 899px) {
+        font-size: 11px;
+        line-height: 15px;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px 10px 15px;
+        width: 260px;
+        height: 40px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 90px;
+        background: #FFFFFF;
+        cursor: pointer;
+
+        @media (min-width: 320px) and (max-width: 899px) {
+            width: 135px;
+            padding: 10px 6px;
+        }
+    }
+
+    span {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        height: 28px;
+        margin-left: auto;
+        margin-right: 20px;
+
+        @media (min-width: 320px) and (max-width: 899px) {
+            margin-right: 10px;
+        }
+    }
+
+    &__content {
+        position: absolute;
+        z-index: 1;
+        width: 260px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background: #FFFFFF;
+        border-radius: 20px;
+        padding: 20px;
+
+        @media (min-width: 320px) and (max-width: 899px) {
+            width: 135px;
+            padding: 10px;
+        }
+    }
+
+    &__item {
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 20px;
+        transition: all 0.2s;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        @media (min-width: 320px) and (max-width: 899px) {
+            padding: 5px;
+        }
+    }
+}
+
+.svg-up {
+    svg {
+        transform: rotate(180deg);
     }
 }

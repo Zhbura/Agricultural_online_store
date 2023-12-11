@@ -1,6 +1,5 @@
 import './Header.scss';
 import { Logo } from '../Logo/Logo';
-import search from '../../img/search.svg';
 import { Comparison } from '../SVG/Icon/Comparison';
 import { Cart } from '../SVG/Icon/Cart';
 import { Heart } from '../SVG/Icon/Heart';
@@ -9,12 +8,14 @@ import { ContactDetails } from '../ContactDetails/ContactDetails';
 import { useSelector } from 'react-redux';
 import { costCart, countCart } from '../../store/cart/selectors';
 import { countWishList } from '../../store/wishList/selectors';
+import { SearchForm } from './SearchForm';
 
 export const Header = () => {
     const totalCount = useSelector(countCart);
     const costTotal = useSelector(costCart);
 
     const totalWish = useSelector(countWishList);
+
     return (
         <>
             <header className="header">
@@ -22,11 +23,7 @@ export const Header = () => {
                     <div className="header__logo">
                         <Logo />
                     </div>
-                    <form className="header__search-form header__search-form_hidden">
-                        <input type="text" placeholder="Поиск..." />
-                        <span />
-                        <img src={search} alt="Поиск" />
-                    </form>
+                    <SearchForm />
                     <ContactDetails
                         classContactDetails="contact-details contact-details_hidden"
                         icon="circle-icon"
@@ -40,9 +37,9 @@ export const Header = () => {
                             </div>
                         </div>
                         <div className="icon-quantity">
-                            <div className="circle-icon circle-icon_hover circle-icon_hidden">
+                            <button className="circle-icon circle-icon_hover circle-icon_hidden">
                                 <Comparison />
-                            </div>
+                            </button>
                         </div>
                         <div className="icon-quantity">
                             <div className="circle-icon circle-icon_hover">

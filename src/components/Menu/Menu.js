@@ -1,6 +1,5 @@
 import './Menu.scss';
-import logOut from '../../img/logOut.svg';
-import search from '../../img/search.svg';
+import login from '../../img/login.svg';
 import closeMenu from '../../img/closeMenu.svg';
 import logoWhite from '../../img/logoWhite.svg';
 import { Comparison } from '../SVG/Icon/Comparison';
@@ -13,6 +12,8 @@ import { changeMenuShow } from '../../store/menu/actions';
 import { ContactDetails } from '../ContactDetails/ContactDetails';
 import { costCart, countCart } from '../../store/cart/selectors';
 import { countWishList } from '../../store/wishList/selectors';
+import { SearchForm } from '../Header/SearchForm';
+import { useEffect, useRef } from 'react';
 
 export const Menu = () => {
 
@@ -21,20 +22,36 @@ export const Menu = () => {
     const dispatch = useDispatch();
 
     const hideMenu = () => {
-        dispatch(changeMenuShow);
+        dispatch(changeMenuShow(false));
     };
 
     const totalCount = useSelector(countCart);
     const costTotal = useSelector(costCart);
 
     const totalWish = useSelector(countWishList);
+
+    //Создание рефа на компонент меню для закрытия его при клике вне данного компонента
+    const menuRef = useRef(null);
+
+    const handleClick = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+            dispatch(changeMenuShow(false))
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClick)
+        return () => {
+            document.removeEventListener("mousedown", handleClick)
+        }
+    }, [])
     return (
         <>
-            <div className={showMenu ? 'menu menu_active' : 'menu'}>
+            <div className={showMenu ? 'menu menu_active' : 'menu'} ref={menuRef}>
                 <div className="menu__top-bar">
                     <div className="container">
                         <div className="top-bar__login menu__login">
-                            <img src={logOut} alt="Войти" />
+                            <img src={login} alt="Войти" />
                             <Link to='/registration' className="top-bar__link">Вход | Регистрация</Link>
                         </div>
                         <div className="menu__close" onClick={hideMenu}>
@@ -64,11 +81,7 @@ export const Menu = () => {
                         </div>
                         <div className="menu-wrap menu-wrap_margin">
                             <div className="circle-icon circle-icon_white"><Comparison /></div>
-                            <form className="header__search-form header__search-form_small">
-                                <input type="text" placeholder="Поиск..." />
-                                <span />
-                                <img src={search} alt="Поиск" />
-                            </form>
+                            <SearchForm />
                         </div>
                         <ContactDetails
                             classContactDetails="contact-details"

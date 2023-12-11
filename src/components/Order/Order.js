@@ -1,13 +1,18 @@
 import './Order.scss';
-import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
-import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
-import { OrderProduct, OrderProductSmall } from '../OrderProduct/OrderProduct';
-import { costCart, countCart, selectCart } from '../../store/cart/selectors';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { orderUserData } from '../../store/order/action';
+import { useEffect, useState } from 'react';
+import { OrderFormRegistered } from '../Form/OrderFormRegistered';
+import { selectUserRegistered } from '../../store/registration/selectors';
+import { ButtonOrder } from '../Button/ButtonOrder';
+import { OrderCart } from './OrderCart';
+import { OrderPayment } from './OrderPayment';
+import { OrderDelivery } from './OrderDelivery';
+import { ContactsInputs } from '../Form/ContactsInputs';
 
-export const Order = () => {
+export const Order = ({ authed }) => {
     const breadcrumbs = [
         {
             name: "Корзина",
@@ -19,10 +24,47 @@ export const Order = () => {
         }
     ];
 
-    const totalCount = useSelector(countCart);
-    const costTotal = useSelector(costCart);
+    const dispatch = useDispatch();
 
-    const cartProducts = useSelector(selectCart);
+    const [formOrder, setFormOrder] = useState(true);
+
+    const [orderName, setName] = useState('');
+    const [orderSurname, setSurname] = useState('');
+    const [orderPhone, setPhone] = useState('');
+    const [orderEmail, setEmail] = useState('');
+    const [orderComment, setComment] = useState('');
+
+    // Для валидности всей формы заказа (3-х её частей)
+    const [inputContactValid, setInputContactValid] = useState(false);
+    const [deliveryValid, setDeliveryValid] = useState(false);
+    const [paymentCheckedValid, setPaymentCheckedValid] = useState(false);
+
+    const [formValidOrder, setFormValidOrder] = useState(false);
+
+    const [formValid, setFormValid] = useState(false);
+
+    useEffect(() => {
+        if (inputContactValid && deliveryValid && paymentCheckedValid) {
+            setFormValidOrder(true)
+        } else {
+            setFormValidOrder(false)
+        }
+    }, [deliveryValid, inputContactValid, paymentCheckedValid])
+
+    // Для получения данных пользователя при регистрации
+    const user = useSelector(selectUserRegistered);
+
+    const handleOrderDataReg = () => {
+
+        dispatch(orderUserData(user.email, user.name, user.surname, user.phone, orderComment,
+            user.postcode, user.region, user.city, user.department))
+    }
+
+    const handleOrderDataGuest = () => {
+
+        dispatch(orderUserData(orderEmail, orderName, orderSurname, orderPhone,
+            orderComment, user.postcode, user.region, user.city, user.department))
+    }
 
     return (
         <>
@@ -33,70 +75,45 @@ export const Order = () => {
                     <div className="order__left">
                         <div>
                             <h4 className="order__heading">Ваши контакты</h4>
-                            <form className="contacts-form">
-                                <div className="contacts-form__wrap-data">
-                                    <input className="contacts-form__data" type="text" value="Имя" />
-                                    <input className="contacts-form__data" type="text" value="Фамилия" />
-                                </div>
-                                <div className="contacts-form__wrap-data">
-                                    <input className="contacts-form__data" type="text" value="Телефон" />
-                                    <input className="contacts-form__data" type="email" value="E-mail" />
-                                </div>
-                                <input className="contacts-form__comment" type="text" value="Комментарий" />
-                            </form>
-                        </div>
-                        <span className="order__separator-horizontal" />
-                        <div className="order__delivery">
-                            <h4 className="order__heading">Доставка</h4>
-                            <div className="wrap-contacts wrap-contacts_margin">
-                                <div className="order__btn-popUp">
-                                    <p className="order__text arrow-checkbox_orange">Область<ArrowCheckbox /></p>
-                                </div>
-                                <div className="order__btn-popUp">
-                                    <p className="order__text arrow-checkbox_orange">Город<ArrowCheckbox /></p>
-                                </div>
-                            </div>
-                            <div className="wrap-contacts">
-                                <div className="order__btn-popUp">
-                                    <p className="order__text arrow-checkbox_orange">Отделение<ArrowCheckbox /></p>
-                                </div>
-                                <div className="order__btn-popUp">
-                                    <input className="order__text" type="text" value="Почтовый индекс" />
-                                </div>
+                            {authed && <div className="data-registration">
+                                <p> Взять данные из личного кабинета?</p>
+                                <button className="data-registration__btn"
+                                    onClick={() => setFormOrder(false)}>
+                                    Да
+                                </button>
+                                <button className="data-registration__btn"
+                                    onClick={() => setFormOrder(true)}>
+                                    Нет
+                                </button>
+                            </div>}
+                            <div className="contacts-form">
+                                {formOrder && <ContactsInputs
+                                    email={orderEmail} setEmail={setEmail}
+                                    name={orderName} setName={setName}
+                                    surname={orderSurname} setSurname={setSurname}
+                                    phone={orderPhone} setPhone={setPhone}
+                                    comment={orderComment} setComment={setComment}
+                                    setFormValid={setFormValid}
+                                    setInputContactValid={setInputContactValid}
+                                />}
+                                {!formOrder &&
+                                    <OrderFormRegistered setInputContactValid={setInputContactValid} />}
                             </div>
                         </div>
                         <span className="order__separator-horizontal" />
-                        <div className="order__payment">
-                            <h4 className="order__heading">Оплата</h4>
-                            <label className="input-wrap order__text">Наличные
-                                <input type="radio" name="payment" value="cash" />
-                                <span className="checkmark"></span>
-                            </label>
-                            <label className="input-wrap order__text">Оплата картой
-                                <input type="radio" name="payment" value="cardPayment" />
-                                <span className="checkmark"></span>
-                            </label>
-                            <label className="input-wrap order__text">Оплата картой онлайн
-                                <input type="radio" name="payment" value="cardPaymentOnline" />
-                                <span className="checkmark"></span>
-                            </label>
-                        </div>
+                        <OrderDelivery
+                            setDeliveryValid={setDeliveryValid}
+                        />
+                        <span className="order__separator-horizontal" />
+                        <OrderPayment
+                            paymentCheckedValid={paymentCheckedValid}
+                            setPaymentCheckedValid={setPaymentCheckedValid}
+                        />
                     </div>
-                    <div className="order__right">
-                        <h4 className="order__heading">Товары в корзине</h4>
-                        {cartProducts.map(product => (
-                            <OrderProduct product={product} key={product.id} />
-                        ))}
-                        {cartProducts.map(product => (
-                            <OrderProductSmall product={product} key={product.id} />
-                        ))}
-                        <div className="order__buy-product">
-                            <p className="order__buy-product_margin">Итого: <span>{totalCount} шт </span></p>
-                            <p>На сумму: <span>{costTotal} руб</span></p>
-                        </div>
-                        <div className="order__confirm">
-                            <Link to="/thanks_order" className="order__link">Подтвердить заказ</Link>
-                        </div>
+                    <div className="order__products">
+                        <OrderCart />
+                        {formOrder && <ButtonOrder sendOrderData={handleOrderDataGuest} formValid={formValidOrder} />}
+                        {!formOrder && <ButtonOrder sendOrderData={handleOrderDataReg} formValid={formValidOrder} />}
                     </div>
                 </div>
             </div>

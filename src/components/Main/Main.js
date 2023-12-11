@@ -1,4 +1,6 @@
+import { BottomBar } from '../BottomBar/BottomBar';
 import { BrandWrap } from '../BrandWrap/BrandWrap';
+import { Header } from '../Header/Header';
 import { InfoCompany } from '../InfoCompany/InfoCompany';
 import { NewProducts } from '../NewProducts/NewProducts';
 import { Partners } from '../Partners/Partners';
@@ -9,9 +11,13 @@ export const Main = () => {
 
     return (
         <>
-            <BrandWrap />
+            <div className='background-container'>
+                <Header />
+                <BottomBar />
+                <BrandWrap />
+            </div>
             <InfoCompany />
-            <NewProducts  />
+            <NewProducts />
             <Stocks />
             <Partners />
             <Seeds />

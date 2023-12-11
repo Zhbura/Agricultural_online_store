@@ -6,10 +6,22 @@ import { PersonalData } from '../SVG/Icon/PersonalData';
 import { Unlock } from '../SVG/Icon/Unlock';
 import { History } from '../SVG/Icon/History';
 import { NavLink, Link, Outlet } from 'react-router-dom';
+import { logOut } from '../../services/firebase';
+import exit from '../../img/login.svg';
 
 export const PersonalAccount = () => {
     const [popUpActive, setPopUpActive] = useState(false);
     const setActive = ({ isActive }) => isActive ? 'cabinet-popUp__link_active cabinet-popUp__link' : 'cabinet-popUp__link';
+  
+    const [error, setError] = useState("");
+
+    const handleLogOut = async () => {
+        try {
+            await logOut();
+        } catch (e) {
+            setError(e.message);
+        }
+    }
 
     return (
         <>
@@ -46,6 +58,12 @@ export const PersonalAccount = () => {
                             <Link to="change_password" className="cabinet-popUp__link"> <Unlock />
                                 Изменить пароль
                             </Link>
+                            <span className="cabinet-popUp__separator" />
+
+                            <p className="cabinet-popUp__link" onClick={handleLogOut}>
+                                <img src={exit} alt="Выйти" />
+                                Выход
+                            </p>
                         </div>
                         <div className="cabinet-popUp">
                             <NavLink end to="" className={setActive}>
@@ -77,7 +95,13 @@ export const PersonalAccount = () => {
                             <NavLink to="change_password" className={setActive}> <Unlock />
                                 Изменить пароль
                             </NavLink>
+                            <span className="cabinet-popUp__separator" />
+                            <p className="cabinet-popUp__link" onClick={handleLogOut}>
+                                <img src={exit} alt="Выйти" />
+                                Выход
+                            </p>
                         </div>
+                        {error && <span className="err-msg">{error}</span>}
                         <Outlet />
                     </div>
                 </div>

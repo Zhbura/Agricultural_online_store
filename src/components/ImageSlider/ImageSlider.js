@@ -1,10 +1,11 @@
-import { useState } from "react";
 import { Arrow } from "../SVG/Arrow/Arrow";
 import './ImageSlider.scss';
+import { useDispatch } from "react-redux";
+import { changeShowSlider } from "../../store/slider/action";
 
-export const ImageSlider = ({ images, name }) => {
+export const ImageSlider = ({ images, name, current, setCurrent }) => {
+    const dispatch = useDispatch();
 
-    const [current, setCurrent] = useState(0);
     const length = images.length;
 
     const nextImage = () => {
@@ -25,34 +26,43 @@ export const ImageSlider = ({ images, name }) => {
     return (
         <>
             <div className="image-slider">
-                <div className="image-slider_big">
-                    <div className="arrow-scroll" onClick={prevImage}>
-                        <Arrow />
-                    </div>
-                    <div className="image-slider__wrap">
+                <div className="slider-big">
+                    {(images.length > 1) ?
+                        <div className="arrow-scroll arrow_left" onClick={prevImage}>
+                            <Arrow />
+                        </div> : null}
+                    <div className="slider-big__container">
                         {images.map((image, index) => (
-                            <div className={index === current ?
-                                'image-slider__slide-big image-slider__slide-big_active' :
-                                'image-slider__slide-big'} key={index}>
+                            <div onClick={() => {
+                                dispatch(changeShowSlider)
+                            }}
+                                className={index === current ?
+                                    'slider-big__slide slider-big__slide_active' :
+                                    'slider-big__slide'} key={index}>
                                 {index === current && (
-                                    <img src={image} alt={name} />
+                                    <div className="slider-big__wrap-img">
+                                        <img className="slider-big__main-img" src={image} alt={name} />
+                                    </div>
                                 )}
                             </div>
                         ))}
                     </div>
-                    <div className="arrow-scroll arrow_right" onClick={nextImage}>
-                        <Arrow />
-                    </div>
+                    {(images.length > 1) ?
+                        <div className="arrow-scroll arrow_right" onClick={nextImage}>
+                            <Arrow />
+                        </div> : null}
                 </div>
-                <div className="image-slider_small">
+                <div className="slider-small">
                     {images.map((image, index) => (
                         <div className={index !== current ?
-                            "image-slider__slide-small image-slider__slide-small_active" :
-                            "image-slider__slide-small"}
+                            "slider-small__slide slider-small__slide_active" :
+                            "slider-small__slide"}
                             key={index}
                             onClick={() => { changeCurrent(index) }}>
                             {index !== current && (
-                                <img src={image} alt={name} />
+                                <div className="slider-small__wrap-img">
+                                    <img className="slider-small__main-img" src={image} alt={name} />
+                                </div>
                             )}
                         </div>
                     ))}

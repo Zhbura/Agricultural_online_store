@@ -1,43 +1,28 @@
 import './Catalog.scss';
 import { Pagination } from '../Pagination/Pagination';
-import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
-import { SeedsCatalog } from '../SeedsCatalog/SeedsCatalog';
 import { ProductCard } from '../ProductСard/ProductСard';
-import { FilterCatalogSmall } from '../FilterCatalog/FilterCatalogSmall';
-import { useDispatch } from 'react-redux';
-import { changeShowFilter } from '../../store/catalog/action';
 import { useState } from 'react';
-import { FilterCatalogBig } from '../FilterCatalog/FilterCatalogBig';
-import { DropdownCatalog } from '../Dropdown/DropdownCatalog';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { products } from '../../productsData';
 
-export const Catalog = ({ title }) => {
-    const [selected, setSelected] = useState('');
-
-    const dispatch = useDispatch();
-
-    const showFilter = () => {
-        dispatch(changeShowFilter);
-    };
+export const Catalog = () => {
 
     const breadcrumbs = [
         {
             name: "Каталог",
             to: "/catalog"
         },
-        {
-            name: `${title}`,
-            to: "/catalog"
-        },
     ];
 
+    const countProducts = products.length;
+
+    //Для пагинации
     //стейт для текущей страницы которую нужно отображать
     const [currentPage, setCurrentPage] = useState(1);
 
     // стейт для количества отображаемых элементов на каждой странице
-    const [productsPerPage] = useState(3);
+    const [productsPerPage] = useState(12);
 
     // индекс последней страницы 5
     const lastProductIndex = currentPage * productsPerPage;
@@ -45,62 +30,43 @@ export const Catalog = ({ title }) => {
     // индекс первой страницы 0
     const firstProductIndex = lastProductIndex - productsPerPage;
 
-    //текущая страница
+    //текущая страница отображающая на странице и применяемая к ней сортировка по цене товаров
     const currentProduct = products.slice(firstProductIndex, lastProductIndex);
 
     // функция для нажатия на кружки пагинации
     const paginate = pageNumber => setCurrentPage(pageNumber);
+
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="catalog">
                 <PageHeadingTwice>
-                    {title}
+                    Все товары
                 </PageHeadingTwice>
                 <div className="catalog-wrap catalog-wrap_top container">
-                    <div className="result">Показано 621 товар</div>
-                    <div className="sort arrow-checkbox_grey">
-                        <input type="text" placeholder="Сортировать по" />
-                        <span /><ArrowCheckbox />
-                    </div>
+                    <div className="result">Показано {countProducts} товар</div>
                 </div>
                 <div className="wrap-small">
-                    <div className="wrap-small_top">
-                        <div className="filter-small" onClick={showFilter}>Фильтр
-                        </div>
-                        <FilterCatalogSmall />
-                        <div className="sort arrow-checkbox_grey">
-                            <input type="text" placeholder="Сортировать по" />
-                            <span /><ArrowCheckbox />
-                        </div>
-                    </div>
-                    <DropdownCatalog selected={selected} setSelected={setSelected} />
-                    <div className="result">Показано 621 товар</div>
+                    <div className="result">Показано {countProducts} товар</div>
                 </div>
-                <div className="catalog-wrap container">
-                    <FilterCatalogBig />
-                    <div className="wrap-page">
-                        <div className="catalog-product">
-                            {currentProduct.map((arrayProducts, index) => (
-                                arrayProducts.map((product, i) => (
-                                    <ProductCard
-                                        key={product.id}
-                                        product={product}
-                                    />
-                                ))
-                            ))}
-                        </div>
-                        <Pagination
-                            productsPerPage={productsPerPage}
-                            totalProducts={products.length}
-                            paginate={paginate}
-                            currentPage={currentPage}
-                            setCurrentPage={setCurrentPage}
-                        />
+                <div className="catalog-product-wrap">
+                    <div className="catalog-product">
+                        {currentProduct.map((product) => (
+                            <ProductCard
+                                key={product.id}
+                                product={product}
+                            />
+                        ))}
                     </div>
                 </div>
+                <Pagination
+                    productsPerPage={productsPerPage}
+                    totalProducts={products.length}
+                    paginate={paginate}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                />
             </div >
-            <SeedsCatalog />
         </>
     )
 }

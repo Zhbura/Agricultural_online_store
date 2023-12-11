@@ -1,5 +1,6 @@
 .product {
     display: flex;
+    position: relative;
 
     @media (min-width: 1200px) {
         justify-content: space-between;
@@ -35,14 +36,18 @@
         color: #1E6140;
         margin-bottom: 26px;
 
-        img {
-            margin-right: 5px;
-            display: block;
+        &_red {
+            color: red;
         }
     }
 
     &__fabricator {
         padding-top: 7px;
+
+        div {
+            display: flex;
+            align-items: center;
+        }
     }
 
     &__heading {
@@ -107,8 +112,7 @@
         display: block;
         width: 584px;
         border: 1px solid rgba(0, 0, 0, 0.1);
-        margin-top: 30px;
-        margin-bottom: 24px;
+        margin: 30px 0 24px 0;
 
         @media (min-width: 320px) and (max-width: 767px) {
             display: none;

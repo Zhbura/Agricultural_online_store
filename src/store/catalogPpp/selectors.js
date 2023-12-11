@@ -1,0 +1,12 @@
+export const selectShowFilter = (state) => state.catalogPpp.showFilter;
+export const selectFilterPppProducts = (state) => state.catalogPpp.filterProducts;
+export const selectCountFilterPppProducts = (state) => state.catalogPpp.filterProducts.length;
+export const selectCountAllPpp = (state) => state.catalogPpp.countAllPpp;
+export const selectCountFungicides = (state) => state.catalogPpp.countFungicides;
+export const selectCountHerbicides = (state) => state.catalogPpp.countHerbicides;
+export const selectCountInsecticides = (state) => state.catalogPpp.countInsecticides;
+export const selectCountDesiccants = (state) => state.catalogPpp.countDesiccants;
+export const selectCountAdjuvants = (state) => state.catalogPpp.countAdjuvants;
+export const selectCountRodenticides = (state) => state.catalogPpp.countRodenticides;
+export const selectCountRetardants = (state) => state.catalogPpp.countRetardants;
+export const selectCountProtectants = (state) => state.catalogPpp.countProtectants;

@@ -2,7 +2,6 @@ import './Dropdown.scss';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { ArrowCheckbox } from '../SVG/ArrowCheckbox/ArrowCheckbox';
-import { ArrowCheckboxUp } from '../SVG/ArrowCheckbox/ArrowCheckbox';
 
 export const Dropdown = ({ options, selected, setSelected }) => {
     const [isActive, setIsActive] = useState(false);
@@ -16,7 +15,7 @@ export const Dropdown = ({ options, selected, setSelected }) => {
                         {selected.svg}
                         {selected.name}
                         {initialValue && 'Перейти на страницу...'}
-                        {isActive ? <ArrowCheckboxUp /> : <ArrowCheckbox />}
+                        <p className={isActive ? "svg-up" : ""}><ArrowCheckbox /></p>
                     </div>
                     {isActive && (
                         <div className="dropdown-bar__content">

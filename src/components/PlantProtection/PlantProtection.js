@@ -1,74 +1,78 @@
 import './PlantProtection.scss';
-import herbicides from '../../img/catalog/herbicides.png';
-import fungicides from '../../img/catalog/fungicides.png';
-import plantProtection from '../../img/catalog/plantProtection.png';
-import desiccants from '../../img/catalog/desiccants.png';
-import disinfectant from '../../img/catalog/disinfectant.png';
-import rodenticides from '../../img/catalog/rodenticides.png';
-import retardants from '../../img/catalog/retardants.png';
-import adjuvants from '../../img/catalog/adjuvants.png';
 import { SeedsCatalog } from '../SeedsCatalog/SeedsCatalog';
 import { PageHeadingTwice } from '../PageHeading/PageHeading';
+import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 
 export const PlantProtection = () => {
     const breadcrumbs = [
         {
-            name: "Каталог",
-            to: "/catalog"
+            name: "Категории",
+            to: "/category_plant_protection"
         },
     ];
+
+    const categoryPpp = [
+        {
+            key: "herbicides",
+            img: require("../../img/catalog/herbicides.png"),
+            name: "Гербициды",
+        },
+        {
+            key: "fungicides",
+            img: require("../../img/catalog/fungicides.png"),
+            name: "Фунгициды",
+        },
+        {
+            key: "insecticides",
+            img: require("../../img/catalog/plantProtection.png"),
+            name: "Инсектициды",
+        },
+
+        {
+            key: "desiccants",
+            img: require("../../img/catalog/desiccants.png"),
+            name: "Десиканты",
+        },
+        {
+            key: "protectants",
+            img: require("../../img/catalog/disinfectant.png"),
+            name: "Протравители",
+        },
+        {
+            key: "rodenticides",
+            img: require("../../img/catalog/rodenticides.png"),
+            name: "Родентициды",
+        },
+        {
+            key: "retardants",
+            img: require("../../img/catalog/retardants.png"),
+            name: "Ретарданты",
+        },
+        {
+            key: "adjuvants",
+            img: require("../../img/catalog/adjuvants.png"),
+            name: "Адъюванты",
+        },
+    ];
+
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
             <div className="plant-protection">
-                <PageHeadingTwice>Каталог</PageHeadingTwice>
+                <PageHeadingTwice>Категории</PageHeadingTwice>
                 <div className="plant-protection__items">
-                    <div className="plant-protection__item">
-                        <img src={herbicides} alt="Гербициды" />
-                        <div className="plant-protection__text">
-                            Гербициды
+                    {categoryPpp.map((item) => (
+                        <div className="plant-protection__item"
+                            key={item.key}>
+                            <Link to="/catalog_plant_protection" className="plant-protection__link">
+                                <img src={item.img} alt={item.name} />
+                                <span className="plant-protection__text">
+                                    {item.name}
+                                </span>
+                            </Link>
                         </div>
-                    </div>
-                    <div className="plant-protection__item">
-                        <img src={fungicides} alt="Фунгициды" />
-                        <div className="plant-protection__text">
-                            Фунгициды
-                        </div>
-                    </div>
-                    <div className="plant-protection__item">
-                        <img src={plantProtection} alt="plantProtection" />
-                    </div>
-                    <div className="plant-protection__item">
-                        <img src={desiccants} alt="Десиканты" />
-                        <div className="plant-protection__text">
-                            Десиканты
-                        </div>
-                    </div>
-                    <div className="plant-protection__item">
-                        <img src={disinfectant} alt="disinfectant" />
-                        <div className="plant-protection__text">
-                            Протравители
-                        </div>
-                    </div>
-                    <div className="plant-protection__item">
-                        <img src={rodenticides} alt="Родентициды" />
-                        <div className="plant-protection__text">
-                            Родентициды
-                        </div>
-                    </div>
-                    <div className="plant-protection__item">
-                        <img src={retardants} alt="Ретарданты" />
-                        <div className="plant-protection__text">
-                            Ретарданты
-                        </div>
-                    </div>
-                    <div className="plant-protection__item">
-                        <img src={adjuvants} alt="Адъюванты" />
-                        <div className="plant-protection__text">
-                            Адъюванты
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
             <SeedsCatalog />
