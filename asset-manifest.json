@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Agricultural_online_store/static/css/main.48c2974a.css",
-    "main.js": "/Agricultural_online_store/static/js/main.445b9a9f.js",
+    "main.css": "/Agricultural_online_store/static/css/main.8f109138.css",
+    "main.js": "/Agricultural_online_store/static/js/main.14834436.js",
     "static/js/787.a92fe09e.chunk.js": "/Agricultural_online_store/static/js/787.a92fe09e.chunk.js",
     "static/media/backgroungThanks.png": "/Agricultural_online_store/static/media/backgroungThanks.28ef4620d0a4e311bfc5.png",
     "static/media/backgroundBrandWrap.png": "/Agricultural_online_store/static/media/backgroundBrandWrap.dad5e6d26d869f526905.png",
@@ -49,6 +49,7 @@
     "static/media/derzhatelThree.png": "/Agricultural_online_store/static/media/derzhatelThree.74f6031955e8e9a5bf0f.png",
     "static/media/news4.png": "/Agricultural_online_store/static/media/news4.58c0768081130b7a0e22.png",
     "static/media/horysThree.png": "/Agricultural_online_store/static/media/horysThree.b067973a150e9fc193b2.png",
+    "static/media/pochta.png": "/Agricultural_online_store/static/media/pochta.4fefc9fc1ebbaf04e209.png",
     "static/media/leolysiFour.png": "/Agricultural_online_store/static/media/leolysiFour.d7185c1d91f7f6221d3d.png",
     "static/media/mospilanTwo.png": "/Agricultural_online_store/static/media/mospilanTwo.0c414b3028998427e5ab.png",
     "static/media/karatezeonTwo.png": "/Agricultural_online_store/static/media/karatezeonTwo.c6649629e49fb7b268c3.png",
@@ -215,7 +216,6 @@
     "static/media/tomato.png": "/Agricultural_online_store/static/media/tomato.b11f6a65e03947d21c23.png",
     "static/media/owesTwo.png": "/Agricultural_online_store/static/media/owesTwo.644935778225b12e7e6f.png",
     "static/media/pila.png": "/Agricultural_online_store/static/media/pila.55dac10ba2cab8797a4b.png",
-    "static/media/pochta1.png": "/Agricultural_online_store/static/media/pochta1.4467f339c272d57d1d99.png",
     "static/media/owesThree.png": "/Agricultural_online_store/static/media/owesThree.f30be035b0a4595dd145.png",
     "static/media/plantafolThree.png": "/Agricultural_online_store/static/media/plantafolThree.667a245970e4beb25d73.png",
     "static/media/pilaFour.png": "/Agricultural_online_store/static/media/pilaFour.b7bc7285e8bc3babebce.png",
@@ -252,7 +252,6 @@
     "static/media/rykhlitelTwo.png": "/Agricultural_online_store/static/media/rykhlitelTwo.316bd413bbcafc825236.png",
     "static/media/grabliThree.png": "/Agricultural_online_store/static/media/grabliThree.34fa9dcf0e98d868251f.png",
     "static/media/grabliTwo.png": "/Agricultural_online_store/static/media/grabliTwo.4e64364844b469462f6e.png",
-    "static/media/pochta2.png": "/Agricultural_online_store/static/media/pochta2.06c913d738bf8cc2c766.png",
     "static/media/aktara.png": "/Agricultural_online_store/static/media/aktara.3235cd066e9afd87d7fa.png",
     "static/media/revicons.eot": "/Agricultural_online_store/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/Agricultural_online_store/static/media/revicons.57fd05d4ae650374c8de.ttf",
@@ -279,12 +278,12 @@
     "static/media/arrowUpGreen.svg": "/Agricultural_online_store/static/media/arrowUpGreen.83f74e436573711f86a6.svg",
     "static/media/arrowDown.svg": "/Agricultural_online_store/static/media/arrowDown.d02ddc24af49c5f398f1.svg",
     "static/media/email.svg": "/Agricultural_online_store/static/media/email.e67f67fc6ceef4b37cf7c323eebc1c60.svg",
-    "main.48c2974a.css.map": "/Agricultural_online_store/static/css/main.48c2974a.css.map",
-    "main.445b9a9f.js.map": "/Agricultural_online_store/static/js/main.445b9a9f.js.map",
+    "main.8f109138.css.map": "/Agricultural_online_store/static/css/main.8f109138.css.map",
+    "main.14834436.js.map": "/Agricultural_online_store/static/js/main.14834436.js.map",
     "787.a92fe09e.chunk.js.map": "/Agricultural_online_store/static/js/787.a92fe09e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.48c2974a.css",
-    "static/js/main.445b9a9f.js"
+    "static/css/main.8f109138.css",
+    "static/js/main.14834436.js"
   ]
 }
