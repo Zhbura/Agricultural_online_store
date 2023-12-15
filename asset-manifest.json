@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Agricultural_online_store/static/css/main.8f109138.css",
-    "main.js": "/Agricultural_online_store/static/js/main.14834436.js",
+    "main.css": "/Agricultural_online_store/static/css/main.fc903d6d.css",
+    "main.js": "/Agricultural_online_store/static/js/main.7144c001.js",
     "static/js/787.a92fe09e.chunk.js": "/Agricultural_online_store/static/js/787.a92fe09e.chunk.js",
     "static/media/backgroungThanks.png": "/Agricultural_online_store/static/media/backgroungThanks.28ef4620d0a4e311bfc5.png",
     "static/media/backgroundBrandWrap.png": "/Agricultural_online_store/static/media/backgroundBrandWrap.dad5e6d26d869f526905.png",
@@ -278,12 +278,12 @@
     "static/media/arrowUpGreen.svg": "/Agricultural_online_store/static/media/arrowUpGreen.83f74e436573711f86a6.svg",
     "static/media/arrowDown.svg": "/Agricultural_online_store/static/media/arrowDown.d02ddc24af49c5f398f1.svg",
     "static/media/email.svg": "/Agricultural_online_store/static/media/email.e67f67fc6ceef4b37cf7c323eebc1c60.svg",
-    "main.8f109138.css.map": "/Agricultural_online_store/static/css/main.8f109138.css.map",
-    "main.14834436.js.map": "/Agricultural_online_store/static/js/main.14834436.js.map",
+    "main.fc903d6d.css.map": "/Agricultural_online_store/static/css/main.fc903d6d.css.map",
+    "main.7144c001.js.map": "/Agricultural_online_store/static/js/main.7144c001.js.map",
     "787.a92fe09e.chunk.js.map": "/Agricultural_online_store/static/js/787.a92fe09e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8f109138.css",
-    "static/js/main.14834436.js"
+    "static/css/main.fc903d6d.css",
+    "static/js/main.7144c001.js"
   ]
 }
