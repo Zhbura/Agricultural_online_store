@@ -8,7 +8,7 @@ export const PlantProtection = () => {
     const breadcrumbs = [
         {
             name: "Категории",
-            to: "/category_plant_protection"
+            to: "/Agricultural_online_store/category_plant_protection"
         },
     ];
 
@@ -65,7 +65,7 @@ export const PlantProtection = () => {
                     {categoryPpp.map((item) => (
                         <div className="plant-protection__item"
                             key={item.key}>
-                            <Link to="/catalog_plant_protection" className="plant-protection__link">
+                            <Link to="/Agricultural_online_store/catalog_plant_protection" className="plant-protection__link">
                                 <img src={item.img} alt={item.name} />
                                 <span className="plant-protection__text">
                                     {item.name}

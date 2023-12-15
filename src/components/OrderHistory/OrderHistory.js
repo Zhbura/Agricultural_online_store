@@ -10,11 +10,11 @@ export const OrderHistory = () => {
     const breadcrumbs = [
         {
             name: "Личный кабинет",
-            to: "/personal_account"
+            to: "/Agricultural_online_store/personal_account"
         },
         {
             name: "История заказов",
-            to: "/order_history"
+            to: "/Agricultural_online_store/order_history"
         },
     ];
 

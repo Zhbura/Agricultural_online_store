@@ -46,11 +46,11 @@ export const CatalogPpp = () => {
     const breadcrumbs = [
         {
             name: "Категории",
-            to: "/category_plant_protection"
+            to: "/Agricultural_online_store/category_plant_protection"
         },
         {
             name: `Средства защиты растений`,
-            to: "/catalog_plant_protection"
+            to: "/Agricultural_online_store/catalog_plant_protection"
         },
     ];
 

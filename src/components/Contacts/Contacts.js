@@ -13,8 +13,8 @@ import { ContactsMsg } from './ContactsMsg';
 export const Contacts = ({ authed }) => {
     const breadcrumbs = [
         {
-            name: "Партнёры",
-            to: "/partners"
+            name: "Контакты",
+            to: "/Agricultural_online_store/contacts"
         },
     ];
 

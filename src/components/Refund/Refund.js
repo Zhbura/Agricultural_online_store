@@ -6,7 +6,7 @@ export const Refund = () => {
     const breadcrumbs = [
         {
             name: "Возврат и обмен товара",
-            to: "/refund"
+            to: "/Agricultural_online_store/refund"
         },
     ];
     return (

@@ -7,7 +7,7 @@ export const News = () => {
     const breadcrumbs = [
         {
             name: "Новости",
-            to: "/news"
+            to: "/Agricultural_online_store/news"
         },
     ];
 

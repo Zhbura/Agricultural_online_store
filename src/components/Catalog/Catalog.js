@@ -11,7 +11,7 @@ export const Catalog = () => {
     const breadcrumbs = [
         {
             name: "Каталог",
-            to: "/catalog"
+            to: "/Agricultural_online_store/catalog"
         },
     ];
 

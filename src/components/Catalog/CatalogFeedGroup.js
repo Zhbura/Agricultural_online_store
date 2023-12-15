@@ -38,11 +38,11 @@ export const CatalogFeedGroup = () => {
     const breadcrumbs = [
         {
             name: "Каталог",
-            to: "/catalog"
+            to: "/Agricultural_online_store/catalog"
         },
         {
             name: "Кормовая группа",
-            to: "/catalog_feed_group"
+            to: "/Agricultural_online_store/catalog_feed_group"
         },
     ];
 

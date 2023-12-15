@@ -38,7 +38,7 @@ export const InfoCompany = () => {
                         </div>
                         <div className="info-company__btn">
                             <Button>
-                                <Link to='/codex'>Подробнее</Link>
+                                <Link to='codex'>Подробнее</Link>
                             </Button>
                         </div>
                     </div>

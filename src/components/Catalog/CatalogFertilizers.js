@@ -38,11 +38,11 @@ export const CatalogFertilizers = () => {
     const breadcrumbs = [
         {
             name: "Каталог",
-            to: "/catalog"
+            to: "/Agricultural_online_store/catalog"
         },
         {
             name: "Удобрения",
-            to: "/catalog_fertilizers"
+            to: "/Agricultural_online_store/catalog_fertilizers"
         },
     ];
 

@@ -23,7 +23,7 @@ export const ProductCard = ({ product }) => {
         <>
             <div className="product-card" key={id}>
                 <div className="product-card__main-img">
-                    <Link to={`/product/${to}`}>
+                    <Link to={`/Agricultural_online_store/product/${to}`}>
                         <img src={img[0]} alt={alt} />
                     </Link>
                 </div>
@@ -44,7 +44,7 @@ export const ProductCard = ({ product }) => {
                 <div className="product-card__info-product">
                     <div className="product-card__text">
                         <p className="product-card__name">
-                            <Link to={`/product/${to}`} className="product-card__link">{name}</Link>
+                            <Link to={`/Agricultural_online_store/product/${to}`} className="product-card__link">{name}</Link>
                         </p>
                         <p className="product-card__price">{price} руб.</p>
                         <p className="product-card__quantity">1 шт</p>

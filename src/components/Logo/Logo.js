@@ -3,6 +3,6 @@ import logo from '../../img/logo.svg';
 import './Logo.scss';
 
 export const Logo = () => {
-    return <Link to='/'><img className="logo-img" src={logo} alt="Логотип компании" /></Link>
+    return <Link to='/Agricultural_online_store'><img className="logo-img" src={logo} alt="Логотип компании" /></Link>
 
 }

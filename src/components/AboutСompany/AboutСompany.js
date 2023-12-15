@@ -6,7 +6,7 @@ export const AboutСompany = () => {
     const breadcrumbs = [
         {
             name: "О компании",
-            to: "/aboutcompany"
+            to: "/Agricultural_online_store/aboutcompany"
         },
     ];
     return (

@@ -6,7 +6,7 @@ export const Agreement = () => {
     const breadcrumbs = [
         {
             name: "Договор",
-            to: "/agreement"
+            to: "/Agricultural_online_store/agreement"
         },
     ];
     return (

@@ -7,7 +7,7 @@ export const Breadcrumbs = ({ breadcrumbs }) => {
         <>
             <div className="bread-crumbs">
                 <ul className="bread-crumbs__list-items">
-                    <li className="bread-crumbs__list-item"><Link to="/" className="bread-crumbs__link">Главная</Link></li>
+                    <li className="bread-crumbs__list-item"><Link to="/Agricultural_online_store" className="bread-crumbs__link">Главная</Link></li>
                     {breadcrumbs.map((crumb, index) => {
                         const isLast = index === breadcrumbs.length - 1;
                         return isLast ? (

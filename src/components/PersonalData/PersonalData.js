@@ -17,11 +17,11 @@ export const PersonalData = () => {
     const breadcrumbs = [
         {
             name: "Личный кабинет",
-            to: "/personal_account"
+            to: "/Agricultural_online_store/personal_account"
         },
         {
             name: "Личные данные",
-            to: "/personal_data"
+            to: "/Agricultural_online_store/personal_data"
         },
     ];
     const dispatch = useDispatch();

@@ -52,7 +52,7 @@ export const Stocks = () => {
                     />
                 </div>
                 <div className="stocks__btn">
-                    <Button> <Link to='/catalog'>Смотреть все товары</Link> </Button>
+                    <Button> <Link to='catalog'>Смотреть все товары</Link> </Button>
                 </div>
             </div>
         </>

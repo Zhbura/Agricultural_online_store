@@ -59,9 +59,9 @@ export const Router = () => {
     return (
         <>
             <Routes>
-                <Route path="/" element={<LayoutTop authed={authed} />}>
+                <Route path="Agricultural_online_store" element={<LayoutTop authed={authed} />}>
                     <Route index element={<Main />} />
-                    <Route path="/" element={<LayoutBottom />}>
+                    <Route path="" element={<LayoutBottom />}>
                         <Route path="product" element={<Commodity />}>
                             {products.map((item, i) => (
                                 <Route key={i} path={item.to}

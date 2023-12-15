@@ -15,31 +15,31 @@ export const BottomBar = () => {
             id: 1,
             name: "Семена",
             svg: <Seeds />,
-            to: '/catalog_seeds'
+            to: 'catalog_seeds'
         },
         {
             id: 2,
             name: "Средства защиты растений",
             svg: <Sapling />,
-            to: '/category_plant_protection',
+            to: 'category_plant_protection',
         },
         {
             id: 3,
             name: "Удобрения",
             svg: <Fertilizers />,
-            to: '/catalog_fertilizers',
+            to: 'catalog_fertilizers',
         },
         {
             id: 4,
             name: "Кормовая группа",
             svg: <FeedGroup />,
-            to: '/catalog_feed_group',
+            to: 'catalog_feed_group',
         },
         {
             id: 5,
             name: "Агроному в помощь",
             svg: <Farmer />,
-            to: '/catalog_farmer_help',
+            to: 'catalog_farmer_help',
         },
     ];
     return (
