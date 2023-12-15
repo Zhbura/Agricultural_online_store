@@ -10,11 +10,11 @@ export const CurrentOrders = () => {
     const breadcrumbs = [
         {
             name: "Личный кабинет",
-            to: "/personal_account"
+            to: "/Agricultural_online_store/personal_account"
         },
         {
             name: "Текущие заказы",
-            to: "/current_orders"
+            to: "/Agricultural_online_store/current_orders"
         },
     ];
 

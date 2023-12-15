@@ -18,7 +18,7 @@ export const CartProduct = ({ product }) => {
         <>
             <div className="cart-product">
                 <h3 className="cart-product__title">
-                    <Link className="cart-product__link" to={`/product/${to}`}>{name}</Link>
+                    <Link className="cart-product__link" to={`/Agricultural_online_store/product/${to}`}>{name}</Link>
                     <button className="cart-product__btn-delete">
                         <img src={cancel} alt="Удалить выбранный товар"
                             onClick={() => dispatch(deleteProductCart(id))}

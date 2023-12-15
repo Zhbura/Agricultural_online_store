@@ -7,7 +7,7 @@ export const Pay = () => {
     const breadcrumbs = [
         {
             name: "Оплата и доставка",
-            to: "/pay"
+            to: "/Agricultural_online_store/pay"
         },
     ];
     return (

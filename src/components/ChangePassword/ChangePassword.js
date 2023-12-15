@@ -6,11 +6,11 @@ export const ChangePassword = () => {
     const breadcrumbs = [
         {
             name: "Личный кабинет",
-            to: "/personal_account"
+            to: "/Agricultural_online_store/personal_account"
         },
         {
             name: "Изменить пароль",
-            to: "/change_password"
+            to: "/Agricultural_online_store/change_password"
         },
     ];
     return (

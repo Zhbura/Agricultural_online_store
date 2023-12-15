@@ -38,11 +38,11 @@ export const CatalogSeeds = () => {
     const breadcrumbs = [
         {
             name: "Каталог",
-            to: "/catalog"
+            to: "/Agricultural_online_store/catalog"
         },
         {
             name: "Семена",
-            to: "/catalog_seeds"
+            to: "/Agricultural_online_store/catalog_seeds"
         },
     ];
 

@@ -7,7 +7,7 @@ export const PartnersComp = () => {
     const breadcrumbs = [
         {
             name: "Партнёры",
-            to: "/partners"
+            to: "/Agricultural_online_store/partners"
         },
     ];
     return (

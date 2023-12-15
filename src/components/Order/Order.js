@@ -16,11 +16,11 @@ export const Order = ({ authed }) => {
     const breadcrumbs = [
         {
             name: "Корзина",
-            to: "/cart"
+            to: "/Agricultural_online_store/cart"
         },
         {
             name: "Заказ",
-            to: "/order"
+            to: "/Agricultural_online_store/order"
         }
     ];
 

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom"
 import { addHistoryOrderWithThunk } from "../../store/orderProducts/action";
 import { selectCart } from "../../store/cart/selectors";
-import {  deleteProductCart } from "../../store/cart/action";
+import { deleteProductCart } from "../../store/cart/action";
 import { nanoid } from "nanoid";
 
 export const ButtonOrder = ({ sendOrderData, formValid }) => {
@@ -33,7 +33,7 @@ export const ButtonOrder = ({ sendOrderData, formValid }) => {
             }}
                 disabled={!formValid}
             >
-                {formValid ? <Link to="/thanks_order" className="order__link">Подтвердить заказ</Link> :
+                {formValid ? <Link to="/Agricultural_online_store/thanks_order" className="order__link">Подтвердить заказ</Link> :
                     <p className="order__link">Подтвердить заказ</p>}
             </button>
         </>

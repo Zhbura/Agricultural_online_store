@@ -52,7 +52,7 @@ export const Menu = () => {
                     <div className="container">
                         <div className="top-bar__login menu__login">
                             <img src={login} alt="Войти" />
-                            <Link to='/registration' className="top-bar__link">Вход | Регистрация</Link>
+                            <Link to='registration' className="top-bar__link">Вход | Регистрация</Link>
                         </div>
                         <div className="menu__close" onClick={hideMenu}>
                             <img src={closeMenu} alt="Меню" />
@@ -63,17 +63,17 @@ export const Menu = () => {
                     <div className="container">
                         <div className="menu-wrap">
                             <div className="header__logo menu__logo">
-                                <Link to='/'><img src={logoWhite} alt="Логотип компании" /></Link>
+                                <Link to='/Agricultural_online_store'><img src={logoWhite} alt="Логотип компании" /></Link>
                             </div>
                             <div className="header__toolBar">
                                 <div className="icon-quantity">
                                     <div className="circle-icon circle-icon_white">
-                                        <Link to='/wish_list'><Heart /><span>{totalWish}</span></Link>
+                                        <Link to='wish_list'><Heart /><span>{totalWish}</span></Link>
                                     </div>
                                 </div>
                                 <div className="icon-quantity">
                                     <div className="circle-icon circle-icon_white">
-                                        <Link to='/cart'><Cart /><span>{totalCount}</span></Link>
+                                        <Link to='cart'><Cart /><span>{totalCount}</span></Link>
                                     </div>
                                 </div>
                                 <p className="header__price header__price_white">{costTotal} руб</p>
@@ -91,11 +91,11 @@ export const Menu = () => {
                     </div>
                 </header>
                 <nav className="menu__navigation">
-                    <Link to='/aboutcompany' className="menu__text">О компании</Link>
-                    <Link to='/catalog_plant_protection' className="menu__text"> Каталог продукции</Link>
-                    <Link to='/pay' className="menu__text">Оплата | доставка</Link>
-                    <Link to='/partners' className="menu__text">Партнеры</Link>
-                    <Link to='/contacts' className="menu__text">Контакты</Link>
+                    <Link to='aboutcompany' className="menu__text">О компании</Link>
+                    <Link to='catalog' className="menu__text"> Каталог продукции</Link>
+                    <Link to='pay' className="menu__text">Оплата | доставка</Link>
+                    <Link to='partners' className="menu__text">Партнеры</Link>
+                    <Link to='contacts' className="menu__text">Контакты</Link>
                 </nav>
             </div>
         </>

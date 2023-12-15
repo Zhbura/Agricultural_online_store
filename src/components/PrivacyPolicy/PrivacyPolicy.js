@@ -6,7 +6,7 @@ export const PrivacyPolicy = () => {
     const breadcrumbs = [
         {
             name: "Политика конфиденциальности",
-            to: "/privacypolicy"
+            to: "/Agricultural_online_store/privacypolicy"
         },
     ];
     return (

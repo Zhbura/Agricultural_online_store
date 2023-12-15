@@ -32,7 +32,7 @@ export const Header = () => {
                     <div className="header__toolBar">
                         <div className="icon-quantity">
                             <div className="circle-icon circle-icon_hover">
-                                <Link to='/wish_list' className="header__link">
+                                <Link to='wish_list' className="header__link">
                                     <Heart /><span>{totalWish}</span></Link>
                             </div>
                         </div>
@@ -43,7 +43,7 @@ export const Header = () => {
                         </div>
                         <div className="icon-quantity">
                             <div className="circle-icon circle-icon_hover">
-                                <Link to='/cart' className="header__link">
+                                <Link to='cart' className="header__link">
                                     <Cart /><span>{totalCount}</span></Link>
                             </div>
                         </div>

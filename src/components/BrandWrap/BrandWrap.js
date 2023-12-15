@@ -19,7 +19,7 @@ export const BrandWrap = () => {
                         </p>
                         <div className="brand-wrap__btn brand-wrap__btn_left">
                             <Button>
-                                <Link to='/aboutcompany'>О компании</Link>
+                                <Link to='aboutcompany'>О компании</Link>
                             </Button>
                         </div>
                     </div>
@@ -27,7 +27,7 @@ export const BrandWrap = () => {
                         <img className="brand-wrap__main-img" src={harvest} alt="обложка журнала" />
                         <div className="brand-wrap__btn brand-wrap__btn_right">
                             <Button>
-                                <Link to='/aboutcompany'>О компании</Link>
+                                <Link to='aboutcompany'>О компании</Link>
                             </Button>
                         </div>
                     </div>

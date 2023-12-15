@@ -15,7 +15,7 @@ export const Registration = () => {
     const breadcrumbs = [
         {
             name: "Регистрация",
-            to: "/registration"
+            to: "/Agricultural_online_store/registration"
         },
     ];
     const [error, setError] = useState("");
@@ -244,7 +244,7 @@ export const Registration = () => {
                     </form>
                     <p className="registration__text">
                         Если вы уже зарегистрированы на сайте, пожалуйста войдите в свою
-                        <Link to="/authorization"> учетную запись</Link>.
+                        <Link to="/Agricultural_online_store/authorization"> учетную запись</Link>.
                     </p>
                 </div>
             </div>

@@ -69,7 +69,7 @@ export const SearchForm = () => {
                 </ul>
                 <span />
                 <div onClick={() => { sendValueSearch() }}>
-                    <Link to='/catalog_product_filter'>
+                    <Link to='catalog_product_filter'>
                         <img src={search} alt="Поиск" />
                     </Link>
                 </div>

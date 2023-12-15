@@ -29,11 +29,11 @@ export const CatalogFarmerHelp = () => {
     const breadcrumbs = [
         {
             name: "Каталог",
-            to: "/catalog"
+            to: "/Agricultural_online_store/catalog"
         },
         {
             name: "Агроному в помощь",
-            to: "/catalog_farmer_help"
+            to: "/Agricultural_online_store/catalog_farmer_help"
         },
     ];
 

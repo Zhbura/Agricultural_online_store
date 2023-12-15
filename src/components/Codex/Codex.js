@@ -6,7 +6,7 @@ export const Codex = () => {
     const breadcrumbs = [
         {
             name: "Кодекс",
-            to: "/codex"
+            to: "/Agricultural_online_store/codex"
         },
     ];
     return (

@@ -9,7 +9,7 @@ export const TeamCompany = () => {
     const breadcrumbs = [
         {
             name: "Наша команда",
-            to: "/teemcompany"
+            to: "/Agricultural_online_store/teemcompany"
         },
     ];
     return (
