@@ -3,7 +3,7 @@ import './OrderHistory.scss';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { OrderedProduct, OrderedProductSmall } from '../OrderedProduct/OrderedProduct';
 import { useSelector } from 'react-redux';
-import { selectHistoryOrder, selectHistoryOrders } from '../../store/orderProducts/selectors';
+import { selectHistoryOrders } from '../../store/orderProducts/selectors';
 import { useState } from 'react';
 
 export const OrderHistory = () => {

@@ -42,6 +42,10 @@
     button {
         cursor: not-allowed;
         background-color: #E5E5E5;
+
+        &:hover {
+            background: #8C3213;
+        }
     }
 
     @media (min-width: 320px) and (max-width: 767px) {
@@ -151,5 +155,9 @@
 .background-container .header .icon-quantity {
     button {
         background-color: #fff;
+
+        &:hover {
+            background: #8C3213;
+        }
     }
 }
