@@ -20,6 +20,7 @@ export const CartComp = () => {
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
+            <div className="wrap-cart">
             <div className="cart">
                 <PageHeadingTwice>Корзина</PageHeadingTwice>
                 <span className="cart__separator-horizontal" />
@@ -42,6 +43,7 @@ export const CartComp = () => {
                         <Link to="/order" className="btn-cart__link"><ClipBoard />Оформить заказ</Link>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     )
